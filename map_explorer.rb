@@ -1,21 +1,26 @@
 require 'gosu'
 require_relative './MapGenerator/map_factory'
 require_relative './color_palette'
+require_relative './map_overview'
 
 class MapExplorer < Gosu::Window
 	Width = 640
  	Height = 480
  	
  	# Determine the speed at which new button presses are processed
- 	Ticks_Per_Step = 30
+ 	Ticks_Per_Step = 20
 	
 	def initialize
-    super Width, Height, false
+    super 800, 600, false
     self.caption = "Map Explorer"
     
     @map = MapFactory.make(80, 80)
     @current_position = {x: 32, y: 32, direction: :north}
     @key_countdown = 0
+    
+    @font = Gosu::Font.new(self, Gosu::default_font_name, 20)
+    
+    @map_overview = MapOverview.new(650, 120, self)
   end
   
   def update
@@ -37,6 +42,14 @@ class MapExplorer < Gosu::Window
   def draw 	 
   	draw_sky
   	draw_ground
+  	
+  	@font.draw("Position X : #{@current_position[:x]}", 660, 20, 0)
+  	@font.draw("Position Y : #{@current_position[:y]}", 660, 40, 0)
+  	@font.draw("Facing : #{@current_position[:direction]}", 660, 60, 0)
+  	@font.draw("Tile X, Y : #{@map.tile_at(@current_position[:x], @current_position[:y]).type}", 660, 80, 0)  	
+  	@font.draw("Tile X, Y - 1 : #{@map.tile_at(@current_position[:x], @current_position[:y] - 1).type}", 660, 100, 0)
+  	
+  	@map_overview.draw(@map, @current_position)
   end
   
   def button_down(id)
@@ -55,73 +68,87 @@ class MapExplorer < Gosu::Window
   end
   
 private
+	Sky_Line = Height / 2
+	First_Row_Height = Height - Sky_Line * 0.4
+	Second_Row_Height = First_Row_Height - Sky_Line * 0.3 
+	Third_Row_Height = Second_Row_Height - Sky_Line * 0.15
+	Fourth_Row_Height = Third_Row_Height - Sky_Line * 0.1
+	Fifth_Row_Height = Fourth_Row_Height - Sky_Line * 0.05 
 
 	def draw_sky
 		draw_quad(0, 0, ColorPalette::Top_sky_color, 
-  					  0, Height / 2, ColorPalette::Bottom_sky_color, 
-  	          Width, Height / 2, ColorPalette::Bottom_sky_color, 
+  					  0, Sky_Line, ColorPalette::Bottom_sky_color, 
+  	          Width, Sky_Line, ColorPalette::Bottom_sky_color, 
   	          Width, 0, ColorPalette::Top_sky_color)
 	end
 	
-	# TODO: refactor
+	# Draw 5 tiles far, 3 tiles wide. 
+	# First row is 30/70 tall, Second row is 20/70 tall, Third row is 10/70 tall, Fourth row is ~8/70 tall, Fifth row is 5/70 tall
+	# or 
+	# First row is 40%, Second row is 30%, Third row is 15%, Fourth row is 10%, Fifth row is 5%
 	def draw_ground
-		# draw tile we currently stand on
-		tile = @map.tile_at(@current_position[:x], @current_position[:y])
-		draw_quad(Width / 3 - Width / 8, Height, tile.color,									 # bottom left
-							Width / 3 + Width / 32, Height - Height / 4, tile.color,		 # top left
-							Width / 3 * 2 - Width / 32, Height - Height / 4, tile.color, # top right
-							Width / 3 * 2 + Width / 8, Height, tile.color)							 # bottom right
-		
-		# draw left tile
-		tile = @map.tile_at(@current_position[:x] - 1, @current_position[:y])
-		draw_quad(0, Height, tile.color,																			 # bottom left
-							0, Height - Height / 4, tile.color,													 # top left
-							Width / 3 + Width / 32, Height - Height / 4, tile.color,		 # top right
-							Width / 3 - Width / 8, Height, tile.color)									 # bottom right
-		
-		# draw right tile
-		tile = @map.tile_at(@current_position[:x] + 1, @current_position[:y])
-		draw_quad(Width / 3 * 2 + Width / 8, Height, tile.color,						   # bottom left
-							Width / 3 * 2 - Width / 32, Height - Height / 4, tile.color, # top left
-							Width, Height - Height / 4, tile.color,											 # top right
-							Width, Height, tile.color)																	 # bottom right
+		# draw tile we stand on	
+		tile_color = tile_in_front(0).color
+		draw_tile(0, Height, 									# bottom left
+							0, First_Row_Height,  			# top left
+							Width, First_Row_Height,  	# top right
+							Width, Height, 						  # bottom right
+							tile_color)
 		
 		# draw tile in front
-		tile = @map.tile_at(@current_position[:x], @current_position[:y] - 1)
-		draw_quad(Width / 3 + Width / 32, Height - Height / 4, tile.color,		 # bottom left
-							Width / 3 + Width / 8, Height - Height / 2.5, tile.color,	 # top left
-							Width / 3 * 2 - Width / 8, Height - Height / 2.5, tile.color, # top right
-							Width / 3 * 2 - Width / 32, Height - Height / 4, tile.color)	 # bottom right
+		tile_color = tile_in_front(1).color
+		draw_tile(0, First_Row_Height, 				# bottom left
+							0, Second_Row_Height,  			# top left
+							Width, Second_Row_Height,  	# top right
+							Width, First_Row_Height, 	  # bottom right
+							tile_color)		
 		
-		# draw tile in front left
-		tile = @map.tile_at(@current_position[:x] -1, @current_position[:y] - 1)
-		draw_quad(0, Height - Height / 4, tile.color,		 # bottom left
-							0, Height - Height / 2.5, tile.color,	 # top left
-							Width / 3 + Width / 8, Height - Height / 2.5, tile.color, # top right
-							Width / 3 + Width / 32, Height - Height / 4, tile.color)	 # bottom right
-		
-		# draw tile in front right
-		tile = @map.tile_at(@current_position[:x] + 1, @current_position[:y] - 1)
-		draw_quad(Width / 3 * 2 - Width / 32, Height - Height / 4, tile.color,		 # bottom left
-							Width / 3 * 2 - Width / 8, Height - Height / 2.5, tile.color,	 # top left
-							Width, Height - Height / 2.5, tile.color, # top right
-							Width, Height - Height / 4, tile.color)	 # bottom right
-		
-		# draw two tiles in front
-		tile = @map.tile_at(@current_position[:x], @current_position[:y] - 2)
-		draw_quad(Width / 3 + Width / 8, Height - Height / 2.5, tile.color,		 # bottom left
-							Width / 2, Height - Height / 2, tile.color,	     # top left
-							Width / 2, Height - Height / 2, tile.color,  # top right
-							Width / 3 * 2 - Width / 8, Height - Height / 2.5, tile.color)# bottom right
-		
-		# draw two tiles in front left
-		tile = @map.tile_at(@current_position[:x] - 1, @current_position[:y] - 2)
-		
-		# draw two tiles in front right
-		tile = @map.tile_at(@current_position[:x] + 1, @current_position[:y] - 2)
-		
+		# draw 2 tiles in front
+		tile_color = tile_in_front(2).color
+		draw_tile(0, Second_Row_Height, 			# bottom left
+							0, Third_Row_Height,  			# top left
+							Width, Third_Row_Height,  	# top right
+							Width, Second_Row_Height, 	# bottom right
+							tile_color)		
+							
+		# draw 3 tiles in front
+		tile_color = tile_in_front(3).color
+		draw_tile(0, Third_Row_Height, 				# bottom left
+							0, Fourth_Row_Height,  			# top left
+							Width, Fourth_Row_Height,  	# top right
+							Width, Third_Row_Height, 	  # bottom right
+							tile_color)	
+							
+		# draw 4 tiles in front
+		tile_color = tile_in_front(3).color
+		draw_tile(0, Fourth_Row_Height, 			# bottom left
+							0, Fifth_Row_Height,  			# top left
+							Width, Fifth_Row_Height,  	# top right
+							Width, Fourth_Row_Height, 	# bottom right
+							tile_color)			
+				
 	end
-
+	
+	def tile_in_front(number_of_steps)
+		case @current_position[:direction] 
+		when :north
+			@map.tile_at(@current_position[:x], @current_position[:y] - 1 * number_of_steps)			
+		when :south
+			@map.tile_at(@current_position[:x], @current_position[:y] + 1 * number_of_steps)			
+		when :west
+			@map.tile_at(@current_position[:x] - 1 * number_of_steps, @current_position[:y])
+		when :east
+			@map.tile_at(@current_position[:x] + 1 * number_of_steps, @current_position[:y])
+		end
+	end
+	
+	def draw_tile (bottom_left_x, bottom_left_y, top_left_x, top_left_y, top_right_x,
+								 top_right_y, bottom_right_x, bottom_right_y, tile_color)
+		draw_quad(bottom_left_x, bottom_left_y, tile_color,			# bottom left
+							top_left_x, top_left_y, tile_color, 					# top left
+							top_right_x, top_right_y, tile_color, 				# top right
+							bottom_right_x, bottom_right_y, tile_color) 	# bottom right
+	end
 end
 
 
