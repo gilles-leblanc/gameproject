@@ -1,6 +1,6 @@
-require '../map'
-require '../tile'
-require './height_map'
+require_relative '../map'
+require_relative '../tile'
+require_relative './height_map'
 
 # TODO: replace series of if elsif with more object oriented approach
 
