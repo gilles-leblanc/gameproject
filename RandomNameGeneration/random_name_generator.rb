@@ -1,7 +1,9 @@
 require "yaml"
 require 'two_letter_length_strategy'
 require 'three_letter_length_strategy'
-require 'probability_table'
+require 'two_letter_cumulative_strategy'
+require 'three_letter_cumulative_strategy'
+require 'cumulative_probability_table'
 require 'input_loader'
 
 class RandomNameGenerator
@@ -10,12 +12,14 @@ class RandomNameGenerator
 
     two_letter_length_strategy = TwoLetterLengthStrategy.new
     three_letter_length_strategy = ThreeLetterLengthStrategy.new
+    two_letter_cumulative_strategy = TwoLetterCumulativeStrategy.new
+    three_letter_cumulative_strategy = ThreeLetterCumulativeStrategy.new
     file_input_loader = FileInputLoader.new
 
-    @pair_probability_table = ProbabilityTable.new(two_letter_length_strategy, file_input_loader)
+    @pair_probability_table = CumulativeProbabilityTable.new(two_letter_length_strategy, two_letter_cumulative_strategy, file_input_loader)
     @pair_probability_table.load(data_file_name)
 
-    @triplet_probability_table = ProbabilityTable.new(three_letter_length_strategy, file_input_loader)
+    @triplet_probability_table = CumulativeProbabilityTable.new(three_letter_length_strategy, three_letter_cumulative_strategy, file_input_loader)
     @triplet_probability_table.load(data_file_name)
 	end
 	
@@ -40,10 +44,10 @@ private
 	# when we do not any information from previous letters (ie: missing pairs in sample data)
 	def get_starting_letter	
 		random_number = @random_number_generator.rand(0.0..1.0)
-		
-		@probability_tables.select {|k, v| k[0] == ' ' && k.length == 2 &&
-		                                   k[1] != ' '
-		 	  															 v >= random_number}.first[0][1]
+
+    @pair_probability_table.frequencies.select {|k, v| k[0] == ' ' &&
+                                                       k[1] != ' ' &&
+                                                       v >= random_number}.first[0][1]
 	end
 	
 	# return the next letter in random name when we have both the first and second letter defined
@@ -51,44 +55,41 @@ private
 		random_number = @random_number_generator.rand(0.0..1.0)
 
 		begin
-			if not @probability_tables.keys.any? {|key| key.length == 3 && 
-																						      key[0] == first_letter && 
-																						      key[1] == second_letter} then
+			if not @triplet_probability_table.frequencies.keys.any? {|key| key[0] == first_letter &&
+																						                         key[1] == second_letter} then
 				# if we don't have any triplets check for pairs
-				if not @probability_tables.keys.any? {|key| key.length == 2 &&
-						 																				key[1] != ' ' &&
-						                                        key[0] == second_letter} then
+				if not @pair_probability_table.frequencies.keys.any? {|key| key[1] != ' ' &&
+						                                                        key[0] == second_letter} then
 					# if we don't have any pairs for this second letter use new starting letter
 					return get_starting_letter
 				end
 				
 				# return from pairs 
-				return @probability_tables.select {|k, v| k[0] == second_letter &&
-																									k[1] != ' ' &&
-					                                        k.length == 2 &&
-			 	  															          v >= random_number}.first[0][1]
+				return @pair_probability_table.frequencies.select {|k, v| k[0] == second_letter &&
+                                                                  k[1] != ' ' &&
+                                                                  v >= random_number}.first[0][1]
 			end
 			
 			# return from triplets
-			return @probability_tables.select {|k, v| k[0] == first_letter && k[1] == second_letter &&  
-		 	       															 v >= random_number}.first[0][2]
+			return @triplet_probability_table.frequencies.select {|k, v| k[0] == first_letter &&
+                                                                   k[1] == second_letter &&
+		 	       															                         v >= random_number}.first[0][2]
 		rescue
 			puts "*** Exception with first_letter #{first_letter}, second_letter #{second_letter}."
 		end
 	end
 	
 	def get_last_letter(third_to_last_letter, second_to_last_letter)
-		if @probability_tables.keys.any? {|key| key.length == 3 && 
-																            key[0] == second_to_last_letter && 
-																						key[2] == ' '} then
+		if@pair_probability_table.frequencies.keys.any? {|key| key[0] == second_to_last_letter && key[1] == ' '}
 			random_number = @random_number_generator.rand(0.0..1.0)
-			return @probability_tables.select {|k, v| k[0] == second_to_last_letter && 
-			                                          k[2] == ' ' &&  
-		 	       															      v >= random_number}.first[0][1]
+
+      @probability_tables.select {|k, v| k[0] == second_to_last_letter &&
+			                                   k[1] == ' ' &&
+		 	       														 v >= random_number}.first[0][1]
 		else
 			# we do not have any probabilities for a last letter with the current second_to_last_letter
 			# use normal letter attribution
-			return get_next_letter(third_to_last_letter, second_to_last_letter)
+			get_next_letter(third_to_last_letter, second_to_last_letter)
 		end				
 	end 
 end
