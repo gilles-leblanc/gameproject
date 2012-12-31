@@ -1,9 +1,22 @@
 require "yaml"
+require 'two_letter_length_strategy'
+require 'three_letter_length_strategy'
+require 'probability_table'
+require 'input_loader'
 
 class RandomNameGenerator
 	def initialize(data_file_name = "media/places_data")
 		@random_number_generator = Random.new 
-		@probability_tables = YAML.load_file(data_file_name)
+
+    two_letter_length_strategy = TwoLetterLengthStrategy.new
+    three_letter_length_strategy = ThreeLetterLengthStrategy.new
+    file_input_loader = FileInputLoader.new
+
+    @pair_probability_table = ProbabilityTable.new(two_letter_length_strategy, file_input_loader)
+    @pair_probability_table.load(data_file_name)
+
+    @triplet_probability_table = ProbabilityTable.new(three_letter_length_strategy, file_input_loader)
+    @triplet_probability_table.load(data_file_name)
 	end
 	
 	# generate a new random name
@@ -19,8 +32,7 @@ class RandomNameGenerator
 		end
 
 		name += get_last_letter(name[name.length - 2], name[name.length - 1])
-
-		return name.lstrip.capitalize
+    name.lstrip.capitalize
 	end
 
 private

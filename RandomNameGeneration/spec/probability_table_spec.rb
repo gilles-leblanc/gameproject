@@ -1,13 +1,13 @@
-require '../probability_table'
-require '../two_letter_length_strategy'
-require '../three_letter_length_strategy'
-require '../input_loader'
+require_relative '../probability_table'
+require_relative '../two_letter_length_strategy'
+require_relative '../three_letter_length_strategy'
+require_relative '../input_loader'
 
 describe "ProbabilityTable" do
-  describe "#build" do
+  describe "#load" do
 
     context "when using a two letter length strategy" do
-      before(:each) do
+      before(:all) do
         two_letter_length_strategy = TwoLetterLengthStrategy.new
         memory_input_loader = MemoryInputLoader.new
 
@@ -17,7 +17,7 @@ describe "ProbabilityTable" do
       it { @probability_table.empty?.should be_true }
 
       context "when using an empty input" do
-        before(:each) do
+        before(:all) do
           @probability_table.load("")
         end
 
@@ -25,13 +25,12 @@ describe "ProbabilityTable" do
       end
 
       context "when using a simple input" do
-        before(:each) do
-          @input = " abcdefg "
-          @probability_table.load(@input)
+        before(:all) do
+          @probability_table.load(" abcdefg ")
         end
 
         it { @probability_table.empty?.should be_false }
-        it { @probability_table.frequencies.length.should == @input.length - 1 }
+        it { @probability_table.frequencies.length.should == 8 }
         it { @probability_table.frequencies[" a"].should == 1.0 }
         it { @probability_table.frequencies["ab"].should == 1.0 }
         it { @probability_table.frequencies["bc"].should == 1.0 }
@@ -43,9 +42,8 @@ describe "ProbabilityTable" do
       end
 
       context "when using a more complex input" do
-        before(:each) do
-          @input = " James John Max Gary Jess Gilles Mary "
-          @probability_table.load(@input)
+        before(:all) do
+          @probability_table.load(" James John Max Gary Jess Gilles Mary ")
         end
 
         it { @probability_table.frequencies[" j"].should == 0.42857142857142855 }
@@ -91,7 +89,7 @@ describe "ProbabilityTable" do
     end
 
     context "when using a three letter length strategy" do
-      before(:each) do
+      before(:all) do
         three_letter_length_strategy = ThreeLetterLengthStrategy.new
         memory_input_loader = MemoryInputLoader.new
 
@@ -101,7 +99,7 @@ describe "ProbabilityTable" do
       it { @probability_table.empty?.should be_true }
 
       context "when using an empty input" do
-        before(:each) do
+        before(:all) do
           @probability_table.load("")
         end
 
@@ -109,9 +107,8 @@ describe "ProbabilityTable" do
       end
 
       context "when using a simple input" do
-        before(:each) do
-          @input = " abcdefg "
-          @probability_table.load(@input)
+        before(:all) do
+          @probability_table.load(" abcdefg ")
         end
 
         it { @probability_table.empty?.should be_false }
@@ -125,9 +122,8 @@ describe "ProbabilityTable" do
       end
 
       context "when using a more complex input" do
-        before(:each) do
-          @input = " James John Max Gary Jess Gilles Mary "
-          @probability_table.load(@input)
+        before(:all) do
+          @probability_table.load(" James John Max Gary Jess Gilles Mary ")
         end
 
         it { @probability_table.frequencies[" ga"].should == 0.5 }
@@ -177,7 +173,7 @@ describe "ProbabilityTable" do
     end
 
     context "when using the file_input_loader" do
-      before(:each) do
+      before(:all) do
         two_letter_length_strategy = TwoLetterLengthStrategy.new
         memory_input_loader = FileInputLoader.new
 
@@ -185,7 +181,7 @@ describe "ProbabilityTable" do
       end
 
       context "when using an empty file as input" do
-        before(:each) do
+        before(:all) do
           file_name = "empty_file"
           File.open(file_name, 'w') {|f| f.write("") }
           @probability_table.load(file_name)
@@ -195,7 +191,7 @@ describe "ProbabilityTable" do
       end
 
       context "when using a simple file as input" do
-        before(:each) do
+        before(:all) do
           file_name = "empty_file"
           @input = " abcdefg "
           File.open(file_name, 'w') {|f| f.write(@input) }

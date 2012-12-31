@@ -1,3 +1,4 @@
+# Represents the probability of a group of letters composed of 1..* letters of being followed by another letter N.
 class ProbabilityTable
   attr_reader :frequencies
 
