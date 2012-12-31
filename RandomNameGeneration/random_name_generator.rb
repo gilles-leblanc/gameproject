@@ -1,13 +1,12 @@
-require "yaml"
-require 'two_letter_length_strategy'
-require 'three_letter_length_strategy'
-require 'two_letter_cumulative_strategy'
-require 'three_letter_cumulative_strategy'
-require 'cumulative_probability_table'
-require 'input_loader'
+require_relative 'two_letter_length_strategy'
+require_relative 'three_letter_length_strategy'
+require_relative 'two_letter_cumulative_strategy'
+require_relative 'three_letter_cumulative_strategy'
+require_relative 'cumulative_probability_table'
+require_relative 'input_loader'
 
 class RandomNameGenerator
-	def initialize(data_file_name = "media/places_data")
+	def initialize(data_file_name = "media/places_sample")
 		@random_number_generator = Random.new 
 
     two_letter_length_strategy = TwoLetterLengthStrategy.new
@@ -83,9 +82,9 @@ private
 		if@pair_probability_table.frequencies.keys.any? {|key| key[0] == second_to_last_letter && key[1] == ' '}
 			random_number = @random_number_generator.rand(0.0..1.0)
 
-      @probability_tables.select {|k, v| k[0] == second_to_last_letter &&
-			                                   k[1] == ' ' &&
-		 	       														 v >= random_number}.first[0][1]
+      @pair_probability_table.frequencies.select {|k, v| k[0] == second_to_last_letter &&
+                                                         k[1] == ' ' &&
+                                                         v >= random_number}.first[0][1]
 		else
 			# we do not have any probabilities for a last letter with the current second_to_last_letter
 			# use normal letter attribution

@@ -4,7 +4,7 @@ class EstablishmentNameGenerator
 	def initialize
 		@existing_establishments = Array.new
 		@random_generator = Random.new	
-		@random_name_generator = RandomNameGenerator.new("media/male_data")
+		@random_name_generator = RandomNameGenerator.new("media/male_sample")
 		read_words_from_file
 	end	
 	
