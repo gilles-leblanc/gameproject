@@ -78,7 +78,7 @@ private
 		end
 	end
 	
-	#def get_last_letter(last_letter, letter)
+	def get_last_letter(last_letter, letter)
     random_number = @random_number_generator.rand(0.0..1.0)
 
     @pair_probability_table.frequencies.select {|k, v| k[1] == ' ' &&
