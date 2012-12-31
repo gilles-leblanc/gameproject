@@ -10,7 +10,13 @@ class TwoLetterLengthStrategy
     # fill frequencies with all the keys contained in occurrences and
     # values being {value_in_occurrences_for_this_pair / value_in_occurrences_for_all_pairs_starting_with_same_letter}
     if occurrences.length > 0
-      occurrences.each {|key, value| frequencies[key] = value / occurrences.select {|k, v| k[0] == key[0]}.values.inject{|sum,x| sum + x}}
+      # do this for all pairs except those ending with a space
+      occurrences.select {|ok| ok[1] != ' '}.each {|key, value| frequencies[key] = value / occurrences.select {|k| k[0] == key[0] && k[1] != ' '}
+                                            .values.inject{|sum,x| sum + x}}
+
+      # now treat the pairs ending with a space as a special case
+      occurrences.select {|ok| ok[1] == ' '}.each {|key, value| frequencies[key] = value / occurrences.select {|k| k[1] == ' '}
+                                            .values.inject{|sum,x| sum + x}}
     end
 
     frequencies
