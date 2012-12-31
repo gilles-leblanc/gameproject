@@ -78,17 +78,10 @@ private
 		end
 	end
 	
-	def get_last_letter(third_to_last_letter, second_to_last_letter)
-		if@pair_probability_table.frequencies.keys.any? {|key| key[0] == second_to_last_letter && key[1] == ' '}
-			random_number = @random_number_generator.rand(0.0..1.0)
+	#def get_last_letter(last_letter, letter)
+    random_number = @random_number_generator.rand(0.0..1.0)
 
-      @pair_probability_table.frequencies.select {|k, v| k[0] == second_to_last_letter &&
-                                                         k[1] == ' ' &&
-                                                         v >= random_number}.first[0][1]
-		else
-			# we do not have any probabilities for a last letter with the current second_to_last_letter
-			# use normal letter attribution
-			get_next_letter(third_to_last_letter, second_to_last_letter)
-		end				
+    @pair_probability_table.frequencies.select {|k, v| k[1] == ' ' &&
+                                                       v >= random_number}.first[0][0]
 	end 
 end
