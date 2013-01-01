@@ -5,6 +5,8 @@ require_relative 'three_letter_cumulative_strategy'
 require_relative 'cumulative_probability_table'
 require_relative 'input_loader'
 
+# TODO: check to create method to output probability and load it with input loader (might optimize at the same time)
+
 class RandomNameGenerator
 	def initialize(data_file_name = "media/places_sample")
 		@random_number_generator = Random.new 
@@ -34,7 +36,7 @@ class RandomNameGenerator
 			name += get_next_letter(name[name.length - 2], name[name.length - 1])
 		end
 
-		name += get_last_letter(name[name.length - 2], name[name.length - 1])
+		name += get_last_letter(name[name.length - 1], name[name.length - 2])
     name.lstrip.capitalize
 	end
 
@@ -78,10 +80,26 @@ private
 		end
 	end
 	
-	def get_last_letter(last_letter, letter)
+	def get_last_letter(current_last_letter, second_to_last_letter)
     random_number = @random_number_generator.rand(0.0..1.0)
 
-    @pair_probability_table.frequencies.select {|k, v| k[1] == ' ' &&
-                                                       v >= random_number}.first[0][0]
+    # try to get last letter using triplets starting with current_last_letter
+    if @triplet_probability_table.frequencies.keys.any? {|key| key[0] == current_last_letter && key[2] == ' '}
+      return @triplet_probability_table.frequencies.select {|k, v| k[0] == current_last_letter && k[2] == ' ' && v >= random_number}.first[0][1]
+    end
+
+    # try to get a triplet that starts with current_last_letter, has it's second letter be the first letter in space ending triplet
+    # and does not end with a space
+    valid_letters = @triplet_probability_table.frequencies.keys.select {|k| k[2] == ' '}.map {|x| x[0]}
+    if @pair_probability_table.frequencies.keys.any? {|key| key[0] == current_last_letter && valid_letters.any? {|l| l == key[1]}}
+      new_last_letter = @pair_probability_table.frequencies.select {|key, v| key[0] == current_last_letter &&
+                                                                             valid_letters.any? {|l| l == key[1]} &&
+                                                                             v >= random_number}.first[0][1]
+
+      return new_last_letter + get_last_letter(new_last_letter, second_to_last_letter)
+    end
+
+    # if all else fails try using regular get next letter
+    get_next_letter(current_last_letter, second_to_last_letter)
 	end 
 end

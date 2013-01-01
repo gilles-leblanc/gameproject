@@ -112,13 +112,14 @@ describe "ProbabilityTable" do
         end
 
         it { @probability_table.empty?.should be_false }
-        it { @probability_table.frequencies.length.should == 6 }
+        it { @probability_table.frequencies.length.should == 7 }
         it { @probability_table.frequencies[" ab"].should == 1.0 }
         it { @probability_table.frequencies["abc"].should == 1.0 }
         it { @probability_table.frequencies["bcd"].should == 1.0 }
         it { @probability_table.frequencies["cde"].should == 1.0 }
         it { @probability_table.frequencies["def"].should == 1.0 }
         it { @probability_table.frequencies["efg"].should == 1.0 }
+        it { @probability_table.frequencies["fg "].should == 1.0 }
       end
 
       context "when using a more complex input" do
@@ -132,6 +133,12 @@ describe "ProbabilityTable" do
         it { @probability_table.frequencies[" je"].should == 0.3333333333333333 }
         it { @probability_table.frequencies[" jo"].should == 0.3333333333333333 }
         it { @probability_table.frequencies[" ma"].should == 1.0 }
+
+        it { @probability_table.frequencies["ax "].should == 1.0 }
+        it { @probability_table.frequencies["es "].should == 1.0 }
+        it { @probability_table.frequencies["hn "].should == 1.0 }
+        it { @probability_table.frequencies["ry "].should == 1.0 }
+        it { @probability_table.frequencies["ss "].should == 1.0 }
 
         it { @probability_table.frequencies["ame"].should == 1.0 }
         it { @probability_table.frequencies["ary"].should == 1.0 }
@@ -156,19 +163,27 @@ describe "ProbabilityTable" do
 
         it { @probability_table.frequencies["ohn"].should == 1.0 }
 
-        # we do not want probabilities with spaces for three letter triplets
+        # we do not want probabilities with spaces in the middle for three letter triplets
         it { @probability_table.frequencies.key?("s j").should be_false }
         it { @probability_table.frequencies.key?("n m").should be_false }
         it { @probability_table.frequencies.key?("x g").should be_false }
         it { @probability_table.frequencies.key?("y j").should be_false }
         it { @probability_table.frequencies.key?("s g").should be_false }
         it { @probability_table.frequencies.key?("s m").should be_false }
+      end
 
-        it { @probability_table.frequencies.key?("ax ").should be_false }
-        it { @probability_table.frequencies.key?("es ").should be_false }
-        it { @probability_table.frequencies.key?("hn ").should be_false }
-        it { @probability_table.frequencies.key?("ry ").should be_false }
-        it { @probability_table.frequencies.key?("ss ").should be_false }
+      context "when using input with multiple word endings" do
+        before(:all) do
+          @probability_table.load(" James Joes Max Garal Jert Gilles Mary Bob ")
+        end
+
+          it { @probability_table.frequencies["es "].should == 1.0 }
+          it { @probability_table.frequencies["al "].should == 0.5 }
+          it { @probability_table.frequencies["ax "].should == 0.5 }
+          it { @probability_table.frequencies["ob "].should == 1.0 }
+          it { @probability_table.frequencies["rt "].should == 0.5 }
+          it { @probability_table.frequencies["ry "].should == 0.5 }
+        end
       end
     end
 
@@ -202,8 +217,4 @@ describe "ProbabilityTable" do
         it { @probability_table.frequencies.length.should == @input.length - 1 }
       end
     end
-  end
-end
-class TwoLetterLengthStrategy
-
 end

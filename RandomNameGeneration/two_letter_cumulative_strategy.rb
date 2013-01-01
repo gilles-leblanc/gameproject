@@ -31,9 +31,7 @@ class TwoLetterCumulativeStrategy
       cumulative_value += frequencies[key]
 
       # simple round-off to 1.0 to prevent any gaps
-      if cumulative_value < 1.0 && cumulative_value  > 0.998
-        cumulative_value = 1.0
-      end
+      cumulative_value = roundoff(cumulative_value)
 
       frequencies[key] = cumulative_value
     end
