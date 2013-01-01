@@ -56,26 +56,23 @@ private
 		random_number = @random_number_generator.rand(0.0..1.0)
 
 		begin
-			if not @triplet_probability_table.frequencies.keys.any? {|key| key[0] == first_letter &&
-																						                         key[1] == second_letter} then
-				# if we don't have any triplets check for pairs
-				if not @pair_probability_table.frequencies.keys.any? {|key| key[1] != ' ' &&
-						                                                        key[0] == second_letter} then
-					# if we don't have any pairs for this second letter use new starting letter
-					return get_starting_letter
-				end
-				
-				# return from pairs 
-				return @pair_probability_table.frequencies.select {|k, v| k[0] == second_letter &&
+      if @triplet_probability_table.frequencies.keys.any? {|key| key[0] == first_letter && key[1] == second_letter && key[2] != ' '}
+        # return from triplets
+        return @triplet_probability_table.frequencies.select {|k, v| k[0] == first_letter &&
+                                                                     k[1] == second_letter &&
+                                                                     k[2] != ' ' &&
+                                                                     v >= random_number}.first[0][2]
+      end
+
+      if @pair_probability_table.frequencies.keys.any? {|key| key[1] != ' ' && key[0] == second_letter}
+        # return from pairs
+        return @pair_probability_table.frequencies.select {|k, v| k[0] == second_letter &&
                                                                   k[1] != ' ' &&
                                                                   v >= random_number}.first[0][1]
-			end
-			
-			# return from triplets
-			return @triplet_probability_table.frequencies.select {|k, v| k[0] == first_letter &&
-                                                                   k[1] == second_letter &&
-		 	       															                         v >= random_number}.first[0][2]
-		rescue
+      end
+
+      return get_starting_letter
+    rescue
 			puts "*** Exception with first_letter #{first_letter}, second_letter #{second_letter}."
 		end
 	end
