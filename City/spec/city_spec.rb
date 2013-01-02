@@ -1,4 +1,4 @@
-require './city'
+require_relative '../city'
 
 describe City do
 	before(:each) do
@@ -24,15 +24,15 @@ describe City do
 		
 		for x in 0...20
   		number_of_wall_tiles += 1 if @city.tile_at(x, 0).type == :wall
-  		number_of_wall_tiles += 1 if @city.tile_at(x, 19).type == :wall
+  		number_of_wall_tiles += 1 if @city.tile_at(x, 18).type == :wall
   	end
   	
   	for y in 1...19
   		number_of_wall_tiles += 1 if @city.tile_at(0, y).type == :wall
-  		number_of_wall_tiles += 1 if @city.tile_at(19, y).type == :wall
+  		number_of_wall_tiles += 1 if @city.tile_at(18, y).type == :wall
   	end
   	
-  	number_of_wall_tiles.should be 75
+  	number_of_wall_tiles.should == 75
 	end
 	
 	specify "the entrance should not be close to a corner" do

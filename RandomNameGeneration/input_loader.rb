@@ -4,7 +4,13 @@ require "yaml"
 class FileInputLoader
   # @param [Object] A filename containing plain text sample data of names.
   def load(input)
-    IO.read(input).downcase
+    begin
+      IO.read(input).downcase
+    rescue Exception => e
+      puts e.message
+      puts "Input fully qualified filename : #{Dir.pwd}#{input}"
+      raise e
+    end
   end
 end
 

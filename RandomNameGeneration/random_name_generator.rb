@@ -6,7 +6,7 @@ require_relative 'cumulative_probability_table'
 require_relative 'input_loader'
 
 class RandomNameGenerator
-	def initialize(data_file_name = "media/places_sample")
+	def initialize(data_file_name)
 		@random_number_generator = Random.new 
 
     two_letter_length_strategy = TwoLetterLengthStrategy.new

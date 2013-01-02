@@ -89,7 +89,10 @@ private
 			when :west
 				max_value = @bitmap.select {|k, v| v == :wall}.keys.min{|a, b| a[0] <=> b[0]}[0]
 				k_value = 0
-		end
+      else
+        max_value = @bitmap.select {|k, v| v == :wall}.keys.min {|a, b| a[1] <=> b[1]}[1]
+        k_value = 1
+    end
 		
 		key = @bitmap.select {|k, v| v == :wall && k[k_value] == max_value}.keys.shuffle.first
 		@bitmap[key] = :door
