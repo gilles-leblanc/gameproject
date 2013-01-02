@@ -5,15 +5,17 @@
 require 'gosu'
 require 'texplay'
 require './city'
+require './small_city_factory'
 
 class CityMapOutput < Gosu::Window
   def initialize
-  	@x, @y = 40, 40	
-  
+    city_factory = SmallCityFactory.new
+    @x, @y = city_factory.size_x, city_factory.size_y
+
     super @x * 10, @y * 10, false
-    self.caption = "City Output"
-    
-    @city = City.new(@x, @y)
+
+    @city = city_factory.build
+    self.caption = @city.name
   end
   
   def update

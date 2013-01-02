@@ -4,11 +4,10 @@ require './building'
 
 # For best results use multiples of 4 for width and height
 class City < Map
-	attr_reader :name
+	attr_accessor :name
 	
 	def initialize(width, height)
 		super(width, height)
-		@name = "Test"
 		
 		initialize_starting_tiles		
 		place_entrance
