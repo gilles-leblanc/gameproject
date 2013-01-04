@@ -1,8 +1,9 @@
-require_relative '../city'
+require_relative '../test_city_factory'
 
-describe City do
+describe "City" do
 	before(:each) do
-    @city = City.new(20, 20)
+    city_factory = TestCityFactory.new
+    @city = city_factory.build
   end
 	
 	subject { @city }

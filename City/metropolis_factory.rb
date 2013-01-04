@@ -1,10 +1,10 @@
 require_relative '../map'
 require_relative 'city_factory'
 
-class SmallCityFactory < CityFactory
+class MetropolisFactory < CityFactory
   def initialize
-    @width = 24
-    @height = 24
+    @width = 80
+    @height = 80
     @tiles = Array.new
   end
 
@@ -17,7 +17,7 @@ class SmallCityFactory < CityFactory
     city.name = give_name
 
     place_buildings(city)
-    place_dead_ends(city)
+    #place_dead_ends(city)  # bug on place_dead_ends for city large than about 40+
 
     city
   end

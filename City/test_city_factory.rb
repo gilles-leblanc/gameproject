@@ -1,10 +1,10 @@
 require_relative '../map'
 require_relative 'city_factory'
 
-class SmallCityFactory < CityFactory
+class TestCityFactory < CityFactory
   def initialize
-    @width = 24
-    @height = 24
+    @width = 20
+    @height = 20
     @tiles = Array.new
   end
 

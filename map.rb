@@ -1,21 +1,23 @@
+require_relative 'edge'
+
 class Map
-	attr_accessor :width, :height
+  include Edge
+
+	attr_accessor :width, :height, :name
 	attr_reader :tiles
 
-	def initialize(width, height)
+	def initialize(width, height, tiles = nil)
 		@width = width
 		@height = height
-		
-		@tiles = Array.new
+
+    if tiles == nil
+      @tiles = Array.new
+    else
+      @tiles = tiles
+    end
 	end
 	
 	def tile_at(x, y)
 		@tiles[x + y * @width]
-	end
-	
-protected 
-
-	def edge_of_map?(x, y)
-		x == 0 || y == 0 || x == @width - 1 || y == @height - 1
 	end
 end
