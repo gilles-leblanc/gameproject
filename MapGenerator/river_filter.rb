@@ -7,8 +7,6 @@ class RiverFilter
     @size = x
   end
 
-  # TODO: fix bug since we do from 0 to x and 0 to y we always start looking for rivers in the same direction
-  # TODO: fix bug rivers need to start on the edge of mountains
   def filter(array)
     filtered_array = array.clone
 
@@ -27,19 +25,16 @@ class RiverFilter
     (0...@size).each do |y|
       # @size is used since we assume the array is square 2d matrix
       (0...@size).each do |x|
-        if filtered_rain_map.data[x + y * @size] >= 100 && filtered_array[x + y * @size] >= 70 &&
-            river_starting_points.none? {|p| (p[0] > x - 5 && p[0] < x + 5) &&
-                                             (p[1] > y - 5 && p[1] < y + 5)}
+        if filtered_rain_map.data[x + y * @size] >= 80 && filtered_array[x + y * @size] >= 68 &&
+            river_starting_points.none? {|p| (p[0] > x - 4 && p[0] < x + 3) &&
+                                             (p[1] > y - 4 && p[1] < y + 3)}
           river_starting_points.push([x, y])
         end
       end
     end
 
-    puts "Found #{river_starting_points.length} rivers."
-
     # create rivers
     river_starting_points.each do |starting_point|
-      puts "Starting new river"
 
       # start river there
       river = Array.new
@@ -49,11 +44,9 @@ class RiverFilter
       until river.last[2] == 0
         lowest_neighbor = get_lowest_neighbor(filtered_array, river)
         river.push(lowest_neighbor)
-        puts "Added #{lowest_neighbor}"
       end
 
       # dig actual river
-      puts "Digging river"
       river.each {|p| filtered_array[p[0] + p[1] * @size] = 0}
     end
 
@@ -62,7 +55,6 @@ class RiverFilter
 
 private
 
-  # TODO: fix bug, always starts looking in the north-west direction for rivers because of order of return_if_lower statements
   def get_lowest_neighbor(filtered_array, river)
     point = river.last
     x, y = point[0], point[1]
@@ -76,15 +68,12 @@ private
     lowest_neighbor
   end
 
-  # TODO: fix bug if no neighbor lower but all equal, cause infinite loop
+  # TODO: there is still, a less frequent and different, infinite loop bug where the same point gets chosen over again in infinite loop
   def return_if_lower(filtered_array, x, y, lowest_neighbor, river)
-    if river.any? {|p| p[0] == x && p[1] == y}
-      return lowest_neighbor
+    if not river.any? {|p| p[0] == x && p[1] == y}
+      value_at_neighbor = filtered_array[x + y * @size]
+      return [x, y, value_at_neighbor] if value_at_neighbor < lowest_neighbor[2]
     end
-
-    value_at_neighbor = filtered_array[x + y * @size]
-
-    return [x, y, value_at_neighbor] if value_at_neighbor < lowest_neighbor[2]
 
     lowest_neighbor
   end
