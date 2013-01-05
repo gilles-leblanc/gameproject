@@ -7,6 +7,7 @@ require 'texplay'
 require './world_map.rb'
 require './gaussian_filter'
 require './height_map_configurator'
+require './river_filter'
 
 class MapOutput < Gosu::Window
   def initialize
@@ -21,8 +22,11 @@ class MapOutput < Gosu::Window
     
     blur_filter = GaussianFilter.new
 		filtered_twice = @height_map.filter(blur_filter).filter(blur_filter)
-    
-    @map = WorldMap.new(@x, @y, filtered_twice.data)
+
+    river_filter = RiverFilter.new(@x, @y)
+    rivered = filtered_twice.filter(river_filter)
+
+    @map = WorldMap.new(@x, @y, rivered.data)
             
     @water_tile = Gosu::Image.new(self, "media/water.png", true)   
     @grass_tile = Gosu::Image.new(self, "media/grass.png", true)

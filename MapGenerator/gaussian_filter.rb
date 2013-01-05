@@ -32,7 +32,7 @@ class GaussianFilter
 			end
 		end
 		
-		return filtered_array
+		filtered_array
 	end
 
 private
@@ -50,7 +50,7 @@ private
 			computed_value += filter_pair[1] * array[x + offset + y * @size]
 		end
 		
-		return computed_value.round
+		computed_value.round
 	end
 	
 	def	compute_y_filtered_value(array, x, y)		
@@ -66,6 +66,6 @@ private
 			computed_value += filter_pair[1] * array[x + (offset + y) * @size]
 		end
 		
-		return computed_value.round
+		computed_value.round
 	end
 end

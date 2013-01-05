@@ -54,5 +54,14 @@ module HeightMapConfigurator
 		height_map.max_particles = 2000
 		height_map.number_of_passes = 5
 		height_map.particle_stability_radius = 2
-	end	
+  end
+
+  # tested with 80 x 80, single filtering
+  RainMap_config_1 = Proc.new do |height_map|
+    height_map.number_of_drop_points = 30
+    height_map.min_particles = 400
+    height_map.max_particles = 800
+    height_map.number_of_passes = 4
+    height_map.particle_stability_radius = 1
+  end
 end
