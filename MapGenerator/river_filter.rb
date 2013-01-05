@@ -28,8 +28,8 @@ class RiverFilter
       # @size is used since we assume the array is square 2d matrix
       (0...@size).each do |x|
         if filtered_rain_map.data[x + y * @size] >= 100 && filtered_array[x + y * @size] >= 70 &&
-            river_starting_points.none? {|p| (p[0] > x - 8 && p[0] < x + 8) &&
-                                             (p[1] > y - 8 && p[1] < y + 8)}
+            river_starting_points.none? {|p| (p[0] > x - 5 && p[0] < x + 5) &&
+                                             (p[1] > y - 5 && p[1] < y + 5)}
           river_starting_points.push([x, y])
         end
       end
@@ -44,14 +44,12 @@ class RiverFilter
       # start river there
       river = Array.new
       river.push(starting_point)
-      point = starting_point
 
       # create river to body of water, we dig until we find water, following terrain inclination
       until river.last[2] == 0
-        lowest_neighbor = get_lowest_neighbor(filtered_array, point)
+        lowest_neighbor = get_lowest_neighbor(filtered_array, river)
         river.push(lowest_neighbor)
         puts "Added #{lowest_neighbor}"
-        point = lowest_neighbor
       end
 
       # dig actual river
@@ -65,24 +63,29 @@ class RiverFilter
 private
 
   # TODO: fix bug, always starts looking in the north-west direction for rivers because of order of return_if_lower statements
-  def get_lowest_neighbor(filtered_array, point)
+  def get_lowest_neighbor(filtered_array, river)
+    point = river.last
     x, y = point[0], point[1]
     lowest_neighbor = [x, y, 256]
 
-    lowest_neighbor = return_if_lower(filtered_array, x, y - 1, lowest_neighbor)
-    lowest_neighbor = return_if_lower(filtered_array, x - 1, y, lowest_neighbor)
-    lowest_neighbor = return_if_lower(filtered_array, x, y, lowest_neighbor)
-    lowest_neighbor = return_if_lower(filtered_array, x + 1, y, lowest_neighbor)
-    lowest_neighbor = return_if_lower(filtered_array, x, y + 1, lowest_neighbor)
+    lowest_neighbor = return_if_lower(filtered_array, x, y - 1, lowest_neighbor, river)
+    lowest_neighbor = return_if_lower(filtered_array, x - 1, y, lowest_neighbor, river)
+    lowest_neighbor = return_if_lower(filtered_array, x + 1, y, lowest_neighbor, river)
+    lowest_neighbor = return_if_lower(filtered_array, x, y + 1, lowest_neighbor, river)
 
     lowest_neighbor
   end
 
   # TODO: fix bug if no neighbor lower but all equal, cause infinite loop
-  def return_if_lower(filtered_array, x, y, lowest_neighbor)
+  def return_if_lower(filtered_array, x, y, lowest_neighbor, river)
+    if river.any? {|p| p[0] == x && p[1] == y}
+      return lowest_neighbor
+    end
+
     value_at_neighbor = filtered_array[x + y * @size]
 
     return [x, y, value_at_neighbor] if value_at_neighbor < lowest_neighbor[2]
+
     lowest_neighbor
   end
 end
