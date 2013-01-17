@@ -13,7 +13,7 @@ class RiverFilter
     # select a point to start a river
     # create a rain map to simulate water precipitations
     rain_map = HeightMap.new
-    rain_map.visit(HeightMapConfigurator::RainMap_config_1)
+    rain_map.visit(HeightMapConfigurator::RainMap_medium_world)
     rain_map.generate(@size, @size)
 
     blur_filter = GaussianFilter.new
@@ -43,6 +43,8 @@ class RiverFilter
       # create river to body of water, we dig until we find water, following terrain inclination
       until river.last[2] == 0
         lowest_neighbor = get_lowest_neighbor(filtered_array, river)
+        break if lowest_neighbor[0] == river.last[0] && lowest_neighbor[1] == river.last[1]
+
         river.push(lowest_neighbor)
       end
 
@@ -68,7 +70,6 @@ private
     lowest_neighbor
   end
 
-  # TODO: there is still, a less frequent and different, infinite loop bug where the same point gets chosen over again in infinite loop
   def return_if_lower(filtered_array, x, y, lowest_neighbor, river)
     if not river.any? {|p| p[0] == x && p[1] == y}
       value_at_neighbor = filtered_array[x + y * @size]

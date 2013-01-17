@@ -17,16 +17,16 @@ class MapOutput < Gosu::Window
     self.caption = "Map Output"
     
     @height_map = HeightMap.new
-		@height_map.visit(HeightMapConfigurator::Sample_config_2)
+		@height_map.visit(HeightMapConfigurator::Medium_world)
 		@height_map.generate(@x, @y)
     
     blur_filter = GaussianFilter.new
 		filtered_twice = @height_map.filter(blur_filter).filter(blur_filter)
 
     river_filter = RiverFilter.new(@x, @y)
-    rivered = filtered_twice.filter(river_filter)
+    river_filtered = filtered_twice.filter(river_filter)
 
-    @map = WorldMap.new(@x, @y, rivered.data)
+    @map = WorldMap.new(@x, @y, river_filtered.data)
             
     @water_tile = Gosu::Image.new(self, "media/water.png", true)   
     @grass_tile = Gosu::Image.new(self, "media/grass.png", true)

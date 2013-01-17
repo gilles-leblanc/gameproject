@@ -56,8 +56,44 @@ module HeightMapConfigurator
 		height_map.particle_stability_radius = 2
   end
 
-  # tested with 80 x 80, single filtering
-  RainMap_config_1 = Proc.new do |height_map|
+  #	50 x 50
+  Small_world = Proc.new do |height_map|
+    height_map.number_of_drop_points = 20
+    height_map.min_particles = 400
+    height_map.max_particles = 2000
+    height_map.number_of_passes = 5
+    height_map.particle_stability_radius = 2
+  end
+
+  #	80 x 80
+  Medium_world = Proc.new do |height_map|
+    height_map.number_of_drop_points = 40
+    height_map.min_particles = 400
+    height_map.max_particles = 2000
+    height_map.number_of_passes = 5
+    height_map.particle_stability_radius = 2
+  end
+
+  #	100 x 100
+  Large_world = Proc.new do |height_map|
+    height_map.number_of_drop_points = 60
+    height_map.min_particles = 400
+    height_map.max_particles = 2000
+    height_map.number_of_passes = 5
+    height_map.particle_stability_radius = 2
+  end
+
+  #	140 x 140
+  VeryLarge_world = Proc.new do |height_map|
+    height_map.number_of_drop_points = 120
+    height_map.min_particles = 400
+    height_map.max_particles = 2000
+    height_map.number_of_passes = 5
+    height_map.particle_stability_radius = 2
+  end
+
+  # 80 x 80
+  RainMap_medium_world = Proc.new do |height_map|
     height_map.number_of_drop_points = 30
     height_map.min_particles = 400
     height_map.max_particles = 800

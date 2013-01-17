@@ -26,6 +26,12 @@ class WorldMap < Map
 				
 				@tiles[x + y * width] = Tile.new(terrain, x, y)
 			end
-		end
+    end
+
+    # place towns
+
+
+    # place roads
+    # place points of interest (caves, castles, lairs, events, signs, text when visiting a certain tile, etc.)
 	end			
 end
