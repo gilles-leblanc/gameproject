@@ -8,6 +8,7 @@ class Tile
   @@forest_color = Gosu::Color.new 0xff0d6a05
   @@cave_color = Gosu::Color.new 0x00000000
   @@city_color = Gosu::Color.new 0xffcfbb6a
+  @@snow_color = Gosu::Color.new 0xffffffff
 
 	attr_accessor :type, :x, :y
 	
@@ -25,6 +26,7 @@ class Tile
     return @@mountain_color if @type == :mountain
     return @@cave_color if @type == :cave
     return @@city_color if @type == :city
+    return @@snow_color if @type == :snow
 
 		:black
 	end

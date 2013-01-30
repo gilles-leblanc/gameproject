@@ -18,6 +18,13 @@ class CaveLocationSpecification
                           map.tile_at(t.x + 2, t.y).type != :cave &&
                           map.tile_at(t.x, t.y - 2).type != :cave &&
                           map.tile_at(t.x, t.y + 2).type != :cave &&
+
+                          map.tiles.count {|n| n.x >= t.x - 2 &&             # must have 2 mountain neighbor tiles
+                              n.x <= t.x + 2 &&
+                              n.y >= t.y - 2 &&
+                              n.y <= t.y + 2 &&
+                              n.type == :cave} == 0  &&
+
                           map.tiles.count {|n| n.x >= t.x - 2 &&             # must have 2 mountain neighbor tiles
                                                n.x <= t.x + 2 &&
                                                n.y >= t.y - 2 &&

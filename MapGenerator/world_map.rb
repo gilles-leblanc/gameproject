@@ -3,8 +3,9 @@ require_relative '../tile'
 require_relative './height_map'
 require_relative './cave_location_specification'
 require_relative './city_location_specification'
+require_relative '../City/small_city_factory'
 
-# TODO: replace series of if elsif with more object oriented approach
+# TODO: snow biome, desert biome, castles, dungeons (not caves), roads, bridges
 
 class WorldMap < Map	
 	def initialize(width, height, height_map)
@@ -30,10 +31,18 @@ class WorldMap < Map
 			end
     end
 
+    #place_snow
+
     # place cities
+    @cities = Array.new
     place_cities
 
     # place roads
+    # build roads to connect the various cities
+
+    # Roads need to be built using a combination of shortest route/distance, plus a weight based on tiles.
+    # It should be "shorter" to go through grass than mountains
+    # starting point 1 city, end-point, another city, continue from the last visited city until all cities are visited
 
     # place points of interest (caves, castles, lairs, events, signs, text when visiting a certain tile, etc.)
     place_caves(width, height)
@@ -41,19 +50,44 @@ class WorldMap < Map
 
 private
 
+  # TODO: fix this to something better
+  # Experimental
+  def place_snow
+    # snow test
+    #arctic_tiles = @tiles.select {|t| t.type != :mountain &&
+    #    t.type != :water
+    #    t.y <= 4 }
+    #arctic_tiles.map {|t| t.type = :snow}
+    #
+    #sub_arctic_tiles = @tiles.select {|t| t.type != :mountain &&
+    #    t.type != :water &&
+    #    (t.y == 5 || t.y == 6) }
+    #sub_arctic_tiles.map {|t| if [true, false].shuffle[0] then t.type = :snow end }
+
+    #arctic_tiles = @tiles.select {|t| t.type == :grass  &&
+    #    t.y <= 4 }
+    #arctic_tiles.map {|t| t.type = :snow}
+    #
+    #sub_arctic_tiles = @tiles.select {|t| t.type == :grass &&
+    #    (t.y == 5 || t.y == 6) }
+    #sub_arctic_tiles.map {|t| if [true, false].shuffle[0] then t.type = :snow end }
+  end
+
   def place_cities
+    city_factory = SmallCityFactory.new
     city_location_specification = CityLocationSpecification.new
 
     ((width * height) / 1250).times do # 1250 is a magic number, the higher the number, the more cities will be present and vice-versa
       possible_city_tiles = city_location_specification.tiles_that_satisfy(self)
-      possible_city_tiles.shuffle!
-      possible_city_tiles[0].type = :city
-    end
 
-    #possible_city_tiles[1].type = :city
-    #possible_city_tiles[2].type = :city
-    #possible_city_tiles[3].type = :city
-    #possible_city_tiles[4].type = :city
+      if possible_city_tiles.length > 0
+        possible_city_tiles.shuffle!
+        possible_city_tiles[0].type = :city
+
+        city = city_factory.build
+        @cities.push([possible_city_tiles[0].x, possible_city_tiles[0].y, city])
+      end
+    end
   end
 
   def place_caves(width, height)
@@ -61,12 +95,14 @@ private
 
     ((width * height) / 2500).times do  # 2500 is a magic number, the higher the number, the more caves will be present and vice-versa, 2500 is 50x50 which was considered the default small world size at the time of this writing
       possible_cave_tiles = cave_location_specification.tiles_that_satisfy(self)
-      possible_cave_tiles.shuffle!
 
-      possible_cave_tiles[0].type = :cave
+      if possible_cave_tiles.length > 0
+        possible_cave_tiles.shuffle!
+        possible_cave_tiles[0].type = :cave
 
-      if [true, false].shuffle[0]
-        possible_cave_tiles[1].type = :cave
+        if possible_cave_tiles.length > 1 && [true, false].shuffle[0]
+          possible_cave_tiles[1].type = :cave
+        end
       end
     end
   end

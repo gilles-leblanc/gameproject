@@ -35,6 +35,7 @@ class MapOutput < Gosu::Window
     @forest_tile = Gosu::Image.new(self, "media/forest.png", true)
     @cave_tile = Gosu::Image.new(self, "media/cave.png", true)
     @city_tile = Gosu::Image.new(self, "media/city.png", true)
+    @snow_tile = Gosu::Image.new(self, "media/snow.png", true)
   end
   
   def update
@@ -58,9 +59,12 @@ class MapOutput < Gosu::Window
         tile_to_draw = @cave_tile
       elsif tile.type == :city
         tile_to_draw = @city_tile
+      elsif tile.type == :snow
+        tile_to_draw = @snow_tile
 			end
 			
 			tile_to_draw.draw(tile.x * 10, tile.y * 10, 0)
+      font.draw("Bonjour", 10, 10, 0)
 		end  
   end
   
