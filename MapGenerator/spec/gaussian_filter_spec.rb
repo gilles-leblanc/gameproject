@@ -1,4 +1,4 @@
-require './gaussian_filter'
+require_relative '../gaussian_filter'
 
 describe GaussianFilter do
 	before(:each) do

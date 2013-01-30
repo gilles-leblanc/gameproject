@@ -1,6 +1,6 @@
-require './height_map'
-require './gaussian_filter'
-require './height_map_configurator'
+require_relative '../height_map'
+require_relative '../gaussian_filter'
+require_relative '../height_map_configurator'
 
 describe HeightMap do
 		scan_edge_for_particles = Proc.new do |map|

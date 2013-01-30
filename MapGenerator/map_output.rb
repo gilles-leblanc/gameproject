@@ -33,6 +33,8 @@ class MapOutput < Gosu::Window
     @mountain_tile = Gosu::Image.new(self, "media/mountain.png", true)
     @sand_tile = Gosu::Image.new(self, "media/sand.png", true)
     @forest_tile = Gosu::Image.new(self, "media/forest.png", true)
+    @cave_tile = Gosu::Image.new(self, "media/cave.png", true)
+    @city_tile = Gosu::Image.new(self, "media/city.png", true)
   end
   
   def update
@@ -50,8 +52,12 @@ class MapOutput < Gosu::Window
 				tile_to_draw = @sand_tile
 			elsif tile.type == :forest
 				tile_to_draw = @forest_tile
-			else
-				tile_to_draw = @mountain_tile	
+			elsif tile.type == :mountain
+				tile_to_draw = @mountain_tile
+      elsif tile.type == :cave
+        tile_to_draw = @cave_tile
+      elsif tile.type == :city
+        tile_to_draw = @city_tile
 			end
 			
 			tile_to_draw.draw(tile.x * 10, tile.y * 10, 0)

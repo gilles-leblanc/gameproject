@@ -1,4 +1,4 @@
-require './map_factory'
+require_relative '../map_factory'
 
 describe MapFactory, "map creation" do
   it "should return a new Map instance" do
