@@ -83,15 +83,19 @@ private
       return @triplet_probability_table.frequencies.select {|k, v| k[0] == current_last_letter && k[2] == ' ' && v >= random_number}.keys.sort.first[1]
     end
 
-    # try to get a triplet that starts with current_last_letter, has it's second letter be the first letter in space ending triplet
-    # and does not end with a space
-    valid_letters = @triplet_probability_table.frequencies.keys.select {|k| k[2] == ' '}.map {|x| x[0]}
-    if @pair_probability_table.frequencies.keys.any? {|key| key[0] == current_last_letter && valid_letters.any? {|l| l == key[1]}}
-      new_last_letter = @pair_probability_table.frequencies.select {|key, v| key[0] == current_last_letter &&
-                                                                             valid_letters.any? {|l| l == key[1]} &&
-                                                                             v >= random_number}.keys.sort.first[1]
+    begin
+      # try to get a triplet that starts with current_last_letter, has it's second letter be the first letter in space ending triplet
+      # and does not end with a space
+      valid_letters = @triplet_probability_table.frequencies.keys.select {|k| k[2] == ' '}.map {|x| x[0]}
+      if @pair_probability_table.frequencies.keys.any? {|key| key[0] == current_last_letter && valid_letters.any? {|l| l == key[1]}}
+        new_last_letter = @pair_probability_table.frequencies.select {|key, v| key[0] == current_last_letter &&
+            valid_letters.any? {|l| l == key[1]} &&
+            v >= random_number}.keys.sort.first[1]
 
-      return new_last_letter + get_last_letter(new_last_letter, second_to_last_letter)
+        return new_last_letter + get_last_letter(new_last_letter, second_to_last_letter)
+      end
+    rescue
+      puts "*** Exception in get_last_letter with #{current_last_letter} and #{second_to_last_letter}."
     end
 
     # if all else fails try using regular get next letter

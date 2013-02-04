@@ -4,13 +4,20 @@ require_relative './height_map'
 require_relative './cave_location_specification'
 require_relative './city_location_specification'
 require_relative '../City/small_city_factory'
+require_relative '../RandomNameGeneration/nameable'
 
 # TODO: snow biome, desert biome, castles, dungeons (not caves), roads, bridges
 
-class WorldMap < Map	
+class WorldMap < Map
+  include Nameable
+
+  attr_accessor :world_name
+
 	def initialize(width, height, height_map)
 		super(width, height)		
-				
+
+    @world_name = give_name
+
 		(0...width).each do |x|
 			(0...height).each do |y|
 				if edge_of_map?(x, y)
@@ -31,7 +38,7 @@ class WorldMap < Map
 			end
     end
 
-    #place_snow
+    place_snow(height)
 
     # place cities
     @cities = Array.new
@@ -52,25 +59,23 @@ private
 
   # TODO: fix this to something better
   # Experimental
-  def place_snow
-    # snow test
-    #arctic_tiles = @tiles.select {|t| t.type != :mountain &&
-    #    t.type != :water
-    #    t.y <= 4 }
-    #arctic_tiles.map {|t| t.type = :snow}
-    #
-    #sub_arctic_tiles = @tiles.select {|t| t.type != :mountain &&
-    #    t.type != :water &&
-    #    (t.y == 5 || t.y == 6) }
-    #sub_arctic_tiles.map {|t| if [true, false].shuffle[0] then t.type = :snow end }
+  def place_snow(height)
+    arctic_latitude = height / 15
 
-    #arctic_tiles = @tiles.select {|t| t.type == :grass  &&
-    #    t.y <= 4 }
-    #arctic_tiles.map {|t| t.type = :snow}
-    #
-    #sub_arctic_tiles = @tiles.select {|t| t.type == :grass &&
-    #    (t.y == 5 || t.y == 6) }
-    #sub_arctic_tiles.map {|t| if [true, false].shuffle[0] then t.type = :snow end }
+    arctic_tiles = @tiles.select {|t| t.type != :mountain &&
+                                      t.type != :water &&
+                                      t.type != :forest &&
+                                      t.y <= arctic_latitude }
+    arctic_tiles.map {|t| t.type = :snow}
+
+    arctic_forest_tiles = @tiles.select {|t| t.type == :forest &&
+                                             t.y <= arctic_latitude }
+    arctic_forest_tiles.map {|t| t.type = :snow_forest}
+
+    sub_arctic_tiles = @tiles.select {|t| t.type != :mountain &&
+                                          t.type != :water &&
+                                          t.y == arctic_latitude + 1 }
+    sub_arctic_tiles.map {|t| if [true, false].shuffle[0] then t.type = :snow end }
   end
 
   def place_cities
@@ -101,7 +106,9 @@ private
         possible_cave_tiles[0].type = :cave
 
         if possible_cave_tiles.length > 1 && [true, false].shuffle[0]
-          possible_cave_tiles[1].type = :cave
+          possible_cave_tiles = cave_location_specification.tiles_that_satisfy(self)
+          possible_cave_tiles.shuffle!
+          possible_cave_tiles[0].type = :cave
         end
       end
     end

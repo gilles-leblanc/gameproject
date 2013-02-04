@@ -1,4 +1,4 @@
-require_relative 'nameable'
+require_relative '../RandomNameGeneration/nameable'
 require_relative '../tile'
 require_relative 'building'
 

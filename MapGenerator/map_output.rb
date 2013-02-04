@@ -27,6 +27,7 @@ class MapOutput < Gosu::Window
     river_filtered = filtered_twice.filter(river_filter)
 
     @map = WorldMap.new(@x, @y, river_filtered.data)
+    #@map = WorldMap.new(@x, @y, filtered_twice.data)
             
     @water_tile = Gosu::Image.new(self, "media/water.png", true)   
     @grass_tile = Gosu::Image.new(self, "media/grass.png", true)
@@ -36,6 +37,7 @@ class MapOutput < Gosu::Window
     @cave_tile = Gosu::Image.new(self, "media/cave.png", true)
     @city_tile = Gosu::Image.new(self, "media/city.png", true)
     @snow_tile = Gosu::Image.new(self, "media/snow.png", true)
+    @snow_forest = Gosu::Image.new(self, "media/snow-forest.png", true)
   end
   
   def update
@@ -61,10 +63,12 @@ class MapOutput < Gosu::Window
         tile_to_draw = @city_tile
       elsif tile.type == :snow
         tile_to_draw = @snow_tile
+      elsif tile.type == :snow_forest
+        tile_to_draw = @snow_forest
 			end
 			
 			tile_to_draw.draw(tile.x * 10, tile.y * 10, 0)
-      font.draw("Bonjour", 10, 10, 0)
+      font.draw(@map.world_name, 10, 10, 0)
 		end  
   end
   

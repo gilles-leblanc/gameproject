@@ -11,6 +11,14 @@ class CityLocationSpecification
                                 map.tile_at(t.x - 2, t.y).type == :water ||
                                 map.tile_at(t.x + 2, t.y).type == :water ||
                                 map.tile_at(t.x, t.y - 2).type == :water ||
-                                map.tile_at(t.x, t.y + 2).type == :water)  }
+                                map.tile_at(t.x, t.y + 2).type == :water) &&
+
+                                map.tile_at(t.x - 1, t.y).type != :city &&      # must not be next to another city
+                                map.tile_at(t.x + 1, t.y).type != :city &&
+                                map.tile_at(t.x, t.y - 1).type != :city &&
+                                map.tile_at(t.x, t.y + 1).type != :city &&
+                                map.tile_at(t.x - 2, t.y).type != :city &&
+                                map.tile_at(t.x + 2, t.y).type != :city &&
+                                map.tile_at(t.x, t.y - 2).type != :city }
   end
 end
