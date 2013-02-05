@@ -10,16 +10,8 @@ class CaveLocationSpecification
                             allowable_neighbor_tiles.include?(map.tile_at(t.x, t.y - 1).type) ||
                             allowable_neighbor_tiles.include?(map.tile_at(t.x, t.y + 1).type)
                            ) &&
-                          map.tile_at(t.x - 1, t.y).type != :cave &&      # must not be next to another cave
-                          map.tile_at(t.x + 1, t.y).type != :cave &&
-                          map.tile_at(t.x, t.y - 1).type != :cave &&
-                          map.tile_at(t.x, t.y + 1).type != :cave &&
-                          map.tile_at(t.x - 2, t.y).type != :cave &&
-                          map.tile_at(t.x + 2, t.y).type != :cave &&
-                          map.tile_at(t.x, t.y - 2).type != :cave &&
-                          map.tile_at(t.x, t.y + 2).type != :cave &&
 
-                          map.tiles.count {|n| n.x >= t.x - 2 &&             # must have 2 mountain neighbor tiles
+                          map.tiles.count {|n| n.x >= t.x - 2 &&             # must not be next to another cave
                               n.x <= t.x + 2 &&
                               n.y >= t.y - 2 &&
                               n.y <= t.y + 2 &&
