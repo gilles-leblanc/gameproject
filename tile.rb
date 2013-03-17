@@ -10,6 +10,7 @@ class Tile
   @@city_color = Gosu::Color.new 0xffcfbb6a
   @@snow_color = Gosu::Color.new 0xffffffff
   @@snow_forest_color = Gosu::Color.new 0xff94bd91
+  @@road_color = Gosu::Color.new 0xffffc44c
 
 	attr_accessor :type, :x, :y
 	
@@ -29,6 +30,7 @@ class Tile
     return @@city_color if @type == :city
     return @@snow_color if @type == :snow
     return @@snow_forest_color if @type == :snow_forest
+    return @@road_color if @type == :road
 
 		:black
 	end

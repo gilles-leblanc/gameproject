@@ -6,7 +6,7 @@ require_relative './city_location_specification'
 require_relative '../City/small_city_factory'
 require_relative '../RandomNameGeneration/nameable'
 
-# TODO: snow biome, desert biome, castles, dungeons (not caves), roads, bridges
+# TODO: desert biome, castles, dungeons (not caves), roads, bridges
 
 class WorldMap < Map
   include Nameable
@@ -51,14 +51,19 @@ class WorldMap < Map
     # It should be "shorter" to go through grass than mountains
     # starting point 1 city, end-point, another city, continue from the last visited city until all cities are visited
 
+    #@cities.each do |city|
+    #   # find the closest city among the other cities
+    #  other_cities = @cities.reject {|c| c.equal? city}
+    #  other_cities.sort! {|a, b| Math.sqrt((a[0] - city[0])**2 + (a[1] - city[1])**2) <=> Math.sqrt((b[0] - city[0])**2 + (b[1] - city[1])**2) }
+    #  closest_city = other_cities[0]
+    #end
+
     # place points of interest (caves, castles, lairs, events, signs, text when visiting a certain tile, etc.)
     place_caves(width, height)
   end
 
 private
 
-  # TODO: fix this to something better
-  # Experimental
   def place_snow(height)
     arctic_latitude = height / 15
 
@@ -82,7 +87,7 @@ private
     city_factory = SmallCityFactory.new
     city_location_specification = CityLocationSpecification.new
 
-    ((width * height) / 1250).times do # 1250 is a magic number, the higher the number, the more cities will be present and vice-versa
+    ((width * height) / 1250).times do # 1250 is a magic number, the lower the number, the more cities will be present and vice-versa
       possible_city_tiles = city_location_specification.tiles_that_satisfy(self)
 
       if possible_city_tiles.length > 0
@@ -98,7 +103,7 @@ private
   def place_caves(width, height)
     cave_location_specification = CaveLocationSpecification.new
 
-    ((width * height) / 2500).times do  # 2500 is a magic number, the higher the number, the more caves will be present and vice-versa, 2500 is 50x50 which was considered the default small world size at the time of this writing
+    ((width * height) / 2500).times do  # 2500 is a magic number, the lower the number, the more caves will be present and vice-versa, 2500 is 50x50 which was considered the default small world size at the time of this writing
       possible_cave_tiles = cave_location_specification.tiles_that_satisfy(self)
 
       if possible_cave_tiles.length > 0

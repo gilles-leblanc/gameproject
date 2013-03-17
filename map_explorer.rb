@@ -14,13 +14,13 @@ class MapExplorer < Gosu::Window
     super 800, 600, false
     self.caption = "Map Explorer"
     
-    @map = MapFactory.make(80, 80)
+    @map = MapFactory.make_small_world
     @current_position = {x: 32, y: 32, direction: :north}
     @key_countdown = 0
     
     @font = Gosu::Font.new(self, Gosu::default_font_name, 20)
     
-    @map_overview = MapOverview.new(650, 120, self)
+    @map_overview = MapOverview.new(650, 130, self)
   end
   
   def update
@@ -41,14 +41,14 @@ class MapExplorer < Gosu::Window
   
   def draw 	 
   	draw_sky
-  	draw_ground
-  	
+  	#draw_ground
+
   	@font.draw("Position X : #{@current_position[:x]}", 660, 20, 0)
   	@font.draw("Position Y : #{@current_position[:y]}", 660, 40, 0)
   	@font.draw("Facing : #{@current_position[:direction]}", 660, 60, 0)
-  	@font.draw("Tile X, Y : #{@map.tile_at(@current_position[:x], @current_position[:y]).type}", 660, 80, 0)  	
-  	@font.draw("Tile X, Y - 1 : #{@map.tile_at(@current_position[:x], @current_position[:y] - 1).type}", 660, 100, 0)
-  	
+    @font.draw("Tile X, Y - 1 : #{@map.tile_at(@current_position[:x], @current_position[:y] - 1).type}", 660, 100, 0)
+    @font.draw("Tile X, Y : #{@map.tile_at(@current_position[:x], @current_position[:y]).type}", 660, 80, 0)
+
   	@map_overview.draw(@map, @current_position)
   end
   
