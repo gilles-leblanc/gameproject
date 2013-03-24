@@ -10,6 +10,11 @@ class MapOverview
     @top = top
     @size = size
 
+    @red_arrow_up = Gosu::Image.new(parent_window, "media/red_arrow_up.png", true)
+    @red_arrow_left = Gosu::Image.new(parent_window, "media/red_arrow_left.png", true)
+    @red_arrow_right = Gosu::Image.new(parent_window, "media/red_arrow_right.png", true)
+    @red_arrow_down = Gosu::Image.new(parent_window, "media/red_arrow_down.png", true)
+
     @water_tile = Gosu::Image.new(parent_window, "MapGenerator/media/water.png", true)
     @grass_tile = Gosu::Image.new(parent_window, "MapGenerator/media/grass.png", true)
     @mountain_tile = Gosu::Image.new(parent_window, "MapGenerator/media/mountain.png", true)
@@ -22,7 +27,7 @@ class MapOverview
     @road_tile = Gosu::Image.new(parent_window, "MapGenerator/media/road.png", true)
 	end
 
-	def draw(map, current_position)
+	def draw(map, current_position, compass)
     x, y = current_position[:x] - @size / 2, current_position[:y] - @size / 2
 
     for index_y in 0...(@size)
@@ -30,6 +35,19 @@ class MapOverview
         draw_tile(map.tile_at(x + index_x, y + index_y), index_x, index_y)
       end
     end
+
+    case compass[0]
+      when :north
+        arrow = @red_arrow_up
+      when :south
+        arrow = @red_arrow_down
+      when :west
+        arrow = @red_arrow_left
+      when :east
+        arrow = @red_arrow_right
+    end
+
+    arrow.draw(@left + (TILE_SIZE * @size / 2), @top + (TILE_SIZE * @size / 2), 0)
   end
 
 private
