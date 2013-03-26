@@ -12,12 +12,18 @@ class Tile
   @@snow_forest_color = Gosu::Color.new 0xff94bd91
   @@road_color = Gosu::Color.new 0xffffc44c
 
-	attr_accessor :type, :x, :y
+	attr_accessor :type, :x, :y, :passable
 	
 	def initialize(type, x, y)
 		@type = type
 		@x = x
 		@y = y
+
+    if type == :water || type == :mountain
+      @passable = false
+    else
+      @passable = true
+    end
 	end
 
   def color

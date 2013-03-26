@@ -1,4 +1,5 @@
 require_relative 'edge'
+require_relative 'empty_tile'
 
 class Map
   include Edge
@@ -18,6 +19,13 @@ class Map
 	end
 	
 	def tile_at(x, y)
-		@tiles[x + y * @width]
+    tile = nil
+
+    if (x >= 0 && x < width) && (y >= 0 && y < height)
+      tile = @tiles[x + y * @width]
+    end
+
+    return EmptyTile.new if tile.nil?
+    tile
 	end
 end

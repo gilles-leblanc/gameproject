@@ -62,6 +62,13 @@ class WorldMap < Map
     place_caves(width, height)
   end
 
+  def get_city_at_position(x, y)
+    city = @cities.find { |c| c[0] == x && c[1] == y }
+    raise "Can't find city." if city.nil?
+
+    city[2]
+  end
+
 private
 
   def place_snow(height)

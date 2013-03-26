@@ -1,8 +1,11 @@
 require 'gosu'
 require 'texplay'
+require_relative 'starting_position'
 require_relative './MapGenerator/map_factory'
 require_relative './color_palette'
 require_relative './map_overview'
+
+# TODO : major refactor SRP + good design
 
 class MapExplorer < Gosu::Window
 	Width = 640
@@ -15,8 +18,12 @@ class MapExplorer < Gosu::Window
     super 800, 600, false
     self.caption = "Map Explorer"
     
-    @map = MapFactory.make_small_world
-    @current_position = {x: 32, y: 32}
+    @world_map = MapFactory.make_small_world
+    @map = @world_map
+
+    starting_position = StartingPosition.new
+    @current_position = starting_position.get(@map)
+
     @compass = [:north, :west, :south, :east]
     @key_countdown = 0
     
@@ -45,11 +52,11 @@ class MapExplorer < Gosu::Window
   	draw_sky
   	draw_ground
 
-  	@font.draw("Position X : #{@current_position[:x]}", 660, 20, 0)
-  	@font.draw("Position Y : #{@current_position[:y]}", 660, 40, 0)
-  	@font.draw("Facing : #{@compass[0]}", 660, 60, 0)
-    @font.draw("Tile X, Y - 1 : #{@map.tile_at(@current_position[:x], @current_position[:y] - 1).type}", 660, 100, 0)
-    @font.draw("Tile X, Y : #{@map.tile_at(@current_position[:x], @current_position[:y]).type}", 660, 80, 0)
+  	@font.draw("Position X : #{@current_position[:x]}", 650, 20, 0)
+  	@font.draw("Position Y : #{@current_position[:y]}", 650, 40, 0)
+  	@font.draw("Facing : #{@compass[0]}", 650, 60, 0)
+    @font.draw("Tile X, Y - 1 : #{@map.tile_at(@current_position[:x], @current_position[:y] - 1).type}", 650, 100, 0)
+    @font.draw("Tile X, Y : #{@map.tile_at(@current_position[:x], @current_position[:y]).type}", 650, 80, 0)
 
   	@map_overview.draw(@map, @current_position, @compass)
   end
@@ -75,31 +82,39 @@ private
     elsif button_down? Gosu::KbRight
       @compass.rotate!(-1)
     end
+
+    # TODO : move out like in update method
+    # TODO: change current position to I pass a current position instead of x and y
+    # TODO: change, should be another method or class, will have to handle many tile types, events, chests, caves, cities, other world maps, inns, castles, etc.
+    if @map.tile_at(@current_position[:x], @current_position[:y]).type == :city
+      @map = @world_map.get_city_at_position(@current_position[:x], @current_position[:y])
+      @current_position = {x: 1, y: 1}
+    end
   end
 
   def step_forward
     case @compass[0]
       when :north
-        @current_position[:y] -= 1
+        @current_position[:y] -= 1 if @map.tile_at(@current_position[:x], @current_position[:y] - 1).passable
       when :south
-        @current_position[:y] += 1
+        @current_position[:y] += 1 if @map.tile_at(@current_position[:x], @current_position[:y] + 1).passable
       when :west
-        @current_position[:x] -= 1
+        @current_position[:x] -= 1 if @map.tile_at(@current_position[:x] - 1, @current_position[:y]).passable
       when :east
-        @current_position[:x] += 1
+        @current_position[:x] += 1 if @map.tile_at(@current_position[:x] + 1, @current_position[:y]).passable
     end
   end
 
   def step_backward
     case @compass[0]
       when :north
-        @current_position[:y] += 1
+        @current_position[:y] += 1 if @map.tile_at(@current_position[:x], @current_position[:y] + 1).passable
       when :south
-        @current_position[:y] -= 1
+        @current_position[:y] -= 1 if @map.tile_at(@current_position[:x], @current_position[:y] - 1).passable
       when :west
-        @current_position[:x] += 1
+        @current_position[:x] += 1 if @map.tile_at(@current_position[:x] + 1, @current_position[:y]).passable
       when :east
-        @current_position[:x] -= 1
+        @current_position[:x] -= 1 if @map.tile_at(@current_position[:x] - 1, @current_position[:y]).passable
     end
   end
 
@@ -155,7 +170,7 @@ private
 							Width - Third_Row_Width, Third_Row_Height,  	# top right
 							Width - Second_Row_Width, Second_Row_Height, 	# bottom right
 							tile_color)		
-							
+							           3
 		# draw 3 tiles in front
 		tile_color = tile_in_front(3).color
 		draw_tile(Third_Row_Width, Third_Row_Height, 				# bottom left
@@ -272,10 +287,25 @@ private
 	
 	def draw_tile (bottom_left_x, bottom_left_y, top_left_x, top_left_y, top_right_x,
 								 top_right_y, bottom_right_x, bottom_right_y, tile_color)
-		draw_quad(bottom_left_x, bottom_left_y, tile_color,			# bottom left
-							top_left_x, top_left_y, tile_color, 					# top left
-							top_right_x, top_right_y, tile_color, 				# top right
-							bottom_right_x, bottom_right_y, tile_color) 	# bottom right
+
+    begin
+      draw_quad(bottom_left_x, bottom_left_y, tile_color,			# bottom left
+                top_left_x, top_left_y, tile_color, 					# top left
+                top_right_x, top_right_y, tile_color, 				# top right
+                bottom_right_x, bottom_right_y, tile_color) 	# bottom right
+    rescue
+      # TODO: remove exception handling for performance reasons (drawing code)
+      puts "bottom_left_x = #{bottom_left_x}"
+      puts "bottom_left_y = #{bottom_left_y}"
+      puts "top_left_x = #{top_left_x}"
+      puts "top_left_y = #{top_left_y}"
+      puts "top_right_x = #{top_right_x}"
+      puts "top_right_y = #{top_right_y}"
+      puts "bottom_right_x = #{bottom_right_x}"
+      puts "bottom_right_y = #{bottom_right_y}"
+      puts "tile_color = #{tile_color}"
+      raise
+    end
 	end
 end
 

@@ -25,6 +25,7 @@ class MapOverview
     @snow_tile = Gosu::Image.new(parent_window, "MapGenerator/media/snow.png", true)
     @snow_forest_tile = Gosu::Image.new(parent_window, "MapGenerator/media/snow-forest.png", true)
     @road_tile = Gosu::Image.new(parent_window, "MapGenerator/media/road.png", true)
+    @empty_tile = Gosu::Image.new(parent_window, "MapGenerator/media/empty_tile.png", true)
 	end
 
 	def draw(map, current_position, compass)
@@ -74,6 +75,8 @@ private
       tile_to_draw = @snow_forest_tile
     elsif tile.type == :road
       tile_to_draw == @road_tile
+    else
+      tile_to_draw = @empty_tile
     end
 
     tile_to_draw.draw(@left + x * TILE_SIZE, @top + y * TILE_SIZE, 0)
