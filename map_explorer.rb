@@ -277,9 +277,9 @@ private
 		when :north
 			@map.tile_at(@current_position[:x] + side_step, @current_position[:y] - 1 * number_of_steps)
 		when :south
-			@map.tile_at(@current_position[:x] + side_step, @current_position[:y] + 1 * number_of_steps)
+			@map.tile_at(@current_position[:x] - side_step, @current_position[:y] + 1 * number_of_steps)
 		when :west
-			@map.tile_at(@current_position[:x] - 1 * number_of_steps, @current_position[:y] + side_step)
+			@map.tile_at(@current_position[:x] - 1 * number_of_steps, @current_position[:y] - side_step)
 		when :east
 			@map.tile_at(@current_position[:x] + 1 * number_of_steps, @current_position[:y] + side_step)
 		end
@@ -287,25 +287,10 @@ private
 	
 	def draw_tile (bottom_left_x, bottom_left_y, top_left_x, top_left_y, top_right_x,
 								 top_right_y, bottom_right_x, bottom_right_y, tile_color)
-
-    begin
-      draw_quad(bottom_left_x, bottom_left_y, tile_color,			# bottom left
-                top_left_x, top_left_y, tile_color, 					# top left
-                top_right_x, top_right_y, tile_color, 				# top right
-                bottom_right_x, bottom_right_y, tile_color) 	# bottom right
-    rescue
-      # TODO: remove exception handling for performance reasons (drawing code)
-      puts "bottom_left_x = #{bottom_left_x}"
-      puts "bottom_left_y = #{bottom_left_y}"
-      puts "top_left_x = #{top_left_x}"
-      puts "top_left_y = #{top_left_y}"
-      puts "top_right_x = #{top_right_x}"
-      puts "top_right_y = #{top_right_y}"
-      puts "bottom_right_x = #{bottom_right_x}"
-      puts "bottom_right_y = #{bottom_right_y}"
-      puts "tile_color = #{tile_color}"
-      raise
-    end
+    draw_quad(bottom_left_x, bottom_left_y, tile_color,			# bottom left
+              top_left_x, top_left_y, tile_color, 					# top left
+              top_right_x, top_right_y, tile_color, 				# top right
+              bottom_right_x, bottom_right_y, tile_color) 	# bottom right
 	end
 end
 

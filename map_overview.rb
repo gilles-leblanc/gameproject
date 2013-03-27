@@ -74,7 +74,15 @@ private
     elsif tile.type == :snow_forest
       tile_to_draw = @snow_forest_tile
     elsif tile.type == :road
-      tile_to_draw == @road_tile
+      tile_to_draw = @road_tile
+    elsif tile.type == :open
+      tile_to_draw = @sand_tile
+    elsif tile.type == :wall
+      tile_to_draw = @mountain_tile
+    elsif tile.type == :door
+      tile_to_draw = @city_tile
+    elsif tile.type == :entrance
+      tile_to_draw = @water_tile
     else
       tile_to_draw = @empty_tile
     end

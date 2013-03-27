@@ -1,3 +1,5 @@
+require 'gosu'
+
 # null-object pattern
 class EmptyTile
   attr_accessor :type, :x, :y
@@ -6,10 +8,13 @@ class EmptyTile
     @type = :empty_tile
     @x = 0
     @y = 0
-    @passable = false
+  end
+
+  def passable
+    false
   end
 
   def color
-    :black
+    Gosu::Color.new 0x00000000
   end
 end
