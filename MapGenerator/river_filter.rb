@@ -3,8 +3,9 @@ require_relative 'gaussian_filter'
 require_relative 'height_map_configurator'
 
 class RiverFilter
-  def initialize(x, y)
+  def initialize(x, y, river_configuration = HeightMapConfigurator::RainMap_medium_world)
     @size = x
+    @river_configuration = river_configuration
   end
 
   def filter(array)
@@ -13,7 +14,7 @@ class RiverFilter
     # select a point to start a river
     # create a rain map to simulate water precipitations
     rain_map = HeightMap.new
-    rain_map.visit(HeightMapConfigurator::RainMap_medium_world)
+    rain_map.visit(@river_configuration)
     rain_map.generate(@size, @size)
 
     blur_filter = GaussianFilter.new

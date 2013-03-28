@@ -9,4 +9,14 @@ class StartingPosition
 
     {x: starting_tile.x, y: starting_tile.y}
   end
+
+  def get_city_starting_position(map)
+    entrance = map.tiles.select { |tile| tile.type == :entrance }[0]
+
+    starting_tile = map.tiles.select { |tile| (tile.x == entrance.x + 1 || tile.x == entrance.x - 1) &&
+                                              (tile.y == entrance.y + 1 ||tile.y == entrance.y - 1) &&
+                                              tile.passable }.shuffle.first
+
+    {x: starting_tile.x, y: starting_tile.y}
+  end
 end

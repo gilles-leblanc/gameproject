@@ -27,8 +27,9 @@ class MapFactory
     blur_filter = GaussianFilter.new
     blur_filtered = height_map.filter(blur_filter).filter(blur_filter)
 
-    # TODO: add river filter (not included for speed during testing of map_explorer)
+    river_filter = RiverFilter.new(50, 50, HeightMapConfigurator::RainMap_small_world)
+    river_filtered = blur_filtered.filter(river_filter)
 
-    WorldMap.new(50, 50, blur_filtered.data)
+    WorldMap.new(50, 50, river_filtered.data)
   end
 end

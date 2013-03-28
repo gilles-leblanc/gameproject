@@ -103,6 +103,7 @@ private
 
         city = city_factory.build
         @cities.push([possible_city_tiles[0].x, possible_city_tiles[0].y, city])
+        city_location_specification.already_selected_tiles.push([possible_city_tiles[0].x, possible_city_tiles[0].y])
       end
     end
   end
@@ -116,11 +117,13 @@ private
       if possible_cave_tiles.length > 0
         possible_cave_tiles.shuffle!
         possible_cave_tiles[0].type = :cave
+        cave_location_specification.already_selected_tiles.push([possible_cave_tiles[0].x, possible_cave_tiles[0].y])
 
         if possible_cave_tiles.length > 1 && [true, false].shuffle[0]
           possible_cave_tiles = cave_location_specification.tiles_that_satisfy(self)
           possible_cave_tiles.shuffle!
           possible_cave_tiles[0].type = :cave
+          cave_location_specification.already_selected_tiles.push([possible_cave_tiles[0].x, possible_cave_tiles[0].y])
         end
       end
     end

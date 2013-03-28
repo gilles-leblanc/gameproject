@@ -21,8 +21,8 @@ class MapExplorer < Gosu::Window
     @world_map = MapFactory.make_small_world
     @map = @world_map
 
-    starting_position = StartingPosition.new
-    @current_position = starting_position.get(@map)
+    @starting_position = StartingPosition.new
+    @current_position = @starting_position.get(@map)
 
     @compass = [:north, :west, :south, :east]
     @key_countdown = 0
@@ -84,11 +84,10 @@ private
     end
 
     # TODO : move out like in update method
-    # TODO: change current position to I pass a current position instead of x and y
     # TODO: change, should be another method or class, will have to handle many tile types, events, chests, caves, cities, other world maps, inns, castles, etc.
     if @map.tile_at(@current_position[:x], @current_position[:y]).type == :city
       @map = @world_map.get_city_at_position(@current_position[:x], @current_position[:y])
-      @current_position = {x: 1, y: 1}
+      @current_position = @starting_position.get_city_starting_position(@map)
     end
   end
 

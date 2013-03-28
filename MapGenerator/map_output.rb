@@ -8,6 +8,7 @@ require './world_map.rb'
 require './gaussian_filter'
 require './height_map_configurator'
 require './river_filter'
+require '../tile_palette'
 
 class MapOutput < Gosu::Window
   def initialize
@@ -15,7 +16,7 @@ class MapOutput < Gosu::Window
   
     super @x * 10, @y * 10, false
     self.caption = "Map Output"
-    
+
     @height_map = HeightMap.new
 		@height_map.visit(HeightMapConfigurator::Medium_world)
 		@height_map.generate(@x, @y)
@@ -28,17 +29,8 @@ class MapOutput < Gosu::Window
 
     @map = WorldMap.new(@x, @y, river_filtered.data)
     #@map = WorldMap.new(@x, @y, filtered_twice.data)
-            
-    @water_tile = Gosu::Image.new(self, "media/water.png", true)   
-    @grass_tile = Gosu::Image.new(self, "media/grass.png", true)
-    @mountain_tile = Gosu::Image.new(self, "media/mountain.png", true)
-    @sand_tile = Gosu::Image.new(self, "media/sand.png", true)
-    @forest_tile = Gosu::Image.new(self, "media/forest.png", true)
-    @cave_tile = Gosu::Image.new(self, "media/cave.png", true)
-    @city_tile = Gosu::Image.new(self, "media/city.png", true)
-    @snow_tile = Gosu::Image.new(self, "media/snow.png", true)
-    @snow_forest_tile = Gosu::Image.new(self, "media/snow-forest.png", true)
-    @road_tile = Gosu::Image.new(self, "media/road.png", true)
+
+    @tile_palette = TilePalette.new(self, '.')
   end
   
   def update
@@ -47,29 +39,8 @@ class MapOutput < Gosu::Window
   def draw
   	font = Gosu::Font.new(self, Gosu::default_font_name, 20)
   
-		@map.tiles.each do |tile| 
-			if tile.type == :water  
-			  tile_to_draw = @water_tile
-			elsif tile.type == :grass
-				tile_to_draw = @grass_tile
-			elsif tile.type == :sand
-				tile_to_draw = @sand_tile
-			elsif tile.type == :forest
-				tile_to_draw = @forest_tile
-			elsif tile.type == :mountain
-				tile_to_draw = @mountain_tile
-      elsif tile.type == :cave
-        tile_to_draw = @cave_tile
-      elsif tile.type == :city
-        tile_to_draw = @city_tile
-      elsif tile.type == :snow
-        tile_to_draw = @snow_tile
-      elsif tile.type == :snow_forest
-        tile_to_draw = @snow_forest_tile
-      elsif tile.type == :road
-        tile_to_draw == @road_tile
-			end
-			
+		@map.tiles.each do |tile|
+      tile_to_draw = @tile_palette.get_tile_resource(tile)
 			tile_to_draw.draw(tile.x * 10, tile.y * 10, 0)
       font.draw(@map.world_name, 10, 10, 0)
 		end  

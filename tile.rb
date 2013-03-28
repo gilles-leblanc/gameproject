@@ -30,6 +30,8 @@ class Tile
       when :water
       when :mountain
       when :wall
+      when :door
+      when :empty
         false
       else
         true

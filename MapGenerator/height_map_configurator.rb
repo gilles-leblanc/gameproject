@@ -100,4 +100,13 @@ module HeightMapConfigurator
     height_map.number_of_passes = 4
     height_map.particle_stability_radius = 1
   end
+
+  # 50 x 50
+  RainMap_small_world = Proc.new do |height_map|
+    height_map.number_of_drop_points = 13
+    height_map.min_particles = 300
+    height_map.max_particles = 550
+    height_map.number_of_passes = 3
+    height_map.particle_stability_radius = 1
+  end
 end
