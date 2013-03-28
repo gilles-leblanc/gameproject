@@ -25,6 +25,12 @@ class MapOverview
     @snow_tile = Gosu::Image.new(parent_window, "MapGenerator/media/snow.png", true)
     @snow_forest_tile = Gosu::Image.new(parent_window, "MapGenerator/media/snow-forest.png", true)
     @road_tile = Gosu::Image.new(parent_window, "MapGenerator/media/road.png", true)
+
+    @open_tile = Gosu::Image.new(parent_window, "MapGenerator/media/open.png", true)
+    @wall_tile = Gosu::Image.new(parent_window, "MapGenerator/media/wall.png", true)
+    @door_tile = Gosu::Image.new(parent_window, "MapGenerator/media/door.png", true)
+    @entrance_tile = Gosu::Image.new(parent_window, "MapGenerator/media/entrance.png", true)
+
     @empty_tile = Gosu::Image.new(parent_window, "MapGenerator/media/empty_tile.png", true)
 	end
 
@@ -62,7 +68,7 @@ private
     elsif tile.type == :sand
       tile_to_draw = @sand_tile
     elsif tile.type == :forest
-      tile_to_draw = @forest_tile
+      #tile_to_draw = @forest_tile
     elsif tile.type == :mountain
       tile_to_draw = @mountain_tile
     elsif tile.type == :cave
@@ -76,13 +82,13 @@ private
     elsif tile.type == :road
       tile_to_draw = @road_tile
     elsif tile.type == :open
-      tile_to_draw = @sand_tile
+      tile_to_draw = @open_tile
     elsif tile.type == :wall
-      tile_to_draw = @mountain_tile
+      tile_to_draw = @wall_tile
     elsif tile.type == :door
-      tile_to_draw = @city_tile
+      tile_to_draw = @door_tile
     elsif tile.type == :entrance
-      tile_to_draw = @water_tile
+      tile_to_draw = @entrance_tile
     else
       tile_to_draw = @empty_tile
     end
