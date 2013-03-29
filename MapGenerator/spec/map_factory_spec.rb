@@ -2,15 +2,15 @@ require_relative '../map_factory'
 
 describe MapFactory, "map creation" do
   it "should return a new Map instance" do
-    map = MapFactory.make(20, 20)  
+    map = MapFactory.make(30, 30)
     map.should be_an_instance_of(WorldMap)
   end
   
   it "should be a map of the specified size" do
-  	map = MapFactory.make(20, 20)
-  	map.width.should equal(20)
-  	map.height.should equal(20)
-  	map.tiles.length.should equal(400)
+  	map = MapFactory.make(30, 30)
+  	map.width.should equal(30)
+  	map.height.should equal(30)
+  	map.tiles.length.should equal(900)
   end
   
   it "should be an island and have water all around it" do

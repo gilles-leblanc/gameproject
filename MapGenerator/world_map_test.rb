@@ -1,6 +1,7 @@
 require 'test/unit'
 require './world_map'
 
+# tests do not work since adding snow
 class WorldMapTest < Test::Unit::TestCase
 	def test_map_will_generate_correct_water_tile
 		# Arrange
