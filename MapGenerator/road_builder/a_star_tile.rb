@@ -44,23 +44,23 @@ class AStarTile < AStarNode
       when :city
         1
       when :road
-        3
+        2
       when :grass
         10
       when :snow
         15
       when :forest
-        20
+        15
       when :snow_forest
         25
       when :sand
-        30
+        25
       when :cave
         90
       when :water
-        100
+        150
       when :mountain
-        100
+        150
       else
         25
     end
