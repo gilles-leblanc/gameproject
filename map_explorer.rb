@@ -33,11 +33,6 @@ class MapExplorer < Gosu::Window
     @font = Gosu::Font.new(self, Gosu::default_font_name, 20)
     
     @map_overview = MapOverview.new(650, 130, self)
-
-    image = TexPlay.create_image(self, @map.width, @map.height, :color => Gosu::Color::BLACK)
-    image.draw(0, 0, 0)
-    @map.tiles.each {|tile| image.pixel tile.x, tile.y, :color => tile.color}
-    image.save "map_visual_debug.png"
   end
   
   def update
@@ -55,11 +50,12 @@ class MapExplorer < Gosu::Window
   	draw_sky
   	draw_ground
 
-  	@font.draw("Position X : #{@current_position[:x]}", 650, 20, 0)
-  	@font.draw("Position Y : #{@current_position[:y]}", 650, 40, 0)
-  	@font.draw("Facing : #{@compass[0]}", 650, 60, 0)
-    @font.draw("Tile X, Y - 1 : #{@map.tile_at(@current_position[:x], @current_position[:y] - 1).type}", 650, 100, 0)
-    @font.draw("Tile X, Y : #{@map.tile_at(@current_position[:x], @current_position[:y]).type}", 650, 80, 0)
+    @font.draw("#{@map.name}", 650, 5, 0)
+  	@font.draw("Position X : #{@current_position[:x]}", 650, 25, 0)
+  	@font.draw("Position Y : #{@current_position[:y]}", 650, 45, 0)
+  	@font.draw("Facing : #{@compass[0]}", 650, 65, 0)
+    @font.draw("Tile X, Y : #{@map.tile_at(@current_position[:x], @current_position[:y]).type}", 650, 85, 0)
+    @font.draw("Tile X, Y - 1 : #{@map.tile_at(@current_position[:x], @current_position[:y] - 1).type}", 650, 105, 0)
 
   	@map_overview.draw(@map, @current_position, @compass)
   end

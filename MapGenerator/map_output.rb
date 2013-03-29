@@ -41,7 +41,7 @@ class MapOutput < Gosu::Window
 		@map.tiles.each do |tile|
       tile_to_draw = @tile_palette.get_mini_tile_resource(tile)
 			tile_to_draw.draw(tile.x * 10, tile.y * 10, 0)
-      font.draw(@map.world_name, 10, 10, 0)
+      font.draw(@map.name, 10, 10, 0)
 		end  
   end
   

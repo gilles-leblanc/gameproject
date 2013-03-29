@@ -12,12 +12,10 @@ require_relative './road_builder/road_builder'
 class WorldMap < Map
   include Nameable
 
-  attr_accessor :world_name
-
 	def initialize(width, height, height_map)
 		super(width, height)		
 
-    @world_name = give_name
+    @name = give_name
 
 		(0...width).each do |x|
 			(0...height).each do |y|
