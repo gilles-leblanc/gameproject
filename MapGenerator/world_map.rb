@@ -7,7 +7,7 @@ require_relative '../City/small_city_factory'
 require_relative '../RandomNameGeneration/nameable'
 require_relative './road_builder/road_builder'
 
-# TODO: desert biome, castles, dungeons (not caves), roads, bridges
+# TODO: castles, dungeons (not caves), bridges
 
 class WorldMap < Map
   include Nameable
@@ -48,18 +48,7 @@ class WorldMap < Map
     road_builder = RoadBuilder.new(self)
     road_builder.build_roads
 
-    # Roads need to be built using a combination of shortest route/distance, plus a weight based on tiles.
-    # It should be "shorter" to go through grass than mountains
-    # starting point 1 city, end-point, another city, continue from the last visited city until all cities are visited
-
-    #@cities.each do |city|
-    #   # find the closest city among the other cities
-    #  other_cities = @cities.reject {|c| c.equal? city}
-    #  other_cities.sort! {|a, b| Math.sqrt((a[0] - city[0])**2 + (a[1] - city[1])**2) <=> Math.sqrt((b[0] - city[0])**2 + (b[1] - city[1])**2) }
-    #  closest_city = other_cities[0]
-    #end
-
-    # place points of interest (caves, castles, lairs, events, signs, text when visiting a certain tile, etc.)
+    # place points of interest (castles, lairs, events, signs, text when visiting a certain tile, etc.)
     place_caves(width, height)
   end
 
