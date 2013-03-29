@@ -25,7 +25,7 @@ class Tile
 		@y = y
   end
 
-  def passable
+  def passable?
     case @type
       when :water
       when :mountain

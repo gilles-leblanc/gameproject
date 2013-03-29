@@ -8,7 +8,7 @@ require './world_map.rb'
 require './gaussian_filter'
 require './height_map_configurator'
 require './river_filter'
-require '../tile_palette'
+require '../mini_tile_palette'
 
 class MapOutput < Gosu::Window
   def initialize
@@ -28,9 +28,8 @@ class MapOutput < Gosu::Window
     river_filtered = filtered_twice.filter(river_filter)
 
     @map = WorldMap.new(@x, @y, river_filtered.data)
-    #@map = WorldMap.new(@x, @y, filtered_twice.data)
 
-    @tile_palette = TilePalette.new(self, '.')
+    @tile_palette = MiniTilePalette.new(self, '.')
   end
   
   def update
@@ -40,7 +39,7 @@ class MapOutput < Gosu::Window
   	font = Gosu::Font.new(self, Gosu::default_font_name, 20)
   
 		@map.tiles.each do |tile|
-      tile_to_draw = @tile_palette.get_tile_resource(tile)
+      tile_to_draw = @tile_palette.get_mini_tile_resource(tile)
 			tile_to_draw.draw(tile.x * 10, tile.y * 10, 0)
       font.draw(@map.world_name, 10, 10, 0)
 		end  

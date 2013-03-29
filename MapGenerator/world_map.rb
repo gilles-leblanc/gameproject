@@ -5,6 +5,7 @@ require_relative './cave_location_specification'
 require_relative './city_location_specification'
 require_relative '../City/small_city_factory'
 require_relative '../RandomNameGeneration/nameable'
+require_relative './road_builder/road_builder'
 
 # TODO: desert biome, castles, dungeons (not caves), roads, bridges
 
@@ -46,6 +47,8 @@ class WorldMap < Map
 
     # place roads
     # build roads to connect the various cities
+    road_builder = RoadBuilder.new(self)
+    road_builder.build_roads
 
     # Roads need to be built using a combination of shortest route/distance, plus a weight based on tiles.
     # It should be "shorter" to go through grass than mountains
