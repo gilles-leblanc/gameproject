@@ -97,26 +97,26 @@ private
   def step_forward
     case @compass[0]
       when :north
-        @current_position[:y] -= 1 if @map.tile_at(@current_position[:x], @current_position[:y] - 1).passable
+        @current_position[:y] -= 1 if @map.tile_at(@current_position[:x], @current_position[:y] - 1).passable?
       when :south
-        @current_position[:y] += 1 if @map.tile_at(@current_position[:x], @current_position[:y] + 1).passable
+        @current_position[:y] += 1 if @map.tile_at(@current_position[:x], @current_position[:y] + 1).passable?
       when :west
-        @current_position[:x] -= 1 if @map.tile_at(@current_position[:x] - 1, @current_position[:y]).passable
+        @current_position[:x] -= 1 if @map.tile_at(@current_position[:x] - 1, @current_position[:y]).passable?
       when :east
-        @current_position[:x] += 1 if @map.tile_at(@current_position[:x] + 1, @current_position[:y]).passable
+        @current_position[:x] += 1 if @map.tile_at(@current_position[:x] + 1, @current_position[:y]).passable?
     end
   end
 
   def step_backward
     case @compass[0]
       when :north
-        @current_position[:y] += 1 if @map.tile_at(@current_position[:x], @current_position[:y] + 1).passable
+        @current_position[:y] += 1 if @map.tile_at(@current_position[:x], @current_position[:y] + 1).passable?
       when :south
-        @current_position[:y] -= 1 if @map.tile_at(@current_position[:x], @current_position[:y] - 1).passable
+        @current_position[:y] -= 1 if @map.tile_at(@current_position[:x], @current_position[:y] - 1).passable?
       when :west
-        @current_position[:x] += 1 if @map.tile_at(@current_position[:x] + 1, @current_position[:y]).passable
+        @current_position[:x] += 1 if @map.tile_at(@current_position[:x] + 1, @current_position[:y]).passable?
       when :east
-        @current_position[:x] -= 1 if @map.tile_at(@current_position[:x] - 1, @current_position[:y]).passable
+        @current_position[:x] -= 1 if @map.tile_at(@current_position[:x] - 1, @current_position[:y]).passable?
     end
   end
 

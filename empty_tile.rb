@@ -10,7 +10,7 @@ class EmptyTile
     @y = 0
   end
 
-  def passable
+  def passable?
     false
   end
 
