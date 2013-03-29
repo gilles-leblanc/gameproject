@@ -4,6 +4,7 @@ require_relative 'starting_position'
 require_relative './MapGenerator/map_factory'
 require_relative './color_palette'
 require_relative './map_overview'
+require_relative 'tile_palette'
 
 # TODO : major refactor SRP + good design
 
@@ -20,6 +21,8 @@ class MapExplorer < Gosu::Window
     
     @world_map = MapFactory.make_small_world
     @map = @world_map
+
+    @TilePalette = TilePalette.new(self)
 
     @starting_position = StartingPosition.new
     @current_position = @starting_position.get(@map)
@@ -147,31 +150,31 @@ private
 
   def draw_center_ground_tiles
 		# draw tile we stand on	
-		tile_color = tile_in_front(0).color
+		tile = tile_in_front(0)
 		draw_tile(0, Height, 									# bottom left
 							First_Row_Width, First_Row_Height,  			# top left
 							Width - First_Row_Width, First_Row_Height,  	# top right
 							Width, Height, 						  # bottom right
-							tile_color)
+              tile)
 		
 		# draw tile in front
-		tile_color = tile_in_front(1).color
+    tile = tile_in_front(1)
 		draw_tile(First_Row_Width, First_Row_Height, 				# bottom left
 							Second_Row_Width, Second_Row_Height,  			# top left
 							Width - Second_Row_Width, Second_Row_Height,  	# top right
 							Width - First_Row_Width, First_Row_Height, 	  # bottom right
-							tile_color)		
+              tile)
 		
 		# draw 2 tiles in front
-		tile_color = tile_in_front(2).color
+    tile = tile_in_front(2)
 		draw_tile(Second_Row_Width, Second_Row_Height, 			# bottom left
 							Third_Row_Width, Third_Row_Height,  			# top left
 							Width - Third_Row_Width, Third_Row_Height,  	# top right
 							Width - Second_Row_Width, Second_Row_Height, 	# bottom right
-							tile_color)		
-							           3
+              tile)
+
 		# draw 3 tiles in front
-		tile_color = tile_in_front(3).color
+		tile_color = tile_in_front(3)
 		draw_tile(Third_Row_Width, Third_Row_Height, 				# bottom left
 							Fourth_Row_Width, Fourth_Row_Height,  			# top left
 							Width - Fourth_Row_Width, Fourth_Row_Height,  	# top right
@@ -179,96 +182,96 @@ private
 							tile_color)	
 							
 		# draw 4 tiles in front
-		tile_color = tile_in_front(4).color
+    tile = tile_in_front(4)
 		draw_tile(Fourth_Row_Width, Fourth_Row_Height, 			# bottom left
 							Width / 2, Fifth_Row_Height,  			# top left
 							Width / 2, Fifth_Row_Height,  	# top right
 							Width - Fourth_Row_Width, Fourth_Row_Height, 	# bottom right
-							tile_color)
+              tile)
 	end
 
   def draw_leftmost_ground_tiles
     # draw tile we stand on
-    tile_color = tile_in_front(0, -1).color
+    tile = tile_in_front(0, -1)
     draw_tile(0, Height, 									# bottom left
               0, First_Row_Height,  			# top left
               First_Row_Width, First_Row_Height,  	# top right
               0, Height, 						  # bottom right
-              tile_color)
+              tile)
 
     # draw tile in front
-    tile_color = tile_in_front(1, -1).color
+    tile = tile_in_front(1, -1)
     draw_tile(0, First_Row_Height, 				# bottom left
               0, Second_Row_Height,  			# top left
               Second_Row_Width, Second_Row_Height,  	# top right
               First_Row_Width, First_Row_Height, 	  # bottom right
-              tile_color)
+              tile)
 
     # draw 2 tiles in front
-    tile_color = tile_in_front(2, -1).color
+    tile = tile_in_front(2, -1)
     draw_tile(0, Second_Row_Height, 			# bottom left
               0, Third_Row_Height,  			# top left
               Third_Row_Width, Third_Row_Height,  	# top right
               Second_Row_Width, Second_Row_Height, 	# bottom right
-              tile_color)
+              tile)
 
     # draw 3 tiles in front
-    tile_color = tile_in_front(3, -1).color
+    tile = tile_in_front(3, -1)
     draw_tile(0, Third_Row_Height, 				# bottom left
               0, Fourth_Row_Height,  			# top left
               Fourth_Row_Width, Fourth_Row_Height,  	# top right
               Third_Row_Width, Third_Row_Height, 	  # bottom right
-              tile_color)
+              tile)
 
     # draw 4 tiles in front
-    tile_color = tile_in_front(4, -1).color
+    tile = tile_in_front(4, -1)
     draw_tile(0, Fourth_Row_Height, 			# bottom left
               0, Fifth_Row_Height,  			# top left
               Width / 2, Fifth_Row_Height,  	# top right
               Fourth_Row_Width, Fourth_Row_Height, 	# bottom right
-              tile_color)
+              tile)
   end
 
   def draw_rightmost_ground_tiles
     # draw tile we stand on
-    tile_color = tile_in_front(0, 1).color
+    tile = tile_in_front(0, 1)
     draw_tile(Width, Height, 									# bottom left
               Width - First_Row_Width, First_Row_Height,  			# top left
               Width, First_Row_Height,  	# top right
               Width, Height, 						  # bottom right
-              tile_color)
+              tile)
 
     # draw tile in front
-    tile_color = tile_in_front(1, 1).color
+    tile = tile_in_front(1, 1)
     draw_tile(Width - First_Row_Width, First_Row_Height, 				# bottom left
               Width - Second_Row_Width, Second_Row_Height,  			# top left
               Width, Second_Row_Height,  	# top right
-              Width, First_Row_Height, 	  # bottom right
-              tile_color)
+              Width, First_Row_Height, 	  # bottom right.color
+              tile)
 
     # draw 2 tiles in front
-    tile_color = tile_in_front(2, 1).color
+    tile = tile_in_front(2, 1)
     draw_tile(Width - Second_Row_Width, Second_Row_Height, 			# bottom left
               Width - Third_Row_Width, Third_Row_Height,  			# top left
               Width, Third_Row_Height,  	# top right
               Width, Second_Row_Height, 	# bottom right
-              tile_color)
+              tile)
 
     # draw 3 tiles in front
-    tile_color = tile_in_front(3, 1).color
+    tile = tile_in_front(3, 1)
     draw_tile(Width - Third_Row_Width, Third_Row_Height, 				# bottom left
               Width - Fourth_Row_Width, Fourth_Row_Height,  			# top left
               Width, Fourth_Row_Height,  	# top right
               Width, Third_Row_Height, 	  # bottom right
-              tile_color)
+              tile)
 
     # draw 4 tiles in front
-    tile_color = tile_in_front(4, 1).color
+    tile = tile_in_front(4, 1)
     draw_tile(Width - Fourth_Row_Width, Fourth_Row_Height, 			# bottom left
               Width / 2, Fifth_Row_Height,  			# top left
               Width, Fifth_Row_Height,  	# top right
               Width, Fourth_Row_Height, 	# bottom right
-              tile_color)
+              tile)
   end
 
 	def tile_in_front(number_of_steps, side_step=0)
@@ -285,11 +288,21 @@ private
 	end
 	
 	def draw_tile (bottom_left_x, bottom_left_y, top_left_x, top_left_y, top_right_x,
-								 top_right_y, bottom_right_x, bottom_right_y, tile_color)
-    draw_quad(bottom_left_x, bottom_left_y, tile_color,			# bottom left
-              top_left_x, top_left_y, tile_color, 					# top left
-              top_right_x, top_right_y, tile_color, 				# top right
-              bottom_right_x, bottom_right_y, tile_color) 	# bottom right
+								 top_right_y, bottom_right_x, bottom_right_y, tile)
+
+    image = @TilePalette.get_tile_resource(tile)
+
+    if image.nil?
+      draw_quad(bottom_left_x, bottom_left_y, tile.color,			# bottom left
+                top_left_x, top_left_y, tile.color, 					# top left
+                top_right_x, top_right_y, tile.color, 				# top right
+                bottom_right_x, bottom_right_y, tile.color) 	# bottom right
+    else
+      image.draw_as_quad(bottom_left_x, bottom_left_y, 0xFFFFFFFF,			# bottom left
+                top_left_x, top_left_y, 0xFFFFFFFF, 					# top left
+                top_right_x, top_right_y, 0xFFFFFFFF, 				# top right
+                bottom_right_x, bottom_right_y, 0xFFFFFFFF, 1) 	# bottom right
+    end
 	end
 end
 

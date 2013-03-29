@@ -1,5 +1,5 @@
 require 'gosu'
-require_relative 'tile_palette'
+require_relative 'mini_tile_palette'
 
 class MapOverview
   TILE_SIZE = 10
@@ -9,7 +9,7 @@ class MapOverview
     @top = top
     @size = size
     @parent_window = parent_window
-    @tile_palette = TilePalette.new(@parent_window, "MapGenerator")
+    @tile_palette = MiniTilePalette.new(@parent_window, "MapGenerator")
 
     @red_arrow_up = Gosu::Image.new(parent_window, "media/red_arrow_up.png", true)
     @red_arrow_left = Gosu::Image.new(parent_window, "media/red_arrow_left.png", true)
@@ -43,7 +43,7 @@ class MapOverview
 private
 
   def draw_tile(tile, x, y)
-    tile_to_draw = @tile_palette.get_tile_resource(tile)
+    tile_to_draw = @tile_palette.get_mini_tile_resource(tile)
     tile_to_draw.draw(@left + x * TILE_SIZE, @top + y * TILE_SIZE, 0)
   end
 end

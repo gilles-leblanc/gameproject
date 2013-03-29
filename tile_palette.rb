@@ -1,22 +1,22 @@
 require 'gosu'
 
 class TilePalette
-  def initialize(parent_window, path_prefix="")
-    @water_tile = Gosu::Image.new(parent_window, path_prefix + "/media/water.png", true)
-    @grass_tile = Gosu::Image.new(parent_window, path_prefix + "/media/grass.png", true)
-    @mountain_tile = Gosu::Image.new(parent_window, path_prefix + "/media/mountain.png", true)
-    @sand_tile = Gosu::Image.new(parent_window, path_prefix + "/media/sand.png", true)
-    @forest_tile = Gosu::Image.new(parent_window, path_prefix + "/media/forest.png", true)
-    @cave_tile = Gosu::Image.new(parent_window, path_prefix + "/media/cave.png", true)
-    @city_tile = Gosu::Image.new(parent_window, path_prefix + "/media/city.png", true)
-    @snow_tile = Gosu::Image.new(parent_window, path_prefix + "/media/snow.png", true)
-    @snow_forest_tile = Gosu::Image.new(parent_window, path_prefix + "/media/snow-forest.png", true)
-    @road_tile = Gosu::Image.new(parent_window, path_prefix + "/media/road.png", true)
-    @open_tile = Gosu::Image.new(parent_window, path_prefix + "/media/open.png", true)
-    @wall_tile = Gosu::Image.new(parent_window, path_prefix + "/media/wall.png", true)
-    @door_tile = Gosu::Image.new(parent_window, path_prefix + "/media/door.png", true)
-    @entrance_tile = Gosu::Image.new(parent_window, path_prefix + "/media/entrance.png", true)
-    @empty_tile = Gosu::Image.new(parent_window, path_prefix + "/media/empty_tile.png", true)
+  def initialize(parent_window)
+    @water_tile = nil
+    @grass_tile =  Gosu::Image.new(parent_window, "media/grass.BMP", true)
+    @mountain_tile = Gosu::Image.new(parent_window, "media/mountain.BMP", true)
+    @sand_tile = Gosu::Image.new(parent_window, "media/sand.BMP", true)
+    @forest_tile = Gosu::Image.new(parent_window, "media/forest.BMP", true)
+    @cave_tile = Gosu::Image.new(parent_window, "media/cave.BMP", true)
+    @city_tile = Gosu::Image.new(parent_window, "media/city.BMP", true)
+    @snow_tile = Gosu::Image.new(parent_window, "media/snow.BMP", true)
+    @snow_forest_tile = nil
+    @road_tile = Gosu::Image.new(parent_window, "media/road.BMP", true)
+    @open_tile = Gosu::Image.new(parent_window, "media/open.BMP", true)
+    @wall_tile = Gosu::Image.new(parent_window, "media/wall.BMP", true)
+    @door_tile = nil
+    @entrance_tile = nil
+    @empty_tile = nil
   end
 
   def get_tile_resource(tile)
