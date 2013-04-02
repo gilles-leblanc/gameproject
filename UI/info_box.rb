@@ -1,14 +1,16 @@
+require_relative './ui_constants'
+
 class InfoBox
   def initialize(parent_window)
     @font = Gosu::Font.new(parent_window, Gosu::default_font_name, 20)
   end
 
   def draw(map, current_position, compass)
-    @font.draw("#{map.name}", 650, 5, 0)
-    @font.draw("Position X : #{current_position[:x]}", 650, 25, 0)
-    @font.draw("Position Y : #{current_position[:y]}", 650, 45, 0)
-    @font.draw("Facing : #{compass[0]}", 650, 65, 0)
-    @font.draw("Tile X, Y : #{map.tile_at(current_position[:x], current_position[:y]).type}", 650, 85, 0)
-    @font.draw("Tile X, Y - 1 : #{map.tile_at(current_position[:x], current_position[:y] - 1).type}", 650, 105, 0)
+    @font.draw("#{map.name}", UiConstants::Info_Box_x_Placement, UiConstants::Info_Box_y_Placement, 0)
+    @font.draw("Position X : #{current_position[:x]}", UiConstants::Info_Box_x_Placement, UiConstants::Info_Box_y_Placement + 20, 0)
+    @font.draw("Position Y : #{current_position[:y]}", UiConstants::Info_Box_x_Placement, UiConstants::Info_Box_y_Placement + 40, 0)
+    @font.draw("Facing : #{compass[0]}", UiConstants::Info_Box_x_Placement, UiConstants::Info_Box_y_Placement + 60, 0)
+    @font.draw("Tile X, Y : #{map.tile_at(current_position[:x], current_position[:y]).type}", UiConstants::Info_Box_x_Placement, UiConstants::Info_Box_y_Placement + 80, 0)
+    @font.draw("Tile X, Y - 1 : #{map.tile_at(current_position[:x], current_position[:y] - 1).type}", UiConstants::Info_Box_x_Placement, UiConstants::Info_Box_y_Placement + 100, 0)
   end
 end
