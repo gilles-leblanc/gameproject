@@ -1,5 +1,4 @@
 require 'gosu'
-require 'texplay'
 require_relative 'starting_position'
 require_relative './MapGenerator/map_factory'
 require_relative './UI/map_overview'
