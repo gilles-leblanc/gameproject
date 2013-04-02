@@ -1,5 +1,5 @@
 require 'gosu'
-require_relative 'mini_tile_palette'
+require_relative '../mini_tile_palette'
 
 class MapOverview
   TILE_SIZE = 10

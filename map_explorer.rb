@@ -3,7 +3,7 @@ require 'texplay'
 require_relative 'starting_position'
 require_relative './MapGenerator/map_factory'
 require_relative './color_palette'
-require_relative './map_overview'
+require_relative './UI/map_overview'
 require_relative 'tile_palette'
 
 # TODO : major refactor SRP + good design
