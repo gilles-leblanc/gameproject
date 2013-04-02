@@ -4,6 +4,7 @@ require_relative 'starting_position'
 require_relative './MapGenerator/map_factory'
 require_relative './color_palette'
 require_relative './UI/map_overview'
+require_relative './UI/info_box'
 require_relative 'tile_palette'
 
 # TODO : major refactor SRP + good design
@@ -29,9 +30,8 @@ class MapExplorer < Gosu::Window
 
     @compass = [:north, :west, :south, :east]
     @key_countdown = 0
-    
-    @font = Gosu::Font.new(self, Gosu::default_font_name, 20)
-    
+
+    @info_box = InfoBox.new(self)
     @map_overview = MapOverview.new(650, 130, self)
   end
   
@@ -49,14 +49,7 @@ class MapExplorer < Gosu::Window
   def draw 	 
   	draw_sky
   	draw_ground
-
-    @font.draw("#{@map.name}", 650, 5, 0)
-  	@font.draw("Position X : #{@current_position[:x]}", 650, 25, 0)
-  	@font.draw("Position Y : #{@current_position[:y]}", 650, 45, 0)
-  	@font.draw("Facing : #{@compass[0]}", 650, 65, 0)
-    @font.draw("Tile X, Y : #{@map.tile_at(@current_position[:x], @current_position[:y]).type}", 650, 85, 0)
-    @font.draw("Tile X, Y - 1 : #{@map.tile_at(@current_position[:x], @current_position[:y] - 1).type}", 650, 105, 0)
-
+    @info_box.draw(@map, @current_position, @compass)
   	@map_overview.draw(@map, @current_position, @compass)
   end
   
