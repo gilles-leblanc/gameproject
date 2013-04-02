@@ -1,5 +1,4 @@
 require 'gosu'
-require 'texplay'
 require_relative './sky_box'
 require_relative './ui_constants'
 require_relative './color_palette'
