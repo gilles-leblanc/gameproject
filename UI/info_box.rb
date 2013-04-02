@@ -2,7 +2,7 @@ require_relative './ui_constants'
 
 class InfoBox
   def initialize(parent_window)
-    @font = Gosu::Font.new(parent_window, Gosu::default_font_name, 20)
+    @font = Gosu::Font.new(parent_window, Gosu::default_font_name, UiConstants::Info_Box_Font_Size)
   end
 
   def draw(map, current_position, compass)

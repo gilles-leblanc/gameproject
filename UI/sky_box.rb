@@ -1,5 +1,5 @@
 require_relative './ui_constants'
-require_relative '../color_palette'
+require_relative './color_palette'
 
 class SkyBox
   def initialize(parent_window)

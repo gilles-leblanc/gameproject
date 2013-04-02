@@ -3,6 +3,7 @@ module UiConstants
 
   Info_Box_x_Placement = 650
   Info_Box_y_Placement = 5
+  Info_Box_Font_Size = 20
 
   Width = 640
   Height = 480
