@@ -3,6 +3,7 @@ require_relative 'city_factory'
 
 class TestCityFactory < CityFactory
   def initialize
+    super
     @width = 20
     @height = 20
     @tiles = Array.new

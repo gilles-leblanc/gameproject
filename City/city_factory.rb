@@ -1,4 +1,5 @@
 require_relative '../RandomNameGeneration/nameable'
+require_relative '../RandomNameGeneration/establishment_name_generator'
 require_relative '../tile'
 require_relative '../Events/shop_event'
 require_relative 'building'
@@ -8,6 +9,10 @@ class CityFactory
   include Edge
 
   attr_reader :width, :height
+
+  def initialize
+    @establishment_name_generator = EstablishmentNameGenerator.new("../RandomNameGeneration/")
+  end
 
 private
 
@@ -119,7 +124,9 @@ private
 
   def place_events(city)
     #city.tiles.select { |tile| tile.type == :door }.shuffle.first.event =
-    city.tiles.select{ |tile| tile.type == :door }.each { |tile| tile.event = ShopEvent.new("Ye Olde Shope") }
+    city.tiles.select{ |tile| tile.type == :door }.each do |tile|
+      tile.event = ShopEvent.new(@establishment_name_generator.get_shop_name)
+    end
   end
 
   def tile_at(x, y)

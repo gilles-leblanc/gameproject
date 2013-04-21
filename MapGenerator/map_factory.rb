@@ -2,7 +2,6 @@ require_relative './world_map'
 require_relative './gaussian_filter'
 require_relative './river_filter'
 require_relative './height_map_configurator'
-require_relative '../RandomNameGeneration/establishment_name_generator'
 
 class MapFactory
 	def self.make(x, y, height_map_config = HeightMapConfigurator::Sample_config_1,
