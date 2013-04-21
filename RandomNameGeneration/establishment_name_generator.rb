@@ -2,9 +2,11 @@ require_relative 'random_name_generator'
 
 class EstablishmentNameGenerator
 	def initialize(path_to_media = "./")
+    @path_to_media = path_to_media
+
 		@existing_establishments = Array.new
 		@random_generator = Random.new	
-		@random_name_generator = RandomNameGenerator.new(path_to_media + "media/male_sample")
+		@random_name_generator = RandomNameGenerator.new(@path_to_media + "media/male_sample")
 		read_words_from_file
 	end	
 	
@@ -65,28 +67,28 @@ private
 	end
 	
 	def read_words_from_file
-		File.open(path_to_media + "media/common_adjectives") {|file| @common_adjectives = file.readlines}
+		File.open(@path_to_media + "media/common_adjectives") {|file| @common_adjectives = file.readlines}
 		@common_adjectives.shuffle!
 			
-		File.open(path_to_media + "media/common_nouns") {|file| @common_nouns = file.readlines}
+		File.open(@path_to_media + "media/common_nouns") {|file| @common_nouns = file.readlines}
 		@common_nouns.shuffle!
 		
-		File.open(path_to_media + "media/shop_adjectives") {|file| @shop_adjectives = file.readlines}
+		File.open(@path_to_media + "media/shop_adjectives") {|file| @shop_adjectives = file.readlines}
 		@shop_adjectives.shuffle!
 			
-		File.open(path_to_media + "media/shop_nouns") {|file| @shop_nouns = file.readlines}
+		File.open(@path_to_media + "media/shop_nouns") {|file| @shop_nouns = file.readlines}
 		@shop_nouns.shuffle!
 		
-		File.open(path_to_media + "media/tavern_adjectives") {|file| @tavern_adjectives = file.readlines}
+		File.open(@path_to_media + "media/tavern_adjectives") {|file| @tavern_adjectives = file.readlines}
 		@tavern_adjectives.shuffle!
 			
-		File.open(path_to_media + "media/tavern_nouns") {|file| @tavern_nouns = file.readlines}
+		File.open(@path_to_media + "media/tavern_nouns") {|file| @tavern_nouns = file.readlines}
 		@tavern_nouns.shuffle!
 		
-		File.open(path_to_media + "media/shop_types") {|file| @shop_types = file.readlines}
+		File.open(@path_to_media + "media/shop_types") {|file| @shop_types = file.readlines}
 		@shop_types.shuffle!
 		
-		File.open(path_to_media + "media/tavern_types") {|file| @tavern_types = file.readlines}
+		File.open(@path_to_media + "media/tavern_types") {|file| @tavern_types = file.readlines}
 		@tavern_types.shuffle!
 	end
 end

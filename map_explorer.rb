@@ -12,7 +12,7 @@ class MapExplorer < Gosu::Window
 	def initialize
     super 800, 600, false
     self.caption = "Map Explorer"
-    
+
     @world_map = MapFactory.make_small_world
     @map = @world_map
 
