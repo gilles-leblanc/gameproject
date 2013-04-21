@@ -18,6 +18,7 @@ class SmallCityFactory < CityFactory
 
     place_buildings(city)
     place_dead_ends(city)
+    place_events(city)
 
     city
   end

@@ -12,7 +12,7 @@ require_relative './road_builder/road_builder'
 class WorldMap < Map
   include Nameable
 
-	def initialize(width, height, height_map)
+	def initialize(width, height, height_map, city_factory)
 		super(width, height)		
 
     @name = give_name
@@ -41,7 +41,7 @@ class WorldMap < Map
 
     # place cities
     @cities = Array.new
-    place_cities
+    place_cities(city_factory)
 
     # place roads
     # build roads to connect the various cities
@@ -80,8 +80,7 @@ private
     sub_arctic_tiles.map {|t| if [true, false].shuffle[0] then t.type = :snow end }
   end
 
-  def place_cities
-    city_factory = SmallCityFactory.new
+  def place_cities(city_factory)
     city_location_specification = CityLocationSpecification.new
 
     ((width * height) / 1250).times do # 1250 is a magic number, the lower the number, the more cities will be present and vice-versa

@@ -1,5 +1,6 @@
 require_relative '../RandomNameGeneration/nameable'
 require_relative '../tile'
+require_relative '../Events/shop_event'
 require_relative 'building'
 
 class CityFactory
@@ -114,6 +115,11 @@ private
             )
       end.shuffle.first.type = :wall
     end
+  end
+
+  def place_events(city)
+    #city.tiles.select { |tile| tile.type == :door }.shuffle.first.event =
+    city.tiles.select{ |tile| tile.type == :door }.each { |tile| tile.event = ShopEvent.new("Ye Olde Shope") }
   end
 
   def tile_at(x, y)

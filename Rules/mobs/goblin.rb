@@ -1,4 +1,4 @@
-require_relative '../broadcast'
+require_relative '../../broadcast'
 require_relative '../treasure_table'
 
 class Goblin

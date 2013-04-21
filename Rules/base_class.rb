@@ -1,4 +1,4 @@
-require_relative 'broadcast'
+require_relative '../broadcast'
 require_relative 'paper_doll'
 
 # This is the base character class on which all other character class are based; knight, sorcerer, etc.

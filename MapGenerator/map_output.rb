@@ -5,10 +5,9 @@
 require 'gosu'
 require 'texplay'
 require './world_map.rb'
-require './gaussian_filter'
 require './height_map_configurator'
-require './river_filter'
 require '../mini_tile_palette'
+require './map_factory'
 
 class MapOutput < Gosu::Window
   def initialize
@@ -17,18 +16,7 @@ class MapOutput < Gosu::Window
     super @x * 10, @y * 10, false
     self.caption = "Map Output"
 
-    @height_map = HeightMap.new
-		@height_map.visit(HeightMapConfigurator::Medium_world)
-		@height_map.generate(@x, @y)
-    
-    blur_filter = GaussianFilter.new
-		filtered_twice = @height_map.filter(blur_filter).filter(blur_filter)
-
-    river_filter = RiverFilter.new(@x, @y)
-    river_filtered = filtered_twice.filter(river_filter)
-
-    @map = WorldMap.new(@x, @y, river_filtered.data)
-
+    @map = MapFactory.make(@x, @y, HeightMapConfigurator::Medium_world, HeightMapConfigurator::RainMap_medium_world)
     @tile_palette = MiniTilePalette.new(self, '.')
   end
   

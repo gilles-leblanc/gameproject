@@ -2,34 +2,27 @@ require_relative './world_map'
 require_relative './gaussian_filter'
 require_relative './river_filter'
 require_relative './height_map_configurator'
+require_relative '../RandomNameGeneration/establishment_name_generator'
 
 class MapFactory
-	def self.make(x, y)
-		height_map = HeightMap.new
-		height_map.visit(HeightMapConfigurator::Sample_config_1)
+	def self.make(x, y, height_map_config = HeightMapConfigurator::Sample_config_1,
+                      rain_map_config = HeightMapConfigurator::RainMap_small_world)
+
+    height_map = HeightMap.new
+		height_map.visit(height_map_config)
 		height_map.generate(x, y)
 	
 		blur_filter = GaussianFilter.new
     blur_filtered = height_map.filter(blur_filter)
 
-    river_filter = RiverFilter.new(x, y)
+    river_filter = RiverFilter.new(x, y, rain_map_config)
     river_filtered = blur_filtered.filter(river_filter)
 
-		WorldMap.new(x, y, river_filtered.data)
+    city_factory = SmallCityFactory.new
+		WorldMap.new(x, y, river_filtered.data, city_factory)
   end
 
   def self.make_small_world
-    height_map = HeightMap.new
-    height_map.visit(HeightMapConfigurator::Small_world)
-
-    height_map.generate(50, 50)
-
-    blur_filter = GaussianFilter.new
-    blur_filtered = height_map.filter(blur_filter).filter(blur_filter)
-
-    river_filter = RiverFilter.new(50, 50, HeightMapConfigurator::RainMap_small_world)
-    river_filtered = blur_filtered.filter(river_filter)
-
-    WorldMap.new(50, 50, river_filtered.data)
+    self.make(50, 50, HeightMapConfigurator::Small_world, HeightMapConfigurator::RainMap_small_world)
   end
 end

@@ -5,7 +5,7 @@ require_relative 'mobs/goblin'
 require_relative 'knight'
 require_relative 'sorcerer'
 require_relative 'stats'
-require_relative 'broadcast'
+require_relative '../broadcast'
 require_relative 'party'
 
 class BattleCoordinator

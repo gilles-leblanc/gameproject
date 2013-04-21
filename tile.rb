@@ -17,12 +17,13 @@ class Tile
   @@door_color = Gosu::Color.new 0xffffb55b
   @@black_color = Gosu::Color.new 0x00000000
 
-  attr_accessor :type, :x, :y
+  attr_accessor :type, :x, :y, :event
 
-	def initialize(type, x, y)
+	def initialize(type, x, y, event = nil)
 		@type = type
 		@x = x
 		@y = y
+    @event = event
   end
 
   def passable?
@@ -30,7 +31,6 @@ class Tile
       when :water
       when :mountain
       when :wall
-      when :door
       when :empty
         false
       else

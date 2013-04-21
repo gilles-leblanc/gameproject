@@ -25,6 +25,8 @@ class MapExplorer < Gosu::Window
     @view_port = ViewPort.new(self)
     @info_box = InfoBox.new(self)
     @map_overview = MapOverview.new(650, 130, self)
+
+    @acted = false
   end
   
   def update
@@ -58,8 +60,10 @@ private
   def button_presses
     if button_down? Gosu::KbUp
       step_forward
+      @acted = false
     elsif button_down? Gosu::KbDown
       step_backward
+      @acted = false
     elsif button_down? Gosu::KbLeft
       @compass.rotate!
     elsif button_down? Gosu::KbRight
@@ -70,7 +74,13 @@ private
     # TODO: change, should be another method or class, will have to handle many tile types, events, chests, caves, cities, other world maps, inns, castles, etc.
     if @map.tile_at(@current_position[:x], @current_position[:y]).type == :city
       @map = @world_map.get_city_at_position(@current_position[:x], @current_position[:y])
+      @previous_map_position = @current_position
       @current_position = @starting_position.get_city_starting_position(@map)
+    end
+
+    unless @map.tile_at(@current_position[:x], @current_position[:y]).event.nil? or @acted
+      @map.tile_at(@current_position[:x], @current_position[:y]).event.act
+      @acted = true
     end
   end
 
