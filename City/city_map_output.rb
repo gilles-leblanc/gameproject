@@ -11,7 +11,6 @@ require './hamlet_factory'
 require './outpost_factory'
 require './large_city_factory'
 require './very_large_city_factory'
-require './metropolis_factory'
 
 class CityMapOutput < Gosu::Window
   def initialize

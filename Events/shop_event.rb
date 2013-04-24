@@ -8,7 +8,7 @@ class ShopEvent
   end
 
   def act
-    broadcast "Welcome to #{@shopName}."
+    broadcast "Shop: Welcome to #{@shopName}."
 
   end
 end

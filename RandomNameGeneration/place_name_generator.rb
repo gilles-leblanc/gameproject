@@ -1,4 +1,4 @@
-require './random_name_generator'
+require_relative 'random_name_generator'
 
 class PlaceNameGenerator
 	def initialize(types_file, names_data_file)

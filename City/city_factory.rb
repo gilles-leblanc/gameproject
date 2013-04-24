@@ -1,7 +1,7 @@
 require_relative '../RandomNameGeneration/nameable'
 require_relative '../RandomNameGeneration/establishment_name_generator'
+require_relative '../RandomNameGeneration/place_name_generator'
 require_relative '../tile'
-require_relative '../Events/shop_event'
 require_relative 'building'
 
 class CityFactory
@@ -12,6 +12,8 @@ class CityFactory
 
   def initialize
     @establishment_name_generator = EstablishmentNameGenerator.new("../RandomNameGeneration/")
+    @temple_name_generator = PlaceNameGenerator.new("../RandomNameGeneration/media/temple_types",
+                                                    "../RandomNameGeneration/media/greek_myth_sample")
   end
 
 private
@@ -122,10 +124,9 @@ private
     end
   end
 
-  def place_events(city)
-    #city.tiles.select { |tile| tile.type == :door }.shuffle.first.event =
-    city.tiles.select{ |tile| tile.type == :door }.each do |tile|
-      tile.event = ShopEvent.new(@establishment_name_generator.get_shop_name)
+  def place_events(city, events)
+    events.each do |event|
+      city.tiles.select { |tile| tile.type == :door and tile.event.nil? }.shuffle.first.event = event
     end
   end
 
