@@ -18,6 +18,7 @@ class MapExplorer < Gosu::Window
 
     @starting_position = StartingPosition.new
     @current_position = @starting_position.get(@map)
+    @previous_map_position = Array.new
 
     @compass = [:north, :west, :south, :east]
     @key_countdown = 0
@@ -74,7 +75,7 @@ private
     # TODO: change, should be another method or class, will have to handle many tile types, events, chests, caves, cities, other world maps, inns, castles, etc.
     if @map.tile_at(@current_position[:x], @current_position[:y]).type == :city
       @map = @world_map.get_city_at_position(@current_position[:x], @current_position[:y])
-      @previous_map_position = @current_position
+      @previous_map_position.push(@current_position)
       @current_position = @starting_position.get_city_starting_position(@map)
     end
 
