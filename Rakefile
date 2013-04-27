@@ -32,7 +32,8 @@ end
 Rake::TestTask.new do |t|
   t.libs << "test"
   t.test_files = FileList['./MapGenerator/filter_out_of_bounds_specification_test.rb',
-                          './MapGenerator/particle_test.rb']
+                          './MapGenerator/particle_test.rb',
+                          './Events/test/test*.rb']
   t.verbose = false
 end
 
