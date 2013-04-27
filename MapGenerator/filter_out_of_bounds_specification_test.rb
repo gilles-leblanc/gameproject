@@ -1,5 +1,5 @@
 require 'test/unit'
-require './filter_out_of_bounds_specification'
+require_relative './filter_out_of_bounds_specification'
 
 class FilterOutOfBoundsSpecficationTest < Test::Unit::TestCase
 	def	test_satisfied_by_returns_true_when_z_plus_offset_is_greater_than_size_z

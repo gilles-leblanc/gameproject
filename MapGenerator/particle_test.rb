@@ -1,5 +1,5 @@
 require 'test/unit'
-require './particle'
+require_relative './particle'
 
 class ParticleTest < Test::Unit::TestCase
 	def test_drop_will_leave_a_particle_on_height_map

@@ -1,5 +1,5 @@
 require 'test/unit'
-require './world_map'
+require_relative './world_map'
 
 # tests do not work since adding snow
 class WorldMapTest < Test::Unit::TestCase
