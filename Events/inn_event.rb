@@ -4,11 +4,11 @@ class InnEvent
   include Broadcast
 
   def initialize(innName)
-    innName = innName
+    @innName = innName
   end
 
   def act
-    broadcast "Inn: Welcome to #{innName}."
+    broadcast "Inn: Welcome to #{@innName}."
 
   end
 end

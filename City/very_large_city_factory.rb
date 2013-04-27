@@ -1,5 +1,9 @@
 require_relative '../map'
 require_relative 'city_factory'
+require_relative '../Events/shop_event'
+require_relative '../Events/inn_event'
+require_relative '../Events/guild_event'
+require_relative '../Events/temple_event'
 
 class VeryLargeCityFactory < CityFactory
   def initialize

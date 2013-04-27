@@ -4,11 +4,11 @@ class GuildEvent
   include Broadcast
 
   def initialize(guildName)
-    guildName = guildName
+    @guildName = guildName
   end
 
   def act
-    broadcast "Guild: Welcome to #{guildName}."
+    broadcast "Guild: Welcome to #{@guildName}."
 
   end
 end
