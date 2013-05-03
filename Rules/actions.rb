@@ -6,7 +6,13 @@ module Actions
 		else
 			broadcast "#{@name} misses #{target.name}."
 		end
-		
-		broadcast ""
-	end
+  end
+
+  def block
+
+  end
+
+  def run
+
+  end
 end

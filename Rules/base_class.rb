@@ -1,9 +1,10 @@
 require_relative '../broadcast'
 require_relative 'paper_doll'
+require_relative 'actions'
 
 # This is the base character class on which all other character class are based; knight, sorcerer, etc.
 class BaseClass
-	include Broadcast
+	include Broadcast, Actions
 
 	attr_accessor :xp
 
@@ -26,9 +27,9 @@ class BaseClass
 		@might = stats.might
 		@accuracy = stats.accuracy
 		@speed = stats.speed
-		
+
 		@abilities = Hash.new
-		#@abilities["a"] =
+		@abilities["a"] = self.method(:attack)
 	end 
 		
 	def take_damage(hp)
@@ -55,32 +56,15 @@ class BaseClass
 	end
 
 	def act(enemies)
-		key_pressed = gets.chomp.downcase
-		
-		case key_pressed
-		when 'a'
-			attack(enemies.select {|m| m.hp > 0}.shuffle.first)
-		else
-			act(enemies)
-		end
-	end
-	
-	def attack(target)
-		if (1..10).to_a.shuffle.first + @accuracy / 4 >= target.ac
-			broadcast "#{@name} hits #{target.name}."
-			target.take_damage(@paper_doll.weapon.hit)
-		else
-			broadcast "#{@name} misses #{target.name}."
-		end
-		
-		broadcast ""
-	end
-	
-	def block
-		
-	end
-	
-	def run
-	
+    broadcast "#{@name}'s turn is up"
+    @abilities.each {|key, value| broadcast "#{key}: #{value.name}"}
+
+    key_pressed = gets.chomp.downcase
+
+    if @abilities.has_key?(key_pressed) then
+      @abilities[key_pressed].call enemies.select {|m| m.hp > 0}.shuffle.first
+    else
+      act(enemies)
+    end
 	end
 end
