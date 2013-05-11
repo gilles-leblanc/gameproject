@@ -1,5 +1,6 @@
 require_relative './items/armors'
 require_relative './items/shields'
+require_relative './items/weapons'
 require_relative '../broadcast'
 
 # This class represents the items equipped on character. Called for the so-called "paper-doll" in certain rpg games on which you drag equipment icons.

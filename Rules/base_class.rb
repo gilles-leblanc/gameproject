@@ -8,7 +8,7 @@ class BaseClass
 
 	attr_accessor :xp
 
-	attr_reader :name, :level, :hp, :sp, :condition, :paper_doll
+	attr_reader :name, :level, :hp, :sp, :effects, :paper_doll
 	
 	# basic stats
 	attr_reader :might, :accuracy, :endurance, :intellect, :personality, :speed, :luck
@@ -30,6 +30,10 @@ class BaseClass
 
 		@abilities = Hash.new
 		@abilities["a"] = self.method(:attack)
+    @abilities["b"] = self.method(:block)
+    @abilities["p"] = self.method(:pass)
+
+    @effects = Hash.new([])
 	end 
 		
 	def take_damage(hp)
@@ -52,8 +56,14 @@ class BaseClass
 	end
 	
 	def ac
-		@paper_doll.shield.armor_value + @paper_doll.armor.armor_value
-	end
+    effects_ac_modifier = @effects[:ac].inject(0) { |sum, x| sum + x[0] }
+    if effects_ac_modifier.nil? then effects_ac_modifier = 0 end
+    puts "#{effects_ac_modifier}"
+
+		@paper_doll.shield.armor_value +
+        @paper_doll.armor.armor_value +
+        effects_ac_modifier
+  end
 
 	def act(enemies)
     broadcast "#{@name}'s turn is up"
@@ -66,5 +76,5 @@ class BaseClass
     else
       act(enemies)
     end
-	end
+  end
 end

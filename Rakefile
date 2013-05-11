@@ -24,8 +24,16 @@ task :random_names_specs do
   Dir.chdir(current_dir)
 end
 
+desc "Rules Specs"
+task :rules_specs do
+  current_dir = Dir.pwd
+  Dir.chdir("./Rules")
+  system "rspec"
+  Dir.chdir(current_dir)
+end
+
 desc "All Specs"
-task :specs => [:city_specs, :map_specs, :random_names_specs] do
+task :specs => [:city_specs, :map_specs, :random_names_specs, :rules_specs] do
   puts "Ran all specs"
 end
 
