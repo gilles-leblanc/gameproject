@@ -8,7 +8,7 @@ module Actions
 		end
   end
 
-  def block(unused)
+  def block
     broadcast "#{@name} blocks."
     # add an :ac effect of +2 for 1 round
     @effects[:ac].push([2, 1])
@@ -19,6 +19,6 @@ module Actions
   end
 
   # empty action, does not do anything, not even block
-  def pass(unused)
+  def pass
   end
 end

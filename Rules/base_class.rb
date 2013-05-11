@@ -71,8 +71,14 @@ class BaseClass
 
     key_pressed = gets.chomp.downcase
 
-    if @abilities.has_key?(key_pressed) then
-      @abilities[key_pressed].call enemies.select {|m| m.hp > 0}.shuffle.first
+    if @abilities.has_key?(key_pressed)
+      action = @abilities[key_pressed]
+
+      if action.arity == 0
+        action.call
+      else
+        action.call enemies.select {|m| m.hp > 0}.shuffle.first
+      end
     else
       act(enemies)
     end
