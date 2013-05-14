@@ -76,7 +76,7 @@ class BaseClass
       if action.arity == 0
         action.call
       else
-        action.call enemies.select {|m| m.hp > 0}.shuffle.first
+        action.call enemies
       end
     else
       act(enemies)

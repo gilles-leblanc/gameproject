@@ -1,5 +1,7 @@
 module Actions
-	def attack(target)
+	def attack(enemies)
+    target = pick_target enemies
+
 		if (1..10).to_a.shuffle.first + @accuracy / 4 >= target.ac
 			broadcast "#{@name} hits #{target.name}."
 			target.take_damage(@paper_doll.weapon.hit)
@@ -20,5 +22,18 @@ module Actions
 
   # empty action, does not do anything, not even block
   def pass
+  end
+
+private
+  def pick_target(enemies)
+    available_targets = enemies.select {|m| m.hp > 0}
+    broadcast "Which: "
+    target_range = 1..6
+
+    begin
+      key_pressed = gets.chomp.to_i
+    end while not target_range.any? {|x| x == key_pressed && x <= available_targets.length}
+
+    available_targets[key_pressed - 1]
   end
 end
