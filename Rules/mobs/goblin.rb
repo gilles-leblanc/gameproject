@@ -35,6 +35,6 @@ class Goblin
 	end
 	
 	def treasure
-		TreasureTable.generate_a
+		TreasureTable.small_amount_of_gold
 	end
 end

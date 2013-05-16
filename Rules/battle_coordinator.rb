@@ -67,6 +67,7 @@ padded_armor = PaddedArmor.new
 shield = LargeShield.new
 long_sword = LongSword.new
 dagger = LongDagger.new
+                 members each gain 5 xp.
 
 stats = Stats.new
 stats.might, stats.accuracy, stats.endurance, stats.intellect, stats.personality, stats.speed, stats.luck = 10, 10, 10, 10, 10, 10, 10
