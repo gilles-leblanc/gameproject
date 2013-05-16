@@ -61,7 +61,7 @@ class BaseClass
     effects_ac_modifier = @effects[:ac].inject(0) { |sum, x| sum + x[0] }
     if effects_ac_modifier.nil? then effects_ac_modifier = 0 end
 
-		@paper_doll.shield.armor_value +
+		@paper_doll.shield.base_armor_value +
         @paper_doll.armor.armor_value +
         effects_ac_modifier
   end
