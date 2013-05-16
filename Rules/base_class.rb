@@ -1,6 +1,7 @@
 require_relative '../broadcast'
 require_relative 'paper_doll'
 require_relative 'actions'
+require_relative 'effects'
 
 # This is the base character class on which all other character class are based; knight, sorcerer, etc.
 class BaseClass
@@ -33,7 +34,8 @@ class BaseClass
     @abilities["b"] = self.method(:block)
     @abilities["p"] = self.method(:pass)
 
-    @effects = Hash.new([])
+    @effects = { :ac => [], :might => [], :accuracy => [], :endurance => [],
+                 :intellect => [], :personality => [], :speed => [], :luck => [] }
 	end 
 		
 	def take_damage(hp)
@@ -65,6 +67,8 @@ class BaseClass
   end
 
 	def act(enemies)
+    Effects.update_effects_timers(@effects)
+
     broadcast "#{@name}'s turn is up"
     @abilities.each {|key, value| broadcast "#{key}: #{value.name}"}
 
