@@ -15,7 +15,7 @@ class Armor
   end
 
   def armor_value
-    base_armor_value + @material_enchantment.value
+    base_armor_value + @material_enchantment.stat_modifier
   end
 	
 protected
