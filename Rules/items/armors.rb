@@ -11,7 +11,7 @@ class Armor
   end
 
   def to_s
-    @material_enchantment.name + @name
+    @material_enchantment.name != "" ? @material_enchantment.name + " " + @name : @name
   end
 
   def armor_value
@@ -41,19 +41,19 @@ class LeatherArmor < Armor
 	end
 end
 
-class ScaleArmor < Armor
+class ChainMail < Armor
   def initialize
-    super("Scale armor", 4)
+    super("Chain mail", 4)
     @category = :medium
-    @price = 50
+    @price = 70
   end
 end
 
-class ChainMail < Armor
+class ScaleArmor < Armor
   def initialize
-    super("Chain mail", 5)
+    super("Scale armor", 5)
     @category = :medium
-    @price = 70
+    @price = 50
   end
 end
 
