@@ -1,8 +1,10 @@
 module Actions
-	def attack(enemies)
+  @@random = Random.new
+
+  def attack(enemies)
     target = pick_target enemies
 
-		if (1..10).to_a.shuffle.first + @accuracy / 4 >= target.ac
+		if @@random.rand(1..10) + @accuracy / 4 >= target.ac
 			broadcast "#{@name} hits #{target.name}."
 			target.take_damage(@paper_doll.weapon.hit)
 		else

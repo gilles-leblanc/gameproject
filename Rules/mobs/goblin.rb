@@ -7,9 +7,9 @@ class Goblin
 	attr_reader :name, :speed, :xp
 	attr_accessor :hp, :ac
 	
-	def initialize
+	def initialize(random)
 		@name = "Goblin"
-		@hp = 4 + [0, 1, 2].shuffle.first
+		@hp = 4 + random.rand(0..2)
 		@ac = 6
 		@xp = 5
 		
@@ -18,10 +18,10 @@ class Goblin
 		@accuracy_bonus = 2
 	end
 	
-	def attack(target)
-		if [0, 1, 2, 3].shuffle.first + @accuracy_bonus >= target.ac
+	def attack(target, random)
+		if random.rand(0..3) + @accuracy_bonus >= target.ac
 			broadcast "#{@name} hits #{target.name}."
-			target.take_damage((2..4).to_a.shuffle.first)
+			target.take_damage(random.rand(2..4))
 		else
 			broadcast "#{@name} misses."
 		end

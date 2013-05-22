@@ -10,7 +10,11 @@ require_relative 'party'
 
 class BattleCoordinator
 	include Broadcast
-	
+
+  def initialize(random)
+    @random = random
+  end
+
 	def run_battle(party, enemies)
 		participants = party.members + enemies
 		participants.sort_by! {|p| p.speed}.reverse!
@@ -19,11 +23,11 @@ class BattleCoordinator
 			participants.each do |participant|				
 				if party.members.any? {|p| p.equal? participant}
 					# we are dealing with a party member
-					participant.act(enemies)		
+					participant.act(enemies)
 				else
 					# we are dealing with an enemy
 					target = party.members.select {|m| m.hp > 0}.shuffle.first
-					participant.attack(target)
+					participant.attack(target, @random)
 				end
 
 				participants.delete_if {|p| p.hp <= 0}
@@ -84,11 +88,13 @@ party = Party.new
 party.members.push(felgar)
 party.members.push(cassandra)
 
-enemies = Array.new
-enemies.push(Goblin.new)
-enemies.push(Goblin.new)
+random_number_generator = Random.new
 
-battleCoordinator = BattleCoordinator.new
+enemies = Array.new
+enemies.push(Goblin.new(random_number_generator))
+enemies.push(Goblin.new(random_number_generator))
+
+battleCoordinator = BattleCoordinator.new(random_number_generator)
 
 puts "You are : "
 party.members.each {|c| puts c.class.name + ' ' + c.name}

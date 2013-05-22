@@ -13,9 +13,9 @@ class BaseClass
 	
 	# basic stats
 	attr_reader :might, :accuracy, :endurance, :intellect, :personality, :speed, :luck
-	
+
 	def initialize(name, stats)
-		@level = 1
+    @level = 1
 		@sp = 0		
 		@ac = 0
 		@xp = 0
