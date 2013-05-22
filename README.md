@@ -21,3 +21,7 @@ From the MapGenerator dir you can call map_output to generate a random world map
 From the RandomNameGeneration dir you can call either random_name_generator_test, establishment_name_generator_test or place_name_generator_test to see some random names.
 
 Finally from the Rules dir you can call battle_coordinator to test out the rules engine.
+
+Project Page
+------------
+http://gilles-leblanc.github.io/gameproject/
