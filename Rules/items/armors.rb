@@ -45,7 +45,7 @@ class ChainMail < Armor
   def initialize
     super("Chain mail", 4)
     @category = :medium
-    @price = 70
+    @price = 50
   end
 end
 
@@ -53,7 +53,7 @@ class ScaleArmor < Armor
   def initialize
     super("Scale armor", 5)
     @category = :medium
-    @price = 50
+    @price = 70
   end
 end
 
