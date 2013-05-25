@@ -1,9 +1,11 @@
 class Weapon
-	attr_reader :name, :damage, :category
+	attr_reader :name, :damage, :category, :price
+  attr_accessor :material_enchantment
 	
 	def initialize(name, damage)
 		@name = name
 		@damage = damage
+    @material_enchantment = Enchantment.null_object
 	end
 	
 	def hit

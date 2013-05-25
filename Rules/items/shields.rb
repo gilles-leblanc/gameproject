@@ -1,9 +1,11 @@
 class Shield
-	attr_reader :name, :base_armor_value, :category
+	attr_reader :name, :base_armor_value, :category, :price
+  attr_accessor :material_enchantment
 
-	def initialize(name, armor_value)
+	def initialize(name, base_armor_value)
 		@name = name
-		@base_armor_value = armor_value
+		@base_armor_value = base_armor_value
+    @material_enchantment = Enchantment.null_object
 	end
 
 protected
@@ -13,74 +15,27 @@ protected
 	end
 end
 
-class SmallShield < Shield	
+class Buckler < Shield
 	def initialize
-		@name = "Small shield"
-		@base_armor_value = 1
+    super("Buckler", 1)
 		@category = :light
-	end
-end
-
-class SmallShieldP1 < Shield
-	def initialize
-		@name = "Small shield +1"
-		@base_armor_value = 2
-		@category = :light
-	end
-end
-
-class SmallShieldP2 < Shield
-	def initialize
-		@name = "Small shield +2"
-		@base_armor_value = 3
-		@category = :light
+    @price = 5
 	end
 end
 
 class MediumShield < Shield
 	def initialize
-		@name = "Medium shield"
-		@base_armor_value = 2
+    super("Medium shield", 2)
 		@category = :light
-	end
-end
-
-class MediumShieldP1 < Shield
-	def initialize
-		@name = "Medium shield +1"
-		@base_armor_value = 3
-		@category = :light
-	end
-end
-
-class MediumShieldP2 < Shield
-	def initialize
-		@name = "Medium shield +2"
-		@base_armor_value = 4
-		@category = :light
+    @price = 10
 	end
 end
 
 class LargeShield < Shield
 	def initialize
-		@name = "Large shield"
-		@base_armor_value = 3
+    super("Large shield", 3)
 		@category = :medium
+    @price = 20
 	end
 end
 
-class LargeShieldP1 < Shield
-	def initialize
-		@name = "Large shield +1"
-		@base_armor_value = 4
-		@category = :medium
-	end
-end
-
-class LargeShieldP2 < Shield
-	def initialize
-		@name = "Large shield +2"
-		@base_armor_value = 5
-		@category = :medium
-	end
-end
