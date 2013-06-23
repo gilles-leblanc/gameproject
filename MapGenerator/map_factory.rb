@@ -2,6 +2,7 @@ require_relative './world_map'
 require_relative './gaussian_filter'
 require_relative './river_filter'
 require_relative './height_map_configurator'
+require_relative '../City/small_city_factory'
 require_relative '../Maze/dungeon_factory'
 
 class MapFactory

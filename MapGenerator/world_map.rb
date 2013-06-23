@@ -3,7 +3,6 @@ require_relative '../tile'
 require_relative './height_map'
 require_relative './cave_location_specification'
 require_relative './city_location_specification'
-require_relative '../City/small_city_factory'
 require_relative '../RandomNameGeneration/nameable'
 require_relative './road_builder/road_builder'
 
