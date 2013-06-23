@@ -2,6 +2,7 @@ require_relative './world_map'
 require_relative './gaussian_filter'
 require_relative './river_filter'
 require_relative './height_map_configurator'
+require_relative '../Maze/dungeon_factory'
 
 class MapFactory
 	def self.make(x, y, height_map_config = HeightMapConfigurator::Sample_config_1,
@@ -18,7 +19,8 @@ class MapFactory
     river_filtered = blur_filtered.filter(river_filter)
 
     city_factory = SmallCityFactory.new
-		WorldMap.new(x, y, river_filtered.data, city_factory)
+    dungeon_factory = DungeonFactory.new
+		WorldMap.new(x, y, river_filtered.data, city_factory, dungeon_factory)
   end
 
   def self.make_small_world
