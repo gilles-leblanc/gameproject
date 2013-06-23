@@ -16,7 +16,7 @@ class DungeonFactory
           when Cell::ROOM, Cell::CORRIDOR
             tiles.push Tile.new(:open, cell.x, cell.y)
           when Cell::ENTRANCE
-            tiles.push Tile.new(:entrance, cell.x, cell.y)
+            tiles.push Tile.new(:door, cell.x, cell.y)
           else
             raise "Unknown cell/tile type."
         end

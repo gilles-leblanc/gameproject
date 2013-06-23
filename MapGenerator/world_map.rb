@@ -12,7 +12,7 @@ require_relative './road_builder/road_builder'
 class WorldMap < Map
   include Nameable
 
-	def initialize(width, height, height_map, city_factory)
+	def initialize(width, height, height_map, city_factory, dungeon_factory)
 		super(width, height)		
 
     @name = give_name
@@ -49,7 +49,8 @@ class WorldMap < Map
     road_builder.build_roads
 
     # place points of interest (castles, lairs, events, signs, text when visiting a certain tile, etc.)
-    place_caves(width, height)
+    @dungeons = Array.new
+    place_caves(width, height, dungeon_factory)
   end
 
   def get_city_at_position(x, y)
@@ -97,7 +98,7 @@ private
     end
   end
 
-  def place_caves(width, height)
+  def place_caves(width, height, dungeon_factory)
     cave_location_specification = CaveLocationSpecification.new
 
     ((width * height) / 2500).times do  # 2500 is a magic number, the lower the number, the more caves will be present and vice-versa, 2500 is 50x50 which was considered the default small world size at the time of this writing

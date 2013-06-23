@@ -28,6 +28,8 @@ class DungeonMapOutput < Gosu::Window
         color = Gosu::Color.new(0xff0d6a05)
       elsif tile.type == :wall
         color = Gosu::Color.new(0xff555555)
+      elsif tile.type == :door
+        color = Gosu::Color.new(0xffffb55b)
       end
 
       draw_quad(
