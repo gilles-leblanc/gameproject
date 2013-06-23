@@ -3,11 +3,15 @@ require_relative '../tile'
 require_relative 'Dungeon/Dungeon'
 require_relative 'Dungeon/Cell'
 
+# This class creates a random dungeon using the Dungeon program code.
+# It then converts this data to a map usable by this program.
 class DungeonFactory
   def build
+    # create random Dungeon
     dungeon = Dungeon.new(30, 30)
     tiles = Array.new
 
+    # create map tiles with Dungeon cells
     dungeon.cells.each do |cell_row|
       cell_row.each do |cell|
         case cell.type
@@ -23,6 +27,11 @@ class DungeonFactory
       end
     end
 
+    # place entrance
+    entrance_tile = tiles.find { |tile| tile.x == 1 and tile.y == 1 }
+    entrance_tile.type = :entrance
+
+    # create Map object with random Dungeon tiles
     dungeon_map = Map.new(30, 30, tiles)
     dungeon_map.name = "random dungeon"
     dungeon_map
