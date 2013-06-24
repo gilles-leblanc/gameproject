@@ -11,8 +11,16 @@ class CityFactory
   attr_reader :width, :height
 
   def initialize
-    @establishment_name_generator = EstablishmentNameGenerator.new("../RandomNameGeneration/")
-    @temple_name_generator = PlaceNameGenerator.new("../RandomNameGeneration/media/temple_types",
+  end
+
+  # lazy initialization
+  def establishment_name_generator
+    @establishment_name_generator ||= EstablishmentNameGenerator.new("../RandomNameGeneration/")
+  end
+
+  # lazy initialization
+  def temple_name_generator
+    @temple_name_generator ||= PlaceNameGenerator.new("../RandomNameGeneration/media/temple_types",
                                                     "../RandomNameGeneration/media/greek_myth_sample")
   end
 

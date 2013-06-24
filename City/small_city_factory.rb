@@ -24,10 +24,10 @@ class SmallCityFactory < CityFactory
     place_buildings(city)
     place_dead_ends(city)
 
-    events = [ShopEvent.new(@establishment_name_generator.get_shop_name),
-              InnEvent.new(@establishment_name_generator.get_tavern_name),
-              TempleEvent.new(@temple_name_generator.get_name),
-              GuildEvent.new(@establishment_name_generator.get_name)]
+    events = [ShopEvent.new(establishment_name_generator.get_shop_name),
+              InnEvent.new(establishment_name_generator.get_tavern_name),
+              TempleEvent.new(temple_name_generator.get_name),
+              GuildEvent.new(establishment_name_generator.get_name)]
 
     place_events(city, events)
 

@@ -24,7 +24,7 @@ class OutpostFactory < CityFactory
     place_buildings(city)
     place_dead_ends(city)
 
-    events = [InnEvent.new(@establishment_name_generator.get_tavern_name)]
+    events = [InnEvent.new(establishment_name_generator.get_tavern_name)]
 
     place_events(city, events)
 

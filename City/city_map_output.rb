@@ -5,16 +5,11 @@
 require 'gosu'
 require 'texplay'
 require_relative '../map'
-require './small_city_factory'
-require './village_factory'
-require './hamlet_factory'
-require './outpost_factory'
-require './large_city_factory'
-require './very_large_city_factory'
+require_relative 'test_city_factory'
 
 class CityMapOutput < Gosu::Window
   def initialize
-    city_factory = SmallCityFactory.new
+    city_factory = TestCityFactory.new
     @x, @y = city_factory.width, city_factory.height
 
     super @x * 10, @y * 10, false
