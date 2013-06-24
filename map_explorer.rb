@@ -79,6 +79,12 @@ private
       @current_position = @starting_position.get_city_starting_position(@map)
     end
 
+    if @map.tile_at(@current_position[:x], @current_position[:y]).type == :cave
+      @map = @world_map.get_dungeon_at_position(@current_position[:x], @current_position[:y])
+      @previous_map_position.push(@current_position)
+      @current_position = @starting_position.get_dungeon_starting_position(@map)
+    end
+
     unless @map.tile_at(@current_position[:x], @current_position[:y]).event.nil? or @acted
       @map.tile_at(@current_position[:x], @current_position[:y]).event.act
       @acted = true

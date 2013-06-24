@@ -52,11 +52,20 @@ class WorldMap < Map
     place_caves(width, height, dungeon_factory)
   end
 
+  # TODO: refactor get_city_at_position and get_dungeon_at_position into single method
   def get_city_at_position(x, y)
     city = @cities.find { |c| c[0] == x && c[1] == y }
     raise "Can't find city." if city.nil?
 
     city[2]
+  end
+
+  # TODO: refactor get_city_at_position and get_dungeon_at_position into single method
+  def get_dungeon_at_position(x, y)
+    dungeon = @dungeons.find { |c| c[0] == x && c[1] == y }
+    raise "Can't find dungeon." if dungeon.nil?
+
+    dungeon[2]
   end
 
 private
@@ -106,15 +115,24 @@ private
       if possible_cave_tiles.length > 0
         possible_cave_tiles.shuffle!
         possible_cave_tiles[0].type = :cave
+
+        push_dungeon(dungeon_factory, possible_cave_tiles)
         cave_location_specification.already_selected_tiles.push([possible_cave_tiles[0].x, possible_cave_tiles[0].y])
 
         if possible_cave_tiles.length > 1 && [true, false].shuffle[0]
           possible_cave_tiles = cave_location_specification.tiles_that_satisfy(self)
           possible_cave_tiles.shuffle!
           possible_cave_tiles[0].type = :cave
+
+          push_dungeon(dungeon_factory, possible_cave_tiles)
           cave_location_specification.already_selected_tiles.push([possible_cave_tiles[0].x, possible_cave_tiles[0].y])
         end
       end
     end
+  end
+
+  def push_dungeon(dungeon_factory, possible_cave_tiles)
+    dungeon = dungeon_factory.build
+    @dungeons.push([possible_cave_tiles[0].x, possible_cave_tiles[0].y, dungeon])
   end
 end

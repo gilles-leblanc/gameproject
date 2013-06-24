@@ -19,4 +19,9 @@ class StartingPosition
 
     {x: starting_tile.x, y: starting_tile.y}
   end
+
+  def get_dungeon_starting_position(map)
+    entrance = map.tiles.select { |tile| tile.type == :entrance }[0]
+    {x: entrance.x, y: entrance.y}
+  end
 end
