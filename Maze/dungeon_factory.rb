@@ -6,9 +6,16 @@ require_relative 'Dungeon/Cell'
 # This class creates a random dungeon using the Dungeon program code.
 # It then converts this data to a map usable by this program.
 class DungeonFactory
+  attr_reader :width, :height
+
+  def initialize
+    @width = 30
+    @height = 30
+  end
+
   def build
     # create random Dungeon
-    dungeon = Dungeon.new(30, 30)
+    dungeon = Dungeon.new(@width, @height)
     tiles = Array.new
 
     # create map tiles with Dungeon cells
@@ -32,7 +39,7 @@ class DungeonFactory
     entrance_tile.type = :entrance
 
     # create Map object with random Dungeon tiles
-    dungeon_map = Map.new(30, 30, tiles)
+    dungeon_map = Map.new(@width, @height, tiles)
     dungeon_map.name = "random dungeon"
     dungeon_map
   end

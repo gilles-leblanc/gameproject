@@ -10,8 +10,9 @@ require_relative 'dungeon_factory'
 class DungeonMapOutput < Gosu::Window
   def initialize
     dungeon_factory = DungeonFactory.new
+    @x, @y = dungeon_factory.width, dungeon_factory.height
 
-    super 310, 310, false
+    super (@x + 1) * 10, (@y + 1) * 10, false
 
     @dungeon = dungeon_factory.build
     self.caption = @dungeon.name
