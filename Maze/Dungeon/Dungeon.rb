@@ -130,9 +130,6 @@ class Dungeon
         room_id += 1
       end
     end
-    
-    puts "Alloc: #{allocated_cells} Placed:#{taken_cells}"
-
   end
 
   # Randomly places the room where there is space, and builds the perimeter wall
