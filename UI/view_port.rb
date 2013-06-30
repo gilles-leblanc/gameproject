@@ -18,11 +18,13 @@ class ViewPort
 
 private
 
-  # Draw 5 tiles far, 3 tiles wide.
+  # Draw 5 tiles far, number of tiles wide varies depending on how far we draw
   # First row is 40%, Second row is 30%, Third row is 15%, Fourth row is 10%, Fifth row is 5%
   def draw_ground(map, current_position, compass)
     draw_leftmost_ground_tiles(map, current_position, compass)
+    draw_left_ground_tiles(map, current_position, compass)
     draw_center_ground_tiles(map, current_position, compass)
+    draw_right_ground_tiles(map, current_position, compass)
     draw_rightmost_ground_tiles(map, current_position, compass)
   end
 
@@ -69,6 +71,32 @@ private
   end
 
   def draw_leftmost_ground_tiles(map, current_position, compass)
+    # draw 2 tiles in front
+    tile = tile_in_front(2, -2, map, current_position, compass)
+    draw_tile(0, UiConstants::Second_Row_Height, 			# bottom left
+              0, UiConstants::Third_Row_Height,  			# top left
+              UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,  	# top right
+              0, UiConstants::Second_Row_Height, 	# bottom right
+              tile)
+
+    # draw 3 tiles in front
+    tile = tile_in_front(3, -2, map, current_position, compass)
+    draw_tile(0, UiConstants::Third_Row_Height, 				# bottom left
+              0, UiConstants::Fourth_Row_Height,  			# top left
+              UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,  	# top right
+              UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height, 	  # bottom right
+              tile)
+
+    # draw 4 tiles in front
+    tile = tile_in_front(4, -2, map, current_position, compass)
+    draw_tile(0, UiConstants::Fourth_Row_Height, 				# bottom left
+              0, UiConstants::Fifth_Row_Height,  			# top left
+              UiConstants::Width / 2, UiConstants::Fifth_Row_Height,  	# top right
+              UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height, 	  # bottom right
+              tile)
+  end
+
+  def draw_left_ground_tiles(map, current_position, compass)
     # draw tile we stand on
     tile = tile_in_front(0, -1, map, current_position, compass)
     draw_tile(0, UiConstants::Height, 									# bottom left
@@ -88,29 +116,55 @@ private
     # draw 2 tiles in front
     tile = tile_in_front(2, -1, map, current_position, compass)
     draw_tile(0, UiConstants::Second_Row_Height, 			# bottom left
-              0, UiConstants::Third_Row_Height,  			# top left
+              UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,  			# top left
               UiConstants::Third_Row_Width, UiConstants::Third_Row_Height,  	# top right
               UiConstants::Second_Row_Width, UiConstants::Second_Row_Height, 	# bottom right
               tile)
 
     # draw 3 tiles in front
     tile = tile_in_front(3, -1, map, current_position, compass)
-    draw_tile(0, UiConstants::Third_Row_Height, 				# bottom left
-              0, UiConstants::Fourth_Row_Height,  			# top left
+    draw_tile(UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height, 				# bottom left
+              UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,  			# top left
               UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height,  	# top right
               UiConstants::Third_Row_Width, UiConstants::Third_Row_Height, 	  # bottom right
               tile)
 
     # draw 4 tiles in front
     tile = tile_in_front(4, -1, map, current_position, compass)
-    draw_tile(0, UiConstants::Fourth_Row_Height, 			# bottom left
-              0, UiConstants::Fifth_Row_Height,  			# top left
+    draw_tile(UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height, 			# bottom left
+              UiConstants::Width / 2, UiConstants::Fifth_Row_Height,  			# top left
               UiConstants::Width / 2, UiConstants::Fifth_Row_Height,  	# top right
               UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height, 	# bottom right
               tile)
   end
 
   def draw_rightmost_ground_tiles(map, current_position, compass)
+    # draw 2 tiles in front
+    tile = tile_in_front(2, 2, map, current_position, compass)
+    draw_tile(UiConstants::Width, UiConstants::Second_Row_Height, 			# bottom left
+              UiConstants::Width - UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,  			# top left
+              UiConstants::Width, UiConstants::Third_Row_Height,  	# top right
+              UiConstants::Width, UiConstants::Second_Row_Height, 	# bottom right
+              tile)
+
+    # draw 3 tiles in front
+    tile = tile_in_front(3, 2, map, current_position, compass)
+    draw_tile(UiConstants::Width - UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height, 				# bottom left
+              UiConstants::Width - UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,  			# top left
+              UiConstants::Width, UiConstants::Fourth_Row_Height,  	# top right
+              UiConstants::Width, UiConstants::Third_Row_Height, 	  # bottom right
+              tile)
+
+    # draw 4 tiles in front
+    tile = tile_in_front(4, 2, map, current_position, compass)
+    draw_tile(UiConstants::Width - UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height, 			# bottom left
+              UiConstants::Width / 2, UiConstants::Fifth_Row_Height,  			# top left
+              UiConstants::Width, UiConstants::Fifth_Row_Height,  	# top right
+              UiConstants::Width, UiConstants::Fourth_Row_Height, 	# bottom right
+              tile)
+  end
+
+  def draw_right_ground_tiles(map, current_position, compass)
     # draw tile we stand on
     tile = tile_in_front(0, 1, map, current_position, compass)
     draw_tile(UiConstants::Width, UiConstants::Height, 									# bottom left
@@ -131,7 +185,7 @@ private
     tile = tile_in_front(2, 1, map, current_position, compass)
     draw_tile(UiConstants::Width - UiConstants::Second_Row_Width, UiConstants::Second_Row_Height, 			# bottom left
               UiConstants::Width - UiConstants::Third_Row_Width, UiConstants::Third_Row_Height,  			# top left
-              UiConstants::Width, UiConstants::Third_Row_Height,  	# top right
+              UiConstants::Width - UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,  	# top right
               UiConstants::Width, UiConstants::Second_Row_Height, 	# bottom right
               tile)
 
@@ -139,16 +193,16 @@ private
     tile = tile_in_front(3, 1, map, current_position, compass)
     draw_tile(UiConstants::Width - UiConstants::Third_Row_Width, UiConstants::Third_Row_Height, 				# bottom left
               UiConstants::Width - UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height,  			# top left
-              UiConstants::Width, UiConstants::Fourth_Row_Height,  	# top right
-              UiConstants::Width, UiConstants::Third_Row_Height, 	  # bottom right
+              UiConstants::Width - UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,  	# top right
+              UiConstants::Width - UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height, 	  # bottom right
               tile)
 
     # draw 4 tiles in front
     tile = tile_in_front(4, 1, map, current_position, compass)
     draw_tile(UiConstants::Width - UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height, 			# bottom left
               UiConstants::Width / 2, UiConstants::Fifth_Row_Height,  			# top left
-              UiConstants::Width, UiConstants::Fifth_Row_Height,  	# top right
-              UiConstants::Width, UiConstants::Fourth_Row_Height, 	# bottom right
+              UiConstants::Width / 2, UiConstants::Fifth_Row_Height,  	# top right
+              UiConstants::Width - UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height, 	# bottom right
               tile)
   end
 

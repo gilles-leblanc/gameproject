@@ -20,4 +20,7 @@ module UiConstants
   Second_Row_Width = 0.3484 * Width
   Third_Row_Width = 0.4234 * Width
   Fourth_Row_Width = 0.4734 * Width
+
+  Fourth_Row_Second_Width = 0.2438 * Width
+  Fifth_Row_Second_Width = 0.4188 * Width
 end
