@@ -12,7 +12,7 @@ class DungeonMapOutput < Gosu::Window
     dungeon_factory = DungeonFactory.new
     @x, @y = dungeon_factory.width, dungeon_factory.height
 
-    super (@x + 1) * 10, (@y + 1) * 10, false
+    super @x * 10, @y * 10, false
 
     @dungeon = dungeon_factory.build
     self.caption = @dungeon.name

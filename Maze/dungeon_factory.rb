@@ -9,13 +9,13 @@ class DungeonFactory
   attr_reader :width, :height
 
   def initialize
-    @width = 30
-    @height = 30
+    @width = 29
+    @height = 29
   end
 
   def build
     # create random Dungeon
-    dungeon = Dungeon.new(@width, @height)
+    dungeon = Dungeon.new(@width - 1, @height - 1)
     tiles = Array.new
 
     # create map tiles with Dungeon cells
@@ -33,6 +33,8 @@ class DungeonFactory
         end
       end
     end
+
+    # fill empty cells with
 
     # place entrance
     entrance_tile = tiles.find { |tile| tile.x == 1 and tile.y == 1 }

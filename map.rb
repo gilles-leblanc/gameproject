@@ -27,5 +27,27 @@ class Map
 
     return EmptyTile.new if tile.nil?
     tile
-	end
+  end
+
+  def to_s
+    tiles.each { |tile| puts "X: #{tile.x}, Y: #{tile.y} -" }
+    #for i in 0..@width
+    #  for j in 0..@height
+    #    if tile_at(j, i).type == :open
+    #      print " "
+    #    elsif tile_at(j, i).type == :entrance
+    #      print "E"
+    #    elsif tile_at(j, i).type == :wall
+    #      print "W"
+    #    elsif tile_at(j, i).type == :door
+    #      print "D"
+    #    else
+    #      print "*"
+    #    end
+    #  end
+    #
+    #  STDOUT.flush
+    #  puts ""
+    #end
+  end
 end
