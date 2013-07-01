@@ -6,8 +6,6 @@ require_relative './city_location_specification'
 require_relative '../RandomNameGeneration/nameable'
 require_relative './road_builder/road_builder'
 
-# TODO: castles, dungeons (not caves), bridges
-
 class WorldMap < Map
   include Nameable
 
@@ -38,34 +36,23 @@ class WorldMap < Map
 
     place_snow(height)
 
-    # place cities
-    @cities = Array.new
+    # Array that will contain all sub-maps like Dungeons, Cities, etc.
+    @sub_maps = Array.new
+
     place_cities(city_factory)
 
-    # place roads
-    # build roads to connect the various cities
+    # build and place roads to connect the various cities
     road_builder = RoadBuilder.new(self)
     road_builder.build_roads
 
-    # place points of interest (castles, lairs, events, signs, text when visiting a certain tile, etc.)
-    @dungeons = Array.new
     place_caves(width, height, dungeon_factory)
   end
 
-  # TODO: refactor get_city_at_position and get_dungeon_at_position into single method
-  def get_city_at_position(x, y)
-    city = @cities.find { |c| c[0] == x && c[1] == y }
-    raise "Can't find city." if city.nil?
+  def get_map_at_position(x, y)
+    map = @sub_maps.find { |e| e[0] == x && e[1] == y }
+    raise "Can't find map at #{x}, #{y}." if map.nil?
 
-    city[2]
-  end
-
-  # TODO: refactor get_city_at_position and get_dungeon_at_position into single method
-  def get_dungeon_at_position(x, y)
-    dungeon = @dungeons.find { |c| c[0] == x && c[1] == y }
-    raise "Can't find dungeon." if dungeon.nil?
-
-    dungeon[2]
+    map[2]
   end
 
 private
@@ -100,7 +87,7 @@ private
         possible_city_tiles[0].type = :city
 
         city = city_factory.build
-        @cities.push([possible_city_tiles[0].x, possible_city_tiles[0].y, city])
+        @sub_maps.push([possible_city_tiles[0].x, possible_city_tiles[0].y, city])
         city_location_specification.already_selected_tiles.push([possible_city_tiles[0].x, possible_city_tiles[0].y])
       end
     end
@@ -133,6 +120,6 @@ private
 
   def push_dungeon(dungeon_factory, possible_cave_tiles)
     dungeon = dungeon_factory.build
-    @dungeons.push([possible_cave_tiles[0].x, possible_cave_tiles[0].y, dungeon])
+    @sub_maps.push([possible_cave_tiles[0].x, possible_cave_tiles[0].y, dungeon])
   end
 end
