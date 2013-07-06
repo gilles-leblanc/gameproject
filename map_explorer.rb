@@ -71,18 +71,15 @@ private
       @compass.rotate!(-1)
     end
 
-    # TODO : move out like in update method
-    # TODO: change, should be another method or class, will have to handle many tile types, events, chests, caves, cities, other world maps, inns, castles, etc.
-    if @map.tile_at(@current_position[:x], @current_position[:y]).type == :city
-      @map = @world_map.get_map_at_position(@current_position[:x], @current_position[:y])
-      @previous_map_position.push(@current_position)
-      @current_position = @starting_position.get_city_starting_position(@map)
-    end
+    act_for_tile
+  end
 
-    if @map.tile_at(@current_position[:x], @current_position[:y]).type == :cave
+  def act_for_tile
+    tile_type = @map.tile_at(@current_position[:x], @current_position[:y]).type
+    if tile_type == :city || tile_type == :cave
+      @previous_map_position.push([@current_position, @map])
       @map = @world_map.get_map_at_position(@current_position[:x], @current_position[:y])
-      @previous_map_position.push(@current_position)
-      @current_position = @starting_position.get_dungeon_starting_position(@map)
+      @current_position = @starting_position.get_sub_map_position(@map)
     end
 
     unless @map.tile_at(@current_position[:x], @current_position[:y]).event.nil? or @acted
