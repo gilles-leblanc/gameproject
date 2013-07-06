@@ -77,9 +77,15 @@ private
   def act_for_tile
     tile_type = @map.tile_at(@current_position[:x], @current_position[:y]).type
     if tile_type == :city || tile_type == :cave
-      @previous_map_position.push([@current_position, @map])
+      @previous_map_position.push([previous_tile, @map])
       @map = @world_map.get_map_at_position(@current_position[:x], @current_position[:y])
       @current_position = @starting_position.get_sub_map_position(@map)
+    end
+
+    if tile_type == :entrance
+      old_position = @previous_map_position.pop
+      @current_position = old_position[0]
+      @map = old_position[1]
     end
 
     unless @map.tile_at(@current_position[:x], @current_position[:y]).event.nil? or @acted
@@ -111,6 +117,19 @@ private
         @current_position[:x] += 1 if @map.tile_at(@current_position[:x] + 1, @current_position[:y]).passable?
       when :east
         @current_position[:x] -= 1 if @map.tile_at(@current_position[:x] - 1, @current_position[:y]).passable?
+    end
+  end
+
+  def previous_tile
+    case @compass[0]
+      when :north
+        {x: @current_position[:x], y: @current_position[:y] + 1}
+      when :south
+        {x: @current_position[:x], y: @current_position[:y] - 1}
+      when :west
+        {x: @current_position[:x] + 1, y: @current_position[:y]}
+      when :east
+        {x: @current_position[:x] - 1, y: @current_position[:y]}
     end
   end
 end

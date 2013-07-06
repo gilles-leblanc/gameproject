@@ -23,11 +23,11 @@ class DungeonFactory
       cell_row.each do |cell|
         case cell.type
           when Cell::BLOCKED, Cell::PERIMETER, Cell::UNALLOCATED
-            tiles.push Tile.new(:wall, cell.x, cell.y)
+            tiles.push Tile.new(:wall, cell.y, cell.x)
           when Cell::ROOM, Cell::CORRIDOR
-            tiles.push Tile.new(:open, cell.x, cell.y)
+            tiles.push Tile.new(:open, cell.y, cell.x)
           when Cell::ENTRANCE
-            tiles.push Tile.new(:door, cell.x, cell.y)
+            tiles.push Tile.new(:door, cell.y, cell.x)
           else
             raise "Unknown cell/tile type."
         end

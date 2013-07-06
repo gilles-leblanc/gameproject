@@ -15,6 +15,7 @@ class StartingPosition
 
     starting_tile = map.tiles.select { |tile| (tile.x >= entrance.x - 1 && tile.x <= entrance.x + 1) &&
                                               (tile.y >= entrance.y - 1 && tile.y <= entrance.y + 1) &&
+                                              tile.type == :open &&
                                               tile.passable? }.shuffle.first
 
     {x: starting_tile.x, y: starting_tile.y}
