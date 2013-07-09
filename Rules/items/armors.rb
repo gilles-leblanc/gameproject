@@ -15,7 +15,13 @@ class Armor
   end
 
   def armor_value
-    base_armor_value + @material_enchantment.stat_modifier
+    value = base_armor_value + @material_enchantment.stat_modifier
+    
+    if value >= 0 
+    	value
+    else
+    	0
+    end
   end
 	
 protected

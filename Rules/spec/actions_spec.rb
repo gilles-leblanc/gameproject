@@ -1,13 +1,10 @@
 require_relative '../actions'
-require_relative '../stats'
-require_relative '../base_class'
+require_relative '../character_test_data_builder'
 
 describe "Actions" do
   before(:each) do
-    stats = Stats.new
-    stats.might, stats.accuracy, stats.endurance, stats.intellect, stats.personality, stats.speed, stats.luck = 10, 10, 10, 10, 10, 10, 10
-
-    @character = BaseClass.new("Testy The Tester", stats)
+  	character_builder = CharacterTestDataBuilder.new
+  	@character = character_builder.build  
   end
 
   context "when blocking" do

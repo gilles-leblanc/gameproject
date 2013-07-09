@@ -18,14 +18,22 @@ module Actions
     @effects[:ac].push([2, 1])
   end
 
-  def run
-
-  end
-
+	def cast
+		# present possible spells from spell-list (could be filtered)		
+				
+		# allow user to make selection
+		
+		# execute spell code (which will probably ask for a target)				
+	end
+  
   # empty action, does not do anything, not even block
   def pass
   end
 
+	def run
+
+  end
+  
 private
   def pick_target(enemies)
     available_targets = enemies.select {|m| m.hp > 0}

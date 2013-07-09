@@ -11,6 +11,8 @@ class Sorcerer < BaseClass
 		
 		@paper_doll.armor_categories = [:very_light]
 		@paper_doll.weapon_categories = [:simple]
+		
+		@abilities["c"] = self.method(:cast)
 	end
 	
 	def level
