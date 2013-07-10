@@ -1,9 +1,9 @@
-require_relative '../test_city_factory'
+require_relative '../small_city_factory'
 
 describe "Buildings in a city" do
   describe "#load" do
     before(:all) do
-      city_factory = TestCityFactory.new
+      city_factory = SmallCityFactory.new
       @city = city_factory.build
     end
 
