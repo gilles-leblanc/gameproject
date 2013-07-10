@@ -1,4 +1,5 @@
 require 'test/unit'
+require 'mocha/setup'
 require_relative './world_map'
 
 # tests do not work since adding snow
@@ -8,7 +9,9 @@ class WorldMapTest < Test::Unit::TestCase
     height_map = [0, 0, 0, 0]
 
     # Act
-    map = WorldMap.new(2, 2, height_map)
+    map = WorldMap.new(2, 2, height_map, nil, nil)
+    map.expects(:place_cities).returns(nil)
+    map.expects(:place_caves).returns(nil)
 
     # Assert
     assert_equal(map.tiles.map { |tile| tile.type },
@@ -24,7 +27,9 @@ class WorldMapTest < Test::Unit::TestCase
                   0, 0, 0, 0, 0]
 
     # Act
-    map = WorldMap.new(5, 5, height_map)
+    map = WorldMap.new(5, 5, height_map, nil, nil)
+    map.expects(:place_cities).returns(nil)
+    map.expects(:place_caves).returns(nil)
 
     # Assert
     assert_equal(map.tiles.map { |tile| tile.type },
@@ -44,7 +49,9 @@ class WorldMapTest < Test::Unit::TestCase
                   0, 0, 0, 0, 0]
 
     # Act
-    map = WorldMap.new(5, 5, height_map)
+    map = WorldMap.new(5, 5, height_map, nil, nil)
+    map.expects(:place_cities).returns(nil)
+    map.expects(:place_caves).returns(nil)
 
     # Assert
     assert_equal(map.tiles.map { |tile| tile.type },
@@ -64,7 +71,9 @@ class WorldMapTest < Test::Unit::TestCase
                   0, 0, 0, 3, 0]
 
     # Act
-    map = WorldMap.new(5, 5, height_map)
+    map = WorldMap.new(5, 5, height_map, nil, nil)
+    map.expects(:place_cities).returns(nil)
+    map.expects(:place_caves).returns(nil)
 
     # Assert
     assert_equal(map.tiles.map { |tile| tile.type },
