@@ -7,9 +7,9 @@ describe "Buildings in a city" do
       @city = city_factory.build
     end
 
-    it { @city.tiles.one? {|tile| tile.type == :door && tile.event.class == ShopEvent }.should be_true }
-    it { @city.tiles.one? {|tile| tile.type == :door && tile.event.class == InnEvent }.should be_true }
-    it { @city.tiles.one? {|tile| tile.type == :door && tile.event.class == TempleEvent }.should be_true }
-    it { @city.tiles.one? {|tile| tile.type == :door && tile.event.class == GuildEvent }.should be_true }
+    it { @city.tiles.one? { |tile| tile.type == :door && tile.event.class == ShopEvent }.should be_true }
+    it { @city.tiles.one? { |tile| tile.type == :door && tile.event.class == InnEvent }.should be_true }
+    it { @city.tiles.one? { |tile| tile.type == :door && tile.event.class == TempleEvent }.should be_true }
+    it { @city.tiles.one? { |tile| tile.type == :door && tile.event.class == GuildEvent }.should be_true }
   end
 end

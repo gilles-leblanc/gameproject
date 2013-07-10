@@ -6,23 +6,23 @@ class TwoLetterLengthStrategy
     occurrences = count_occurrences(input)
     frequencies = Hash.new(0.0)
 
-    regular_occurrences = occurrences.select {|ok| ok[1] != ' '}
-    word_ending_occurrences = occurrences.select {|ok| ok[1] == ' '}
+    regular_occurrences = occurrences.select { |ok| ok[1] != ' ' }
+    word_ending_occurrences = occurrences.select { |ok| ok[1] == ' ' }
 
     # fill frequencies with all the keys contained in occurrences and
     # values being {value_in_occurrences_for_this_pair / value_in_occurrences_for_all_pairs_starting_with_same_letter}
     if occurrences.length > 0
       # do this for all pairs except those ending with a space
-      regular_occurrences.each {|key, value| frequencies[key] = value / regular_occurrences.select {|k| k[0] == key[0]}.values.inject{|sum,x| sum + x}}
+      regular_occurrences.each { |key, value| frequencies[key] = value / regular_occurrences.select { |k| k[0] == key[0] }.values.inject { |sum, x| sum + x } }
 
       # now treat the pairs ending with a space as a special case
-      word_ending_occurrences.each {|key, value| frequencies[key] = value / word_ending_occurrences.values.inject{|sum,x| sum + x}}
+      word_ending_occurrences.each { |key, value| frequencies[key] = value / word_ending_occurrences.values.inject { |sum, x| sum + x } }
     end
 
     frequencies
   end
 
-private
+  private
   # Creates a Hash that contains the count of how many times each pair of character occurs in the input.
   # @param [String] input A string containing the characters from which to build a probability table
   def count_occurrences(input)

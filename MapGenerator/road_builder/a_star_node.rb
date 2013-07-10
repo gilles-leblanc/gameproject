@@ -57,8 +57,8 @@ class AStarNode
     open_nodes = Set.new
     open_nodes.add(self)
 
-    g_scores = { self => 0 }
-    h_scores = { self => guess_distance(goal) }
+    g_scores = {self => 0}
+    h_scores = {self => guess_distance(goal)}
     f_scores = h_scores.dup
     came_from = {}
 

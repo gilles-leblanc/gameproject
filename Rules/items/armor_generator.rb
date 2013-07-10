@@ -13,12 +13,11 @@ class ArmorGenerator
 
     # add enchantments for appropriate item_level
     material_enchantments = [Enchantment.null_object, Grass.new, Wooden.new,
-                              Leather.new, Bronze.new, Iron.new, Steel.new,
-                              Silvered.new, Platinum.new, Mithril.new, Adamantine.new,
-                              Obsidian.new, Crystal.new, Meteorite.new]
+                             Leather.new, Bronze.new, Iron.new, Steel.new,
+                             Silvered.new, Platinum.new, Mithril.new, Adamantine.new,
+                             Obsidian.new, Crystal.new, Meteorite.new]
 
-    armor.material_enchantment = material_enchantments.select{ |e| e.bonus_item_level == item_level }
-                                                      .shuffle().first
+    armor.material_enchantment = material_enchantments.select { |e| e.bonus_item_level == item_level }.shuffle().first
     armor
   end
 end

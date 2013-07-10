@@ -20,6 +20,6 @@ class ProbabilityTable
   end
 
   def to_file(filename = 'ProbabilityTable')
-    File.open(filename, "w") {|file| file.puts YAML::dump(@frequencies)}
+    File.open(filename, "w") { |file| file.puts YAML::dump(@frequencies) }
   end
 end

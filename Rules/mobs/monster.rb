@@ -1,5 +1,5 @@
 class Monster
-	attr_reader :name, :speed
-	attr_accessor :hp, :ac, :xp	
-	
+  attr_reader :name, :speed
+  attr_accessor :hp, :ac, :xp
+
 end

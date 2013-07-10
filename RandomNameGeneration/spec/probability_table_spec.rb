@@ -177,44 +177,44 @@ describe "ProbabilityTable" do
           @probability_table.load(" James Joes Max Garal Jert Gilles Mary Bob ")
         end
 
-          it { @probability_table.frequencies["es "].should == 1.0 }
-          it { @probability_table.frequencies["al "].should == 0.5 }
-          it { @probability_table.frequencies["ax "].should == 0.5 }
-          it { @probability_table.frequencies["ob "].should == 1.0 }
-          it { @probability_table.frequencies["rt "].should == 0.5 }
-          it { @probability_table.frequencies["ry "].should == 0.5 }
-        end
+        it { @probability_table.frequencies["es "].should == 1.0 }
+        it { @probability_table.frequencies["al "].should == 0.5 }
+        it { @probability_table.frequencies["ax "].should == 0.5 }
+        it { @probability_table.frequencies["ob "].should == 1.0 }
+        it { @probability_table.frequencies["rt "].should == 0.5 }
+        it { @probability_table.frequencies["ry "].should == 0.5 }
       end
     end
+  end
 
-    context "when using the file_input_loader" do
+  context "when using the file_input_loader" do
+    before(:all) do
+      two_letter_length_strategy = TwoLetterLengthStrategy.new
+      memory_input_loader = FileInputLoader.new
+
+      @probability_table = ProbabilityTable.new(two_letter_length_strategy, memory_input_loader)
+    end
+
+    context "when using an empty file as input" do
       before(:all) do
-        two_letter_length_strategy = TwoLetterLengthStrategy.new
-        memory_input_loader = FileInputLoader.new
-
-        @probability_table = ProbabilityTable.new(two_letter_length_strategy, memory_input_loader)
+        file_name = "empty_file"
+        File.open(file_name, 'w') { |f| f.write("") }
+        @probability_table.load(file_name)
       end
 
-      context "when using an empty file as input" do
-        before(:all) do
-          file_name = "empty_file"
-          File.open(file_name, 'w') {|f| f.write("") }
-          @probability_table.load(file_name)
-        end
-
-        it { @probability_table.empty?.should be_true }
-      end
-
-      context "when using a simple file as input" do
-        before(:all) do
-          file_name = "empty_file"
-          @input = " abcdefg "
-          File.open(file_name, 'w') {|f| f.write(@input) }
-          @probability_table.load(file_name)
-        end
-
-        it { @probability_table.empty?.should be_false }
-        it { @probability_table.frequencies.length.should == @input.length - 1 }
-      end
+      it { @probability_table.empty?.should be_true }
     end
+
+    context "when using a simple file as input" do
+      before(:all) do
+        file_name = "empty_file"
+        @input = " abcdefg "
+        File.open(file_name, 'w') { |f| f.write(@input) }
+        @probability_table.load(file_name)
+      end
+
+      it { @probability_table.empty?.should be_false }
+      it { @probability_table.frequencies.length.should == @input.length - 1 }
+    end
+  end
 end

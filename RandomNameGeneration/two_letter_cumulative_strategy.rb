@@ -11,7 +11,7 @@ class TwoLetterCumulativeStrategy
     cumulative_value = 0.0
 
     # for all keys except those ending with a space (which are a special case)
-    frequencies.select {|ok| ok[1] != ' '}.keys.sort.each do |key|
+    frequencies.select { |ok| ok[1] != ' ' }.keys.sort.each do |key|
       if last_key_read != nil && last_key_read[0] != key[0]
         cumulative_value = 0.0
       end
@@ -27,7 +27,7 @@ class TwoLetterCumulativeStrategy
 
     # now take care of the special case of keys ending with a space
     cumulative_value = 0.0
-    frequencies.select {|ok| ok[1] == ' '}.keys.sort.each do |key|
+    frequencies.select { |ok| ok[1] == ' ' }.keys.sort.each do |key|
       cumulative_value += frequencies[key]
 
       # simple round-off to 1.0 to prevent any gaps

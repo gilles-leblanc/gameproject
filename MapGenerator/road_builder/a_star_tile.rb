@@ -30,7 +30,7 @@ class AStarTile < AStarNode
         @map.tile_at(x + 1, y),
         @map.tile_at(x, y + 1),
     ]
-    result.delete_if {|square| square.nil? || !square.passable?}
+    result.delete_if { |square| square.nil? || !square.passable? }
     result.map { |tile| AStarTile.new(tile.x, tile.y, tile, @map) }
   end
 
@@ -73,6 +73,7 @@ class AStarTile < AStarNode
   def eql?(obj)
     obj.is_a?(AStarTile) && obj.x == x && obj.y == y && obj.map == map
   end
+
   alias_method :==, :eql?
 
   def inspect

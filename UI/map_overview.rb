@@ -3,7 +3,7 @@ require_relative './ui_constants'
 require_relative '../mini_tile_palette'
 
 class MapOverview
-	def initialize(left, top, parent_window, size = UiConstants::Mini_Tile_Size)
+  def initialize(left, top, parent_window, size = UiConstants::Mini_Tile_Size)
     @left = left
     @top = top
     @size = size
@@ -14,9 +14,9 @@ class MapOverview
     @red_arrow_left = Gosu::Image.new(parent_window, "media/red_arrow_left.png", true)
     @red_arrow_right = Gosu::Image.new(parent_window, "media/red_arrow_right.png", true)
     @red_arrow_down = Gosu::Image.new(parent_window, "media/red_arrow_down.png", true)
-	end
+  end
 
-	def draw(map, current_position, compass)
+  def draw(map, current_position, compass)
     x, y = current_position[:x] - @size / 2, current_position[:y] - @size / 2
 
     for index_y in 0...(@size)
@@ -39,7 +39,7 @@ class MapOverview
     arrow.draw(@left + (UiConstants::Mini_Tile_Size * @size / 2), @top + (UiConstants::Mini_Tile_Size * @size / 2), 0)
   end
 
-private
+  private
 
   def draw_tile(tile, x, y)
     tile_to_draw = @tile_palette.get_mini_tile_resource(tile)

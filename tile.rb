@@ -19,10 +19,10 @@ class Tile
 
   attr_accessor :type, :x, :y, :event
 
-	def initialize(type, x, y, event = nil)
-		@type = type
-		@x = x
-		@y = y
+  def initialize(type, x, y, event = nil)
+    @type = type
+    @x = x
+    @y = y
     @event = event
   end
 
@@ -39,10 +39,10 @@ class Tile
   end
 
   def color
-		return @@water_color if @type == :water
-		return @@grass_color if @type == :grass
-		return @@sand_color if @type == :sand
-		return @@forest_color if @type == :forest
+    return @@water_color if @type == :water
+    return @@grass_color if @type == :grass
+    return @@sand_color if @type == :sand
+    return @@forest_color if @type == :forest
     return @@mountain_color if @type == :mountain
     return @@cave_color if @type == :cave
     return @@city_color if @type == :city
@@ -54,6 +54,6 @@ class Tile
     return @@wall_color if @type == :wall
     return @@door_color if @type == :door
 
-		:black
-	end
+    :black
+  end
 end	

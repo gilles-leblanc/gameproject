@@ -11,7 +11,7 @@ class ThreeLetterCumulativeStrategy
     cumulative_value = 0.0
 
     # for all keys except those ending with a space (which are a special case)
-    frequencies.select {|ok| ok[2] != ' '}.keys.sort.each do |key|
+    frequencies.select { |ok| ok[2] != ' ' }.keys.sort.each do |key|
       if last_key_read != nil && (last_key_read[0] != key[0] || last_key_read[1] != key[1])
         cumulative_value = 0.0
       end
@@ -29,7 +29,7 @@ class ThreeLetterCumulativeStrategy
     last_key_read = nil
     cumulative_value = 0.0
 
-    frequencies.select {|ok| ok[2] == ' '}.keys.sort.each do |key|
+    frequencies.select { |ok| ok[2] == ' ' }.keys.sort.each do |key|
       if last_key_read != nil && last_key_read[0] != key[0]
         cumulative_value = 0.0
       end

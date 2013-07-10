@@ -1,12 +1,12 @@
 require_relative 'enchantment'
 
 class Armor
-	attr_reader :name, :base_armor_value, :category, :price
+  attr_reader :name, :base_armor_value, :category, :price
   attr_accessor :material_enchantment
 
-	def initialize(name, base_armor_value)
-		@name = name
-		@base_armor_value = base_armor_value
+  def initialize(name, base_armor_value)
+    @name = name
+    @base_armor_value = base_armor_value
     @material_enchantment = Enchantment.null_object
   end
 
@@ -16,35 +16,35 @@ class Armor
 
   def armor_value
     value = base_armor_value + @material_enchantment.stat_modifier
-    
-    if value >= 0 
-    	value
+
+    if value >= 0
+      value
     else
-    	0
+      0
     end
   end
-	
-protected
 
-	def self.null_object
-		null_object_armor = Armor.new("", 0)
-	end
+  protected
+
+  def self.null_object
+    null_object_armor = Armor.new("", 0)
+  end
 end
 
 class PaddedArmor < Armor
-	def initialize
+  def initialize
     super("Padded armor", 2)
-		@category = :very_light
+    @category = :very_light
     @price = 20
-	end
+  end
 end
 
 class LeatherArmor < Armor
-	def initialize
+  def initialize
     super("Leather armor", 3)
-		@category = :light
+    @category = :light
     @price = 30
-	end
+  end
 end
 
 class ChainMail < Armor

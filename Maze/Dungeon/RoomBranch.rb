@@ -37,10 +37,10 @@ require_relative 'Branch'
 class RoomBranch < Branch
 
   # Initialiser. 
-	#	@inherit
-	def initialize(cells)
-		super(cells)
-	end
+  #	@inherit
+  def initialize(cells)
+    super(cells)
+  end
 
 end
 

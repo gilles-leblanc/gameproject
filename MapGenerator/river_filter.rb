@@ -27,8 +27,8 @@ class RiverFilter
       # @size is used since we assume the array is square 2d matrix
       (0...@size).each do |x|
         if filtered_rain_map.data[x + y * @size] >= 80 && filtered_array[x + y * @size] >= 68 &&
-            river_starting_points.none? {|p| (p[0] > x - 4 && p[0] < x + 3) &&
-                                             (p[1] > y - 4 && p[1] < y + 3)}
+            river_starting_points.none? { |p| (p[0] > x - 4 && p[0] < x + 3) &&
+                (p[1] > y - 4 && p[1] < y + 3) }
           river_starting_points.push([x, y])
         end
       end
@@ -50,13 +50,13 @@ class RiverFilter
       end
 
       # dig actual river
-      river.each {|p| filtered_array[p[0] + p[1] * @size] = 0}
+      river.each { |p| filtered_array[p[0] + p[1] * @size] = 0 }
     end
 
     filtered_array
   end
 
-private
+  private
 
   def get_lowest_neighbor(filtered_array, river)
     point = river.last
@@ -72,7 +72,7 @@ private
   end
 
   def return_if_lower(filtered_array, x, y, lowest_neighbor, river)
-    if not river.any? {|p| p[0] == x && p[1] == y}
+    if not river.any? { |p| p[0] == x && p[1] == y }
       value_at_neighbor = filtered_array[x + y * @size]
       return [x, y, value_at_neighbor] if value_at_neighbor < lowest_neighbor[2]
     end

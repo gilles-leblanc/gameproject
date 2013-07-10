@@ -1,10 +1,10 @@
 class TreasureTable
   @@random = Random.new
 
-	def self.small_amount_of_gold
-		treasure = Array.new
-		treasure.push([:gold, @@random.rand(1..5)])
-		treasure
+  def self.small_amount_of_gold
+    treasure = Array.new
+    treasure.push([:gold, @@random.rand(1..5)])
+    treasure
   end
 
   def self.medium_amount_of_gold

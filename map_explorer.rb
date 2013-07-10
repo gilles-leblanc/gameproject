@@ -6,10 +6,10 @@ require_relative './UI/info_box'
 require_relative './UI/view_port'
 
 class MapExplorer < Gosu::Window
- 	# Determine the speed at which new button presses are processed
- 	Ticks_Per_Step = 15
-	
-	def initialize
+  # Determine the speed at which new button presses are processed
+  Ticks_Per_Step = 15
+
+  def initialize
     super 800, 600, false
     self.caption = "Map Explorer"
 
@@ -29,35 +29,35 @@ class MapExplorer < Gosu::Window
 
     @acted = false
   end
-  
+
   def update
-  	if @key_countdown > 0
-  		@key_countdown -= 1
-  		
-  		if @key_countdown == 0
-  				@key_countdown = Ticks_Per_Step
-  				button_presses
-  		end
-  	end  	
+    if @key_countdown > 0
+      @key_countdown -= 1
+
+      if @key_countdown == 0
+        @key_countdown = Ticks_Per_Step
+        button_presses
+      end
+    end
   end
-  
-  def draw 	 
-  	@view_port.draw(@map, @current_position, @compass)
+
+  def draw
+    @view_port.draw(@map, @current_position, @compass)
     @info_box.draw(@map, @current_position, @compass)
-  	@map_overview.draw(@map, @current_position, @compass)
+    @map_overview.draw(@map, @current_position, @compass)
   end
-  
+
   def button_down(id)
     close if id == Gosu::KbEscape
-    
+
     if @key_countdown == 0 then
-		  # First step
-		  @key_countdown = Ticks_Per_Step
+      # First step
+      @key_countdown = Ticks_Per_Step
       button_presses
-  	end
+    end
   end
-  
-private
+
+  private
   def button_presses
     if button_down? Gosu::KbUp
       step_forward

@@ -33,26 +33,26 @@
 
 class Cell
 
-	UNALLOCATED = 0
-	BLOCKED = 1
+  UNALLOCATED = 0
+  BLOCKED = 1
   PERIMETER = 2
-	ROOM = 3
-	ENTRANCE = 4
-	CORRIDOR = 5
+  ROOM = 3
+  ENTRANCE = 4
+  CORRIDOR = 5
 
-	attr_accessor :x, :y, :type, :id, :room_id
+  attr_accessor :x, :y, :type, :id, :room_id
 
-	def initialize(x, y, type)
-		@x = x
-		@y = y
-		@type = type
-	end
+  def initialize(x, y, type)
+    @x = x
+    @y = y
+    @type = type
+  end
 
-	def to_s
-		char = ""
-		case @type
+  def to_s
+    char = ""
+    case @type
       when Cell::BLOCKED
-			  char = "#"
+        char = "#"
       when Cell::PERIMETER
         char = "P"
       when Cell::ROOM
@@ -62,10 +62,10 @@ class Cell
       when Cell::ENTRANCE
         char = "E"
       else
-			char = " "
-		end
+        char = " "
+    end
     return char
-	end
+  end
 
 end
 

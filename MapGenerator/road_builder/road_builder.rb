@@ -17,7 +17,7 @@ class RoadBuilder
       starting_city = city #cities.pop
 
       suitable_ending_cities = cities.select { |city| city.guess_distance(starting_city) <= @max_road_distance }
-      suitable_ending_cities.sort! { |x,y| x.guess_distance(starting_city) <=> y.guess_distance(starting_city) }
+      suitable_ending_cities.sort! { |x, y| x.guess_distance(starting_city) <=> y.guess_distance(starting_city) }
 
       suitable_ending_cities.each do |ending_city|
         # calculate path and return array
@@ -25,7 +25,10 @@ class RoadBuilder
 
         # change tiles in path (except cities and caves and road) to road tiles
         if not path.nil?
-          path.each { |a_tile| if not [:road, :city, :cave].include? a_tile.tile.type then a_tile.tile.type = :road end }
+          path.each { |a_tile|
+            if not [:road, :city, :cave].include? a_tile.tile.type then
+              a_tile.tile.type = :road
+            end }
         end
       end
     end

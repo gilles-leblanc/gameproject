@@ -34,9 +34,9 @@ class DungeonMapOutput < Gosu::Window
       end
 
       draw_quad(
-          tile.x * 10,     tile.y * 10,      color,
-          tile.x * 10 + 10, tile.y * 10,      color,
-          tile.x * 10,     tile.y * 10 + 10, color,
+          tile.x * 10, tile.y * 10, color,
+          tile.x * 10 + 10, tile.y * 10, color,
+          tile.x * 10, tile.y * 10 + 10, color,
           tile.x * 10 + 10, tile.y * 10 + 10, color,
           0)
     end

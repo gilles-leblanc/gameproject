@@ -3,8 +3,8 @@ require_relative '../character_test_data_builder'
 
 describe "Actions" do
   before(:each) do
-  	character_builder = CharacterTestDataBuilder.new
-  	@character = character_builder.build  
+    character_builder = CharacterTestDataBuilder.new
+    @character = character_builder.build
   end
 
   context "when blocking" do
@@ -15,7 +15,7 @@ describe "Actions" do
 
     it { @character.ac.should == @base_ac + 2 }
     it { @character.effects[:ac].length.should == 1 }
-    it { @character.effects[:ac][1] == 1}
+    it { @character.effects[:ac][1] == 1 }
 
     context "when adding another ac effect" do
       before(:each) do

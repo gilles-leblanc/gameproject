@@ -5,8 +5,8 @@ temple_name_generator = PlaceNameGenerator.new("media/temple_types", "media/gree
 
 puts
 puts "Generating 20 dungeons"
-20.times {puts dungeon_name_generator.get_name}
+20.times { puts dungeon_name_generator.get_name }
 
 puts
 puts "Generating 20 temples"
-20.times {puts temple_name_generator.get_name}
+20.times { puts temple_name_generator.get_name }

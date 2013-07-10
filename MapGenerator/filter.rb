@@ -1,5 +1,5 @@
 class Filter
-	def filter(array, size_x)
-		
-	end
+  def filter(array, size_x)
+
+  end
 end

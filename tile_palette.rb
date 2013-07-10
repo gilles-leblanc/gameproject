@@ -3,7 +3,7 @@ require 'gosu'
 class TilePalette
   def initialize(parent_window)
     @water_tile = nil
-    @grass_tile =  Gosu::Image.new(parent_window, "media/grass.BMP", true)
+    @grass_tile = Gosu::Image.new(parent_window, "media/grass.BMP", true)
     @mountain_tile = Gosu::Image.new(parent_window, "media/mountain.BMP", true)
     @sand_tile = Gosu::Image.new(parent_window, "media/sand.BMP", true)
     @forest_tile = Gosu::Image.new(parent_window, "media/forest.BMP", true)

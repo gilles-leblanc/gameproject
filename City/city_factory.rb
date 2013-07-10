@@ -21,10 +21,10 @@ class CityFactory
   # lazy initialization
   def temple_name_generator
     @temple_name_generator ||= PlaceNameGenerator.new("./RandomNameGeneration/media/temple_types",
-                                                    "./RandomNameGeneration/media/greek_myth_sample")
+                                                      "./RandomNameGeneration/media/greek_myth_sample")
   end
 
-private
+  private
 
   # initialize starting tiles to either walls or open spaces
   def initialize_starting_tiles
@@ -45,7 +45,7 @@ private
   # randomly select an entrance, must not be one of the four corners
   def place_entrance
     #select wall tiles that aren't close to any corner
-    wall_tiles = @tiles.select {|tile| edge_of_map?(tile.x, tile.y) &&
+    wall_tiles = @tiles.select { |tile| edge_of_map?(tile.x, tile.y) &&
         !(tile.x < @width / 4 && tile.y == 0) &&
         !(tile.x > 3 * @width / 4 && tile.y == 0) &&
         !(tile.x < @width / 4 && tile.y == @height - 1) &&
@@ -53,7 +53,7 @@ private
         !(tile.x == 0 && tile.y < @height / 4) &&
         !(tile.x == 0 && tile.y > 3 * @height / 4) &&
         !(tile.x == @width - 1 && tile.y < @height / 4) &&
-        !(tile.x == @width - 1 && tile.y > 3 * @height / 4)}
+        !(tile.x == @width - 1 && tile.y > 3 * @height / 4) }
 
     wall_tiles.shuffle.first.type = :entrance
   end
@@ -67,7 +67,11 @@ private
 
       for index_y in 0...(@height / 4 - 1)
         building = Building.new(4, 4,
-                                if direction == :zonal then zonal_facing else meridional_facing end)
+                                if direction == :zonal then
+                                  zonal_facing
+                                else
+                                  meridional_facing
+                                end)
         building.draw_on(city, [index_x * 4 + 1, index_y * 4 + 1])
 
         if meridional_facing == :south
@@ -89,21 +93,21 @@ private
   # move the wall over one space
   def readjust_walls
     # check east wall
-    if @tiles.select {|tile| tile.x == @width - 2 && tile.y != 0 && tile.y != @height - 1}.all? {|tile| tile.type == :open} &&
-        @tiles.select {|tile| tile.x == @width - 3 && tile.y != 0 && tile.y != @height - 1}.all? {|tile| tile.type == :open} then
+    if @tiles.select { |tile| tile.x == @width - 2 && tile.y != 0 && tile.y != @height - 1 }.all? { |tile| tile.type == :open } &&
+        @tiles.select { |tile| tile.x == @width - 3 && tile.y != 0 && tile.y != @height - 1 }.all? { |tile| tile.type == :open } then
       # move wall
-      @tiles.select {|tile| tile.x == @width - 1 && tile.y != 0 && tile.y != @height - 1}.each {|tile| tile_at(tile.x - 1, tile.y).type = tile.type }
+      @tiles.select { |tile| tile.x == @width - 1 && tile.y != 0 && tile.y != @height - 1 }.each { |tile| tile_at(tile.x - 1, tile.y).type = tile.type }
 
-      @tiles.select {|tile| tile.x == @width - 1}.each {|tile| tile_at(tile.x, tile.y).type = :wall }
+      @tiles.select { |tile| tile.x == @width - 1 }.each { |tile| tile_at(tile.x, tile.y).type = :wall }
     end
 
     # check south walls
-    if @tiles.select {|tile| tile.y == @height - 2 && tile.x != 0 && tile.x < @width - 2}.all? {|tile| tile.type == :open} &&
-        @tiles.select {|tile| tile.y == @height - 3 && tile.x != 0 && tile.x < @width - 2}.all? {|tile| tile.type == :open} then
+    if @tiles.select { |tile| tile.y == @height - 2 && tile.x != 0 && tile.x < @width - 2 }.all? { |tile| tile.type == :open } &&
+        @tiles.select { |tile| tile.y == @height - 3 && tile.x != 0 && tile.x < @width - 2 }.all? { |tile| tile.type == :open } then
       # move wall
-      @tiles.select {|tile| tile.y == @height - 1 && tile.x != 0 && tile.x < @width - 2}.each {|tile| tile_at(tile.x, tile.y - 1).type = tile.type }
+      @tiles.select { |tile| tile.y == @height - 1 && tile.x != 0 && tile.x < @width - 2 }.each { |tile| tile_at(tile.x, tile.y - 1).type = tile.type }
 
-      @tiles.select {|tile| tile.y == @height - 1}.each {|tile| tile_at(tile.x, tile.y).type = :wall }
+      @tiles.select { |tile| tile.y == @height - 1 }.each { |tile| tile_at(tile.x, tile.y).type = :wall }
     end
   end
 
@@ -112,7 +116,9 @@ private
   def place_dead_ends(city)
     # place one dead-end wall for each 100 blocks of city
     city.tiles.each_slice(100) do |slice|
-      if slice.count < 100 then return end
+      if slice.count < 100 then
+        return
+      end
 
       unsuitable = [:door, :entrance]
 

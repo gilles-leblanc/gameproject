@@ -1,7 +1,7 @@
 class Enchantment
   attr_accessor :name, :stat_modifier, :bonus_item_level, :item_value_modifier
 
-protected
+  protected
 
   def self.null_object
     null_object_enchantment = Enchantment.new
