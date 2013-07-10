@@ -1,4 +1,5 @@
 require_relative 'armors'
+require_relative 'shields'
 require_relative 'enchantment'
 
 # Generate a random piece of armor. To be used for treasure generation (monsters, treasure chests, etc.)
@@ -7,7 +8,8 @@ class ArmorGenerator
   def generate(item_level = 0)
     # generate base item
     armors = [PaddedArmor.new, LeatherArmor.new, ChainMail.new,
-              ScaleArmor.new, PlateMail.new, FullPlate.new]
+              ScaleArmor.new, PlateMail.new, FullPlate.new,
+              Buckler.new, MediumShield.new, LargeShield.new]
 
     armor = armors.shuffle().first
 
