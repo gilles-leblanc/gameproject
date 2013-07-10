@@ -15,13 +15,12 @@ class CityFactory
 
   # lazy initialization
   def establishment_name_generator
-    @establishment_name_generator ||= EstablishmentNameGenerator.new("./RandomNameGeneration/")
+    @establishment_name_generator ||= EstablishmentNameGenerator.new
   end
 
   # lazy initialization
   def temple_name_generator
-    @temple_name_generator ||= PlaceNameGenerator.new("./RandomNameGeneration/media/temple_types",
-                                                      "./RandomNameGeneration/media/greek_myth_sample")
+    @temple_name_generator ||= PlaceNameGenerator.new("/media/temple_types", "/media/greek_myth_sample")
   end
 
   private
