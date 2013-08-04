@@ -39,6 +39,7 @@ module Actions
     available_targets = enemies.select { |m| m.current_hp > 0 }
     broadcast "Which: "
     target_range = 1..6
+    key_pressed = ''
 
     begin
       key_pressed = gets.chomp.to_i
