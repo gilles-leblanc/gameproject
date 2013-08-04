@@ -4,7 +4,7 @@ module Actions
   def attack(enemies)
     target = pick_target enemies
 
-    if @@random.rand(1..10) + @accuracy / 4 >= target.ac
+    if @@random.rand(1..10) + @stats.accuracy_modifier >= target.ac
       broadcast "#{@name} hits #{target.name}."
       target.take_damage(@paper_doll.weapon.hit)
     else
@@ -36,7 +36,7 @@ module Actions
 
   private
   def pick_target(enemies)
-    available_targets = enemies.select { |m| m.hp > 0 }
+    available_targets = enemies.select { |m| m.current_hp > 0 }
     broadcast "Which: "
     target_range = 1..6
 

@@ -17,26 +17,26 @@ class BattleCoordinator
 
   def run_battle(party, enemies)
     participants = party.members + enemies
-    participants.sort_by! { |p| p.speed }.reverse!
+    participants.sort_by! { |p| p.stats.speed }.reverse!
 
-    while party.members.any? { |p| p.hp > 0 } && enemies.any? { |e| e.hp > 0 }
+    while party.members.any? { |p| p.current_hp > 0 } && enemies.any? { |e| e.current_hp > 0 }
       participants.each do |participant|
         if party.members.any? { |p| p.equal? participant }
           # we are dealing with a party member
           participant.act(enemies)
         else
           # we are dealing with an enemy
-          target = party.members.select { |m| m.hp > 0 }.shuffle.first
+          target = party.members.select { |m| m.current_hp > 0 }.shuffle.first
           participant.attack(target, @random)
         end
 
-        participants.delete_if { |p| p.hp <= 0 }
+        participants.delete_if { |p| p.current_hp <= 0 }
 
-        if party.members.all? { |m| m.hp <= 0 }
+        if party.members.all? { |m| m.current_hp <= 0 }
           return game_over
         end
 
-        if enemies.all? { |m| m.hp <= 0 }
+        if enemies.all? { |m| m.current_hp <= 0 }
           return party_wins(party, enemies)
         end
       end

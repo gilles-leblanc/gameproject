@@ -3,7 +3,7 @@ require_relative 'base_class'
 class Sorcerer < BaseClass
   def initialize(name, stats)
     super(name, stats)
-    @hp = 4
+    @current_hp = @max_hp = 4
     @sp = 6
 
     @hp_per_level = 3

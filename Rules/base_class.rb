@@ -9,10 +9,10 @@ class BaseClass
 
   attr_accessor :xp
 
-  attr_reader :name, :level, :hp, :sp, :effects, :paper_doll
+  attr_reader :name, :level, :max_hp, :current_hp, :sp, :effects, :paper_doll
 
   # basic stats
-  attr_reader :might, :accuracy, :endurance, :intellect, :personality, :speed, :luck
+  attr_reader :stats
 
   def initialize(name, stats)
     @level = 1
@@ -25,9 +25,7 @@ class BaseClass
     @paper_doll.armor_categories = [:very_light]
     @paper_doll.weapon_categories = [:simple]
 
-    @might = stats.might
-    @accuracy = stats.accuracy
-    @speed = stats.speed
+    @stats = stats
 
     @abilities = Hash.new
     @abilities["a"] = self.method(:attack)
@@ -38,22 +36,23 @@ class BaseClass
                 :intellect => [], :personality => [], :speed => [], :luck => []}
   end
 
-  def take_damage(hp)
-    @hp -= hp
-    broadcast "#{@name} takes #{hp} points of damage."
-    broadcast "#{@name} is defeated." if @hp <= 0
+  def take_damage(damage)
+    @current_hp -= damage
+    broadcast "#{@name} takes #{damage} points of damage."
+    broadcast "#{@name} is defeated." if @current_hp <= 0
     broadcast ""
   end
 
   def heal(hp)
-    @hp += hp
+    @current_hp += hp
+    @current_hp = @max_hp if @current_hp > @max_hp
   end
 
   # Level (verb, not the noun) the character by one new level.
   def level
     @level += 1
-    new_hp = @hp_per_level + @endurance / 4
-    @hp += new_hp
+    new_hp = @hp_per_level + @stats.endurance_modifier
+    @max_hp += new_hp
     broadcast "#{@name} gains #{new_hp} hp."
   end
 
