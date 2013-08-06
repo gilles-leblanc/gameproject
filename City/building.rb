@@ -8,11 +8,12 @@ class Building
   def initialize(bounding_box_x, bounding_box_y, facing)
     @bounding_box_x = bounding_box_x
     @bounding_box_y = bounding_box_y
+    @facing = facing
 
     @bitmap = Hash.new(:open)
 
     place_blocks
-    place_door(facing) if @bitmap.any? { |key, value| value == :wall }
+    place_door if @bitmap.any? { |key, value| value == :wall }
   end
 
   def draw_on(city, coordinates)
@@ -28,19 +29,19 @@ class Building
 
   def place_blocks
     if [true, false].shuffle.first
-      paint_block_1
+      paint_first_block
     end
 
     if [true, false].shuffle.first
-      paint_block_2
+      paint_second_block
     end
 
     if [true, false].shuffle.first
-      paint_block_3
+      paint_third_block
     end
 
     if [true, false].shuffle.first
-      paint_block_4
+      paint_fourth_block
     end
 
     if [true, false, false, false, false].shuffle.first
@@ -48,28 +49,28 @@ class Building
     end
   end
 
-  def paint_block_1
+  def paint_first_block
     @bitmap[[1, 1]] = :wall
     @bitmap[[1, 2]] = :wall
     @bitmap[[2, 1]] = :wall
     @bitmap[[2, 2]] = :wall
   end
 
-  def paint_block_2
+  def paint_second_block
     @bitmap[[2, 1]] = :wall
     @bitmap[[2, 2]] = :wall
     @bitmap[[3, 1]] = :wall
     @bitmap[[3, 2]] = :wall
   end
 
-  def paint_block_3
+  def paint_third_block
     @bitmap[[1, 2]] = :wall
     @bitmap[[1, 3]] = :wall
     @bitmap[[2, 2]] = :wall
     @bitmap[[2, 3]] = :wall
   end
 
-  def paint_block_4
+  def paint_fourth_block
     @bitmap[[2, 2]] = :wall
     @bitmap[[2, 3]] = :wall
     @bitmap[[3, 2]] = :wall
@@ -81,32 +82,37 @@ class Building
     @bitmap[remove_at] = :open
   end
 
-  def place_door(facing)
-    key = @bitmap.select do |k, v|
-      v == :wall && k[k_value(facing)] == max_value(facing)
+  def place_door
+    key = @bitmap.select do |k, value|
+      value == :wall && k[k_value] == max_value
     end.keys.shuffle.first
 
     @bitmap[key] = :door
   end
 
-  def max_value(facing)
-    case facing
+  def max_value
+    case @facing
       when :north
-        max_value = @bitmap.select { |k, v| v == :wall }.keys.min { |a, b| a[1] <=> b[1] }[1]
+        max_value = @bitmap.select { |key, value| value == :wall }
+          .keys.min { |a, b| a[1] <=> b[1] }[1]
       when :south
-        max_value = @bitmap.select { |k, v| v == :wall }.keys.max { |a, b| a[1] <=> b[1] }[1]
+        max_value = @bitmap.select { |key, value| value == :wall }
+          .keys.max { |a, b| a[1] <=> b[1] }[1]
       when :east
-        max_value = @bitmap.select { |k, v| v == :wall }.keys.max { |a, b| a[0] <=> b[0] }[0]
+        max_value = @bitmap.select { |key, value| value == :wall }
+          .keys.max { |a, b| a[0] <=> b[0] }[0]
       when :west
-        max_value = @bitmap.select { |k, v| v == :wall }.keys.min { |a, b| a[0] <=> b[0] }[0]
+        max_value = @bitmap.select { |key, value| value == :wall }
+          .keys.min { |a, b| a[0] <=> b[0] }[0]
       else
-        max_value = @bitmap.select { |k, v| v == :wall }.keys.min { |a, b| a[1] <=> b[1] }[1]
+        max_value = @bitmap.select { |key, value| value == :wall }
+          .keys.min { |a, b| a[1] <=> b[1] }[1]
     end
     max_value
   end
 
-  def k_value(facing)
-    return 1 if facing == :north || facing == :south
+  def k_value
+    return 1 if @facing == :north || @facing == :south
     0
   end
 end
