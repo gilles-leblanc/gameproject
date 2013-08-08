@@ -7,7 +7,7 @@
 #
 #This adaptation is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license, available at http://creativecommons.org/licenses/by-sa/3.0/
 
-require "set"
+require 'set'
 
 class AStarNode
   # Overridden by your AStarNode subclass. Return an array of the nodes that
@@ -17,7 +17,7 @@ class AStarNode
   # movement, the neighbors would also include the squares immediately up-left,
   # up-right, down-left, and down-right.)
   def neighbors
-    raise NotImplementedError, "you must override AStarNode#neighbors"
+    raise NotImplementedError, 'you must override AStarNode#neighbors'
   end
 
   # Overriden by your AStarNode subclass. Return your best guess for the total
@@ -25,7 +25,7 @@ class AStarNode
   # overestimate, but it is acceptable (and usually necessary) to
   # underestimate.
   def guess_distance(node)
-    raise NotImplementedError, "you must override AStarNode#guess_distance"
+    raise NotImplementedError, 'you must override AStarNode#guess_distance'
   end
 
   # Optionally overriden by your AStarNode subclass. Return the cost of moving
@@ -105,6 +105,6 @@ class AStarNode
       end
     end
 
-    return [nil, nil]
+    [nil, nil]
   end
 end

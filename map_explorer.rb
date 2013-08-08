@@ -11,14 +11,14 @@ class MapExplorer < Gosu::Window
 
   def initialize
     super 800, 600, false
-    self.caption = "Map Explorer"
+    self.caption = 'Map Explorer'
 
     @world_map = MapFactory.make_small_world
     @map = @world_map
 
     @starting_position = StartingPosition.new
     @current_position = @starting_position.get(@map)
-    @previous_map_position = Array.new
+    @previous_map_position = []
 
     @compass = [:north, :west, :south, :east]
     @key_countdown = 0
@@ -50,7 +50,7 @@ class MapExplorer < Gosu::Window
   def button_down(id)
     close if id == Gosu::KbEscape
 
-    if @key_countdown == 0 then
+    if @key_countdown == 0
       # First step
       @key_countdown = Ticks_Per_Step
       button_presses

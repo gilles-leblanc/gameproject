@@ -1,6 +1,6 @@
 require_relative '../stats'
 
-describe "Stats" do
+describe 'Stats' do
   before(:each) do
     @stats = Stats.new
     @stats.might = 18

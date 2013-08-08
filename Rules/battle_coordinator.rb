@@ -42,17 +42,17 @@ class BattleCoordinator
       end
     end
 
-    broadcast "Battle terminated irregularly."
+    broadcast 'Battle terminated irregularly.'
   end
 
   def game_over
-    broadcast "The party has been defeated."
-    broadcast "Game over."
+    broadcast 'The party has been defeated.'
+    broadcast 'Game over.'
     false
   end
 
   def party_wins(party, enemies)
-    broadcast "The party wins the battle."
+    broadcast 'The party wins the battle.'
 
     xp_gain = enemies.inject(0) { |sum, e| sum + e.xp } / party.members.length
     party.members.each { |member| member.xp += xp_gain }
@@ -75,12 +75,12 @@ dagger = LongDagger.new
 stats = Stats.new
 stats.might, stats.accuracy, stats.endurance, stats.intellect, stats.personality, stats.speed, stats.luck = 10, 10, 10, 10, 10, 10, 10
 
-felgar = Knight.new("Sir Felgar", stats)
+felgar = Knight.new('Sir Felgar', stats)
 felgar.paper_doll.equip(shield)
 felgar.paper_doll.equip(padded_armor)
 felgar.paper_doll.equip(long_sword)
 
-cassandra = Sorcerer.new("Casssandra", stats)
+cassandra = Sorcerer.new('Casssandra', stats)
 cassandra.paper_doll.equip(padded_armor)
 cassandra.paper_doll.equip(dagger)
 
@@ -90,20 +90,20 @@ party.members.push(cassandra)
 
 random_number_generator = Random.new
 
-enemies = Array.new
+enemies = []
 enemies.push(Goblin.new(random_number_generator))
 enemies.push(Goblin.new(random_number_generator))
 
 battleCoordinator = BattleCoordinator.new(random_number_generator)
 
-puts "You are : "
+puts 'You are : '
 party.members.each { |c| puts c.class.name + ' ' + c.name }
-puts " --- "
+puts ' --- '
 puts
 
-puts "You face : "
+puts 'You face : '
 enemies.each { |e| puts e.name }
-puts " --- "
+puts ' --- '
 puts
 
 battleCoordinator.run_battle(party, enemies)

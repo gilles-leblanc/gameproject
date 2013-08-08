@@ -1,4 +1,4 @@
-require "yaml"
+require 'yaml'
 
 # Represents the probability of a group of letters composed of 1..* letters of being followed by another letter N.
 class ProbabilityTable
@@ -20,6 +20,6 @@ class ProbabilityTable
   end
 
   def to_file(filename = 'ProbabilityTable')
-    File.open(filename, "w") { |file| file.puts YAML::dump(@frequencies) }
+    File.open(filename, 'w') { |file| file.puts YAML::dump(@frequencies) }
   end
 end

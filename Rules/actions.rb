@@ -35,15 +35,17 @@ module Actions
   end
 
   private
+
   def pick_target(enemies)
     available_targets = enemies.select { |m| m.current_hp > 0 }
-    broadcast "Which: "
+    broadcast 'Which: '
     target_range = 1..6
     key_pressed = ''
 
     loop do
       key_pressed = gets.chomp.to_i
-      break if target_range.any? { |x| x == key_pressed && x <= available_targets.length }
+      break if target_range.any? { |x| x == key_pressed &&
+                                    x <= available_targets.length }
     end
 
     available_targets[key_pressed - 1]

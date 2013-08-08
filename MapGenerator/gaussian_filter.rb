@@ -1,9 +1,11 @@
 require_relative './filter_out_of_bounds_specification'
 
+# Applies gaussian filtering to an array following a predefined kernel.
 class GaussianFilter
   def initialize
-    # the filter kernel value pairs. The first element in each pair represent the
-    # distance from the central pixel and the second element the weighted filter value
+    # the filter kernel value pairs. The first element in each pair represent
+    # the distance from the central pixel and the second element the weighted
+    # filter value
     @filter_kernel = [[-3, 0.006], [-2, 0.061], [-1, 0.242],
                       [0, 0.383],
                       [1, 0.242], [2, 0.061], [3, 0.006]]
@@ -20,7 +22,8 @@ class GaussianFilter
     (0...@size).each do |y|
       # @size is used since we assume the array is square 2d matrix
       (0...@size).each do |x|
-        intermediate_filtered_array[x + y * @size] = compute_x_filtered_value(array, x, y)
+        intermediate_filtered_array[x + y * @size] =
+            compute_x_filtered_value(array, x, y)
       end
     end
 
@@ -28,7 +31,8 @@ class GaussianFilter
     (0...@size).each do |x|
       # @size is used since we assume the array is square 2d matrix
       (0...@size).each do |y|
-        filtered_array[x + y * @size] = compute_y_filtered_value(intermediate_filtered_array, x, y)
+        filtered_array[x + y * @size] =
+            compute_y_filtered_value(intermediate_filtered_array, x, y)
       end
     end
 

@@ -38,7 +38,8 @@ module HeightMapConfigurator
 
   # tested for 60 x 60, with no blur and with blur
   # great with no blurring for irrigular island with no beach, blurrring makes
-  # for full island (occupies all possible square) with very small beaches at corners
+  # for full island (occupies all possible square)
+  # with very small beaches at corners
   Huge_Mountain = Proc.new do |height_map|
     height_map.number_of_drop_points = 400
     height_map.min_particles = 200

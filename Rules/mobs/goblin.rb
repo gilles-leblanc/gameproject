@@ -9,7 +9,7 @@ class Goblin
   attr_accessor :max_hp, :current_hp, :ac
 
   def initialize(random)
-    @name = "Goblin"
+    @name = 'Goblin'
     @nax_hp = @current_hp = 4 + random.rand(0..2)
     @ac = 6
     @xp = 5
@@ -32,7 +32,7 @@ class Goblin
     @current_hp -= damage
     broadcast "#{@name} takes #{damage} points of damage."
     broadcast "#{@name} is defeated." if @current_hp <= 0
-    broadcast ""
+    broadcast ''
   end
 
   def treasure

@@ -37,7 +37,7 @@ class WorldMap < Map
     place_snow(height)
 
     # Array that will contain all sub-maps like Dungeons, Cities, etc.
-    @sub_maps = Array.new
+    @sub_maps = []
 
     place_cities(city_factory)
 
@@ -91,7 +91,9 @@ class WorldMap < Map
   def place_cities(city_factory)
     city_location_specification = CityLocationSpecification.new
 
-    ((width * height) / 1250).times do # 1250 is a magic number, the lower the number, the more cities will be present and vice-versa
+    ((width * height) / 1250).times do # 1250 is a magic number,
+                                       # the lower the number, the more cities
+                                       # will be present and vice-versa
       possible_city_tiles = city_location_specification.tiles_that_satisfy(self)
 
       if possible_city_tiles.length > 0
@@ -108,7 +110,13 @@ class WorldMap < Map
   def place_caves(width, height, dungeon_factory)
     cave_location_specification = CaveLocationSpecification.new
 
-    ((width * height) / 2500).times do # 2500 is a magic number, the lower the number, the more caves will be present and vice-versa, 2500 is 50x50 which was considered the default small world size at the time of this writing
+    ((width * height) / 2500).times do # 2500 is a magic number,
+                                       # the lower the number,
+                                       # the more caves will be present
+                                       # and vice-versa,
+                                       # 2500 is 50x50 which was considered
+                                       # the default small world size at the
+                                       # time of this writing
       possible_cave_tiles = cave_location_specification.tiles_that_satisfy(self)
 
       if possible_cave_tiles.length > 0

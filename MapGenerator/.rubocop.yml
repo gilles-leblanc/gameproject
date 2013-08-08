@@ -1,0 +1,7 @@
+inherit_from:
+  - ../.rubocop.yml
+
+# Prefer each over for.
+# Disabled for certain folder due to nature of certain algorithms.
+AvoidFor:
+  Enabled: false

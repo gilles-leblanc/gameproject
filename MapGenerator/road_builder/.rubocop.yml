@@ -1,0 +1,425 @@
+# Code from this directory is from another open-source project.
+# I prefer not to modify it if possible.
+inherit_from:
+  - ../../.rubocop.yml
+
+# Use UTF-8 as the source file encoding.
+Encoding:
+  Enabled: false
+
+# Limit lines to 79 characters.
+LineLength:
+  Enabled: false
+
+# Avoid methods longer than 10 lines of code
+MethodLength:
+  Enabled: false
+
+# No hard tabs.
+Tab:
+  Enabled: false
+
+# Avoid trailing whitespace.
+TrailingWhitespace:
+  Enabled: false
+
+# Indent when as deep as case.
+CaseIndentation:
+  Enabled: false
+
+# Use empty lines between defs.
+EmptyLineBetweenDefs:
+  Enabled: false
+
+# Don't use several empty lines in a row.
+EmptyLines:
+  Enabled: false
+
+# Use spaces around operators.
+SpaceAroundOperators:
+  Enabled: false
+
+# Use spaces around { and before }.
+SpaceAroundBraces:
+  Enabled: false
+
+# No spaces after ( or before ).
+SpaceInsideParens:
+  Enabled: false
+
+# No spaces after [ or before ].
+SpaceInsideBrackets:
+  Enabled: false
+
+# Use spaces after commas.
+SpaceAfterComma:
+  Enabled: false
+
+# Use spaces after semicolons.
+SpaceAfterSemicolon:
+  Enabled: false
+
+# Use spaces after colons.
+SpaceAfterColon:
+  Enabled: false
+
+# Use spaces after if/elsif/unless/while/until/case/when.
+SpaceAfterControlKeyword:
+  Enabled: false
+
+# Prefer Ruby 1.9 hash syntax { a: 1, b: 2 } over 1.8 syntax
+# { :a => 1, :b => 2 }.
+HashSyntax:
+  Enabled: false
+
+# Use Unix-style line endings.
+EndOfLine:
+  Enabled: false
+
+# Add underscores to large numeric literals to improve their readability.
+NumericLiterals:
+  Enabled: false
+
+# Align the parameters of a method call if they span more than one line.
+AlignParameters:
+  Enabled: false
+
+# Use def with parentheses when there are arguments.
+DefWithParentheses:
+  Enabled: false
+
+# Omit the parentheses when the method doesn't accept any arguments.
+DefWithoutParentheses:
+  Enabled: false
+
+# Never use if x; .... Use the ternary operator instead.
+IfWithSemicolon:
+  Enabled: false
+
+# Never use then for multi-line if/unless.
+MultilineIfThen:
+  Enabled: false
+
+# Favor the ternary operator(?:) over if/then/else/end constructs.
+OneLineConditional:
+  Enabled: false
+
+# Avoid using {...} for multi-line blocks (multiline chaining is always ugly).
+# Prefer {...} over do...end for single-line blocks.
+Blocks:
+  Enabled: false
+
+# Avoid parameter lists longer than three or four parameters.
+ParameterLists:
+  Enabled: false
+
+# Prefer ' strings when you don't need string interpolation or special symbols.
+StringLiterals:
+  Enabled: false
+
+# Avoid multi-line ?: (the ternary operator); use if/unless instead.
+MultilineTernaryOperator:
+  Enabled: false
+
+# Use one expression per branch in a ternary operator.
+NestedTernaryOperator:
+  Enabled: false
+
+# Never use unless with else. Rewrite these with the positive case first.
+UnlessElse:
+  Enabled: false
+
+# Use &&/|| instead of and/or.
+AndOr:
+  Enabled: false
+
+# Use when x then ... for one-line cases.
+WhenThen:
+  Enabled: false
+
+# Favor modifier if/unless usage when you have a single-line body.
+IfUnlessModifier:
+  Enabled: false
+
+# Favor modifier while/until usage when you have a single-line body.
+WhileUntilModifier:
+  Enabled: false
+
+# Favor unless over if for negative conditions (or control flow or).
+FavorUnlessOverNegatedIf:
+  Enabled: false
+
+# Favor until over while for negative conditions.
+FavorUntilOverNegatedWhile:
+  Enabled: false
+
+# Use spaces around the = operator when assigning default values in def params.
+SpaceAroundEqualsInParameterDefault:
+  Enabled: false
+
+# Use the new lambda literal syntax for single-line blocks.
+Lambda:
+  Enabled: false
+
+# Use proc instead of Proc.new.
+Proc:
+  Enabled: false
+
+# Don't use parentheses around the condition of an if/unless/while.
+ParenthesesAroundCondition:
+  Enabled: false
+
+# Use snake_case for symbols, methods and variables.
+MethodAndVariableSnakeCase:
+  Enabled: false
+
+# Use CamelCase for classes and modules.
+ClassAndModuleCamelCase:
+  Enabled: false
+
+# Preferred collection methods.
+CollectionMethods:
+  Enabled: false
+
+# Prefer each over for.
+AvoidFor:
+  Enabled: false
+
+# Avoid Perl-style global variables.
+AvoidPerlisms:
+  Enabled: false
+
+# Avoid Perl-style regex back references.
+AvoidPerlBackrefs:
+  Enabled: false
+
+# Avoid the use of class variables.
+AvoidClassVars:
+  Enabled: false
+
+# Don't interpolate global, instance and class variables directly in strings.
+VariableInterpolation:
+  Enabled: false
+
+# Don't use semicolons to terminate expressions.
+Semicolon:
+  Enabled: false
+
+# Use sprintf instead of String#%.
+FavorSprintf:
+  Enabled: false
+
+# Use Array#join instead of Array#*.
+FavorJoin:
+  Enabled: false
+
+# Use alias_method instead of alias.
+Alias:
+  Enabled: false
+
+# Use ! instead of not.
+Not:
+  Enabled: false
+
+# Avoid using rescue in its modifier form.
+RescueModifier:
+  Enabled: false
+
+# Never use return in an ensure block.
+EnsureReturn:
+  Enabled: false
+
+# Don't suppress exception.
+HandleExceptions:
+  Enabled: false
+
+# Use only ascii symbols in identifiers.
+AsciiIdentifiers:
+  Enabled: false
+
+# Use only ascii symbols in comments.
+AsciiComments:
+  Enabled: false
+
+# Do not use block comments.
+BlockComments:
+  Enabled: false
+
+# Avoid rescuing the Exception class.
+RescueException:
+  Enabled: false
+
+# Prefer literals to Array.new/Hash.new/String.new.
+EmptyLiteral:
+  Enabled: false
+
+# When defining binary operators, name the argument other.
+OpMethod:
+  Enabled: false
+
+# Name reduce arguments |a, e| (accumulator, element)
+ReduceArguments:
+  Enabled: false
+
+# Use %r for regular expressions matching more than `MaxSlashes` '/'
+# characters.
+# Use %r only for regular expressions matching more than `MaxSlashes` '/'
+# character.
+RegexpLiteral:
+  Enabled: false
+
+# Use self when defining module/class methods.
+ClassMethods:
+  Enabled: false
+
+# Avoid single-line methods.
+SingleLineMethods:
+  Enabled: false
+
+# Use %w or %W for arrays of words.
+WordArray:
+  Enabled: false
+
+# Use spaces inside hash literal braces - or don't.
+SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+# Avoid the use of line continuation (/).
+LineContinuation:
+  Enabled: false
+
+# Prefer attr_* methods to trivial readers/writers.
+TrivialAccessors:
+  Enabled: false
+
+# Comments should start with a space.
+LeadingCommentSpace:
+  Enabled: false
+
+# Do not use :: for method call.
+ColonMethodCall:
+  Enabled: false
+
+# Do not introduce global variables.
+AvoidGlobalVars:
+  Enabled: false
+
+# The use of eval represents a serious security risk.
+Eval:
+  Enabled: false
+
+# Symbol literals should use snake_case.
+SymbolName:
+  Enabled: false
+
+# Constants should use SCREAMING_SNAKE_CASE.
+ConstantName:
+  Enabled: false
+
+# Indent private/protected as deep as defs and keep blank lines around them.
+AccessControl:
+  Enabled: false
+
+# Use Kernel#loop with break rather than begin/end/until or begin/end/while for
+# post-loop tests.
+Loop:
+  Enabled: false
+
+# Avoid excessive block nesting
+BlockNesting:
+  Enabled: false
+
+# Avoid explicit use of the case equality operator(===).
+CaseEquality:
+  Enabled: false
+
+# Document classes and non-namespace modules.
+Documentation:
+  Enabled: false
+
+# Do not use parentheses for method calls with no arguments.
+MethodCallParentheses:
+  Enabled: false
+
+# Checks for redundant do after while or until.
+WhileUntilDo:
+  Enabled: false
+
+# Checks for uses of character literals.
+CharacterLiteral:
+  Enabled: false
+
+# Avoid the use of BEGIN blocks.
+BeginBlock:
+  Enabled: false
+
+# Avoid the use of END blocks.
+EndBlock:
+  Enabled: false
+
+# Don't use return where it's not required.
+RedundantReturn:
+  Enabled: false
+
+# Don't use begin blocks when they are not needed.
+RedundantBegin:
+  Enabled: false
+
+# Don't use self where it's not needed.
+RedundantSelf:
+  Enabled: false
+
+# Checks the position of the dot in multi-line method calls.
+DotPosition:
+  Enabled: false
+
+# Checks for uses of Module#attr.
+Attr:
+  Enabled: false
+
+#################### Lint ################################
+
+# Don't use assignment in conditions.
+AssignmentInCondition:
+  Enabled: false
+
+# Align ends correctly.
+EndAlignment:
+  Enabled: false
+
+# Align block ends correctly.
+BlockAlignment:
+  Enabled: false
+
+# Possible use of operator/literal/variable in void context.
+Void:
+  Enabled: false
+
+# Unreachable code.
+UnreachableCode:
+  Enabled: false
+
+# Unused local variable.
+UnusedLocalVariable:
+  Enabled: false
+
+# Do not use the same name as outer local variable
+# for block arguments or block local variables.
+ShadowingOuterLocalVariable:
+  Enabled: false
+
+# END blocks should not be placed inside method definitions.
+EndInMethod:
+  Enabled: false
+
+# Checks of literals used in conditions.
+LiteralInCondition:
+  Enabled: false
+
+# Checks for empty ensure block.
+EmptyEnsure:
+  Enabled: false
+
+# Checks formatting of special comments (TODO, FIXME, OPTIMIZE, HACK, REVIEW).
+CommentAnnotation:
+  Enabled: false

@@ -104,7 +104,7 @@ class Dungeon
   def get_allocated_cells
     allocated_cells = 0.0;
     @cells.each { |i| i.each { |j| allocated_cells += 1 if j.type != Cell::BLOCKED } }
-    return (allocated_cells*Dungeon::ROOM_ALLOCATION_WEIGHT).floor
+    (allocated_cells*Dungeon::ROOM_ALLOCATION_WEIGHT).floor
   end
 
   # Generates the rooms for the dungeon
@@ -202,7 +202,7 @@ class Dungeon
 
   # Generates corridors on all viable corridor seeds
   # (odd (x,y)'s
-  def generate_corridors()
+  def generate_corridors
     (0..width).each do |i|
       (0..height).each do |j|
         if i.odd? && j.odd? && @cells[i][j].type == Cell::UNALLOCATED
@@ -306,9 +306,9 @@ class Dungeon
 
   # Output to console
   def to_s
-    out = ""
+    out = ''
     (0..width).each do |i|
-      str = ""
+      str = ''
       (0..height).each do |j|
         str << "#{@cells[i][j]}"
       end

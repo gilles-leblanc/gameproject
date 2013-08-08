@@ -5,12 +5,13 @@ require_relative '../Events/inn_event'
 require_relative '../Events/guild_event'
 require_relative '../Events/temple_event'
 
+# A reasonable sized city for most worlds.
 class SmallCityFactory < CityFactory
   def initialize
     super
     @width = 24
     @height = 24
-    @tiles = Array.new
+    @tiles = []
   end
 
   def build
@@ -18,19 +19,19 @@ class SmallCityFactory < CityFactory
     place_entrance
     readjust_walls
 
-    city = Map.new(@width, @height, @tiles)
-    city.name = give_name
+    @city = Map.new(@width, @height, @tiles)
+    @city.name = give_name
 
-    place_buildings(city)
-    place_dead_ends(city)
+    place_buildings
+    place_dead_ends
 
     events = [ShopEvent.new(establishment_name_generator.get_shop_name),
               InnEvent.new(establishment_name_generator.get_tavern_name),
               TempleEvent.new(temple_name_generator.get_name),
               GuildEvent.new(establishment_name_generator.get_name)]
 
-    place_events(city, events)
+    place_events(events)
 
-    city
+    @city
   end
 end

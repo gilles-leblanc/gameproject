@@ -16,9 +16,22 @@ class DungeonFactory
   def build
     # create random Dungeon
     dungeon = Dungeon.new(@width - 1, @height - 1)
-    tiles = Array.new
+    tiles = []
 
     # create map tiles with Dungeon cells
+    create_map_tiles_from_dungeon_cells(dungeon, tiles)
+
+    # place entrance
+    entrance_tile = tiles.find { |tile| tile.x == 1 && tile.y == 1 }
+    entrance_tile.type = :entrance
+
+    # create Map object with random Dungeon tiles
+    dungeon_map = Map.new(@width, @height, tiles)
+    dungeon_map.name = 'random dungeon'
+    dungeon_map
+  end
+
+  def create_map_tiles_from_dungeon_cells(dungeon, tiles)
     dungeon.cells.each do |cell_row|
       cell_row.each do |cell|
         case cell.type
@@ -29,20 +42,9 @@ class DungeonFactory
           when Cell::ENTRANCE
             tiles.push Tile.new(:door, cell.y, cell.x)
           else
-            raise "Unknown cell/tile type."
+            raise 'Unknown cell/tile type.'
         end
       end
     end
-
-    # fill empty cells with
-
-    # place entrance
-    entrance_tile = tiles.find { |tile| tile.x == 1 and tile.y == 1 }
-    entrance_tile.type = :entrance
-
-    # create Map object with random Dungeon tiles
-    dungeon_map = Map.new(@width, @height, tiles)
-    dungeon_map.name = "random dungeon"
-    dungeon_map
   end
 end

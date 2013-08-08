@@ -1,7 +1,7 @@
 require_relative '../small_city_factory'
 
-describe "Buildings in a city" do
-  describe "#load" do
+describe 'Buildings in a city' do
+  describe '#load' do
     before(:all) do
       city_factory = SmallCityFactory.new
       @city = city_factory.build

@@ -3,6 +3,6 @@ class Party
   attr_reader :members
 
   def initialize
-    @members = Array.new
+    @members = []
   end
 end

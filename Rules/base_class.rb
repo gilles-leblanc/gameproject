@@ -3,7 +3,8 @@ require_relative 'paper_doll'
 require_relative 'actions'
 require_relative 'effects'
 
-# This is the base character class on which all other character class are based; knight, sorcerer, etc.
+# This is the base character class on which all other character class are based
+# knight, sorcerer, etc.
 class BaseClass
   include Broadcast, Actions
 
@@ -27,10 +28,10 @@ class BaseClass
 
     @stats = stats
 
-    @abilities = Hash.new
-    @abilities["a"] = self.method(:attack)
-    @abilities["b"] = self.method(:block)
-    @abilities["p"] = self.method(:pass)
+    @abilities = {}
+    @abilities['a'] = method(:attack)
+    @abilities['b'] = method(:block)
+    @abilities['p'] = method(:pass)
 
     @effects = {:ac => [], :might => [], :accuracy => [], :endurance => [],
                 :intellect => [], :personality => [], :speed => [], :luck => []}
@@ -40,7 +41,7 @@ class BaseClass
     @current_hp -= damage
     broadcast "#{@name} takes #{damage} points of damage."
     broadcast "#{@name} is defeated." if @current_hp <= 0
-    broadcast ""
+    broadcast ''
   end
 
   def heal(hp)
@@ -58,7 +59,7 @@ class BaseClass
 
   def ac
     effects_ac_modifier = @effects[:ac].inject(0) { |sum, x| sum + x[0] }
-    if effects_ac_modifier.nil? then
+    if effects_ac_modifier.nil?
       effects_ac_modifier = 0
     end
 

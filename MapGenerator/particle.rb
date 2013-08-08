@@ -23,11 +23,12 @@ class Particle
 
     for index_x in x - @stability_radius..x + @stability_radius
       for index_y in y - @stability_radius..y + @stability_radius
-        check_and_add_neighbor(index_x, index_y, size_x, lower_neighbors, drop_point, height_map)
+        check_and_add_neighbor(index_x, index_y, size_x, lower_neighbors,
+                               drop_point, height_map)
       end
     end
 
-    if (lower_neighbors.length == 0) then
+    if lower_neighbors.length == 0 then
       # no lower neighbors, leave particle on drop point
       height_map[drop_point] += 1
     else

@@ -1,6 +1,6 @@
 require_relative '../effects'
 
-describe "Effects" do
+describe 'Effects' do
   before(:each) do
     @effects = {:ac => [], :hp => [], :might => [], :mp => [], :luck => []}
 
@@ -19,7 +19,7 @@ describe "Effects" do
     @effects[:luck].push([1, 1])
   end
 
-  context "when updating effects timers" do
+  context 'when updating effects timers' do
     before(:each) do
       Effects.update_effects_timers(@effects)
     end
@@ -40,7 +40,7 @@ describe "Effects" do
 
     it { @effects[:luck].length.should == 0 }
 
-    context "when updating effects timers a second time" do
+    context 'when updating effects timers a second time' do
       before(:each) do
         Effects.update_effects_timers(@effects)
       end

@@ -5,12 +5,13 @@ require_relative '../Events/inn_event'
 require_relative '../Events/guild_event'
 require_relative '../Events/temple_event'
 
+# A large metropolis. A city this size is impractical for game play purposes.
 class VeryLargeCityFactory < CityFactory
   def initialize
     super
     @width = 40
     @height = 40
-    @tiles = Array.new
+    @tiles = []
   end
 
   def build
@@ -18,11 +19,11 @@ class VeryLargeCityFactory < CityFactory
     place_entrance
     readjust_walls
 
-    city = Map.new(@width, @height, @tiles)
-    city.name = give_name
+    @city = Map.new(@width, @height, @tiles)
+    @city.name = give_name
 
-    place_buildings(city)
-    place_dead_ends(city)
+    place_buildings
+    place_dead_ends
 
     events = [ShopEvent.new(establishment_name_generator.get_shop_name),
               ShopEvent.new(establishment_name_generator.get_shop_name),
@@ -31,8 +32,8 @@ class VeryLargeCityFactory < CityFactory
               TempleEvent.new(temple_name_generator.get_name),
               GuildEvent.new(establishment_name_generator.get_name)]
 
-    place_events(city, events)
+    place_events(events)
 
-    city
+    @city
   end
 end

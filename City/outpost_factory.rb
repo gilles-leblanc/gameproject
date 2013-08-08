@@ -5,12 +5,14 @@ require_relative '../Events/inn_event'
 require_relative '../Events/guild_event'
 require_relative '../Events/temple_event'
 
+# The smallest city factory available. This will typically have between
+# 2 and 4 buildings.
 class OutpostFactory < CityFactory
   def initialize
     super
     @width = 12
     @height = 12
-    @tiles = Array.new
+    @tiles = []
   end
 
   def build
@@ -18,16 +20,16 @@ class OutpostFactory < CityFactory
     place_entrance
     readjust_walls
 
-    city = Map.new(@width, @height, @tiles)
-    city.name = give_name
+    @city = Map.new(@width, @height, @tiles)
+    @city.name = give_name
 
-    place_buildings(city)
-    place_dead_ends(city)
+    place_buildings
+    place_dead_ends
 
     events = [InnEvent.new(establishment_name_generator.get_tavern_name)]
 
-    place_events(city, events)
+    place_events(events)
 
-    city
+    @city
   end
 end

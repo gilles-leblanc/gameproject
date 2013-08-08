@@ -40,7 +40,7 @@ class PaperDoll
         cant_equip item
       end
     else
-      raise "Unknown item type"
+      raise 'Unknown item type'
     end
 
     return_item

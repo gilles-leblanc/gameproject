@@ -1,6 +1,6 @@
 require_relative '../test_city_factory'
 
-describe "City" do
+describe 'City' do
   before(:each) do
     city_factory = TestCityFactory.new
     @city = city_factory.build
@@ -20,7 +20,7 @@ describe "City" do
   # should have exactly one entrance
   it { @city.tiles.one? { |tile| tile.type == :entrance }.should be_true }
 
-  it "should be surrounded by a wall, except for one square" do
+  it 'should be surrounded by a wall, except for one square' do
     number_of_wall_tiles = 0
 
     for x in 0...20
@@ -36,8 +36,8 @@ describe "City" do
     number_of_wall_tiles.should == 75
   end
 
-  specify "the entrance should not be close to a corner" do
-    not_close = @city.tiles.select { |tile|
+  specify 'the entrance should not be close to a corner' do
+    not_close = @city.tiles.select do |tile|
       !(tile.x < 5 && tile.y == 0) &&
           !(tile.x > 15 && tile.y == 0) &&
           !(tile.x < 5 && tile.y == 19) &&
@@ -45,7 +45,8 @@ describe "City" do
           !(tile.x == 0 && tile.y < 5) &&
           !(tile.x == 0 && tile.y > 15) &&
           !(tile.x == 19 && tile.y < 5) &&
-          !(tile.x == 19 && tile.y > 15) }
+          !(tile.x == 19 && tile.y > 15)
+    end
 
     entrance = not_close.select { |tile| tile.type == :entrance }.first
 

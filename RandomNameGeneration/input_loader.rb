@@ -1,4 +1,4 @@
-require "yaml"
+require 'yaml'
 
 # load the input data from a file containing a plain text sample data of names separated by spaces
 class FileInputLoader

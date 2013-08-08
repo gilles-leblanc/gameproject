@@ -9,9 +9,9 @@ class Game < Gosu::Window
     end
 
     super 800, 600, false
-    self.caption = config_values["game_name"]
+    self.caption = config_values['game_name']
 
-    @title_screen = TitleScreen.new(self, config_values["game_name"])
+    @title_screen = TitleScreen.new(self, config_values['game_name'])
   end
 
   def update

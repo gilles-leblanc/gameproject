@@ -12,7 +12,7 @@ class Map
     @height = height
 
     if tiles == nil
-      @tiles = Array.new
+      @tiles = []
     else
       @tiles = tiles
     end

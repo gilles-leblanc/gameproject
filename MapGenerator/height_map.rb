@@ -22,11 +22,12 @@ class HeightMap
     @size_x = size_x
   end
 
-  # Return a new height map, created by using the filter parameter on the current height map
+  # Return a new height map, created by using the filter parameter on
+  # the current height map
   def filter(filter)
     filtered_height_map = HeightMap.new
     filtered_height_map.load(filter.filter(@data), @size_x)
-    return filtered_height_map
+    filtered_height_map
   end
 
   # Uses particle deposition algorithm to generate HeightMap
@@ -46,7 +47,7 @@ class HeightMap
         drop.each { |particle| particle.drop(@data, drop_point_x, drop_point_y, size_x) }
 
         # move drop point for next drop
-        if first_iteration then
+        if first_iteration
           drop_point_x = rand(size_x - 8) + 4 # make sure that particles
           drop_point_y = rand(size_y - 8) + 4 # aren't created near the edges
         else
@@ -59,10 +60,10 @@ class HeightMap
       change_variables_for_next_pass
     end
 
-    return @data
+    @data
   end
 
-  def draw(file_name="rendered_height_map.png")
+  def draw(file_name='rendered_height_map.png')
     window = Gosu::Window.new(@size_x, @size_x, false)
     image = TexPlay.create_image(window, @size_x, @size_x, :color => Gosu::Color::BLACK)
     image.draw(0, 0, 0)
@@ -91,10 +92,11 @@ class HeightMap
       drops.push(Array.new(number_in_this_drop, Particle.new(@particle_stability_radius)))
     end
 
-    return drops
+    drops
   end
 
-  # change the parameters that control the generator to account for the next iteration
+  # change the parameters that control the generator to account for
+  # the next iteration
   def change_variables_for_next_pass
     @number_of_drop_points /= 2
     @number_of_passes -= 1

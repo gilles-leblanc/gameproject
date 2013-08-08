@@ -23,8 +23,9 @@ class CityFactory
 
   # lazy initialization
   def temple_name_generator
-    @temple_name_generator ||= PlaceNameGenerator.new('/media/temple_types',
-                                                      '/media/greek_myth_sample')
+    @temple_name_generator ||=
+        PlaceNameGenerator.new('/media/temple_types',
+                               '/media/greek_myth_sample')
   end
 
   private
@@ -63,7 +64,7 @@ class CityFactory
     wall_tiles.shuffle.first.type = :entrance
   end
 
-  def place_buildings(city)
+  def place_buildings
     direction = [:zonal, :meridional].shuffle.first
     zonal_facing = :east
 
@@ -71,13 +72,8 @@ class CityFactory
       meridional_facing = :south
 
       for index_y in 0...(@height / 4 - 1)
-        building = Building.new(4, 4,
-                                if direction == :zonal
-                                  zonal_facing
-                                else
-                                  meridional_facing
-                                end)
-        building.draw_on(city, [index_x * 4 + 1, index_y * 4 + 1])
+        place_new_building(direction, index_x, index_y, meridional_facing,
+                           zonal_facing)
 
         if meridional_facing == :south
           meridional_facing = :north
@@ -94,6 +90,17 @@ class CityFactory
     end
   end
 
+  def place_new_building(direction, index_x, index_y, meridional_facing,
+      zonal_facing)
+    building = Building.new(4, 4,
+                            if direction == :zonal
+                              zonal_facing
+                            else
+                              meridional_facing
+                            end)
+    building.draw_on(@city, [index_x * 4 + 1, index_y * 4 + 1])
+  end
+
   # if there is a continuous two spaces street next to either the east or
   # south wall move the wall over one space
   def readjust_walls
@@ -103,7 +110,7 @@ class CityFactory
 
   def readjust_east_wall
     if @tiles.select { |tile| tile.x == @width - 2 && tile.y != 0 && tile.y != @height - 1 }.all? { |tile| tile.type == :open } &&
-        @tiles.select { |tile| tile.x == @width - 3 && tile.y != 0 && tile.y != @height - 1 }.all? { |tile| tile.type == :open } then
+        @tiles.select { |tile| tile.x == @width - 3 && tile.y != 0 && tile.y != @height - 1 }.all? { |tile| tile.type == :open }
       # move wall
       @tiles.select { |tile| tile.x == @width - 1 && tile.y != 0 && tile.y != @height - 1 }
       .each { |tile| tile_at(tile.x - 1, tile.y).type = tile.type }
@@ -115,7 +122,7 @@ class CityFactory
 
   def readjust_south_wall
     if @tiles.select { |tile| tile.y == @height - 2 && tile.x != 0 && tile.x < @width - 2 }.all? { |tile| tile.type == :open } &&
-        @tiles.select { |tile| tile.y == @height - 3 && tile.x != 0 && tile.x < @width - 2 }.all? { |tile| tile.type == :open } then
+        @tiles.select { |tile| tile.y == @height - 3 && tile.x != 0 && tile.x < @width - 2 }.all? { |tile| tile.type == :open }
       # move wall
       @tiles.select { |tile| tile.y == @height - 1 && tile.x != 0 && tile.x < @width - 2 }
       .each { |tile| tile_at(tile.x, tile.y - 1).type = tile.type }
@@ -128,9 +135,9 @@ class CityFactory
   # Place blocks that could possibly be dead-ends depending on
   # street configuration  in the very least, odd walls.
   # This is to bring a little randomness to the city.
-  def place_dead_ends(city)
+  def place_dead_ends
     # place one dead-end wall for each 100 blocks of city
-    city.tiles.each_slice(100) do |slice|
+    @city.tiles.each_slice(100) do |slice|
       if slice.count < 100
         return
       end
@@ -139,23 +146,23 @@ class CityFactory
 
       slice.select do |tile|
         tile.type == :open &&
-            !unsuitable.include?(city.tile_at(tile.x - 1, tile.y).type) &&
-            !unsuitable.include?(city.tile_at(tile.x + 1, tile.y).type) &&
-            !unsuitable.include?(city.tile_at(tile.x, tile.y - 1).type) &&
-            !unsuitable.include?(city.tile_at(tile.x, tile.y + 1).type) &&
+            !unsuitable.include?(@city.tile_at(tile.x - 1, tile.y).type) &&
+            !unsuitable.include?(@city.tile_at(tile.x + 1, tile.y).type) &&
+            !unsuitable.include?(@city.tile_at(tile.x, tile.y - 1).type) &&
+            !unsuitable.include?(@city.tile_at(tile.x, tile.y + 1).type) &&
             (
-            city.tile_at(tile.x - 1, tile.y).type == :wall ||
-                city.tile_at(tile.x + 1, tile.y).type == :wall ||
-                city.tile_at(tile.x, tile.y - 1).type == :wall ||
-                city.tile_at(tile.x, tile.y + 1).type == :wall
+            @city.tile_at(tile.x - 1, tile.y).type == :wall ||
+                @city.tile_at(tile.x + 1, tile.y).type == :wall ||
+                @city.tile_at(tile.x, tile.y - 1).type == :wall ||
+                @city.tile_at(tile.x, tile.y + 1).type == :wall
             )
       end.shuffle.first.type = :wall
     end
   end
 
-  def place_events(city, events)
+  def place_events(events)
     events.each do |event|
-      city.tiles.select { |tile| tile.type == :door && tile.event.nil? }
+      @city.tiles.select { |tile| tile.type == :door && tile.event.nil? }
         .shuffle.first.event = event
     end
   end

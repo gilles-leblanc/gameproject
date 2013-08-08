@@ -24,34 +24,34 @@ describe HeightMap do
     @existing_array = Array.new(100).map { rand 4 }
   end
 
-  specify "when loading an existing height map array" do
+  specify 'when loading an existing height map array' do
     @height_map.load(@existing_array, 10)
     @height_map.data.should equal @existing_array
   end
 
-  specify "when generating an height map" do
+  specify 'when generating an height map' do
     @height_map.generate(60, 60)
     @height_map.visit(scan_edge_for_particles).should be_false
   end
 
-  context "filter" do
+  context 'filter' do
     before(:each) do
       @blur_filter = GaussianFilter.new
     end
 
-    it "should not modify the original map" do
+    it 'should not modify the original map' do
       @height_map.load(@existing_array, 10)
       @height_map.filter(@blur_filter)
       @height_map.data.should equal @existing_array
     end
 
-    it "should return a modified map" do
+    it 'should return a modified map' do
       @height_map.load(@existing_array, 10)
       filtered = @height_map.filter(@blur_filter)
       @height_map.data.should_not == filtered.data
     end
 
-    it "should not create particles on edge of map" do
+    it 'should not create particles on edge of map' do
       @height_map.generate(60, 60)
       filtered = @height_map.filter(@blur_filter)
       filtered.visit(scan_edge_for_particles).should be_false

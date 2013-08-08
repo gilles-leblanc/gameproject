@@ -49,20 +49,20 @@ class Cell
   end
 
   def to_s
-    char = ""
+    char = ''
     case @type
       when Cell::BLOCKED
-        char = "#"
+        char = '#'
       when Cell::PERIMETER
-        char = "P"
+        char = 'P'
       when Cell::ROOM
-        char = "R"
+        char = 'R'
       when Cell::CORRIDOR
-        char = "C"
+        char = 'C'
       when Cell::ENTRANCE
-        char = "E"
+        char = 'E'
       else
-        char = " "
+        char = ' '
     end
     return char
   end

@@ -3,7 +3,7 @@ require_relative './base_class'
 
 class CharacterTestDataBuilder
   def initialize
-    @name = "Felgar"
+    @name = 'Felgar'
     @armor_categories = [:very_light]
 
     @stats = Stats.new

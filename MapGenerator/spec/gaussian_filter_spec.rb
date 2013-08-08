@@ -5,7 +5,7 @@ describe GaussianFilter do
     @gaussian_filter = GaussianFilter.new
   end
 
-  specify "filtered values should not bleed over horizontally" do
+  specify 'filtered values should not bleed over horizontally' do
     sample_array = [0, 0, 5, 5, 6, 7, 10, 100, 200, 100, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -27,7 +27,7 @@ describe GaussianFilter do
     end
   end
 
-  specify "filtered values should not bleed over vertically" do
+  specify 'filtered values should not bleed over vertically' do
     sample_array = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -49,7 +49,7 @@ describe GaussianFilter do
     end
   end
 
-  specify "double filtering should not bleed over horizontally" do
+  specify 'double filtering should not bleed over horizontally' do
     sample_array = [0, 0, 5, 5, 6, 7, 10, 100, 200, 100, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -72,7 +72,7 @@ describe GaussianFilter do
     end
   end
 
-  specify "double filtering should not bleed over vertically" do
+  specify 'double filtering should not bleed over vertically' do
     sample_array = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -95,7 +95,7 @@ describe GaussianFilter do
     end
   end
 
-  specify "filtering should be symmetrical", :symmetrical => true do
+  specify 'filtering should be symmetrical', :symmetrical => true do
     sample_array = [0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0,

@@ -8,12 +8,12 @@ class MapOverview
     @top = top
     @size = size
     @parent_window = parent_window
-    @tile_palette = MiniTilePalette.new(@parent_window, "MapGenerator")
+    @tile_palette = MiniTilePalette.new(@parent_window, 'MapGenerator')
 
-    @red_arrow_up = Gosu::Image.new(parent_window, "media/red_arrow_up.png", true)
-    @red_arrow_left = Gosu::Image.new(parent_window, "media/red_arrow_left.png", true)
-    @red_arrow_right = Gosu::Image.new(parent_window, "media/red_arrow_right.png", true)
-    @red_arrow_down = Gosu::Image.new(parent_window, "media/red_arrow_down.png", true)
+    @red_arrow_up = Gosu::Image.new(parent_window, 'media/red_arrow_up.png', true)
+    @red_arrow_left = Gosu::Image.new(parent_window, 'media/red_arrow_left.png', true)
+    @red_arrow_right = Gosu::Image.new(parent_window, 'media/red_arrow_right.png', true)
+    @red_arrow_down = Gosu::Image.new(parent_window, 'media/red_arrow_down.png', true)
   end
 
   def draw(map, current_position, compass)

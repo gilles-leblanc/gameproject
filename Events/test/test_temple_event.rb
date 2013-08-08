@@ -2,6 +2,7 @@ require 'test/unit'
 require 'mocha/setup'
 require_relative '../temple_event'
 
+# Tests on the temple event class.
 class TestTempleEvent < Test::Unit::TestCase
   def test_returns_greeting_string_with_temple_name
     temple_event = TempleEvent.new('TestTempleName')
