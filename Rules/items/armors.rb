@@ -27,7 +27,7 @@ class Armor
   protected
 
   def self.null_object
-    null_object_armor = Armor.new("", 0)
+    Armor.new("", 0)
   end
 end
 

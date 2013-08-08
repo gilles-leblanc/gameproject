@@ -11,7 +11,7 @@ class Shield
   protected
 
   def self.null_object
-    null_object_shield = Shield.new("", 0)
+    Shield.new("", 0)
   end
 end
 

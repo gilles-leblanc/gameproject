@@ -1,4 +1,15 @@
 require 'rake/testtask'
+require 'rubocop/rake_task'
+
+### Rubocop section
+
+desc 'Run RuboCop'
+Rubocop::RakeTask.new(:rubocop) do |task|
+  # don't abort rake on failure
+  task.fail_on_error = false
+end
+
+### Specs section
 
 desc "City Specs"
 task :city_specs do

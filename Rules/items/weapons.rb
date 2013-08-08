@@ -25,7 +25,7 @@ class Weapon
   protected
 
   def self.null_object
-    null_object_weapon = Weapon.new("", [0])
+    Weapon.new("", [0])
   end
 end
 

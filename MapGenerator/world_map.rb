@@ -60,23 +60,32 @@ class WorldMap < Map
   def place_snow(height)
     arctic_latitude = height / 15
 
-    arctic_tiles = @tiles.select { |t| t.type != :mountain &&
-        t.type != :water &&
-        t.type != :forest &&
-        t.y <= arctic_latitude }
+    arctic_tiles = @tiles.select do |t|
+      t.type != :mountain &&
+      t.type != :water &&
+      t.type != :forest &&
+      t.y <= arctic_latitude
+    end
+
     arctic_tiles.map { |t| t.type = :snow }
 
-    arctic_forest_tiles = @tiles.select { |t| t.type == :forest &&
-        t.y <= arctic_latitude }
+    arctic_forest_tiles = @tiles.select do |t|
+      t.type == :forest && t.y <= arctic_latitude
+    end
+
     arctic_forest_tiles.map { |t| t.type = :snow_forest }
 
-    sub_arctic_tiles = @tiles.select { |t| t.type != :mountain &&
-        t.type != :water &&
-        t.y == arctic_latitude + 1 }
-    sub_arctic_tiles.map { |t|
-      if [true, false].shuffle[0] then
+    sub_arctic_tiles = @tiles.select do |t|
+      t.type != :mountain &&
+      t.type != :water &&
+      t.y == arctic_latitude + 1
+    end
+
+    sub_arctic_tiles.map do |t|
+      if [true, false].shuffle[0]
         t.type = :snow
-      end }
+      end
+    end
   end
 
   def place_cities(city_factory)

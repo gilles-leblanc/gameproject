@@ -28,7 +28,7 @@ class RiverFilter
       (0...@size).each do |x|
         if filtered_rain_map.data[x + y * @size] >= 80 && filtered_array[x + y * @size] >= 68 &&
             river_starting_points.none? { |p| (p[0] > x - 4 && p[0] < x + 3) &&
-                (p[1] > y - 4 && p[1] < y + 3) }
+                                          (p[1] > y - 4 && p[1] < y + 3) }
           river_starting_points.push([x, y])
         end
       end
