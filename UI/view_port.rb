@@ -4,6 +4,7 @@ require_relative './ui_constants'
 require_relative './color_palette'
 require_relative '../tile_palette'
 
+# The UI component that displays the first person view of the game world.
 class ViewPort
   def initialize(parent_window)
     @parent_window = parent_window
@@ -19,7 +20,8 @@ class ViewPort
   private
 
   # Draw 5 tiles far, number of tiles wide varies depending on how far we draw
-  # First row is 40%, Second row is 30%, Third row is 15%, Fourth row is 10%, Fifth row is 5%
+  # First row is 40%, Second row is 30%, Third row is 15%,
+  # Fourth row is 10%, Fifth row is 5%
   def draw_ground(map, current_position, compass)
     draw_leftmost_ground_tiles(map, current_position, compass)
     draw_left_ground_tiles(map, current_position, compass)
@@ -209,18 +211,22 @@ class ViewPort
   def tile_in_front(number_of_steps, side_step=0, map, current_position, compass)
     case compass[0]
       when :north
-        map.tile_at(current_position[:x] + side_step, current_position[:y] - 1 * number_of_steps)
+        map.tile_at(current_position[:x] +
+                        side_step, current_position[:y] - 1 * number_of_steps)
       when :south
-        map.tile_at(current_position[:x] - side_step, current_position[:y] + 1 * number_of_steps)
+        map.tile_at(current_position[:x] -
+                        side_step, current_position[:y] + 1 * number_of_steps)
       when :west
-        map.tile_at(current_position[:x] - 1 * number_of_steps, current_position[:y] - side_step)
+        map.tile_at(current_position[:x] -
+                        1 * number_of_steps, current_position[:y] - side_step)
       when :east
-        map.tile_at(current_position[:x] + 1 * number_of_steps, current_position[:y] + side_step)
+        map.tile_at(current_position[:x] +
+                        1 * number_of_steps, current_position[:y] + side_step)
     end
   end
 
-  def draw_tile (bottom_left_x, bottom_left_y, top_left_x, top_left_y, top_right_x,
-      top_right_y, bottom_right_x, bottom_right_y, tile)
+  def draw_tile (bottom_left_x, bottom_left_y, top_left_x, top_left_y,
+      top_right_x, top_right_y, bottom_right_x, bottom_right_y, tile)
 
     image = @tile_palette.get_tile_resource(tile)
 

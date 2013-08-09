@@ -1,5 +1,5 @@
-# fix a sample file so that it is more compatible with the build_probability_table script
-
+# fix a sample file so that it is more compatible with
+# the build_probability_table script
 input_file = ARGV[0]
 names = File.read(input_file).split
 

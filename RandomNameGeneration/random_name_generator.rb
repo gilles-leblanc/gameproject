@@ -5,6 +5,10 @@ require_relative 'three_letter_cumulative_strategy'
 require_relative 'cumulative_probability_table'
 require_relative 'input_loader'
 
+# Randomly generates a name using letter probabilities for pair and triplets
+# of letters. These probabilities are built using a sample text. For best
+# results, this sample text should be composed of names that have a strong
+# cohesion.
 class RandomNameGenerator
   def initialize(data_file_name)
     @random_number_generator = Random.new
@@ -39,8 +43,9 @@ class RandomNameGenerator
   end
 
   private
-  # return the starting letter for a new random name, or alternatively a new random letter
-  # when we do not any information from previous letters (ie: missing pairs in sample data)
+  # return the starting letter for a new random name, or alternatively a
+  # new random letter when we do not any information from previous letters
+  # (ie: missing pairs in sample data)
   def get_starting_letter
     random_number = @random_number_generator.rand(0.0..1.0)
 
@@ -49,7 +54,8 @@ class RandomNameGenerator
         v >= random_number }.keys.sort.first[1]
   end
 
-  # return the next letter in random name when we have both the first and second letter defined
+  # return the next letter in random name when we have both the first
+  # and second letter defined
   def get_next_letter(first_letter, second_letter)
     random_number = @random_number_generator.rand(0.0..1.0)
 
@@ -84,7 +90,8 @@ class RandomNameGenerator
     end
 
     begin
-      # try to get a triplet that starts with current_last_letter, has it's second letter be the first letter in space ending triplet
+      # try to get a triplet that starts with current_last_letter, has it's
+      # second letter be the first letter in space ending triplet
       # and does not end with a space
       valid_letters = @triplet_probability_table.frequencies.keys.select { |k| k[2] == ' ' }.map { |x| x[0] }
       if @pair_probability_table.frequencies.keys.any? { |key| key[0] == current_last_letter && valid_letters.any? { |l| l == key[1] } }

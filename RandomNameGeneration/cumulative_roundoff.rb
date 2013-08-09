@@ -1,3 +1,4 @@
+# To correct errors where total probability would be slightly below 100%.
 module CumulativeRoundoff
   private
   def roundoff(value)

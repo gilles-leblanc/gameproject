@@ -50,8 +50,9 @@ describe 'ProbabilityTable' do
         it { @probability_table.frequencies[' m'].should == 0.2857142857142857 }
         it { @probability_table.frequencies[' g'].should == 0.2857142857142857 }
 
-        # we treat pairs ending with a space as a special case, they are grouped in their own category rather than
-        # being with their first letter
+        # we treat pairs ending with a space as a special case,
+        # they are grouped in their own category rather than being
+        # with their first letter
         it { @probability_table.frequencies['n '].should == 0.14285714285714285 }
         it { @probability_table.frequencies['s '].should == 0.42857142857142855 }
         it { @probability_table.frequencies['x '].should == 0.14285714285714285 }
@@ -163,7 +164,8 @@ describe 'ProbabilityTable' do
 
         it { @probability_table.frequencies['ohn'].should == 1.0 }
 
-        # we do not want probabilities with spaces in the middle for three letter triplets
+        # we do not want probabilities with spaces in the middle
+        # for three letter triplets
         it { @probability_table.frequencies.key?('s j').should be_false }
         it { @probability_table.frequencies.key?('n m').should be_false }
         it { @probability_table.frequencies.key?('x g').should be_false }

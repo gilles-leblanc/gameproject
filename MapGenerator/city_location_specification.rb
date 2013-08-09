@@ -7,7 +7,8 @@ class CityLocationSpecification
   end
 
   def tiles_that_satisfy(map)
-    allowable_tiles = map.tiles.select { |t| t.type == :grass || t.type == :sand }
+    allowable_tiles = map.tiles.select { |t| t.type == :grass ||
+                                            t.type == :sand }
 
     # must be close to water
     allowable_tiles.select { |t| (map.tile_at(t.x - 1, t.y).type == :water ||

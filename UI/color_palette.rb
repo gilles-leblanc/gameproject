@@ -1,5 +1,6 @@
 require 'gosu'
 
+# Common colors
 module ColorPalette
   # sky colors
   Top_sky_color = Gosu::Color.new 0xff025cb2

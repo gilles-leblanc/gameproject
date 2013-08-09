@@ -1,3 +1,6 @@
+# Enchantments are properties that can be added to an item like an armor or
+# a weapon and that affect the characteristics of that item positively or
+# negatively.
 class Enchantment
   attr_accessor :name, :stat_modifier, :bonus_item_level, :item_value_modifier
 

@@ -1,6 +1,7 @@
 require_relative 'edge'
 require_relative 'empty_tile'
 
+# A map that can be used directly with the game component.
 class Map
   include Edge
 

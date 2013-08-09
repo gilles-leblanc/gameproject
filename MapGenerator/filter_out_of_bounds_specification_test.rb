@@ -1,6 +1,8 @@
 require 'test/unit'
 require_relative './filter_out_of_bounds_specification'
 
+# rubocop:disable LineLength
+
 # Class to test filter_out_of_bounds_specification
 class FilterOutOfBoundsSpecficationTest < Test::Unit::TestCase
   def test_satisfied_by_returns_true_when_z_plus_offset_is_greater_than_size_z
@@ -41,3 +43,5 @@ class FilterOutOfBoundsSpecficationTest < Test::Unit::TestCase
     assert !FilterOutOfBoundsSpecification.satisfied_by?(7, 10, -5)
   end
 end
+
+# rubocop:enable LineLength

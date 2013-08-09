@@ -2,6 +2,7 @@ require 'gosu'
 require 'yaml'
 require_relative 'UI/screens/title_screen'
 
+# The game's base class. This will be the game's entry point.
 class Game < Gosu::Window
   def initialize
     config_values = begin

@@ -2,7 +2,7 @@ require 'test/unit'
 require 'mocha/setup'
 require_relative './world_map'
 
-# tests do not work since adding snow
+# Test class for the WorldMap.
 class WorldMapTest < Test::Unit::TestCase
   def test_map_will_generate_correct_water_tile
     # Arrange

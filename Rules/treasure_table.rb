@@ -1,3 +1,4 @@
+# Class that generates random different kinds of random treasure.
 class TreasureTable
   @@random = Random.new
 

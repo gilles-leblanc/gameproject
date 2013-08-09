@@ -1,3 +1,4 @@
+# The main game title screen which display's the game's name.
 class TitleScreen
   def initialize(parent_window, game_name)
     @parent_window = parent_window

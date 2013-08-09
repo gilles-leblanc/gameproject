@@ -1,3 +1,4 @@
+# Some common UI constants
 module UiConstants
   Mini_Tile_Size = 10
 

@@ -2,6 +2,9 @@ require_relative 'height_map'
 require_relative 'gaussian_filter'
 require_relative 'height_map_configurator'
 
+# A filter that can be applied to a height map similar to how a gaussian
+# filter can be applied. Instead of blurring like the gaussian filter, this
+# river filter will add rivers and lakes to the height map.
 class RiverFilter
   def initialize(x, y, river_configuration = HeightMapConfigurator::RainMap_medium_world)
     @size = x
@@ -22,11 +25,13 @@ class RiverFilter
 
     river_starting_points = []
 
-    # superimpose rain map with array (normal height map) to choose river locations
+    # superimpose rain map with array (normal height map) to choose
+    # river locations
     (0...@size).each do |y|
       # @size is used since we assume the array is square 2d matrix
       (0...@size).each do |x|
-        if filtered_rain_map.data[x + y * @size] >= 80 && filtered_array[x + y * @size] >= 68 &&
+        if filtered_rain_map.data[x + y * @size] >= 80 &&
+            filtered_array[x + y * @size] >= 68 &&
             river_starting_points.none? { |p| (p[0] > x - 4 && p[0] < x + 3) &&
                                           (p[1] > y - 4 && p[1] < y + 3) }
           river_starting_points.push([x, y])

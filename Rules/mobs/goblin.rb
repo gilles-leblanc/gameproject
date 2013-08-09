@@ -2,6 +2,7 @@ require_relative '../../broadcast'
 require_relative '../treasure_table'
 require_relative '../stats'
 
+# A type of monster the characters can do battle with.
 class Goblin
   include Broadcast
 

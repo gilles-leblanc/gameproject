@@ -1,3 +1,4 @@
+# The different base actions a character can take.
 module Actions
   @@random = Random.new
 

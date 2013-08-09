@@ -1,13 +1,16 @@
 require_relative './stats'
 require_relative './base_class'
 
+# A class used to build sample characters to be used in unit tests and specs.
 class CharacterTestDataBuilder
   def initialize
     @name = 'Felgar'
     @armor_categories = [:very_light]
 
     @stats = Stats.new
-    @stats.might, @stats.accuracy, @stats.endurance, @stats.intellect, @stats.personality, @stats.speed, @stats.luck = 10, 10, 10, 10, 10, 10, 10
+    @stats.might, @stats.accuracy, @stats.endurance = 10, 10, 10
+    @stats.intellect, @stats.personality = 10, 10
+    @stats.speed, @stats.luck = 10, 10
   end
 
   def build

@@ -1,6 +1,6 @@
 require 'gosu'
 
-# null-object pattern
+# null-object pattern for an empty tile
 class EmptyTile
   attr_accessor :type, :x, :y
 

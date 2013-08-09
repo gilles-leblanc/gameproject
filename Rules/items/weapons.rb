@@ -1,3 +1,4 @@
+# A base weapon.
 class Weapon
   attr_reader :name, :damage, :category, :price
   attr_accessor :material_enchantment

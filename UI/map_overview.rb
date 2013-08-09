@@ -2,6 +2,7 @@ require 'gosu'
 require_relative './ui_constants'
 require_relative '../mini_tile_palette'
 
+# A mini-map (overhead view) of the surroundings.
 class MapOverview
   def initialize(left, top, parent_window, size = UiConstants::Mini_Tile_Size)
     @left = left
@@ -36,13 +37,15 @@ class MapOverview
         arrow = @red_arrow_right
     end
 
-    arrow.draw(@left + (UiConstants::Mini_Tile_Size * @size / 2), @top + (UiConstants::Mini_Tile_Size * @size / 2), 0)
+    arrow.draw(@left + (UiConstants::Mini_Tile_Size * @size / 2), @top +
+        (UiConstants::Mini_Tile_Size * @size / 2), 0)
   end
 
   private
 
   def draw_tile(tile, x, y)
     tile_to_draw = @tile_palette.get_mini_tile_resource(tile)
-    tile_to_draw.draw(@left + x * UiConstants::Mini_Tile_Size, @top + y * UiConstants::Mini_Tile_Size, 0)
+    tile_to_draw.draw(@left + x * UiConstants::Mini_Tile_Size, @top + y *
+        UiConstants::Mini_Tile_Size, 0)
   end
 end

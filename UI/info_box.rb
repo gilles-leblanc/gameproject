@@ -1,5 +1,6 @@
 require_relative './ui_constants'
 
+# A UI component display text information.
 class InfoBox
   def initialize(parent_window)
     @font = Gosu::Font.new(parent_window, Gosu::default_font_name, UiConstants::Info_Box_Font_Size)

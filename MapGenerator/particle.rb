@@ -1,3 +1,6 @@
+# A single particle used in height map generation by particle deposition.
+# This particle is meant to be deposited on the map and then agitated so that
+# it falls in it's correct position.
 class Particle
   attr_reader :stability_radius
 

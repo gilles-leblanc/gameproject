@@ -1,5 +1,6 @@
 require_relative 'enchantment'
 
+# A base armor piece.
 class Armor
   attr_reader :name, :base_armor_value, :category, :price
   attr_accessor :material_enchantment

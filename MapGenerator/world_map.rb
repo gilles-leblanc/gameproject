@@ -6,6 +6,7 @@ require_relative './city_location_specification'
 require_relative '../RandomNameGeneration/nameable'
 require_relative './road_builder/road_builder'
 
+# A world map to be used directly by the game. Inherits from the map class.
 class WorldMap < Map
   include Nameable
 
@@ -102,7 +103,8 @@ class WorldMap < Map
 
         city = city_factory.build
         @sub_maps.push([possible_city_tiles[0].x, possible_city_tiles[0].y, city])
-        city_location_specification.already_selected_tiles.push([possible_city_tiles[0].x, possible_city_tiles[0].y])
+        city_location_specification.already_selected_tiles
+                    .push([possible_city_tiles[0].x, possible_city_tiles[0].y])
       end
     end
   end
@@ -124,7 +126,8 @@ class WorldMap < Map
         possible_cave_tiles[0].type = :cave
 
         push_dungeon(dungeon_factory, possible_cave_tiles)
-        cave_location_specification.already_selected_tiles.push([possible_cave_tiles[0].x, possible_cave_tiles[0].y])
+        cave_location_specification.already_selected_tiles
+                    .push([possible_cave_tiles[0].x, possible_cave_tiles[0].y])
 
         if possible_cave_tiles.length > 1 && [true, false].shuffle[0]
           possible_cave_tiles = cave_location_specification.tiles_that_satisfy(self)
@@ -132,14 +135,15 @@ class WorldMap < Map
           possible_cave_tiles[0].type = :cave
 
           push_dungeon(dungeon_factory, possible_cave_tiles)
-          cave_location_specification.already_selected_tiles.push([possible_cave_tiles[0].x, possible_cave_tiles[0].y])
+          cave_location_specification.already_selected_tiles
+                    .push([possible_cave_tiles[0].x, possible_cave_tiles[0].y])
         end
       end
     end
   end
 
-  def push_dungeon(dungeon_factory, possible_cave_tiles)
+  def push_dungeon(dungeon_factory, cave_tiles)
     dungeon = dungeon_factory.build
-    @sub_maps.push([possible_cave_tiles[0].x, possible_cave_tiles[0].y, dungeon])
+    @sub_maps.push([cave_tiles[0].x, cave_tiles[0].y, dungeon])
   end
 end

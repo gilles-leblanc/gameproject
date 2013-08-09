@@ -1,5 +1,6 @@
 require 'gosu'
 
+# Some common colors defined here to be reused.
 class TilePalette
   def initialize(parent_window)
     @water_tile = nil

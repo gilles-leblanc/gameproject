@@ -1,3 +1,4 @@
+# Something that is delimited and has an edge. Like the edge of a map.
 module Edge
   protected
 

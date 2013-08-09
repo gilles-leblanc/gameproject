@@ -1,6 +1,7 @@
 require 'test/unit'
 require_relative './particle'
 
+# A test class to test the particle's behavior.
 class ParticleTest < Test::Unit::TestCase
   def test_drop_will_leave_a_particle_on_height_map
     # Arrange
@@ -129,7 +130,7 @@ class ParticleTest < Test::Unit::TestCase
     assert(height_map.any? { |element| element == 1 })
   end
 
-  def test_drop_will_not_leave_eleventh_particle_on_top_of_first_and_tenth_particle
+  def test_drop_will_not_leave_eleventh_particle_on_top_of_tenth_particle
     # Arrange
     height_map = Array.new(100, 0)
 

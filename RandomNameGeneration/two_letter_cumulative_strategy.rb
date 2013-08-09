@@ -1,11 +1,12 @@
 require_relative 'cumulative_roundoff'
 
+# Will transform a non-cumulative probability table using two-letter pairs
+# into a cumulative probability table using pairs. In a cumulative table,
+# the probability percentages for keys starting with the same letter are
+# cumulative with the last key of the group having a probability of 1.0.
 class TwoLetterCumulativeStrategy
   include CumulativeRoundoff
 
-  # Will transform a non-cumulative probability table using two-letter pairs into a cumulative probability table
-  # using pairs. In a cumulative table, the probability percentages for keys starting with the same letter are
-  # cumulative with the last key of the group having a probability of 1.0.
   def execute!(frequencies)
     last_key_read = nil
     cumulative_value = 0.0

@@ -29,7 +29,7 @@ class Stats
     modifier(@luck)
   end
 
-private
+  private
 
   def modifier(stat)
     (stat - 10) / 2

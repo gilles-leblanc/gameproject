@@ -34,29 +34,7 @@ class MapOutput < Gosu::Window
   end
 
   def button_down(id)
-    if id == Gosu::KbEscape
-      @height_map.draw('rendered_maps/unfiltered.png')
-
-      blur_filter = GaussianFilter.new
-
-      filtered_once = @height_map.filter(blur_filter)
-      filtered_twice = @height_map.filter(blur_filter).filter(blur_filter)
-
-      filtered_twice.draw('rendered_maps/filtered_twice.png')
-      filtered_once.draw('rendered_maps/filtered.png')
-
-      @height_map.filter(blur_filter).draw('rendered_maps/filtered.png')
-      @height_map.filter(blur_filter).filter(blur_filter).draw('rendered_maps/filtered_twice.png')
-
-      image = TexPlay.create_image(self, @x, @y, :color => Gosu::Color::BLACK)
-      image.draw(0, 0, 0)
-
-      @map.tiles.each { |tile| image.pixel tile.x, tile.y, :color => tile.color }
-
-      image.save 'rendered_maps/rendered_map.png'
-
-      close
-    end
+    close if id == Gosu::KbEscape
   end
 end
 

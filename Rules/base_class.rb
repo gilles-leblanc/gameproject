@@ -33,8 +33,9 @@ class BaseClass
     @abilities['b'] = method(:block)
     @abilities['p'] = method(:pass)
 
-    @effects = {:ac => [], :might => [], :accuracy => [], :endurance => [],
-                :intellect => [], :personality => [], :speed => [], :luck => []}
+    @effects = { :ac => [], :might => [], :accuracy => [], :endurance => [],
+                :intellect => [], :personality => [],
+                :speed => [], :luck => [] }
   end
 
   def take_damage(damage)

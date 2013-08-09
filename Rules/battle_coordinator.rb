@@ -8,6 +8,7 @@ require_relative 'stats'
 require_relative '../broadcast'
 require_relative 'party'
 
+# Coordinates battles between the party (the characters) and a group of monsters
 class BattleCoordinator
   include Broadcast
 
@@ -19,7 +20,8 @@ class BattleCoordinator
     participants = party.members + enemies
     participants.sort_by! { |p| p.stats.speed }.reverse!
 
-    while party.members.any? { |p| p.current_hp > 0 } && enemies.any? { |e| e.current_hp > 0 }
+    while party.members.any? { |p| p.current_hp > 0 } &&
+        enemies.any? { |e| e.current_hp > 0 }
       participants.each do |participant|
         if party.members.any? { |p| p.equal? participant }
           # we are dealing with a party member
@@ -54,14 +56,14 @@ class BattleCoordinator
   def party_wins(party, enemies)
     broadcast 'The party wins the battle.'
 
-    xp_gain = enemies.inject(0) { |sum, e| sum + e.xp } / party.members.length
+    xp_gain = enemies.reduce(0) { |a, e| a + e.xp } / party.members.length
     party.members.each { |member| member.xp += xp_gain }
     broadcast "Party members each gain #{xp_gain} xp."
 
     # treasure
-    loot = enemies.collect { |enemy| enemy.treasure }
+    loot = enemies.map { |enemy| enemy.treasure }
     broadcast loot
-    #gold = loot.inject(0) {|sum, l| sum + l[:gold]}
+    #gold = loot.reduce(0) { |a, e| a + e[:gold] }
 
     true
   end
@@ -73,7 +75,9 @@ long_sword = LongSword.new
 dagger = LongDagger.new
 
 stats = Stats.new
-stats.might, stats.accuracy, stats.endurance, stats.intellect, stats.personality, stats.speed, stats.luck = 10, 10, 10, 10, 10, 10, 10
+@stats.might, @stats.accuracy, @stats.endurance = 10, 10, 10
+@stats.intellect, @stats.personality = 10, 10
+@stats.speed, @stats.luck = 10, 10
 
 felgar = Knight.new('Sir Felgar', stats)
 felgar.paper_doll.equip(shield)
@@ -94,7 +98,7 @@ enemies = []
 enemies.push(Goblin.new(random_number_generator))
 enemies.push(Goblin.new(random_number_generator))
 
-battleCoordinator = BattleCoordinator.new(random_number_generator)
+battle_coordinator = BattleCoordinator.new(random_number_generator)
 
 puts 'You are : '
 party.members.each { |c| puts c.class.name + ' ' + c.name }
@@ -106,4 +110,4 @@ enemies.each { |e| puts e.name }
 puts ' --- '
 puts
 
-battleCoordinator.run_battle(party, enemies)
+battle_coordinator.run_battle(party, enemies)

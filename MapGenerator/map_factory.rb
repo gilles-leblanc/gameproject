@@ -5,6 +5,7 @@ require_relative './height_map_configurator'
 require_relative '../City/small_city_factory'
 require_relative '../Maze/dungeon_factory'
 
+# Can make maps by running all the necessary steps in order.
 class MapFactory
   def self.make(x, y, height_map_config = HeightMapConfigurator::Sample_config_1,
       rain_map_config = HeightMapConfigurator::RainMap_small_world)

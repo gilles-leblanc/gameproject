@@ -2,6 +2,9 @@ require 'gosu'
 require 'texplay'
 require_relative './particle'
 
+# A height map is an contains a map of data points that contain an integer.
+# This integer value represents the height at a certain point. The bigger the
+# value, the higher the point.
 class HeightMap
   attr_accessor :number_of_drop_points, :min_particles, :max_particles,
                 :number_of_passes, :particle_stability_radius

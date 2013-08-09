@@ -1,3 +1,4 @@
+# Predefined configurations for height map generation.
 module HeightMapConfigurator
   # tested for 60 x 60, simple and double filtering, also works for 80 x 80
   Sample_config_1 = Proc.new do |height_map|

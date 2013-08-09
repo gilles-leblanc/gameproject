@@ -1,3 +1,4 @@
+# A base shield.
 class Shield
   attr_reader :name, :base_armor_value, :category, :price
   attr_accessor :material_enchantment
