@@ -1,0 +1,17 @@
+# Avoid methods longer than x lines of code
+MethodLength:
+  Enabled: true
+  Max: 16
+
+# Avoid the use of class variables.
+# Used in several places for performance reasons. Tested and huge performance gains at a couple of places.
+AvoidClassVars:
+  Enabled: false
+
+# Indent when as deep as case.
+CaseIndentation:
+  Enabled: false
+
+# Add underscores to large numeric literals to improve their readability.
+NumericLiterals:
+  Enabled: false
