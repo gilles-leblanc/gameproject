@@ -1,0 +1,24 @@
+# Avoid methods longer than x lines of code
+# This number has been set pretty high because I will use Reek to count the
+# number of statements in a method and set it to a higher number. This will
+# allow me to count statements and allow for more multi-line statement which
+# should help with reducing line width.
+MethodLength:
+  Enabled: true
+  Max: 25
+
+# Avoid the use of class variables.
+# Used in several places for performance reasons.
+# Tested and huge performance gains at a couple of places.
+# Also used to hold random generator since it is best to reuse existing
+# random generator rather than create a new one for more random results.
+AvoidClassVars:
+  Enabled: false
+
+# Indent when as deep as case.
+CaseIndentation:
+  Enabled: false
+
+# Add underscores to large numeric literals to improve their readability.
+NumericLiterals:
+  Enabled: false

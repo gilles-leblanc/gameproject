@@ -4,7 +4,7 @@
 class Particle
   attr_reader :stability_radius
 
-  def initialize(stability_radius=1)
+  def initialize(stability_radius = 1)
     @stability_radius = stability_radius
   end
 

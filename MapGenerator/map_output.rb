@@ -15,8 +15,8 @@ class MapOutput < Gosu::Window
     super @x * 10, @y * 10, false
     self.caption = 'Map Output'
 
-    @map = MapFactory.make(@x, @y, HeightMapConfigurator::Medium_world,
-                           HeightMapConfigurator::RainMap_medium_world)
+    @map = MapFactory.make(@x, @y, HeightMapConfigurator::MEDIUM_WORLD,
+                           HeightMapConfigurator::RAINMAP_MEDIUM_WORLD)
     @tile_palette = MiniTilePalette.new(self, '.')
   end
 
@@ -24,7 +24,7 @@ class MapOutput < Gosu::Window
   end
 
   def draw
-    font = Gosu::Font.new(self, Gosu::default_font_name, 20)
+    font = Gosu::Font.new(self, Gosu.default_font_name, 20)
 
     @map.tiles.each do |tile|
       tile_to_draw = @tile_palette.get_mini_tile_resource(tile)

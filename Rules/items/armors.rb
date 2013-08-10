@@ -12,7 +12,11 @@ class Armor
   end
 
   def to_s
-    @material_enchantment.name != '' ? @material_enchantment.name + ' ' + @name : @name
+    if @material_enchantment.name != ''
+      @material_enchantment.name + ' ' + @name
+    else
+      @name
+    end
   end
 
   def armor_value

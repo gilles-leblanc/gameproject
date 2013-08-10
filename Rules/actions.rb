@@ -45,8 +45,9 @@ module Actions
 
     loop do
       key_pressed = gets.chomp.to_i
-      break if target_range.any? { |x| x == key_pressed &&
-                                    x <= available_targets.length }
+      break if target_range.any? do |x|
+        x == key_pressed && x <= available_targets.length
+               end
     end
 
     available_targets[key_pressed - 1]

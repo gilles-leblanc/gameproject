@@ -95,7 +95,7 @@ describe GaussianFilter do
     end
   end
 
-  specify 'filtering should be symmetrical', :symmetrical => true do
+  specify 'filtering should be symmetrical', symmetrical: true do
     sample_array = [0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0,

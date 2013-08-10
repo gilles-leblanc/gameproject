@@ -43,15 +43,15 @@ class RandomNameGenerator
   end
 
   private
+
   # return the starting letter for a new random name, or alternatively a
   # new random letter when we do not any information from previous letters
   # (ie: missing pairs in sample data)
   def get_starting_letter
     random_number = @random_number_generator.rand(0.0..1.0)
 
-    @pair_probability_table.frequencies.select { |k, v| k[0] == ' ' &&
-        k[1] != ' ' &&
-        v >= random_number }.keys.sort.first[1]
+    @pair_probability_table.frequencies.select do |k, v|
+      k[0] == ' ' && k[1] != ' ' && v >= random_number end.keys.sort.first[1]
   end
 
   # return the next letter in random name when we have both the first

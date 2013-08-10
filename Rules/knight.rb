@@ -1,5 +1,6 @@
 require_relative 'base_class'
 
+# A character class that specialize in melee combat and wears heavy armor.
 class Knight < BaseClass
   def initialize(name, stats)
     super(name, stats)

@@ -15,6 +15,7 @@ class PlaceNameGenerator
   end
 
   private
+
   def read_words_from_file(types_file)
     File.open(types_file) { |file| @types = file.readlines }
     @types.shuffle!

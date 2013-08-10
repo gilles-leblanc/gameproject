@@ -6,7 +6,7 @@ class ProbabilityTable
   attr_reader :frequencies
 
   def initialize(letter_length_strategy, input_loader)
-    @frequencies = Hash.new
+    @frequencies = {}
     @letter_length_strategy = letter_length_strategy
     @input_loader = input_loader
   end
@@ -21,6 +21,6 @@ class ProbabilityTable
   end
 
   def to_file(filename = 'ProbabilityTable')
-    File.open(filename, 'w') { |file| file.puts YAML::dump(@frequencies) }
+    File.open(filename, 'w') { |file| file.puts YAML.dump(@frequencies) }
   end
 end

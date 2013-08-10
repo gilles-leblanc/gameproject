@@ -6,7 +6,8 @@ describe 'armors specs' do
   before(:each) do
     character_builder = CharacterTestDataBuilder.new
     @character =
-        character_builder.with_armor_categories([:very_light, :light, :medium, :heavy]).build
+        character_builder.with_armor_categories([:very_light, :light,
+                                                 :medium, :heavy]).build
   end
 
   it { @character.ac.should == 0 }

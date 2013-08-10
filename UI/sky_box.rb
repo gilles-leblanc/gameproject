@@ -11,8 +11,8 @@ class SkyBox
     @parent_window.draw_quad(0, 0, ColorPalette::Top_sky_color,
                              0, UiConstants::Sky_Line,
                              ColorPalette::Bottom_sky_color,
-                             UiConstants::Width, UiConstants::Sky_Line,
+                             UiConstants::WIDTH, UiConstants::Sky_Line,
                              ColorPalette::Bottom_sky_color,
-                             UiConstants::Width, 0, ColorPalette::Top_sky_color)
+                             UiConstants::WIDTH, 0, ColorPalette::Top_sky_color)
   end
 end

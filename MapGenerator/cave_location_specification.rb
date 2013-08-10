@@ -25,17 +25,21 @@ class CaveLocationSpecification
         end &&
 
         # must have 2 mountain neighbor tiles
-        map.tiles.count { |n| n.x >= t.x - 2 &&
-            n.x <= t.x + 2 &&
-            n.y >= t.y - 2 &&
-            n.y <= t.y + 2 &&
-            n.type == :mountain } > 1 &&
+        map.tiles.count do |n|
+          n.x >= t.x - 2 &&
+          n.x <= t.x + 2 &&
+          n.y >= t.y - 2 &&
+          n.y <= t.y + 2 &&
+          n.type == :mountain
+        end > 1 &&
         # must have 2 non-mountain, non-water neighbor tiles
-        map.tiles.count { |n| n.x >= t.x - 2 &&
+        map.tiles.count do |n|
+            n.x >= t.x - 2 &&
             n.x <= t.x + 2 &&
             n.y >= t.y - 2 &&
             n.y <= t.y + 2 &&
-            (n.type != :mountain && n.type != :water) } > 1
+            (n.type != :mountain && n.type != :water)
+        end > 1
     }
   end
 end

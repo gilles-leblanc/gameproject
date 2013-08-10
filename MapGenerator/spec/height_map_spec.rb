@@ -3,11 +3,11 @@ require_relative '../gaussian_filter'
 require_relative '../height_map_configurator'
 
 describe HeightMap do
-  scan_edge_for_particles = Proc.new do |map|
+  scan_edge_for_particles = proc do |map|
     particles_on_edge = false
 
     for y in 0...60
-      for x in if y != 0 && y != 59 then
+      for x in if y != 0 && y != 59
                  [0, 59]
                else
                  0...60

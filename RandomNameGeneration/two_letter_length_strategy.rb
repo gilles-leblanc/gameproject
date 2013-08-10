@@ -18,16 +18,17 @@ class TwoLetterLengthStrategy
     # value_in_occurrences_for_all_pairs_starting_with_same_letter}
     if occurrences.length > 0
       # do this for all pairs except those ending with a space
-      regular_occurrences.each { |key, value| frequencies[key] = value / regular_occurrences.select { |k| k[0] == key[0] }.values.inject { |sum, x| sum + x } }
+      regular_occurrences.each { |key, value| frequencies[key] = value / regular_occurrences.select { |k| k[0] == key[0] }.values.reduce { |sum, x| sum + x } }
 
       # now treat the pairs ending with a space as a special case
-      word_ending_occurrences.each { |key, value| frequencies[key] = value / word_ending_occurrences.values.inject { |sum, x| sum + x } }
+      word_ending_occurrences.each { |key, value| frequencies[key] = value / word_ending_occurrences.values.reduce { |a, e| a + e } }
     end
 
     frequencies
   end
 
   private
+
   # Creates a Hash that contains the count of how many times each pair
   # of character occurs in the input.
   # @param [String] input A string containing the characters from which
@@ -38,10 +39,7 @@ class TwoLetterLengthStrategy
     last_char_read = nil
 
     input.each_char do |char|
-      if last_char_read != nil
-        occurrences[last_char_read + char] += 1
-      end
-
+      occurrences[last_char_read + char] += 1 if last_char_read != nil
       last_char_read = char
     end
 

@@ -14,7 +14,6 @@ blur_filter = GaussianFilter.new
 filtered_height_map = height_map.filter(blur_filter)
 filtered_twice = height_map.filter(blur_filter).filter(blur_filter)
 
-
 height_map.draw('rendered_maps/unfiltered.png')
 filtered_height_map.draw('rendered_maps/filtered.png')
 filtered_twice.draw('rendered_maps/filtered_twice.png')

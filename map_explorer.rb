@@ -88,7 +88,7 @@ class MapExplorer < Gosu::Window
       @map = old_position[1]
     end
 
-    unless @map.tile_at(@current_position[:x], @current_position[:y]).event.nil? or @acted
+    unless @map.tile_at(@current_position[:x], @current_position[:y]).event.nil? || @acted
       @map.tile_at(@current_position[:x], @current_position[:y]).event.act
       @acted = true
     end

@@ -1,0 +1,1387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f23cb683-741c-410b-8e5c-a10a0853854d" name="Default" comment="Continuing to refactor code to conform with RuboCop rules.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config.reek" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/items/.rubocop.yml" afterPath="$PROJECT_DIR$/Rules/items/.rubocop.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/actions.rb" afterPath="$PROJECT_DIR$/Rules/actions.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/items/armor_generator.rb" afterPath="$PROJECT_DIR$/Rules/items/armor_generator.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/items/armors.rb" afterPath="$PROJECT_DIR$/Rules/items/armors.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/spec/armors_spec.rb" afterPath="$PROJECT_DIR$/Rules/spec/armors_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/base_class.rb" afterPath="$PROJECT_DIR$/Rules/base_class.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/battle_coordinator.rb" afterPath="$PROJECT_DIR$/Rules/battle_coordinator.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/cave_location_specification.rb" afterPath="$PROJECT_DIR$/MapGenerator/cave_location_specification.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/City/city_map_output.rb" afterPath="$PROJECT_DIR$/City/city_map_output.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/cumulative_roundoff.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/cumulative_roundoff.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/spec/effects_spec.rb" afterPath="$PROJECT_DIR$/Rules/spec/effects_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/establishment_name_generator.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/establishment_name_generator.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/spec/gaussian_filter_spec.rb" afterPath="$PROJECT_DIR$/MapGenerator/spec/gaussian_filter_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/gaussian_filter_test.rb" afterPath="$PROJECT_DIR$/MapGenerator/gaussian_filter_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/height_map.rb" afterPath="$PROJECT_DIR$/MapGenerator/height_map.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/height_map_configurator.rb" afterPath="$PROJECT_DIR$/MapGenerator/height_map_configurator.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/spec/height_map_spec.rb" afterPath="$PROJECT_DIR$/MapGenerator/spec/height_map_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/info_box.rb" afterPath="$PROJECT_DIR$/UI/info_box.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/knight.rb" afterPath="$PROJECT_DIR$/Rules/knight.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/map_explorer.rb" afterPath="$PROJECT_DIR$/map_explorer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/map_factory.rb" afterPath="$PROJECT_DIR$/MapGenerator/map_factory.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/map_output.rb" afterPath="$PROJECT_DIR$/MapGenerator/map_output.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/map_overview.rb" afterPath="$PROJECT_DIR$/UI/map_overview.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/paper_doll.rb" afterPath="$PROJECT_DIR$/Rules/paper_doll.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/particle.rb" afterPath="$PROJECT_DIR$/MapGenerator/particle.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/place_name_generator.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/place_name_generator.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/probability_table.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/probability_table.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/random_name_generator.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/random_name_generator.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/river_filter.rb" afterPath="$PROJECT_DIR$/MapGenerator/river_filter.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/sky_box.rb" afterPath="$PROJECT_DIR$/UI/sky_box.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/sorcerer.rb" afterPath="$PROJECT_DIR$/Rules/sorcerer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/stats.rb" afterPath="$PROJECT_DIR$/Rules/stats.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/screens/title_screen.rb" afterPath="$PROJECT_DIR$/UI/screens/title_screen.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/two_letter_length_strategy.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/two_letter_length_strategy.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/ui_constants.rb" afterPath="$PROJECT_DIR$/UI/ui_constants.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/view_port.rb" afterPath="$PROJECT_DIR$/UI/view_port.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/items/weapons.rb" afterPath="$PROJECT_DIR$/Rules/items/weapons.rb" />
+    </list>
+    <ignored path="gameproject.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376104557962" ignored="false" />
+    <file path="/a.rxml" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1374100871689" ignored="false" />
+    <file path="/base_class.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376107355159" ignored="false" />
+    <file path="/stats.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376105328902" ignored="false" />
+    <file path="/stats_spec.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375554398348" ignored="false" />
+    <file path="/a.dummy" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376107218104" ignored="false" />
+    <file path="/battle_coordinator.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376016174179" ignored="false" />
+    <file path="/goblin.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014921921" ignored="false" />
+    <file path="/knight.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376105238756" ignored="false" />
+    <file path="/actions.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376104672321" ignored="false" />
+    <file path="/game.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015532008" ignored="false" />
+    <file path="/title_screen.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015184727" ignored="false" />
+    <file path="/config.yml" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375648035781" ignored="false" />
+    <file path="/building.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375755382758" ignored="false" />
+    <file path="/temp.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376106821798" ignored="false" />
+    <file path="/city_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375927818170" ignored="false" />
+    <file path="/Rakefile" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376097960458" ignored="false" />
+    <file path="/world_map.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376013584831" ignored="false" />
+    <file path="/river_filter.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376106310515" ignored="false" />
+    <file path="/road_builder.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375924490741" ignored="false" />
+    <file path="/random_name_generator.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376090836441" ignored="false" />
+    <file path="/random_name_generator_test.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014404616" ignored="false" />
+    <file path="/input_loader.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375925086766" ignored="false" />
+    <file path="/.rubocop.yml" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376098135325" ignored="false" />
+    <file path="/city_map_output.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376090963544" ignored="false" />
+    <file path="/hamlet_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375927856922" ignored="false" />
+    <file path="/large_city_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375927760244" ignored="false" />
+    <file path="/outpost_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375927192040" ignored="false" />
+    <file path="/small_city_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375927204064" ignored="false" />
+    <file path="/test_city_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375927232728" ignored="false" />
+    <file path="/very_large_city_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375927263286" ignored="false" />
+    <file path="/village_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375927329974" ignored="false" />
+    <file path="/city_spec.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928356854" ignored="false" />
+    <file path="/guild_event.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928515821" ignored="false" />
+    <file path="/inn_event.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928649426" ignored="false" />
+    <file path="/shop_event.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928628669" ignored="false" />
+    <file path="/temple_event.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928610713" ignored="false" />
+    <file path="/test_guild_event.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928687345" ignored="false" />
+    <file path="/test_inn_event.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928701771" ignored="false" />
+    <file path="/test_shop_event.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928710582" ignored="false" />
+    <file path="/test_temple_event.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928720274" ignored="false" />
+    <file path="/cave_location_specification.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376106207019" ignored="false" />
+    <file path="/city_location_specification.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928873775" ignored="false" />
+    <file path="/filter.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928919392" ignored="false" />
+    <file path="/filter_out_of_bounds_specification.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928962922" ignored="false" />
+    <file path="/filter_out_of_bounds_specification_test.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375928985720" ignored="false" />
+    <file path="/gaussian_filter.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375929016135" ignored="false" />
+    <file path="/dungeon_map_output.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375929997058" ignored="false" />
+    <file path="/height_map.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376013008176" ignored="false" />
+    <file path="/height_map_configurator.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376016414617" ignored="false" />
+    <file path="/map_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376013094171" ignored="false" />
+    <file path="/particle.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376013291312" ignored="false" />
+    <file path="/particle_test.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376013340830" ignored="false" />
+    <file path="/world_map_test.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376013795570" ignored="false" />
+    <file path="/cumulative_roundoff.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376013911840" ignored="false" />
+    <file path="/establishment_name_generator.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376106582217" ignored="false" />
+    <file path="/nameable.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014142043" ignored="false" />
+    <file path="/place_name_generator.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014180374" ignored="false" />
+    <file path="/three_letter_cumulative_strategy.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014436482" ignored="false" />
+    <file path="/two_letter_length_strategy.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376106529472" ignored="false" />
+    <file path="/three_letter_length_strategy.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376106613059" ignored="false" />
+    <file path="/armor_generator.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014736598" ignored="false" />
+    <file path="/enchantment.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014819725" ignored="false" />
+    <file path="/armors.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376104771153" ignored="false" />
+    <file path="/weapons.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376016634699" ignored="false" />
+    <file path="/shields.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014861561" ignored="false" />
+    <file path="/monster.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014898665" ignored="false" />
+    <file path="/character_test_data_builder.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015026054" ignored="false" />
+    <file path="/party.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015133211" ignored="false" />
+    <file path="/treasure_table.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015158865" ignored="false" />
+    <file path="/color_palette.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015239399" ignored="false" />
+    <file path="/info_box.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015257185" ignored="false" />
+    <file path="/map_overview.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015277479" ignored="false" />
+    <file path="/sky_box.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015310189" ignored="false" />
+    <file path="/ui_constants.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015330375" ignored="false" />
+    <file path="/view_port.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376106896474" ignored="false" />
+    <file path="/broadcast.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015470118" ignored="false" />
+    <file path="/edge.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015494579" ignored="false" />
+    <file path="/empty_tile.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015510139" ignored="false" />
+    <file path="/map.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015551999" ignored="false" />
+    <file path="/mini_tile_palette.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015649867" ignored="false" />
+    <file path="/effects.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015951092" ignored="false" />
+    <file path="/.config.reek" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376098082902" ignored="false" />
+    <file path="/sorcerer.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376105259079" ignored="false" />
+    <file path="/buildings_spec.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376105727939" ignored="false" />
+    <file path="/height_map_spec.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376105864247" ignored="false" />
+    <file path="/gaussian_filter_spec.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376105903214" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DatabaseView">
+    <flatten value="false" />
+    <groupTables value="false" />
+    <sortChildren value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="gameproject" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="establishment_name_generator.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RandomNameGeneration/establishment_name_generator.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="2" selection-start="1386" selection-end="1386" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="three_letter_length_strategy.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="155" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="input_loader.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RandomNameGeneration/input_loader.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="8" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="info_box.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UI/info_box.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="color_palette.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UI/color_palette.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Rakefile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="37" selection-start="1332" selection-end="1332" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base_class.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Rules/base_class.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="64" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui_constants.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UI/ui_constants.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="5" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_port.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/UI/view_port.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="59" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.46992055">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="height_map.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MapGenerator/height_map.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="33" selection-start="2303" selection-end="2303" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myStructureFilterPaths" />
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/MapGenerator/spec/height_map_spec.rb" />
+        <option value="$PROJECT_DIR$/MapGenerator/spec/gaussian_filter_spec.rb" />
+        <option value="$PROJECT_DIR$/MapGenerator/gaussian_filter_test.rb" />
+        <option value="$PROJECT_DIR$/MapGenerator/cave_location_specification.rb" />
+        <option value="$PROJECT_DIR$/MapGenerator/river_filter.rb" />
+        <option value="$PROJECT_DIR$/MapGenerator/height_map_configurator.rb" />
+        <option value="$PROJECT_DIR$/RandomNameGeneration/probability_table.rb" />
+        <option value="$PROJECT_DIR$/RandomNameGeneration/two_letter_length_strategy.rb" />
+        <option value="$PROJECT_DIR$/RandomNameGeneration/place_name_generator.rb" />
+        <option value="$PROJECT_DIR$/RandomNameGeneration/establishment_name_generator.rb" />
+        <option value="$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb" />
+        <option value="$PROJECT_DIR$/UI/ui_constants.rb" />
+        <option value="$PROJECT_DIR$/MapGenerator/height_map.rb" />
+        <option value="$PROJECT_DIR$/Rakefile" />
+        <option value="$PROJECT_DIR$/Rules/base_class.rb" />
+        <option value="$PROJECT_DIR$/UI/view_port.rb" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1922" />
+    <option name="height" value="1054" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Ruby</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>CoffeeScript</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Rules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RandomNameGeneration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MapGenerator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="82" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="148" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="217" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../np-complet/site_web_2/np-complet/humans.txt" />
+    <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="120" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1477" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1142" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="244" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="237" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="preferences.sourceCode.General" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/City" />
+      <recent name="$PROJECT_DIR$/Rules/items" />
+      <recent name="$PROJECT_DIR$/MapGenerator" />
+      <recent name="$PROJECT_DIR$/MapGenerator/road_builder" />
+      <recent name="$PROJECT_DIR$/City/media" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/" />
+      <recent name="$PROJECT_DIR$/UI" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/ui_parts" />
+      <recent name="$PROJECT_DIR$/MapGenerator/road_builder" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Test::Unit/Shoulda/Minitest.world_map_test">
+    <configuration default="false" name="map_explorer" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
+      <module name="gameproject" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$PROJECT_DIR$/map_explorer.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <RunnerSettings RunnerId="RubyDebugRunner" />
+      <ConfigurationWrapper RunnerId="RubyDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="world_map_test" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true">
+      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
+      <module name="gameproject" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$/MapGenerator" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/MapGenerator/world_map_test.rb" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="FilterOutOfBoundsSpecficationTest" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true">
+      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
+      <module name="gameproject" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$/MapGenerator" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/MapGenerator/filter_out_of_bounds_specification_test.rb" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_drop_will_not_leave_fourth_particle_on_top_of_any_existing_particle" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true">
+      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
+      <module name="gameproject" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$/MapGenerator" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/MapGenerator/particle_test.rb" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="test_drop_will_not_leave_fourth_particle_on_top_of_any_existing_particle" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_METHOD" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ParticleTest" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true">
+      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
+      <module name="gameproject" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$/MapGenerator" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/MapGenerator/particle_test.rb" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RSpecRunConfigurationType" factoryName="RSpec">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
+      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
+      <module name="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Map Explorer" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="gameproject" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$PROJECT_DIR$/../map_explorer.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Ruby.Map Explorer" />
+      <item index="1" class="java.lang.String" itemvalue="Ruby.map_explorer" />
+      <item index="2" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.world_map_test" />
+      <item index="3" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.FilterOutOfBoundsSpecficationTest" />
+      <item index="4" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_drop_will_not_leave_fourth_particle_on_top_of_any_existing_particle" />
+      <item index="5" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.ParticleTest" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.world_map_test" />
+        <item index="1" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.FilterOutOfBoundsSpecficationTest" />
+        <item index="2" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.ParticleTest" />
+        <item index="3" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_drop_will_not_leave_fourth_particle_on_top_of_any_existing_particle" />
+        <item index="4" class="java.lang.String" itemvalue="Ruby.map_explorer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f23cb683-741c-410b-8e5c-a10a0853854d" name="Default" comment="" />
+      <created>1356365344276</created>
+      <updated>1356365344276</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Started refactoring the random name generator to use an OO approach rather than a script approach. Also using rspec tests. Still a long way to go from completion.">
+      <created>1356917865464</created>
+      <updated>1356917865464</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added three letter length strategy + some modifications to two letter length strategy">
+      <created>1356921540959</created>
+      <updated>1356921540959</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Finished the new probability tables system for use with random_name_generator">
+      <created>1356981788968</created>
+      <updated>1356981788968</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Cleaned up the RandomNameGenerator project by deleting useless files.">
+      <created>1356983002104</created>
+      <updated>1356983002104</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Corrected some bugs">
+      <created>1356983365366</created>
+      <updated>1356983365366</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Corrected some bugs">
+      <created>1356983949851</created>
+      <updated>1356983949851</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Corrected error in last commit">
+      <created>1356984019951</created>
+      <updated>1356984019951</updated>
+    </task>
+    <task id="LOCAL-00008" summary="RandomNameGenerator is working again pretty fine with new OO strategy.">
+      <created>1357066588088</created>
+      <updated>1357066588088</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Corrected a bug and refactored some code">
+      <created>1357067643158</created>
+      <updated>1357067643158</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added a YAML InputLoader, added to_file method on ProbabilityTable, corrected a bug which hampered proper letter selection in RandomNameGenerator.">
+      <created>1357141843564</created>
+      <updated>1357141843564</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Started working on City again.">
+      <created>1357158462110</created>
+      <updated>1357158462110</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Plugged in small_city_factory in city_map_output">
+      <created>1357158953481</created>
+      <updated>1357158953481</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Worked on the city factories.">
+      <created>1357327163065</created>
+      <updated>1357327163065</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added river_filter to map_generator.">
+      <created>1357355641818</created>
+      <updated>1357355641823</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fixed a bug where all neighbors were equal and river filter got stuck into infinite loop.">
+      <created>1357356816945</created>
+      <updated>1357356816945</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fixed bugs with river_filter.">
+      <created>1357358257496</created>
+      <updated>1357358257496</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Fixed bugs with river_filter.">
+      <created>1358386180666</created>
+      <updated>1358386180666</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added some caves and cities to the map.">
+      <created>1359571060250</created>
+      <updated>1359571060251</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Changing nameable to RandomNameGenerator&#10;">
+      <created>1359575920064</created>
+      <updated>1359575920064</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added snow to worldmap. Corrected CitySpecificationLocation and added exception handling to RandomNameGenerator.">
+      <created>1360003716016</created>
+      <updated>1360003716016</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Corrected some minor stuff.">
+      <created>1360080954439</created>
+      <updated>1360080954439</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added a map overview to the map explorer. Added road tiles. Tweaked map_factory.">
+      <created>1363546018914</created>
+      <updated>1363546018915</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Now displays ground tiles in map_explorer.">
+      <created>1364148565226</created>
+      <updated>1364148565226</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added EmptyTiles. Added a passable attributes to tiles. Prevented walking on non passable tiles. Selected a starting location based on city locations.">
+      <created>1364265701952</created>
+      <updated>1364265701953</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Corrected some display bugs">
+      <created>1364351096202</created>
+      <updated>1364351096202</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added gfx including city tiles preview to map overview.">
+      <created>1364431112918</created>
+      <updated>1364431112918</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Refactored and fixed some todos. Including speeding up city and cave location specification.">
+      <created>1364434552247</created>
+      <updated>1364434552247</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added Rakefile for specs">
+      <created>1364520242661</created>
+      <updated>1364520242661</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Experimented with some ground textures. Not really satisfied for the moment.">
+      <created>1364524586385</created>
+      <updated>1364524586385</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Started experimenting with roads.">
+      <created>1364583445414</created>
+      <updated>1364583445414</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Worked on road generation&#10;">
+      <created>1364589519992</created>
+      <updated>1364589519992</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Fixed wrong method name error.">
+      <created>1364589623840</created>
+      <updated>1364589623840</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Show map name in Map Explorer">
+      <created>1364590199067</created>
+      <updated>1364590199067</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Fixed comments">
+      <created>1364590348532</created>
+      <updated>1364590348532</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Added start of rules engine and battle coordinator.">
+      <created>1364602960142</created>
+      <updated>1364602960142</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Corrected syntax error.">
+      <created>1364603099450</created>
+      <updated>1364603099450</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Put some stuff in readme file.">
+      <created>1364603530510</created>
+      <updated>1364603530510</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Deleted some useless files.">
+      <created>1364604366824</created>
+      <updated>1364604366824</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Moved MapOverview to UI folder.">
+      <created>1364864172415</created>
+      <updated>1364864172415</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Moved InfoBox to it's own file.">
+      <created>1364864340501</created>
+      <updated>1364864340501</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Created Ui Constants module.">
+      <created>1364864685657</created>
+      <updated>1364864685657</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Moved ViewPort rendering to it's own class.">
+      <created>1364865360059</created>
+      <updated>1364865360059</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Moved some values to UiConstants and did some refactoring on ViewPort.">
+      <created>1364865864039</created>
+      <updated>1364865864039</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Refactoring">
+      <created>1364866064602</created>
+      <updated>1364866064602</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Removed unecessary require.">
+      <created>1364866106812</created>
+      <updated>1364866106812</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Updated readme.">
+      <created>1366252331645</created>
+      <updated>1366252331645</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Added base system for coordinate (tile) events.&#10;Started adding shop events and thus shops.&#10;Map creation refactoring.">
+      <created>1366512438292</created>
+      <updated>1366512438292</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Random name generation for shop events.">
+      <created>1366514001080</created>
+      <updated>1366514001080</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Random name generation for shop events.">
+      <created>1366514147154</created>
+      <updated>1366514147154</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Fixed path to media for establishment name generator.">
+      <created>1366514785438</created>
+      <updated>1366514785438</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Added basic city events (right now skeleton code for Shop, Inn, Temple and Guild events in city maps).">
+      <created>1366770209927</created>
+      <updated>1366770209927</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Changed previous position to stack (implemented via array) instead of single value to allow for multiple levels of return positions.">
+      <created>1366770457392</created>
+      <updated>1366770457392</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Corrected some bugs with events.">
+      <created>1367084975771</created>
+      <updated>1367084975772</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Updated rakefile to run unit tests.">
+      <created>1367086184453</created>
+      <updated>1367086184453</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Added basic tests for events.">
+      <created>1367087606167</created>
+      <updated>1367087606167</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Worked on actions mechanism for base character class.">
+      <created>1367547071753</created>
+      <updated>1367547071754</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Worked on actions mechanism for base character class.">
+      <created>1368239660907</created>
+      <updated>1368239660907</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Worked on actions mechanism for base character class.">
+      <created>1368239880132</created>
+      <updated>1368239880132</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Worked on actions mechanism for base character class.">
+      <created>1368240022671</created>
+      <updated>1368240022672</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Added manual targeting for user actions.">
+      <created>1368494091885</created>
+      <updated>1368494091885</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Added defaults effects for stats. Added modules that allows updating of said effects. Added a spec file to tests said module. Called module from the Act method in baseclass.">
+      <created>1368666829365</created>
+      <updated>1368666829366</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Added some basic treasure tables.">
+      <created>1368667422162</created>
+      <updated>1368667422162</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Corrected random copy paste error in last check-in.">
+      <created>1368667480760</created>
+      <updated>1368667480760</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Worked on armors.">
+      <created>1368670950211</created>
+      <updated>1368670950211</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Added enchantment null object and applied it to armor in super initializer.">
+      <created>1368671413900</created>
+      <updated>1368671413900</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Small changes on material enchantments.">
+      <created>1369077298207</created>
+      <updated>1369077298207</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Added MIT license file.">
+      <created>1369184227698</created>
+      <updated>1369184227699</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Removed unecessary rakefile.">
+      <created>1369184793492</created>
+      <updated>1369184793492</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Refactored to remove shuffle on array to create and reuse existing Random instances ( http://stackoverflow.com/a/2773866/153797 ).">
+      <created>1369187371058</created>
+      <updated>1369187371058</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Add project page to readme.">
+      <created>1369189699308</created>
+      <updated>1369189699309</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Worked on enchantments, armors and armor generation.">
+      <created>1369190489852</created>
+      <updated>1369190489852</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Corrected typo in armor prices.">
+      <created>1369190567916</created>
+      <updated>1369190567916</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Changed shields and weapons.">
+      <created>1369440858933</created>
+      <updated>1369440858934</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Integration of https://github.com/carl-ellis/Dungeon code to generate base random dungeon. Still need to integrate in existing maps and work on a few things.">
+      <created>1371953605357</created>
+      <updated>1371953605357</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Changed Dungeon's entrance to gameproject's doors.">
+      <created>1372008173855</created>
+      <updated>1372008173856</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Added entrance to dungeon.">
+      <created>1372008915514</created>
+      <updated>1372008915514</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Pass DungeonFactory in WorldMap.">
+      <created>1372009272395</created>
+      <updated>1372009272396</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Changed a require directive to move in file that made most sense.">
+      <created>1372009482872</created>
+      <updated>1372009482873</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Corrected bug with CityMapOutput where a crash occured because it could not find media files for random name generation of shops and temples (which weren't used in CityMapOutput).">
+      <created>1372038260656</created>
+      <updated>1372038260657</updated>
+    </task>
+    <task id="LOCAL-00080" summary="DungeonFactory now has members for width and height.">
+      <created>1372038532896</created>
+      <updated>1372038532896</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Added dungeons to caves. Dungeons not displaying/behaving correctly like in DungeonMapOutput. Still need to investigate the issue.">
+      <created>1372041488200</created>
+      <updated>1372041488201</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Fixed some of the perspective problem in the viewport by adding another column of tiles starting at the second row.">
+      <created>1372605344146</created>
+      <updated>1372605344146</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Removed &quot;puts&quot; in Dungeon code.">
+      <created>1372605494985</created>
+      <updated>1372605494985</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Fixed bad mapping of Maze/Dungeons in map_explorer.">
+      <created>1372640521806</created>
+      <updated>1372640521807</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Refactored cities and dungeons into sub-maps belonging to world map.">
+      <created>1372641590115</created>
+      <updated>1372641590115</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Refactored changing between differents maps. Used same method to determine starting location. Reduced two ifs into one. Moved logic in inner sub method.">
+      <created>1373075892780</created>
+      <updated>1373075892781</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Added item_level in determining random armor generation.">
+      <created>1373075952949</created>
+      <updated>1373075952949</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Can now get in and out of sub-maps (cities, caves, etc.)">
+      <created>1373079926394</created>
+      <updated>1373079926394</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Reformated code with RubyMine.">
+      <created>1373477910814</created>
+      <updated>1373477910814</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Added mocks to world_map_test">
+      <created>1373478864641</created>
+      <updated>1373478864641</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Fixed some file path name error for files that contained random name data.">
+      <created>1373480285571</created>
+      <updated>1373480285571</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Fixed rspec errors due to refactoring.">
+      <created>1373480466039</created>
+      <updated>1373480466039</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Added shields to armor generator.">
+      <created>1373485764129</created>
+      <updated>1373485764129</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Added more weapons.">
+      <created>1375641358015</created>
+      <updated>1375641358015</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Changed stats to use them form their own class.&#10;Changed hp to have max and current hp.">
+      <created>1375641423497</created>
+      <updated>1375641423497</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Added basic game class which right now only displays a temporary title screen.">
+      <created>1375648099482</created>
+      <updated>1375648099483</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Refactoring following running RuboCop in -lint mode.">
+      <created>1375925317313</created>
+      <updated>1375925317313</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Introduced RuboCop config files. Started major refactoring on all project to conform to rules as defined in config files.">
+      <created>1375930998549</created>
+      <updated>1375930998549</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Continuing to refactor code to conform with RuboCop rules.">
+      <created>1376016403895</created>
+      <updated>1376016403895</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1922" height="1054" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3018868" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29784948" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26881722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14491978" sideWeight="0.32741398" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31570512" sideWeight="0.7311828" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31111112" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14491978" sideWeight="0.33296338" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.30299667" sideWeight="0.4983957" order="9" side_tool="true" content_ui="tabs" x="769" y="406" width="705" height="335" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29855716" sideWeight="0.49786097" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27413985" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946581" sideWeight="0.73060346" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39978448" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continuing to refactor code to conform with RuboCop rules." />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="Changed Dungeon's entrance to gameproject's doors." />
+    <MESSAGE value="Added entrance to dungeon." />
+    <MESSAGE value="Pass DungeonFactory in WorldMap." />
+    <MESSAGE value="Changed a require directive to move in file that made most sense." />
+    <MESSAGE value="Corrected bug with CityMapOutput where a crash occured because it could not find media files for random name generation of shops and temples (which weren't used in CityMapOutput)." />
+    <MESSAGE value="DungeonFactory now has members for width and height." />
+    <MESSAGE value="Added dungeons to caves. Dungeons not displaying/behaving correctly like in DungeonMapOutput. Still need to investigate the issue." />
+    <MESSAGE value="Fixed some of the perspective problem in the viewport by adding another column of tiles starting at the second row." />
+    <MESSAGE value="Removed &quot;puts&quot; in Dungeon code." />
+    <MESSAGE value="Fixed bad mapping of Maze/Dungeons in map_explorer." />
+    <MESSAGE value="Refactored cities and dungeons into sub-maps belonging to world map." />
+    <MESSAGE value="Refactored changing between differents maps. Used same method to determine starting location. Reduced two ifs into one. Moved logic in inner sub method." />
+    <MESSAGE value="Added item_level in determining random armor generation." />
+    <MESSAGE value="Can now get in and out of sub-maps (cities, caves, etc.)" />
+    <MESSAGE value="Reformated code with RubyMine." />
+    <MESSAGE value="Added mocks to world_map_test" />
+    <MESSAGE value="Fixed some file path name error for files that contained random name data." />
+    <MESSAGE value="Fixed rspec errors due to refactoring." />
+    <MESSAGE value="Added shields to armor generator." />
+    <MESSAGE value="Added more weapons." />
+    <MESSAGE value="Changed stats to use them form their own class.&#10;Changed hp to have max and current hp." />
+    <MESSAGE value="Added basic game class which right now only displays a temporary title screen." />
+    <MESSAGE value="Refactoring following running RuboCop in -lint mode." />
+    <MESSAGE value="Introduced RuboCop config files. Started major refactoring on all project to conform to rules as defined in config files." />
+    <MESSAGE value="Continuing to refactor code to conform with RuboCop rules." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/MapGenerator/river_filter.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="76" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapGenerator/height_map_configurator.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="28" selection-start="3364" selection-end="3364" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/probability_table.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="21" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/three_letter_cumulative_strategy.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/two_letter_length_strategy.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="74" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/place_name_generator.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="2" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/establishment_name_generator.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="2" selection-start="1386" selection-end="1386" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="155" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/input_loader.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="8" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/info_box.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/color_palette.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/ui_constants.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="5" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapGenerator/height_map.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="33" selection-start="2303" selection-end="2303" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rakefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="37" selection-start="1332" selection-end="1332" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rules/base_class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="64" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/view_port.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="59" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.46992055">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

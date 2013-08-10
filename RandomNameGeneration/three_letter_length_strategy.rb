@@ -20,16 +20,17 @@ class ThreeLetterLengthStrategy
     # value_in_occurrences_for_all_triplets_starting_with_same_two_letters}
     if occurrences.length > 0
       # do this for all triplets except those ending with a space
-      regular_occurrences.each { |key, value| frequencies[key] = value / regular_occurrences.select { |k| k[0] == key[0] && k[1] == key[1] }.values.inject { |sum, x| sum + x } }
+      regular_occurrences.each { |key, value| frequencies[key] = value / regular_occurrences.select { |k| k[0] == key[0] && k[1] == key[1] }.values.reduce { |a, e| a + e } }
 
       # now treat the triplets ending with a space as a special case
-      word_ending_occurrences.each { |key, value| frequencies[key] = value / word_ending_occurrences.select { |k| k[0] == key[0] }.values.inject { |sum, x| sum + x } }
+      word_ending_occurrences.each { |key, value| frequencies[key] = value / word_ending_occurrences.select { |k| k[0] == key[0] }.values.reduce { |sum, x| sum + x } }
     end
 
     frequencies
   end
 
   private
+
   # Creates a Hash that contains the count of how many times each triplet
   # of character occurs in the input.
   # @param [String] input A string containing the characters from which

@@ -1,5 +1,6 @@
 require_relative 'base_class'
 
+# A character class that specialize in arcane magic and wears next to no armor.
 class Sorcerer < BaseClass
   def initialize(name, stats)
     super(name, stats)

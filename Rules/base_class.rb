@@ -33,9 +33,8 @@ class BaseClass
     @abilities['b'] = method(:block)
     @abilities['p'] = method(:pass)
 
-    @effects = { :ac => [], :might => [], :accuracy => [], :endurance => [],
-                :intellect => [], :personality => [],
-                :speed => [], :luck => [] }
+    @effects = { ac: [], might: [], accuracy: [], endurance: [], intellect: [],
+                personality: [], speed: [], luck: [] }
   end
 
   def take_damage(damage)
@@ -59,7 +58,7 @@ class BaseClass
   end
 
   def ac
-    effects_ac_modifier = @effects[:ac].inject(0) { |sum, x| sum + x[0] }
+    effects_ac_modifier = @effects[:ac].reduce(0) { |a, e| a + e[0] }
     if effects_ac_modifier.nil?
       effects_ac_modifier = 0
     end

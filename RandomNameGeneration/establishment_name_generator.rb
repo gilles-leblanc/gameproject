@@ -44,6 +44,7 @@ class EstablishmentNameGenerator
   end
 
   private
+
   def get_suitable_word(*words)
     word_arrays = []
     words.each { |array| add_array_if_not_empty(word_arrays, array) }
@@ -58,7 +59,7 @@ class EstablishmentNameGenerator
   end
 
   def add_array_if_not_empty(array_of_arrays, array_to_add)
-    array_of_arrays.push array_to_add if not array_to_add.empty?
+    array_of_arrays.push array_to_add unless array_to_add.empty?
   end
 
   def append_branch_if_name_already_exists(name)

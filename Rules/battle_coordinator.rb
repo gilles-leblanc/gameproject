@@ -8,7 +8,8 @@ require_relative 'stats'
 require_relative '../broadcast'
 require_relative 'party'
 
-# Coordinates battles between the party (the characters) and a group of monsters
+# Coordinates battles between the party (the characters)
+# and a group of monsters
 class BattleCoordinator
   include Broadcast
 
@@ -63,7 +64,7 @@ class BattleCoordinator
     # treasure
     loot = enemies.map { |enemy| enemy.treasure }
     broadcast loot
-    #gold = loot.reduce(0) { |a, e| a + e[:gold] }
+    # gold = loot.reduce(0) { |a, e| a + e[:gold] }
 
     true
   end
@@ -75,9 +76,9 @@ long_sword = LongSword.new
 dagger = LongDagger.new
 
 stats = Stats.new
-@stats.might, @stats.accuracy, @stats.endurance = 10, 10, 10
-@stats.intellect, @stats.personality = 10, 10
-@stats.speed, @stats.luck = 10, 10
+stats.might, stats.accuracy, stats.endurance = 10, 10, 10
+stats.intellect, stats.personality = 10, 10
+stats.speed, stats.luck = 10, 10
 
 felgar = Knight.new('Sir Felgar', stats)
 felgar.paper_doll.equip(shield)

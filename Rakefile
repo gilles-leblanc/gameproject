@@ -1,15 +1,19 @@
 require 'rake/testtask'
 require 'rubocop/rake_task'
-
-### Rubocop section
+require 'reek/rake/task'
 
 desc 'Run RuboCop'
 Rubocop::RakeTask.new(:rubocop) do |task|
-  # don't abort rake on failure
   task.fail_on_error = false
 end
 
-### Specs section
+desc 'Run Reek'
+Reek::Rake::Task.new(:reek) do |t|
+  t.fail_on_error = false
+  t.verbose = true
+  t.source_files = '*'
+  t.reek_opts = '-n'
+end
 
 desc 'City Specs'
 task :city_specs do
@@ -57,7 +61,7 @@ Rake::TestTask.new do |t|
 end
 
 desc 'All'
-task :all => [:specs, :test] do
+task :all => [:specs, :test, :rubocop] do
   puts 'Ran all tests and specs'
 end
 

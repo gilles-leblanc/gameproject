@@ -66,15 +66,15 @@ class HeightMap
     @data
   end
 
-  def draw(file_name='rendered_height_map.png')
+  def draw(file_name = 'rendered_height_map.png')
     window = Gosu::Window.new(@size_x, @size_x, false)
-    image = TexPlay.create_image(window, @size_x, @size_x, :color => Gosu::Color::BLACK)
+    image = TexPlay.create_image(window, @size_x, @size_x, color: Gosu::Color::BLACK)
     image.draw(0, 0, 0)
 
     for y in 0...@size_x
       for x in 0...@size_x
         grayscale = (@data[x + y * @size_x] * 4.0) / 1000.0
-        image.pixel x, y, :color => [grayscale, grayscale, grayscale]
+        image.pixel x, y, color: [grayscale, grayscale, grayscale]
       end
     end
 
@@ -91,8 +91,10 @@ class HeightMap
   def create_drops
     drops = []
     @number_of_drop_points.times do
-      number_in_this_drop = rand(@max_particles - @min_particles) + @min_particles
-      drops.push(Array.new(number_in_this_drop, Particle.new(@particle_stability_radius)))
+      number_in_this_drop = rand(@max_particles - @min_particles) +
+          @min_particles
+      drops.push(Array.new(number_in_this_drop,
+                           Particle.new(@particle_stability_radius)))
     end
 
     drops

@@ -2,7 +2,7 @@ require_relative '../effects'
 
 describe 'Effects' do
   before(:each) do
-    @effects = {:ac => [], :hp => [], :might => [], :mp => [], :luck => []}
+    @effects = { ac: [], hp: [], might: [], mp: [], luck: [] }
 
     @effects[:ac].push([2, 1])
     @effects[:ac].push([2, 2])

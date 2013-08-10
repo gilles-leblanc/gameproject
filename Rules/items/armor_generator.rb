@@ -20,7 +20,8 @@ class ArmorGenerator
                              Adamantine.new, Obsidian.new, Crystal.new,
                              Meteorite.new]
 
-    armor.material_enchantment = material_enchantments.select { |e| e.bonus_item_level == item_level }.shuffle.first
+    armor.material_enchantment =
+        material_enchantments.select { |e| e.bonus_item_level == item_level }.shuffle.first
     armor
   end
 end

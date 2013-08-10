@@ -7,8 +7,8 @@ require_relative '../Maze/dungeon_factory'
 
 # Can make maps by running all the necessary steps in order.
 class MapFactory
-  def self.make(x, y, height_map_config = HeightMapConfigurator::Sample_config_1,
-      rain_map_config = HeightMapConfigurator::RainMap_small_world)
+  def self.make(x, y, height_map_config = HeightMapConfigurator::SAMPLE_CONFIG_1,
+      rain_map_config = HeightMapConfigurator::RAINMAP_SMALL_WORLD)
 
     height_map = HeightMap.new
     height_map.visit(height_map_config)
@@ -26,6 +26,6 @@ class MapFactory
   end
 
   def self.make_small_world
-    self.make(50, 50, HeightMapConfigurator::Small_world, HeightMapConfigurator::RainMap_small_world)
+    make(50, 50, HeightMapConfigurator::SMALL_WORLD, HeightMapConfigurator::RAINMAP_SMALL_WORLD)
   end
 end

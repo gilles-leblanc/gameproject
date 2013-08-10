@@ -6,7 +6,7 @@ require_relative 'height_map_configurator'
 # filter can be applied. Instead of blurring like the gaussian filter, this
 # river filter will add rivers and lakes to the height map.
 class RiverFilter
-  def initialize(x, y, river_configuration = HeightMapConfigurator::RainMap_medium_world)
+  def initialize(x, y, river_configuration = HeightMapConfigurator::RAINMAP_MEDIUM_WORLD)
     @size = x
     @river_configuration = river_configuration
   end
@@ -76,7 +76,7 @@ class RiverFilter
   end
 
   def return_if_lower(filtered_array, x, y, lowest_neighbor, river)
-    if not river.any? { |p| p[0] == x && p[1] == y }
+    unless river.any? { |p| p[0] == x && p[1] == y }
       value_at_neighbor = filtered_array[x + y * @size]
       return [x, y, value_at_neighbor] if value_at_neighbor < lowest_neighbor[2]
     end
