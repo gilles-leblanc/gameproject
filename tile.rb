@@ -1,5 +1,6 @@
 require 'gosu'
 
+# Represents a single position on a game map. A map of made up of square tiles.
 class Tile
   @@grass_color = Gosu::Color.new 0xff5bb55b
   @@sand_color = Gosu::Color.new 0xffffb55b
@@ -56,4 +57,4 @@ class Tile
 
     :black
   end
-end	
+end

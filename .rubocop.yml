@@ -1,6 +1,6 @@
 # Avoid methods longer than x lines of code
 # This number has been set pretty high because I will use Reek to count the
-# number of statements in a method and set it to a higher number. This will
+# number of statements in a method and set it to a stricter number. This will
 # allow me to count statements and allow for more multi-line statement which
 # should help with reducing line width.
 MethodLength:

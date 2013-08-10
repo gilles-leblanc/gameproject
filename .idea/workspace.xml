@@ -2,50 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f23cb683-741c-410b-8e5c-a10a0853854d" name="Default" comment="Continuing to refactor code to conform with RuboCop rules.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config.reek" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/items/.rubocop.yml" afterPath="$PROJECT_DIR$/Rules/items/.rubocop.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/actions.rb" afterPath="$PROJECT_DIR$/Rules/actions.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/items/armor_generator.rb" afterPath="$PROJECT_DIR$/Rules/items/armor_generator.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/items/armors.rb" afterPath="$PROJECT_DIR$/Rules/items/armors.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/spec/armors_spec.rb" afterPath="$PROJECT_DIR$/Rules/spec/armors_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/base_class.rb" afterPath="$PROJECT_DIR$/Rules/base_class.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/battle_coordinator.rb" afterPath="$PROJECT_DIR$/Rules/battle_coordinator.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/cave_location_specification.rb" afterPath="$PROJECT_DIR$/MapGenerator/cave_location_specification.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/City/city_map_output.rb" afterPath="$PROJECT_DIR$/City/city_map_output.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/cumulative_roundoff.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/cumulative_roundoff.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/spec/effects_spec.rb" afterPath="$PROJECT_DIR$/Rules/spec/effects_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/establishment_name_generator.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/establishment_name_generator.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/spec/gaussian_filter_spec.rb" afterPath="$PROJECT_DIR$/MapGenerator/spec/gaussian_filter_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/gaussian_filter_test.rb" afterPath="$PROJECT_DIR$/MapGenerator/gaussian_filter_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.rubocop.yml" afterPath="$PROJECT_DIR$/.rubocop.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/spec/cumulative_probability_table_spec.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/spec/cumulative_probability_table_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edge.rb" afterPath="$PROJECT_DIR$/edge.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game.rb" afterPath="$PROJECT_DIR$/game.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/height_map.rb" afterPath="$PROJECT_DIR$/MapGenerator/height_map.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/height_map_configurator.rb" afterPath="$PROJECT_DIR$/MapGenerator/height_map_configurator.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/spec/height_map_spec.rb" afterPath="$PROJECT_DIR$/MapGenerator/spec/height_map_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/info_box.rb" afterPath="$PROJECT_DIR$/UI/info_box.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/knight.rb" afterPath="$PROJECT_DIR$/Rules/knight.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/map_explorer.rb" afterPath="$PROJECT_DIR$/map_explorer.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/map_factory.rb" afterPath="$PROJECT_DIR$/MapGenerator/map_factory.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/map_output.rb" afterPath="$PROJECT_DIR$/MapGenerator/map_output.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/map_overview.rb" afterPath="$PROJECT_DIR$/UI/map_overview.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/paper_doll.rb" afterPath="$PROJECT_DIR$/Rules/paper_doll.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mini_tile_palette.rb" afterPath="$PROJECT_DIR$/mini_tile_palette.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/particle.rb" afterPath="$PROJECT_DIR$/MapGenerator/particle.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/place_name_generator.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/place_name_generator.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/probability_table.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/probability_table.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/place_name_generator_test.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/place_name_generator_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/spec/probability_table_spec.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/spec/probability_table_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/random_name_generator.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/random_name_generator.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MapGenerator/river_filter.rb" afterPath="$PROJECT_DIR$/MapGenerator/river_filter.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/sky_box.rb" afterPath="$PROJECT_DIR$/UI/sky_box.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/sorcerer.rb" afterPath="$PROJECT_DIR$/Rules/sorcerer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/stats.rb" afterPath="$PROJECT_DIR$/Rules/stats.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/starting_position.rb" afterPath="$PROJECT_DIR$/starting_position.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/screens/title_screen.rb" afterPath="$PROJECT_DIR$/UI/screens/title_screen.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tile.rb" afterPath="$PROJECT_DIR$/tile.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RandomNameGeneration/two_letter_length_strategy.rb" afterPath="$PROJECT_DIR$/RandomNameGeneration/two_letter_length_strategy.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/ui_constants.rb" afterPath="$PROJECT_DIR$/UI/ui_constants.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/view_port.rb" afterPath="$PROJECT_DIR$/UI/view_port.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rules/items/weapons.rb" afterPath="$PROJECT_DIR$/Rules/items/weapons.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gameproject.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376104557962" ignored="false" />
+    <file path="/Dummy.txt" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376153330869" ignored="false" />
     <file path="/a.rxml" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1374100871689" ignored="false" />
     <file path="/base_class.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376107355159" ignored="false" />
     <file path="/stats.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376105328902" ignored="false" />
@@ -59,7 +39,7 @@
     <file path="/title_screen.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376015184727" ignored="false" />
     <file path="/config.yml" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375648035781" ignored="false" />
     <file path="/building.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375755382758" ignored="false" />
-    <file path="/temp.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376106821798" ignored="false" />
+    <file path="/temp.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376153725690" ignored="false" />
     <file path="/city_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375927818170" ignored="false" />
     <file path="/Rakefile" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376097960458" ignored="false" />
     <file path="/world_map.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376013584831" ignored="false" />
@@ -68,7 +48,7 @@
     <file path="/random_name_generator.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376090836441" ignored="false" />
     <file path="/random_name_generator_test.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014404616" ignored="false" />
     <file path="/input_loader.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375925086766" ignored="false" />
-    <file path="/.rubocop.yml" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376098135325" ignored="false" />
+    <file path="/.rubocop.yml" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376110006657" ignored="false" />
     <file path="/city_map_output.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376090963544" ignored="false" />
     <file path="/hamlet_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375927856922" ignored="false" />
     <file path="/large_city_factory.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1375927760244" ignored="false" />
@@ -104,8 +84,8 @@
     <file path="/nameable.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014142043" ignored="false" />
     <file path="/place_name_generator.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014180374" ignored="false" />
     <file path="/three_letter_cumulative_strategy.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014436482" ignored="false" />
-    <file path="/two_letter_length_strategy.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376106529472" ignored="false" />
-    <file path="/three_letter_length_strategy.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376106613059" ignored="false" />
+    <file path="/two_letter_length_strategy.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376110888228" ignored="false" />
+    <file path="/three_letter_length_strategy.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376110908460" ignored="false" />
     <file path="/armor_generator.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014736598" ignored="false" />
     <file path="/enchantment.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376014819725" ignored="false" />
     <file path="/armors.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376104771153" ignored="false" />
@@ -132,6 +112,9 @@
     <file path="/buildings_spec.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376105727939" ignored="false" />
     <file path="/height_map_spec.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376105864247" ignored="false" />
     <file path="/gaussian_filter_spec.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376105903214" ignored="false" />
+    <file path="/starting_position.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376153595528" ignored="false" />
+    <file path="/map_explorer.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376153711728" ignored="false" />
+    <file path="/tile.rb" changelist="f23cb683-741c-410b-8e5c-a10a0853854d" time="1376153869840" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,19 +139,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="establishment_name_generator.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RandomNameGeneration/establishment_name_generator.rb">
+      <file leaf-file-name="three_letter_length_strategy.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="2" selection-start="1386" selection-end="1386" vertical-scroll-proportion="0.0">
+            <state line="25" column="159" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="three_letter_length_strategy.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb">
+      <file leaf-file-name="tile.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tile.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="155" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0">
+            <state line="2" column="79" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -177,70 +160,70 @@
       <file leaf-file-name="input_loader.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RandomNameGeneration/input_loader.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="8" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
+            <state line="7" column="0" selection-start="236" selection-end="245" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="info_box.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UI/info_box.rb">
+      <file leaf-file-name="probability_table_spec.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RandomNameGeneration/spec/probability_table_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="76" column="80" selection-start="3298" selection-end="3298" vertical-scroll-proportion="0.6275753">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="color_palette.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UI/color_palette.rb">
+      <file leaf-file-name="edge.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edge.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="2" column="2" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Rakefile">
+      <file leaf-file-name="map_explorer.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/map_explorer.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="37" selection-start="1332" selection-end="1332" vertical-scroll-proportion="0.0">
+            <state line="105" column="33" selection-start="2757" selection-end="2757" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base_class.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Rules/base_class.rb">
+      <file leaf-file-name="tile_palette.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tile_palette.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="64" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.0">
+            <state line="21" column="70" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ui_constants.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UI/ui_constants.rb">
+      <file leaf-file-name="starting_position.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/starting_position.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="5" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
+            <state line="8" column="40" selection-start="420" selection-end="420" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view_port.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/UI/view_port.rb">
+      <file leaf-file-name="two_letter_length_strategy.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RandomNameGeneration/two_letter_length_strategy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="59" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.46992055">
+            <state line="20" column="151" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="height_map.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapGenerator/height_map.rb">
+      <file leaf-file-name="mini_tile_palette.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mini_tile_palette.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="33" selection-start="2303" selection-end="2303" vertical-scroll-proportion="0.0">
+            <state line="4" column="46" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -265,22 +248,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/MapGenerator/spec/height_map_spec.rb" />
-        <option value="$PROJECT_DIR$/MapGenerator/spec/gaussian_filter_spec.rb" />
-        <option value="$PROJECT_DIR$/MapGenerator/gaussian_filter_test.rb" />
-        <option value="$PROJECT_DIR$/MapGenerator/cave_location_specification.rb" />
-        <option value="$PROJECT_DIR$/MapGenerator/river_filter.rb" />
-        <option value="$PROJECT_DIR$/MapGenerator/height_map_configurator.rb" />
-        <option value="$PROJECT_DIR$/RandomNameGeneration/probability_table.rb" />
-        <option value="$PROJECT_DIR$/RandomNameGeneration/two_letter_length_strategy.rb" />
-        <option value="$PROJECT_DIR$/RandomNameGeneration/place_name_generator.rb" />
+        <option value="$PROJECT_DIR$/RandomNameGeneration/place_name_generator_test.rb" />
         <option value="$PROJECT_DIR$/RandomNameGeneration/establishment_name_generator.rb" />
-        <option value="$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb" />
-        <option value="$PROJECT_DIR$/UI/ui_constants.rb" />
+        <option value="$PROJECT_DIR$/RandomNameGeneration/spec/cumulative_probability_table_spec.rb" />
+        <option value="$PROJECT_DIR$/RandomNameGeneration/spec/probability_table_spec.rb" />
+        <option value="$PROJECT_DIR$/MapGenerator/map_factory.rb" />
         <option value="$PROJECT_DIR$/MapGenerator/height_map.rb" />
-        <option value="$PROJECT_DIR$/Rakefile" />
-        <option value="$PROJECT_DIR$/Rules/base_class.rb" />
+        <option value="$PROJECT_DIR$/MapGenerator/particle.rb" />
+        <option value="$PROJECT_DIR$/mini_tile_palette.rb" />
         <option value="$PROJECT_DIR$/UI/view_port.rb" />
+        <option value="$PROJECT_DIR$/game.rb" />
+        <option value="$PROJECT_DIR$/RandomNameGeneration/two_letter_length_strategy.rb" />
+        <option value="$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb" />
+        <option value="$PROJECT_DIR$/edge.rb" />
+        <option value="$PROJECT_DIR$/starting_position.rb" />
+        <option value="$PROJECT_DIR$/map_explorer.rb" />
+        <option value="$PROJECT_DIR$/tile.rb" />
       </list>
     </option>
   </component>
@@ -389,6 +372,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Rules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="items" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="RandomNameGeneration" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -403,7 +404,57 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="RandomNameGeneration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="MapGenerator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="City" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="City" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1163,10 +1214,10 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3018868" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29784948" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26881722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26881722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14491978" sideWeight="0.32741398" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31570512" sideWeight="0.7311828" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32318377" sideWeight="0.7311828" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31111112" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14491978" sideWeight="0.33296338" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.30299667" sideWeight="0.4983957" order="9" side_tool="true" content_ui="tabs" x="769" y="406" width="705" height="335" />
@@ -1270,114 +1321,108 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MapGenerator/river_filter.rb">
+    <entry file="file://$PROJECT_DIR$/City/village_factory.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="76" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapGenerator/height_map_configurator.rb">
+    <entry file="file://$PROJECT_DIR$/Rules/items/.rubocop.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="28" selection-start="3364" selection-end="3364" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/probability_table.rb">
+    <entry file="file://$PROJECT_DIR$/.rubocop.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="21" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/three_letter_cumulative_strategy.rb">
+    <entry file="file://$PROJECT_DIR$/MapGenerator/particle.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/two_letter_length_strategy.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="74" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/place_name_generator.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="2" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/establishment_name_generator.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="2" selection-start="1386" selection-end="1386" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="155" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/input_loader.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="8" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/info_box.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/color_palette.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/ui_constants.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="5" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapGenerator/height_map.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="33" selection-start="2303" selection-end="2303" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="37" selection-start="1332" selection-end="1332" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rules/base_class.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="64" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.0">
+        <state line="33" column="34" selection-start="984" selection-end="984" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UI/view_port.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="59" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.46992055">
+        <state line="263" column="49" selection-start="11727" selection-end="11727" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="33" selection-start="521" selection-end="521" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/two_letter_length_strategy.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="151" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/three_letter_length_strategy.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="159" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edge.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="2" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_tile_palette.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="46" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starting_position.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="40" selection-start="420" selection-end="420" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/map_explorer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="33" selection-start="2757" selection-end="2757" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tile_palette.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="70" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tile.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="79" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/input_loader.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="236" selection-end="245" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RandomNameGeneration/spec/probability_table_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="80" selection-start="3298" selection-end="3298" vertical-scroll-proportion="0.6275753">
           <folding />
         </state>
       </provider>

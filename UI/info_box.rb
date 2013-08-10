@@ -3,7 +3,8 @@ require_relative './ui_constants'
 # A UI component display text information.
 class InfoBox
   def initialize(parent_window)
-    @font = Gosu::Font.new(parent_window, Gosu.default_font_name, UiConstants::INFO_BOX_FONT_SIZE)
+    @font = Gosu::Font.new(parent_window, Gosu.default_font_name,
+                           UiConstants::INFO_BOX_FONT_SIZE)
   end
 
   def draw(map, current_position, compass)

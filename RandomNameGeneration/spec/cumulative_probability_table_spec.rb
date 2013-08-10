@@ -14,7 +14,10 @@ describe 'CumulativeProbabilityTable' do
         two_letter_cumulative_strategy = TwoLetterCumulativeStrategy.new
         memory_input_loader = MemoryInputLoader.new
 
-        @cumulative_probability_table = CumulativeProbabilityTable.new(two_letter_length_strategy, two_letter_cumulative_strategy, memory_input_loader)
+        @cumulative_probability_table = CumulativeProbabilityTable.new(
+            two_letter_length_strategy, two_letter_cumulative_strategy,
+            memory_input_loader)
+
         @cumulative_probability_table.load(' James John Max Gary Jess Gilles Mary ')
       end
 
@@ -63,7 +66,9 @@ describe 'CumulativeProbabilityTable' do
         three_letter_cumulative_strategy = ThreeLetterCumulativeStrategy.new
         memory_input_loader = MemoryInputLoader.new
 
-        @cumulative_probability_table = CumulativeProbabilityTable.new(three_letter_length_strategy, three_letter_cumulative_strategy, memory_input_loader)
+        @cumulative_probability_table = CumulativeProbabilityTable.new(
+            three_letter_length_strategy, three_letter_cumulative_strategy,
+            memory_input_loader)
       end
 
       context 'when using a complex input' do

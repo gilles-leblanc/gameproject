@@ -26,6 +26,7 @@ class MapFactory
   end
 
   def self.make_small_world
-    make(50, 50, HeightMapConfigurator::SMALL_WORLD, HeightMapConfigurator::RAINMAP_SMALL_WORLD)
+    make(50, 50, HeightMapConfigurator::SMALL_WORLD,
+         HeightMapConfigurator::RAINMAP_SMALL_WORLD)
   end
 end

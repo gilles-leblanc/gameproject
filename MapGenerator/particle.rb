@@ -31,7 +31,7 @@ class Particle
       end
     end
 
-    if lower_neighbors.length == 0 then
+    if lower_neighbors.length == 0
       # no lower neighbors, leave particle on drop point
       height_map[drop_point] += 1
     else

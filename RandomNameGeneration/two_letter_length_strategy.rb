@@ -18,7 +18,7 @@ class TwoLetterLengthStrategy
     # value_in_occurrences_for_all_pairs_starting_with_same_letter}
     if occurrences.length > 0
       # do this for all pairs except those ending with a space
-      regular_occurrences.each { |key, value| frequencies[key] = value / regular_occurrences.select { |k| k[0] == key[0] }.values.reduce { |sum, x| sum + x } }
+      regular_occurrences.each { |key, value| frequencies[key] = value / regular_occurrences.select { |k| k[0] == key[0] }.values.reduce { |a, e| a + e } }
 
       # now treat the pairs ending with a space as a special case
       word_ending_occurrences.each { |key, value| frequencies[key] = value / word_ending_occurrences.values.reduce { |a, e| a + e } }

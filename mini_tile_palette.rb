@@ -2,37 +2,37 @@ require 'gosu'
 
 # Some common colors defined here to be reused.
 class MiniTilePalette
-  def initialize(parent_window, path_prefix='')
+  def initialize(parent_window, path_prefix = '')
     @water_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/water.png', true)
+              '/media/water.png', true)
     @grass_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/grass.png', true)
+              '/media/grass.png', true)
     @mountain_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/mountain.png', true)
+              '/media/mountain.png', true)
     @sand_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/sand.png', true)
+              '/media/sand.png', true)
     @forest_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/forest.png', true)
+              '/media/forest.png', true)
     @cave_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/cave.png', true)
+              '/media/cave.png', true)
     @city_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/city.png', true)
+              '/media/city.png', true)
     @snow_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/snow.png', true)
+              '/media/snow.png', true)
     @snow_forest_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/snow-forest.png', true)
+              '/media/snow-forest.png', true)
     @road_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/road.png', true)
+              '/media/road.png', true)
     @open_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/open.png', true)
+              '/media/open.png', true)
     @wall_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/wall.png', true)
+              '/media/wall.png', true)
     @door_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/door.png', true)
+              '/media/door.png', true)
     @entrance_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/entrance.png', true)
+              '/media/entrance.png', true)
     @empty_tile = Gosu::Image.new(parent_window, path_prefix +
-        '/media/empty_tile.png', true)
+         '/media/empty_tile.png', true)
   end
 
   def get_mini_tile_resource(tile)

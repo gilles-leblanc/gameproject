@@ -36,7 +36,8 @@ class ViewPort
     tile = tile_in_front(0, map, current_position, compass)
     draw_tile(0, UiConstants::HEIGHT,
               UiConstants::First_Row_Width, UiConstants::First_Row_Height,
-              UiConstants::WIDTH - UiConstants::First_Row_Width, UiConstants::First_Row_Height,
+              UiConstants::WIDTH - UiConstants::First_Row_Width,
+              UiConstants::First_Row_Height,
               UiConstants::WIDTH, UiConstants::HEIGHT,
               tile)
 
@@ -45,8 +46,10 @@ class ViewPort
     tile = tile_in_front(1, map, current_position, compass)
     draw_tile(UiConstants::First_Row_Width, UiConstants::First_Row_Height,
               UiConstants::Second_Row_Width, UiConstants::Second_Row_Height,
-              UiConstants::WIDTH - UiConstants::Second_Row_Width, UiConstants::Second_Row_Height,
-              UiConstants::WIDTH - UiConstants::First_Row_Width, UiConstants::First_Row_Height,
+              UiConstants::WIDTH - UiConstants::Second_Row_Width,
+              UiConstants::Second_Row_Height,
+              UiConstants::WIDTH - UiConstants::First_Row_Width,
+              UiConstants::First_Row_Height,
               tile)
 
     # draw 2 tiles in front
@@ -54,8 +57,10 @@ class ViewPort
     tile = tile_in_front(2, map, current_position, compass)
     draw_tile(UiConstants::Second_Row_Width, UiConstants::Second_Row_Height,
               UiConstants::Third_Row_Width, UiConstants::Third_Row_Height,
-              UiConstants::WIDTH - UiConstants::Third_Row_Width, UiConstants::Third_Row_Height,
-              UiConstants::WIDTH - UiConstants::Second_Row_Width, UiConstants::Second_Row_Height,
+              UiConstants::WIDTH - UiConstants::Third_Row_Width,
+              UiConstants::Third_Row_Height,
+              UiConstants::WIDTH - UiConstants::Second_Row_Width,
+              UiConstants::Second_Row_Height,
               tile)
 
     # draw 3 tiles in front
@@ -63,8 +68,10 @@ class ViewPort
     tile_color = tile_in_front(3, map, current_position, compass)
     draw_tile(UiConstants::Third_Row_Width, UiConstants::Third_Row_Height,
               UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height,
-              UiConstants::WIDTH - UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height,
-              UiConstants::WIDTH - UiConstants::Third_Row_Width, UiConstants::Third_Row_Height,
+              UiConstants::WIDTH - UiConstants::Fourth_Row_Width,
+              UiConstants::Fourth_Row_Height,
+              UiConstants::WIDTH - UiConstants::Third_Row_Width,
+              UiConstants::Third_Row_Height,
               tile_color)
 
     # draw 4 tiles in front
@@ -73,7 +80,8 @@ class ViewPort
     draw_tile(UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height,
               UiConstants::WIDTH / 2, UiConstants::Fifth_Row_Height,
               UiConstants::WIDTH / 2, UiConstants::Fifth_Row_Height,
-              UiConstants::WIDTH - UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height,
+              UiConstants::WIDTH - UiConstants::Fourth_Row_Width,
+              UiConstants::Fourth_Row_Height,
               tile)
   end
 
@@ -83,7 +91,8 @@ class ViewPort
     tile = tile_in_front(2, -2, map, current_position, compass)
     draw_tile(0, UiConstants::Second_Row_Height,
               0, UiConstants::Third_Row_Height,
-              UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,
+              UiConstants::Fourth_Row_Second_Width,
+              UiConstants::Third_Row_Height,
               0, UiConstants::Second_Row_Height,
               tile)
 
@@ -92,8 +101,10 @@ class ViewPort
     tile = tile_in_front(3, -2, map, current_position, compass)
     draw_tile(0, UiConstants::Third_Row_Height,
               0, UiConstants::Fourth_Row_Height,
-              UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,
-              UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,
+              UiConstants::Fifth_Row_Second_Width,
+              UiConstants::Fourth_Row_Height,
+              UiConstants::Fourth_Row_Second_Width,
+              UiConstants::Third_Row_Height,
               tile)
 
     # draw 4 tiles in front
@@ -102,7 +113,8 @@ class ViewPort
     draw_tile(0, UiConstants::Fourth_Row_Height,
               0, UiConstants::Fifth_Row_Height,
               UiConstants::WIDTH / 2, UiConstants::Fifth_Row_Height,
-              UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,
+              UiConstants::Fifth_Row_Second_Width,
+              UiConstants::Fourth_Row_Height,
               tile)
   end
 
@@ -129,7 +141,8 @@ class ViewPort
     # bottom left, top left, top right, bottom right
     tile = tile_in_front(2, -1, map, current_position, compass)
     draw_tile(0, UiConstants::Second_Row_Height,
-              UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,
+              UiConstants::Fourth_Row_Second_Width,
+              UiConstants::Third_Row_Height,
               UiConstants::Third_Row_Width, UiConstants::Third_Row_Height,
               UiConstants::Second_Row_Width, UiConstants::Second_Row_Height,
               tile)
@@ -137,8 +150,10 @@ class ViewPort
     # draw 3 tiles in front
     # bottom left, top left, top right, bottom right
     tile = tile_in_front(3, -1, map, current_position, compass)
-    draw_tile(UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,
-              UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,
+    draw_tile(UiConstants::Fourth_Row_Second_Width,
+              UiConstants::Third_Row_Height,
+              UiConstants::Fifth_Row_Second_Width,
+              UiConstants::Fourth_Row_Height,
               UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height,
               UiConstants::Third_Row_Width, UiConstants::Third_Row_Height,
               tile)
@@ -146,7 +161,8 @@ class ViewPort
     # draw 4 tiles in front
     # bottom left, top left, top right, bottom right
     tile = tile_in_front(4, -1, map, current_position, compass)
-    draw_tile(UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,
+    draw_tile(UiConstants::Fifth_Row_Second_Width,
+              UiConstants::Fourth_Row_Height,
               UiConstants::WIDTH / 2, UiConstants::Fifth_Row_Height,
               UiConstants::WIDTH / 2, UiConstants::Fifth_Row_Height,
               UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height,
@@ -158,7 +174,8 @@ class ViewPort
     # bottom left, top left, top right, bottom right
     tile = tile_in_front(2, 2, map, current_position, compass)
     draw_tile(UiConstants::WIDTH, UiConstants::Second_Row_Height,
-              UiConstants::WIDTH - UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,
+              UiConstants::WIDTH - UiConstants::Fourth_Row_Second_Width,
+              UiConstants::Third_Row_Height,
               UiConstants::WIDTH, UiConstants::Third_Row_Height,
               UiConstants::WIDTH, UiConstants::Second_Row_Height,
               tile)
@@ -166,8 +183,10 @@ class ViewPort
     # draw 3 tiles in front
     # bottom left, top left, top right, bottom right
     tile = tile_in_front(3, 2, map, current_position, compass)
-    draw_tile(UiConstants::WIDTH - UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,
-              UiConstants::WIDTH - UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,
+    draw_tile(UiConstants::WIDTH - UiConstants::Fourth_Row_Second_Width,
+              UiConstants::Third_Row_Height,
+              UiConstants::WIDTH - UiConstants::Fifth_Row_Second_Width,
+              UiConstants::Fourth_Row_Height,
               UiConstants::WIDTH, UiConstants::Fourth_Row_Height,
               UiConstants::WIDTH, UiConstants::Third_Row_Height,
               tile)
@@ -175,7 +194,8 @@ class ViewPort
     # draw 4 tiles in front
     # bottom left, top left, top right, bottom right
     tile = tile_in_front(4, 2, map, current_position, compass)
-    draw_tile(UiConstants::WIDTH - UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,
+    draw_tile(UiConstants::WIDTH - UiConstants::Fifth_Row_Second_Width,
+              UiConstants::Fourth_Row_Height,
               UiConstants::WIDTH / 2, UiConstants::Fifth_Row_Height,
               UiConstants::WIDTH, UiConstants::Fifth_Row_Height,
               UiConstants::WIDTH, UiConstants::Fourth_Row_Height,
@@ -187,7 +207,8 @@ class ViewPort
     # bottom left, top left, top right, bottom right
     tile = tile_in_front(0, 1, map, current_position, compass)
     draw_tile(UiConstants::WIDTH, UiConstants::HEIGHT,
-              UiConstants::WIDTH - UiConstants::First_Row_Width, UiConstants::First_Row_Height,
+              UiConstants::WIDTH - UiConstants::First_Row_Width,
+              UiConstants::First_Row_Height,
               UiConstants::WIDTH, UiConstants::First_Row_Height,
               UiConstants::WIDTH, UiConstants::HEIGHT,
               tile)
@@ -195,8 +216,10 @@ class ViewPort
     # draw tile in front
     # bottom left, top left, top right, bottom right
     tile = tile_in_front(1, 1, map, current_position, compass)
-    draw_tile(UiConstants::WIDTH - UiConstants::First_Row_Width, UiConstants::First_Row_Height,
-              UiConstants::WIDTH - UiConstants::Second_Row_Width, UiConstants::Second_Row_Height,
+    draw_tile(UiConstants::WIDTH - UiConstants::First_Row_Width,
+              UiConstants::First_Row_Height,
+              UiConstants::WIDTH - UiConstants::Second_Row_Width,
+              UiConstants::Second_Row_Height,
               UiConstants::WIDTH, UiConstants::Second_Row_Height,
               UiConstants::WIDTH, UiConstants::First_Row_Height,
               tile)
@@ -204,32 +227,41 @@ class ViewPort
     # draw 2 tiles in front
     # bottom left, top left, top right, bottom right
     tile = tile_in_front(2, 1, map, current_position, compass)
-    draw_tile(UiConstants::WIDTH - UiConstants::Second_Row_Width, UiConstants::Second_Row_Height,
-              UiConstants::WIDTH - UiConstants::Third_Row_Width, UiConstants::Third_Row_Height,
-              UiConstants::WIDTH - UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,
+    draw_tile(UiConstants::WIDTH - UiConstants::Second_Row_Width,
+              UiConstants::Second_Row_Height,
+              UiConstants::WIDTH - UiConstants::Third_Row_Width,
+              UiConstants::Third_Row_Height,
+              UiConstants::WIDTH - UiConstants::Fourth_Row_Second_Width,
+              UiConstants::Third_Row_Height,
               UiConstants::WIDTH, UiConstants::Second_Row_Height,
               tile)
 
     # draw 3 tiles in front
     # bottom left, top left, top right, bottom right
     tile = tile_in_front(3, 1, map, current_position, compass)
-    draw_tile(UiConstants::WIDTH - UiConstants::Third_Row_Width, UiConstants::Third_Row_Height,
-              UiConstants::WIDTH - UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height,
-              UiConstants::WIDTH - UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,
-              UiConstants::WIDTH - UiConstants::Fourth_Row_Second_Width, UiConstants::Third_Row_Height,
+    draw_tile(UiConstants::WIDTH - UiConstants::Third_Row_Width,
+              UiConstants::Third_Row_Height,
+              UiConstants::WIDTH - UiConstants::Fourth_Row_Width,
+              UiConstants::Fourth_Row_Height,
+              UiConstants::WIDTH - UiConstants::Fifth_Row_Second_Width,
+              UiConstants::Fourth_Row_Height,
+              UiConstants::WIDTH - UiConstants::Fourth_Row_Second_Width,
+              UiConstants::Third_Row_Height,
               tile)
 
     # draw 4 tiles in front
     # bottom left, top left, top right, bottom right
     tile = tile_in_front(4, 1, map, current_position, compass)
-    draw_tile(UiConstants::WIDTH - UiConstants::Fourth_Row_Width, UiConstants::Fourth_Row_Height,
+    draw_tile(UiConstants::WIDTH - UiConstants::Fourth_Row_Width,
+              UiConstants::Fourth_Row_Height,
               UiConstants::WIDTH / 2, UiConstants::Fifth_Row_Height,
               UiConstants::WIDTH / 2, UiConstants::Fifth_Row_Height,
-              UiConstants::WIDTH - UiConstants::Fifth_Row_Second_Width, UiConstants::Fourth_Row_Height,
+              UiConstants::WIDTH - UiConstants::Fifth_Row_Second_Width,
+              UiConstants::Fourth_Row_Height,
               tile)
   end
 
-  def tile_in_front(number_of_steps, side_step=0, map, current_position, compass)
+  def tile_in_front(number_of_steps, side_step = 0, map, current_position, compass)
     case compass[0]
       when :north
         map.tile_at(current_position[:x] +

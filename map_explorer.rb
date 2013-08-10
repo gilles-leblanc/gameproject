@@ -5,9 +5,12 @@ require_relative './UI/map_overview'
 require_relative './UI/info_box'
 require_relative './UI/view_port'
 
+# The primary UI which shows the world in first person perspective along
+# with a mini-map and some info. This can be started directly to test
+# exploring maps.
 class MapExplorer < Gosu::Window
   # Determine the speed at which new button presses are processed
-  Ticks_Per_Step = 15
+  TICKS_PER_STEP = 15
 
   def initialize
     super 800, 600, false
@@ -35,7 +38,7 @@ class MapExplorer < Gosu::Window
       @key_countdown -= 1
 
       if @key_countdown == 0
-        @key_countdown = Ticks_Per_Step
+        @key_countdown = TICKS_PER_STEP
         button_presses
       end
     end
@@ -52,12 +55,13 @@ class MapExplorer < Gosu::Window
 
     if @key_countdown == 0
       # First step
-      @key_countdown = Ticks_Per_Step
+      @key_countdown = TICKS_PER_STEP
       button_presses
     end
   end
 
   private
+
   def button_presses
     if button_down? Gosu::KbUp
       step_forward
@@ -78,7 +82,8 @@ class MapExplorer < Gosu::Window
     tile_type = @map.tile_at(@current_position[:x], @current_position[:y]).type
     if tile_type == :city || tile_type == :cave
       @previous_map_position.push([previous_tile, @map])
-      @map = @world_map.get_map_at_position(@current_position[:x], @current_position[:y])
+      @map = @world_map.get_map_at_position(@current_position[:x],
+                                            @current_position[:y])
       @current_position = @starting_position.get_sub_map_position(@map)
     end
 
@@ -88,7 +93,8 @@ class MapExplorer < Gosu::Window
       @map = old_position[1]
     end
 
-    unless @map.tile_at(@current_position[:x], @current_position[:y]).event.nil? || @acted
+    unless @map.tile_at(@current_position[:x],
+                        @current_position[:y]).event.nil? || @acted
       @map.tile_at(@current_position[:x], @current_position[:y]).event.act
       @acted = true
     end
@@ -123,17 +129,16 @@ class MapExplorer < Gosu::Window
   def previous_tile
     case @compass[0]
       when :north
-        {x: @current_position[:x], y: @current_position[:y] + 1}
+        { x: @current_position[:x], y: @current_position[:y] + 1 }
       when :south
-        {x: @current_position[:x], y: @current_position[:y] - 1}
+        { x: @current_position[:x], y: @current_position[:y] - 1 }
       when :west
-        {x: @current_position[:x] + 1, y: @current_position[:y]}
+        { x: @current_position[:x] + 1, y: @current_position[:y] }
       when :east
-        {x: @current_position[:x] - 1, y: @current_position[:y]}
+        { x: @current_position[:x] - 1, y: @current_position[:y] }
     end
   end
 end
-
 
 window = MapExplorer.new
 window.show

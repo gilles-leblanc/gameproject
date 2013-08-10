@@ -19,10 +19,16 @@ class RandomNameGenerator
     three_letter_cumulative_strategy = ThreeLetterCumulativeStrategy.new
     file_input_loader = FileInputLoader.new
 
-    @pair_probability_table = CumulativeProbabilityTable.new(two_letter_length_strategy, two_letter_cumulative_strategy, file_input_loader)
+    @pair_probability_table = CumulativeProbabilityTable.new(
+        two_letter_length_strategy, two_letter_cumulative_strategy,
+        file_input_loader)
+
     @pair_probability_table.load(data_file_name)
 
-    @triplet_probability_table = CumulativeProbabilityTable.new(three_letter_length_strategy, three_letter_cumulative_strategy, file_input_loader)
+    @triplet_probability_table = CumulativeProbabilityTable.new(
+        three_letter_length_strategy, three_letter_cumulative_strategy,
+        file_input_loader)
+
     @triplet_probability_table.load(data_file_name)
   end
 
@@ -99,7 +105,8 @@ class RandomNameGenerator
             valid_letters.any? { |l| l == key[1] } &&
             v >= random_number }.keys.sort.first[1]
 
-        return new_last_letter + get_last_letter(new_last_letter, second_to_last_letter)
+        return new_last_letter + get_last_letter(new_last_letter,
+                                                 second_to_last_letter)
       end
     rescue
       puts "*** Exception in get_last_letter with #{current_last_letter} and #{second_to_last_letter}."

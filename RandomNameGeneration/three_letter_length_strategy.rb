@@ -23,7 +23,7 @@ class ThreeLetterLengthStrategy
       regular_occurrences.each { |key, value| frequencies[key] = value / regular_occurrences.select { |k| k[0] == key[0] && k[1] == key[1] }.values.reduce { |a, e| a + e } }
 
       # now treat the triplets ending with a space as a special case
-      word_ending_occurrences.each { |key, value| frequencies[key] = value / word_ending_occurrences.select { |k| k[0] == key[0] }.values.reduce { |sum, x| sum + x } }
+      word_ending_occurrences.each { |key, value| frequencies[key] = value / word_ending_occurrences.select { |k| k[0] == key[0] }.values.reduce { |a, e| a + e } }
     end
 
     frequencies

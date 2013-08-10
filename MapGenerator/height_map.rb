@@ -68,7 +68,8 @@ class HeightMap
 
   def draw(file_name = 'rendered_height_map.png')
     window = Gosu::Window.new(@size_x, @size_x, false)
-    image = TexPlay.create_image(window, @size_x, @size_x, color: Gosu::Color::BLACK)
+    image = TexPlay.create_image(window, @size_x, @size_x,
+                                 color: Gosu::Color::BLACK)
     image.draw(0, 0, 0)
 
     for y in 0...@size_x

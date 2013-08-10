@@ -11,7 +11,8 @@ describe 'ProbabilityTable' do
         two_letter_length_strategy = TwoLetterLengthStrategy.new
         memory_input_loader = MemoryInputLoader.new
 
-        @probability_table = ProbabilityTable.new(two_letter_length_strategy, memory_input_loader)
+        @probability_table = ProbabilityTable.new(two_letter_length_strategy,
+                                                  memory_input_loader)
       end
 
       it { @probability_table.empty?.should be_true }
@@ -94,7 +95,8 @@ describe 'ProbabilityTable' do
         three_letter_length_strategy = ThreeLetterLengthStrategy.new
         memory_input_loader = MemoryInputLoader.new
 
-        @probability_table = ProbabilityTable.new(three_letter_length_strategy, memory_input_loader)
+        @probability_table = ProbabilityTable.new(three_letter_length_strategy,
+                                                  memory_input_loader)
       end
 
       it { @probability_table.empty?.should be_true }
@@ -194,7 +196,8 @@ describe 'ProbabilityTable' do
       two_letter_length_strategy = TwoLetterLengthStrategy.new
       memory_input_loader = FileInputLoader.new
 
-      @probability_table = ProbabilityTable.new(two_letter_length_strategy, memory_input_loader)
+      @probability_table = ProbabilityTable.new(two_letter_length_strategy,
+                                                memory_input_loader)
     end
 
     context 'when using an empty file as input' do
