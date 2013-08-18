@@ -1,4 +1,0 @@
----
-LongMethod:
-  max_statements: 10
-  enabled: true

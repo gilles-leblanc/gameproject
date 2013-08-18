@@ -22,3 +22,8 @@ CaseIndentation:
 # Add underscores to large numeric literals to improve their readability.
 NumericLiterals:
   Enabled: false
+
+
+LineLength:
+  Enabled: true
+  Max: 80

@@ -21,7 +21,8 @@ class ArmorGenerator
                              Meteorite.new]
 
     armor.material_enchantment =
-        material_enchantments.select { |e| e.bonus_item_level == item_level }.shuffle.first
+        material_enchantments.select { |e| e.bonus_item_level == item_level }
+                              .shuffle.first
     armor
   end
 end

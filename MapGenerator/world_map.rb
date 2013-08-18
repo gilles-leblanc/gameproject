@@ -41,11 +41,7 @@ class WorldMap < Map
     @sub_maps = []
 
     place_cities(city_factory)
-
-    # build and place roads to connect the various cities
-    road_builder = RoadBuilder.new(self)
-    road_builder.build_roads
-
+    place_roads
     place_caves(width, height, dungeon_factory)
   end
 
@@ -130,7 +126,8 @@ class WorldMap < Map
                     .push([possible_cave_tiles[0].x, possible_cave_tiles[0].y])
 
         if possible_cave_tiles.length > 1 && [true, false].shuffle[0]
-          possible_cave_tiles = cave_location_specification.tiles_that_satisfy(self)
+          possible_cave_tiles =
+              cave_location_specification.tiles_that_satisfy(self)
           possible_cave_tiles.shuffle!
           possible_cave_tiles[0].type = :cave
 
@@ -140,6 +137,12 @@ class WorldMap < Map
         end
       end
     end
+  end
+
+  # build and place roads to connect the various cities
+  def place_roads
+    road_builder = RoadBuilder.new(self)
+    road_builder.build_roads
   end
 
   def push_dungeon(dungeon_factory, cave_tiles)

@@ -11,7 +11,8 @@ class CityLocationSpecification
                                             t.type == :sand }
 
     # must be close to water
-    allowable_tiles.select { |t| (map.tile_at(t.x - 1, t.y).type == :water ||
+    allowable_tiles.select do |t|
+      (map.tile_at(t.x - 1, t.y).type == :water ||
         map.tile_at(t.x + 1, t.y).type == :water ||
         map.tile_at(t.x, t.y - 1).type == :water ||
         map.tile_at(t.x, t.y + 1).type == :water ||
@@ -24,6 +25,6 @@ class CityLocationSpecification
           (t.x >= a[0] - 3 && t.x <= a[0] + 3) &&
           (t.y >= a[1] - 3 && t.y <= a[1] + 3)
         end
-    }
+    end
   end
 end

@@ -1,4 +1,5 @@
 require 'gosu'
+# rubocop:disable MethodLength
 
 # Some common colors defined here to be reused.
 class MiniTilePalette
@@ -71,3 +72,5 @@ class MiniTilePalette
     tile_to_draw
   end
 end
+
+# rubocop:enable MethodLength

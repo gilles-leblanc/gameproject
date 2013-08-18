@@ -6,7 +6,9 @@ require_relative 'height_map_configurator'
 # filter can be applied. Instead of blurring like the gaussian filter, this
 # river filter will add rivers and lakes to the height map.
 class RiverFilter
-  def initialize(x, y, river_configuration = HeightMapConfigurator::RAINMAP_MEDIUM_WORLD)
+  def initialize(x, y,
+      river_configuration = HeightMapConfigurator::RAINMAP_MEDIUM_WORLD)
+
     @size = x
     @river_configuration = river_configuration
   end
@@ -33,7 +35,7 @@ class RiverFilter
         if filtered_rain_map.data[x + y * @size] >= 80 &&
             filtered_array[x + y * @size] >= 68 &&
             river_starting_points.none? { |p| (p[0] > x - 4 && p[0] < x + 3) &&
-                                          (p[1] > y - 4 && p[1] < y + 3) }
+                                              (p[1] > y - 4 && p[1] < y + 3) }
           river_starting_points.push([x, y])
         end
       end
@@ -69,10 +71,17 @@ class RiverFilter
     x, y = point[0], point[1]
     lowest_neighbor = [x, y, 256]
 
-    lowest_neighbor = return_if_lower(filtered_array, x, y - 1, lowest_neighbor, river)
-    lowest_neighbor = return_if_lower(filtered_array, x - 1, y, lowest_neighbor, river)
-    lowest_neighbor = return_if_lower(filtered_array, x + 1, y, lowest_neighbor, river)
-    lowest_neighbor = return_if_lower(filtered_array, x, y + 1, lowest_neighbor, river)
+    lowest_neighbor = return_if_lower(filtered_array, x, y - 1,
+                                      lowest_neighbor, river)
+
+    lowest_neighbor = return_if_lower(filtered_array, x - 1, y,
+                                      lowest_neighbor, river)
+
+    lowest_neighbor = return_if_lower(filtered_array, x + 1, y,
+                                      lowest_neighbor, river)
+
+    lowest_neighbor = return_if_lower(filtered_array, x, y + 1,
+                                      lowest_neighbor, river)
   end
 
   def return_if_lower(filtered_array, x, y, lowest_neighbor, river)

@@ -57,7 +57,8 @@ class RandomNameGenerator
     random_number = @random_number_generator.rand(0.0..1.0)
 
     @pair_probability_table.frequencies.select do |k, v|
-      k[0] == ' ' && k[1] != ' ' && v >= random_number end.keys.sort.first[1]
+      k[0] == ' ' && k[1] != ' ' && v >= random_number
+    end.keys.sort.first[1]
   end
 
   # return the next letter in random name when we have both the first

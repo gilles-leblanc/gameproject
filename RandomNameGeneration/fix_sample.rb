@@ -5,6 +5,8 @@ names = File.read(input_file).split
 
 File.open(input_file, 'w') do |f|
   f.putc(' ')
-  names.map { |name| name.each_char { |c| f.putc(c) }
-  f.putc(' ') }
+  names.map do |name|
+    name.each_char { |c| f.putc(c) }
+    f.putc(' ')
+  end
 end

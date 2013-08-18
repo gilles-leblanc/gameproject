@@ -41,7 +41,9 @@ class Particle
     end
   end
 
-  def check_and_add_neighbor(x, y, size_x, lower_neighbors, drop_point, height_map)
+  def check_and_add_neighbor(x, y, size_x, lower_neighbors, drop_point,
+      height_map)
+
     unless height_map[x + y * size_x].nil?
       if height_map[x + y * size_x] < height_map[drop_point]
         lower_neighbors.push(x + y * size_x)

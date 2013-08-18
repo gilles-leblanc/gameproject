@@ -2,3 +2,7 @@
 # enchantments micro-classes.
 Documentation:
   Enabled: false
+
+MethodLength:
+  Enabled: true
+  Max: 25
