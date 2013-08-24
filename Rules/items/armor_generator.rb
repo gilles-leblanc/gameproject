@@ -11,19 +11,25 @@ class ArmorGenerator
               ScaleArmor.new, PlateMail.new, FullPlate.new,
               Buckler.new, MediumShield.new, LargeShield.new]
 
-    armor = armors.shuffle.first
+    @armor = armors.shuffle.first
+    add_material_enchantment(item_level)
+    
+    @armor
+  end
 
-    # add enchantments for appropriate item_level
+  private 
+
+  # add material enchantment for appropriate item_level
+  def add_material_enchantment(item_level)
     material_enchantments = [Enchantment.null_object, Grass.new, Wooden.new,
                              Leather.new, Bronze.new, Iron.new, Steel.new,
                              Silvered.new, Platinum.new, Mithril.new,
                              Adamantine.new, Obsidian.new, Crystal.new,
                              Meteorite.new]
 
-    armor.material_enchantment =
+    @armor.material_enchantment =
         material_enchantments.select { |e| e.bonus_item_level == item_level }
                               .shuffle.first
-    armor
   end
 end
 
