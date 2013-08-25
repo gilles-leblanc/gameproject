@@ -1,20 +1,17 @@
-require_relative 'armors'
-require_relative 'shields'
 require_relative 'enchantment'
 
-# Generate a random piece of armor. To be used for treasure generation
+# Generate a random item. To be used for treasure generation
 # (monsters, treasure chests, etc.) and shop item generation.
-class ArmorGenerator
-  def generate(item_level = 0)
-    # generate base item
-    armors = [PaddedArmor.new, LeatherArmor.new, ChainMail.new,
-              ScaleArmor.new, PlateMail.new, FullPlate.new,
-              Buckler.new, MediumShield.new, LargeShield.new]
+class ItemGenerator
+  def initialize(item_list)
+    @item_list = item_list
+  end
 
-    @armor = armors.shuffle.first
+  def generate(item_level = 0)
+    @item = @item_list.shuffle.first
     add_material_enchantment(item_level)
 
-    @armor
+    @item
   end
 
   private
@@ -27,7 +24,7 @@ class ArmorGenerator
                              Adamantine.new, Obsidian.new, Crystal.new,
                              Meteorite.new]
 
-    @armor.material_enchantment =
+    @item.material_enchantment =
         material_enchantments.select { |e| e.bonus_item_level == item_level }
                               .shuffle.first
   end

@@ -19,7 +19,7 @@ desc 'City Specs'
 task :city_specs do
   current_dir = Dir.pwd
   Dir.chdir('./City')
-  system 'rspec'
+  system 'rspec -c'
   Dir.chdir(current_dir)
 end
 
@@ -27,7 +27,7 @@ desc 'MapGenerator Specs'
 task :map_specs do
   current_dir = Dir.pwd
   Dir.chdir('./MapGenerator')
-  system 'rspec'
+  system 'rspec -c'
   Dir.chdir(current_dir)
 end
 
@@ -35,7 +35,7 @@ desc 'RandomName Specs'
 task :random_names_specs do
   current_dir = Dir.pwd
   Dir.chdir('./RandomNameGeneration')
-  system 'rspec'
+  system 'rspec -c'
   Dir.chdir(current_dir)
 end
 
@@ -43,7 +43,7 @@ desc 'Rules Specs'
 task :rules_specs do
   current_dir = Dir.pwd
   Dir.chdir('./Rules')
-  system 'rspec'
+  system 'rspec -c'
   Dir.chdir(current_dir)
 end
 

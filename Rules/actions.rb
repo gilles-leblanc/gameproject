@@ -21,8 +21,10 @@ module Actions
 
   def cast
     # present possible spells from spell-list (could be filtered)
+    puts @spells
 
     # allow user to make selection
+    broadcast 'Which: '
 
     # execute spell code (which will probably ask for a target)
   end

@@ -14,6 +14,7 @@ class Sorcerer < BaseClass
     @paper_doll.weapon_categories = [:simple]
 
     @abilities['c'] = method(:cast)
+    @spells = { 1 => [], 2 => [], 3 => [], 4 => [], 5 => [] }
   end
 
   def level
