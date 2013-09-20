@@ -1,9 +1,0 @@
-1- des fois le terrain depasse les edge de la map et se retrouve de l'autre cote avec un wrap-around. Ne devrait pas wrapper
-
-2- des fois terrain (vue avec sand) sur le edge de la map
-
-3- le sable apparait plus coter sud-est que nord-ouest, ce qui signifie bug dans l'algo (blur ? je blue et gauche a droite et de haut en bas). arrive seulement quand on blur une seul fois
-
-4- des fois les rendered maps ne sont pas tous reussi
-
-5- map_factory_spec.rb ne fonctionne plus
