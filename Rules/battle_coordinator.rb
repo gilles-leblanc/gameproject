@@ -7,6 +7,7 @@ require_relative 'sorcerer'
 require_relative 'stats'
 require_relative '../broadcast'
 require_relative 'party'
+require_relative 'spells/spells'
 
 # Coordinates battles between the party (the characters)
 # and a group of monsters
@@ -76,9 +77,9 @@ long_sword = LongSword.new
 dagger = LongDagger.new
 
 stats = Stats.new
-stats.might, stats.accuracy, stats.endurance = 10, 10, 10
-stats.intellect, stats.personality = 10, 10
-stats.speed, stats.luck = 10, 10
+stats.might, stats.accuracy, stats.endurance = 20, 20, 20
+stats.intellect, stats.personality = 20, 20
+stats.speed, stats.luck = 20, 20
 
 felgar = Knight.new('Sir Felgar', stats)
 felgar.paper_doll.equip(shield)
@@ -88,6 +89,7 @@ felgar.paper_doll.equip(long_sword)
 cassandra = Sorcerer.new('Casssandra', stats)
 cassandra.paper_doll.equip(padded_armor)
 cassandra.paper_doll.equip(dagger)
+cassandra.spells[1].push(FlameArrow.new)
 
 party = Party.new
 party.members.push(felgar)
