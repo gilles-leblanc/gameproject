@@ -26,4 +26,4 @@ NumericLiterals:
 
 LineLength:
   Enabled: true
-  Max: 90 
+  Max: 90
