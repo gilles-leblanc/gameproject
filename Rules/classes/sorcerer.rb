@@ -1,4 +1,4 @@
-require_relative 'character'
+require_relative '../character'
 
 # A character class that specialize in arcane magic and wears next to no armor.
 class Sorcerer < Character

@@ -1,6 +1,6 @@
 require_relative './stats'
 require_relative './character'
-require_relative './sorcerer'
+require_relative './classes/sorcerer'
 
 # A class used to build sample characters to be used in unit tests and specs.
 class CharacterTestDataBuilder

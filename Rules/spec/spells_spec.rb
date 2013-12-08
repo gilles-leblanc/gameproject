@@ -1,5 +1,5 @@
 require_relative '../spells/spells'
-require_relative '../sorcerer'
+require_relative '../classes/sorcerer'
 require_relative '../character_test_data_builder'
 
 describe 'Spells' do

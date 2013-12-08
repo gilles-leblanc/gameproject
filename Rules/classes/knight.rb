@@ -1,4 +1,4 @@
-require_relative 'character'
+require_relative '../character'
 
 # A character class that specialize in melee combat and wears heavy armor.
 class Knight < Character
