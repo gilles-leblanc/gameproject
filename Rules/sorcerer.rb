@@ -1,7 +1,7 @@
-require_relative 'base_class'
+require_relative 'character'
 
 # A character class that specialize in arcane magic and wears next to no armor.
-class Sorcerer < BaseClass
+class Sorcerer < Character
   def initialize(name, stats)
     super(name, stats)
     @current_hp = @max_hp = 4

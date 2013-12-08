@@ -5,7 +5,7 @@ require_relative 'effects'
 
 # This is the base character class on which all other character class are based
 # knight, sorcerer, etc.
-class BaseClass
+class Character
   include Broadcast, Actions
 
   attr_accessor :xp

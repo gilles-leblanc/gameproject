@@ -1,7 +1,7 @@
-require_relative 'base_class'
+require_relative 'character'
 
 # A character class that specialize in melee combat and wears heavy armor.
-class Knight < BaseClass
+class Knight < Character
   def initialize(name, stats)
     super(name, stats)
     @current_hp = @max_hp = 8

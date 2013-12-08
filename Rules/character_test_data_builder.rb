@@ -1,5 +1,5 @@
 require_relative './stats'
-require_relative './base_class'
+require_relative './character'
 
 # A class used to build sample characters to be used in unit tests and specs.
 class CharacterTestDataBuilder
@@ -14,7 +14,7 @@ class CharacterTestDataBuilder
   end
 
   def build
-    character = BaseClass.new(@name, @stats)
+    character = Character.new(@name, @stats)
     character.paper_doll.armor_categories = @armor_categories
     character
   end
