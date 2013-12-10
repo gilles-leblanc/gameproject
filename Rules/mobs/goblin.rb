@@ -1,13 +1,11 @@
+require_relative 'monster'
 require_relative '../../broadcast'
 require_relative '../treasure_table'
 require_relative '../stats'
 
 # A type of monster the characters can do battle with.
-class Goblin
+class Goblin < Monster
   include Broadcast
-
-  attr_reader :name, :stats, :xp
-  attr_accessor :max_hp, :current_hp, :ac
 
   def initialize(random)
     @name = 'Goblin'
@@ -27,13 +25,6 @@ class Goblin
     else
       broadcast "#{@name} misses."
     end
-  end
-
-  def take_damage(damage)
-    @current_hp -= damage
-    broadcast "#{@name} takes #{damage} points of damage."
-    broadcast "#{@name} is defeated." if @current_hp <= 0
-    broadcast ''
   end
 
   def treasure
