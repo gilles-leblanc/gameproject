@@ -1,6 +1,7 @@
 require 'rake/testtask'
 require 'rubocop/rake_task'
 require 'reek/rake/task'
+require 'rspec/core/rake_task'
 
 desc 'Run RuboCop'
 Rubocop::RakeTask.new(:rubocop) do |task|
@@ -15,41 +16,27 @@ Reek::Rake::Task.new(:reek) do |t|
   t.reek_opts = '-n'
 end
 
-desc 'City Specs'
-task :city_specs do
-  current_dir = Dir.pwd
-  Dir.chdir('./City')
-  system 'rspec -c'
-  Dir.chdir(current_dir)
+def generate_spec_task(directory)
+  desc "#{directory} Specs"
+  RSpec::Core::RakeTask.new("#{directory.downcase}_specs") do |t|
+    t.pattern = "#{directory}/**/*_spec.rb"
+    t.rspec_opts = '-c'
+  end
 end
 
-desc 'MapGenerator Specs'
-task :map_specs do
-  current_dir = Dir.pwd
-  Dir.chdir('./MapGenerator')
-  system 'rspec -c'
-  Dir.chdir(current_dir)
-end
+generate_spec_task("City")
+generate_spec_task("MapGenerator")
+generate_spec_task("RandomNameGeneration")
 
-desc 'RandomName Specs'
-task :random_names_specs do
-  current_dir = Dir.pwd
-  Dir.chdir('./RandomNameGeneration')
-  system 'rspec -c'
-  Dir.chdir(current_dir)
-end
-
-desc 'Rules Specs'
-task :rules_specs do
-  current_dir = Dir.pwd
-  Dir.chdir('./Rules')
-  system 'rspec -c'
-  Dir.chdir(current_dir)
+SPEC_DIRS = %w|City MapGenerator RandomNameGeneration Rules|
+SPEC_DIRS.each do |spec_dir|
+  generate_spec_task spec_dir
 end
 
 desc 'All Specs'
-task :specs => [:city_specs, :map_specs, :random_names_specs, :rules_specs] do
-  puts 'Ran all specs'
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.pattern = "*/**/*_spec.rb"
+  t.rspec_opts = '-c'
 end
 
 Rake::TestTask.new do |t|
@@ -61,7 +48,7 @@ Rake::TestTask.new do |t|
 end
 
 desc 'All'
-task :all => [:specs, :test, :rubocop] do
+task :all => [:spec, :test, :rubocop] do
   puts 'Ran all tests and specs'
 end
 
