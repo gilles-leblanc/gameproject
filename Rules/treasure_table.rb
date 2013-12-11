@@ -19,6 +19,10 @@ class TreasureTable
                                            HandAxe.new])
   end
 
+  def self.none
+    []
+  end
+
   def self.small_amount_of_gold
     treasure = []
     treasure.push([:gold, @@random.rand(1..5)])
@@ -50,15 +54,29 @@ class TreasureTable
   end
 
   def one_item
-    pick_one_item
+    [].push pick_one_item
+  end
+
+  def very_small_chance_for_one_item
+    chance_for_one_item 1
   end
 
   def small_chance_for_one_item
-    pick_one_item if @@random.rand(1..10) < 3
+    chance_for_one_item 2
   end
 
-  def chance_for_one_item
-    pick_one_item if @@random.rand(1..10) <= 5
+  def medium_chance_for_one_item
+    chance_for_one_item 4
+  end
+
+  def large_chance_for_one_item
+    chance_for_one_item 7
+  end
+
+  def chance_for_one_item(chance = 5)
+    treasure = []
+    treasure.push pick_one_item if @@random.rand(1..10) <= chance
+    treasure
   end
 
   private

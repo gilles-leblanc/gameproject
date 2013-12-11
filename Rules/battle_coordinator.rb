@@ -5,10 +5,6 @@ require_relative '../broadcast'
 class BattleCoordinator
   include Broadcast
 
-  def initialize(random)
-    @random = random
-  end
-
   def run_battle(party, enemies)
     participants = party.members + enemies
     participants.sort_by! { |p| p.stats.speed }.reverse!
@@ -22,7 +18,7 @@ class BattleCoordinator
         else
           # we are dealing with an enemy
           target = party.members.select { |m| m.current_hp > 0 }.shuffle.first
-          participant.attack(target, @random)
+          participant.attack(target)
         end
 
         participants.delete_if { |p| p.current_hp <= 0 }

@@ -39,7 +39,7 @@ enemies = []
 enemies.push(Goblin.new(random_number_generator))
 enemies.push(Goblin.new(random_number_generator))
 
-battle_coordinator = BattleCoordinator.new(random_number_generator)
+battle_coordinator = BattleCoordinator.new
 
 puts 'You are : '
 party.members.each { |c| puts c.class.name + ' ' + c.name }

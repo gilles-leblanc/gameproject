@@ -4,31 +4,31 @@ require_relative '../treasure_table'
 require_relative '../stats'
 
 # A type of monster the characters can do battle with.
-class Goblin < Monster
+class GiantRat < Monster
   include Broadcast
 
   def initialize(random)
     @random = random
-    @name = 'Goblin'
-    @nax_hp = @current_hp = 4 + @random.rand(0..2)
-    @ac = 6
-    @xp = 5
+    @name = 'Giant Rat'
+    @nax_hp = @current_hp = 2
+    @ac = 5
+    @xp = 2
 
     @stats = Stats.new
-    @stats.speed = 10
-    @stats.accuracy = 14
+    @stats.speed = 14
+    @stats.accuracy = 13
   end
 
   def attack(target)
     if @random.rand(0..3) + @stats.accuracy_modifier >= target.ac
-      broadcast "#{@name} hits #{target.name}."
-      target.take_damage(@random.rand(2..4))
+      broadcast "#{@name} bites #{target.name}."
+      target.take_damage(@random.rand(1..2))
     else
       broadcast "#{@name} misses."
     end
   end
 
   def treasure
-    TreasureTable.small_amount_of_gold
+    TreasureTable.none
   end
 end
