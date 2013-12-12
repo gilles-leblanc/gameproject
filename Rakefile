@@ -49,10 +49,6 @@ def generate_spec_task(directory)
   end
 end
 
-generate_spec_task("City")
-generate_spec_task("MapGenerator")
-generate_spec_task("RandomNameGeneration")
-
 SPEC_DIRS = %w|City MapGenerator RandomNameGeneration Rules|
 SPEC_DIRS.each do |spec_dir|
   generate_spec_task spec_dir
