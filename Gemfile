@@ -1,9 +1,10 @@
 source "https://rubygems.org"
-gem 'gosu'
-gem 'texplay'
-
-gem 'rubocop'
-gem 'reek'
-gem 'rake'
-gem 'rspec'
-gem 'mocha'
+# uncomment for chipmunk
+# gem 'chipmunk'
+gem 'require_all'
+gem "gamebox", '~> 0.4.0'
+gem "conject"
+gem "rspec"
+gem "rubocop"
+gem "reek"
+gem "mocha"

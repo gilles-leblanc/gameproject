@@ -1,0 +1,8 @@
+--- 
+:title: My Gamebox Game!
+:sound: true
+:auto_quit: KbEscape
+:fullscreen: false
+:screen_resolution: 
+- 1024
+- 800

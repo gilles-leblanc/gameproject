@@ -1,55 +1,16 @@
-require 'rake/testtask'
-require 'rubocop/rake_task'
-require 'reek/rake/task'
-require 'rspec/core/rake_task'
+libdir = File.dirname(__FILE__)+"/lib"
+$: << libdir
+confdir = File.dirname(__FILE__)+"/config"
+$: << confdir
 
-desc 'Run RuboCop'
-Rubocop::RakeTask.new(:rubocop) do |task|
-  task.fail_on_error = false
-end
+require 'environment'
+$: << GAMEBOX_PATH
+load "tasks/gamebox_tasks.rake"
+STATS_DIRECTORIES = [
+  %w(Source            src/), 
+  %w(Config            config/), 
+  %w(Maps              maps/), 
+  %w(Unit\ tests       specs/),
+  %w(Libraries         lib/),
+].collect { |name, dir| [ name, "#{APP_ROOT}/#{dir}" ] }.select { |name, dir| File.directory?(dir) }
 
-desc 'Run Reek'
-Reek::Rake::Task.new(:reek) do |t|
-  t.fail_on_error = false
-  t.verbose = true
-  t.source_files = '*'
-  t.reek_opts = '-n'
-end
-
-def generate_spec_task(directory)
-  desc "#{directory} Specs"
-  RSpec::Core::RakeTask.new("#{directory.downcase}_specs") do |t|
-    t.pattern = "#{directory}/**/*_spec.rb"
-    t.rspec_opts = '-c'
-  end
-end
-
-generate_spec_task("City")
-generate_spec_task("MapGenerator")
-generate_spec_task("RandomNameGeneration")
-
-SPEC_DIRS = %w|City MapGenerator RandomNameGeneration Rules|
-SPEC_DIRS.each do |spec_dir|
-  generate_spec_task spec_dir
-end
-
-desc 'All Specs'
-RSpec::Core::RakeTask.new(:spec) do |t|
-  t.pattern = "*/**/*_spec.rb"
-  t.rspec_opts = '-c'
-end
-
-Rake::TestTask.new do |t|
-  t.libs << 'test'
-  t.test_files = FileList['./MapGenerator/filter_out_of_bounds_specification_test.rb',
-                          './MapGenerator/particle_test.rb',
-                          './Events/test/test*.rb']
-  t.verbose = false
-end
-
-desc 'All'
-task :all => [:spec, :test, :rubocop] do
-  puts 'Ran all tests and specs'
-end
-
-task :default => :all
