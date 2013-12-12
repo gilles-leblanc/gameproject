@@ -3,6 +3,31 @@ require 'rubocop/rake_task'
 require 'reek/rake/task'
 require 'rspec/core/rake_task'
 
+desc 'Generate and show sample city map'
+task :output_city_map do
+  ruby 'City/city_map_output.rb'
+end
+
+desc 'Generate and show sample world map'
+task :output_world_map do
+  ruby 'MapGenerator/map_output_test.rb MapGenerator'
+end
+
+desc 'Generate and show sample dungeon map'
+task :output_dungeon_map do
+  ruby 'Maze/dungeon_map_output.rb'
+end
+
+desc 'Run sample battle'
+task :sample_battle do
+  ruby 'Rules/battle_coordinator_test.rb'
+end
+
+desc 'Explore a sample map'
+task :map_explorer do
+  ruby 'map_explorer.rb'
+end
+
 desc 'Run RuboCop'
 Rubocop::RakeTask.new(:rubocop) do |task|
   task.fail_on_error = false
