@@ -1,3 +1,4 @@
+require 'tempfile'
 require_relative '../probability_table'
 require_relative '../two_letter_length_strategy'
 require_relative '../three_letter_length_strategy'
@@ -202,9 +203,8 @@ describe 'ProbabilityTable' do
 
     context 'when using an empty file as input' do
       before(:all) do
-        file_name = 'empty_file'
-        File.open(file_name, 'w') { |f| f.write('') }
-        @probability_table.load(file_name)
+        @tmp_file = Tempfile.new 'somefile'
+        @probability_table.load(@tmp_file.path)
       end
 
       it { @probability_table.empty?.should be_true }
@@ -212,13 +212,14 @@ describe 'ProbabilityTable' do
 
     context 'when using a simple file as input' do
       before(:all) do
-        file_name = 'empty_file'
         @input = ' abcdefg '
-        File.open(file_name, 'w') { |f| f.write(@input) }
-        @probability_table.load(file_name)
+        @tmp_file = Tempfile.new 'somefile'
+        @tmp_file.write @input
+        @tmp_file.flush
+        @probability_table.load(@tmp_file.path)
       end
 
-      it { @probability_table.empty?.should be_false }
+      it { @probability_table.should_not be_empty }
       it { @probability_table.frequencies.length.should == @input.length - 1 }
     end
   end
