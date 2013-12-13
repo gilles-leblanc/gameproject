@@ -13,4 +13,3 @@ STATS_DIRECTORIES = [
   %w(Unit\ tests       specs/),
   %w(Libraries         lib/),
 ].collect { |name, dir| [ name, "#{APP_ROOT}/#{dir}" ] }.select { |name, dir| File.directory?(dir) }
-

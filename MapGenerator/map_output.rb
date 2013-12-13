@@ -1,15 +1,15 @@
 require 'gosu'
 require 'texplay'
-require './world_map.rb'
-require './height_map_configurator'
-require '../mini_tile_palette'
-require './map_factory'
+require_relative './world_map.rb'
+require_relative './height_map_configurator'
+require_relative '../mini_tile_palette'
+require_relative './map_factory'
 
 # a simple way to output the various maps
 # the reason for this file is to be able to view the maps during the
 # development of the map generator
 class MapOutput < Gosu::Window
-  def initialize
+  def initialize(media_path_prefix = '.')
     @x, @y = 80, 80
 
     super @x * 10, @y * 10, false
@@ -17,7 +17,7 @@ class MapOutput < Gosu::Window
 
     @map = MapFactory.make(@x, @y, HeightMapConfigurator::MEDIUM_WORLD,
                            HeightMapConfigurator::RAINMAP_MEDIUM_WORLD)
-    @tile_palette = MiniTilePalette.new(self, '.')
+    @tile_palette = MiniTilePalette.new(self, media_path_prefix)
   end
 
   def update
@@ -37,6 +37,3 @@ class MapOutput < Gosu::Window
     close if id == Gosu::KbEscape
   end
 end
-
-window = MapOutput.new
-window.show
