@@ -6,7 +6,7 @@ class EstablishmentNameGenerator
     @existing_establishments = []
     @random_generator = Random.new
     @random_name_generator = RandomNameGenerator.new(File.dirname(__FILE__) +
-                                                         '/media/male_sample')
+                                                         '/../../data/samples/male_sample')
     read_words_from_file
   end
 
@@ -74,35 +74,35 @@ class EstablishmentNameGenerator
 
   def read_words_from_file
     File.open(File.dirname(__FILE__) +
-                '/media/common_adjectives') { |file| @common_adjectives = file.readlines }
+                '/../../data/samples/common_adjectives') { |file| @common_adjectives = file.readlines }
     @common_adjectives.shuffle!
 
     File.open(File.dirname(__FILE__) +
-                '/media/common_nouns') { |file| @common_nouns = file.readlines }
+                '/../../data/samples/common_nouns') { |file| @common_nouns = file.readlines }
     @common_nouns.shuffle!
 
     File.open(File.dirname(__FILE__) +
-                '/media/shop_adjectives') { |file| @shop_adjectives = file.readlines }
+                '/../../data/samples/shop_adjectives') { |file| @shop_adjectives = file.readlines }
     @shop_adjectives.shuffle!
 
     File.open(File.dirname(__FILE__) +
-                '/media/shop_nouns') { |file| @shop_nouns = file.readlines }
+                '/../../data/samples/shop_nouns') { |file| @shop_nouns = file.readlines }
     @shop_nouns.shuffle!
 
     File.open(File.dirname(__FILE__) +
-                '/media/tavern_adjectives') { |file| @tavern_adjectives = file.readlines }
+                '/../../data/samples/tavern_adjectives') { |file| @tavern_adjectives = file.readlines }
     @tavern_adjectives.shuffle!
 
     File.open(File.dirname(__FILE__) +
-                '/media/tavern_nouns') { |file| @tavern_nouns = file.readlines }
+                '/../../data/samples/tavern_nouns') { |file| @tavern_nouns = file.readlines }
     @tavern_nouns.shuffle!
 
     File.open(File.dirname(__FILE__) +
-                '/media/shop_types') { |file| @shop_types = file.readlines }
+                '/../../data/samples/shop_types') { |file| @shop_types = file.readlines }
     @shop_types.shuffle!
 
     File.open(File.dirname(__FILE__) +
-                '/media/tavern_types') { |file| @tavern_types = file.readlines }
+                '/../../data/samples/tavern_types') { |file| @tavern_types = file.readlines }
     @tavern_types.shuffle!
   end
 end

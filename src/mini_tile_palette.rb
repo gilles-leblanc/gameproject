@@ -5,35 +5,35 @@ require 'gosu'
 class MiniTilePalette
   def initialize(parent_window, path_prefix = '')
     @water_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/water.png', true)
+              '/../../data/graphics/water.png', true)
     @grass_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/grass.png', true)
+              '/../../data/graphics/grass.png', true)
     @mountain_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/mountain.png', true)
+              '/../../data/graphics/mountain.png', true)
     @sand_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/sand.png', true)
+              '/../../data/graphics/sand.png', true)
     @forest_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/forest.png', true)
+              '/../../data/graphics/forest.png', true)
     @cave_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/cave.png', true)
+              '/../../data/graphics/cave.png', true)
     @city_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/city.png', true)
+              '/../../data/graphics/city.png', true)
     @snow_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/snow.png', true)
+              '/../../data/graphics/snow.png', true)
     @snow_forest_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/snow-forest.png', true)
+              '/../../data/graphics/snow-forest.png', true)
     @road_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/road.png', true)
+              '/../../data/graphics/road.png', true)
     @open_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/open.png', true)
+              '/../../data/graphics/open.png', true)
     @wall_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/wall.png', true)
+              '/../../data/graphics/wall.png', true)
     @door_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/door.png', true)
+              '/../../data/graphics/door.png', true)
     @entrance_tile = Gosu::Image.new(parent_window, path_prefix +
-              '/media/entrance.png', true)
+              '/../../data/graphics/entrance.png', true)
     @empty_tile = Gosu::Image.new(parent_window, path_prefix +
-         '/media/empty_tile.png', true)
+         '/../../data/graphics/empty_tile.png', true)
   end
 
   def get_mini_tile_resource(tile)

@@ -1,4 +1,4 @@
-require './establishment_name_generator'
+require_relative 'src/RandomNameGeneration/establishment_name_generator'
 
 name_generator = EstablishmentNameGenerator.new
 

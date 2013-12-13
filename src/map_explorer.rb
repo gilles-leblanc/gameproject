@@ -139,6 +139,3 @@ class MapExplorer < Gosu::Window
     end
   end
 end
-
-window = MapExplorer.new
-window.show

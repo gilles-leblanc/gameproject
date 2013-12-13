@@ -1,13 +1,13 @@
-require_relative 'battle_coordinator'
-require_relative 'items/shields'
-require_relative 'items/armors'
-require_relative 'items/weapons'
-require_relative 'mobs/goblin'
-require_relative 'classes/knight'
-require_relative 'classes/sorcerer'
-require_relative 'stats'
-require_relative 'party'
-require_relative 'spells/spells'
+require_relative 'src/Rules/battle_coordinator'
+require_relative 'src/Rules/items/shields'
+require_relative 'src/Rules/items/armors'
+require_relative 'src/Rules/items/weapons'
+require_relative 'src/Rules/mobs/goblin'
+require_relative 'src/Rules/classes/knight'
+require_relative 'src/Rules/classes/sorcerer'
+require_relative 'src/Rules/stats'
+require_relative 'src/Rules/party'
+require_relative 'src/Rules/spells/spells'
 
 padded_armor = PaddedArmor.new
 shield = LargeShield.new

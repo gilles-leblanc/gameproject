@@ -24,8 +24,8 @@ class CityFactory
   # lazy initialization
   def temple_name_generator
     @temple_name_generator ||=
-        PlaceNameGenerator.new('/media/temple_types',
-                               '/media/greek_myth_sample')
+        PlaceNameGenerator.new('/../../data/samples/temple_types',
+                               '/../../data/samples/greek_myth_sample')
   end
 
   private

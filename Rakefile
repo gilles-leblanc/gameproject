@@ -36,7 +36,7 @@ end
 
 desc 'Run sample battle'
 task :sample_battle do
-  ruby 'Rules/battle_coordinator_test.rb'
+  ruby 'battle_coordinator_test.rb'
 end
 
 desc 'Explore a sample map'

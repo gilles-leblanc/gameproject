@@ -1,7 +1,7 @@
 require 'gosu'
 require 'texplay'
-require_relative '../map'
-require_relative 'dungeon_factory'
+require_relative 'src/map'
+require_relative 'src/Maze/dungeon_factory'
 
 # a simple way to output the various maps
 # the reason for this file is to be able to view the maps during the

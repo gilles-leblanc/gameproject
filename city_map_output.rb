@@ -1,7 +1,7 @@
 require 'gosu'
 require 'texplay'
-require_relative '../map'
-require_relative 'test_city_factory'
+require_relative 'src/map'
+require_relative 'src/City/test_city_factory'
 
 # A simple way to output the various maps
 # the reason for this file is to be able to view the maps during the
