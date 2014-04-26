@@ -69,7 +69,7 @@ Rake::TestTask.new do |t|
 end
 
 desc 'All'
-task :all => [:spec, :test, :rubocop] do
+task :all => [:spec, :test] do
   puts 'Ran all tests and specs'
 end
 
