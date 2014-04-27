@@ -12,8 +12,7 @@ class Game < Gosu::Window
     super 800, 600, false
     self.caption = config_values['game_name']
 
-    @game_state = GameState.new({ [:none, :start_game] => -> { @current_screen = TitleScreen.new(self, config_values['game_name']) },
-                                  [:title_screen, :create_party] => -> { @current_screen = CreatePartyScreen.new(self) } })
+    @game_state = GameState.new(eval File.open('game_states.rb').read)
     @game_state.change_state [:none, :start_game]
   end
 
