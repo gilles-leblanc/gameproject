@@ -5,7 +5,11 @@ class CreatePartyScreen
     @font = Gosu::Font.new(parent_window, Gosu.default_font_name, 30)
   end
 
- def draw
-   @font.draw('Create party screen', 150, 300, 0)
- end
+  def draw
+    @font.draw('Create party screen', 150, 300, 0)
+  end
+
+  def button_down(id)
+
+  end
 end

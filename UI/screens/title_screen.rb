@@ -2,11 +2,18 @@
 class TitleScreen
   def initialize(parent_window, game_name)
     @parent_window = parent_window
-    @font = Gosu::Font.new(parent_window, Gosu.default_font_name, 72)
+    @title_font = Gosu::Font.new(parent_window, Gosu.default_font_name, 72)
+    @other_font = Gosu::Font.new(parent_window, Gosu.default_font_name, 42)
     @game_name = game_name
   end
 
   def draw
-    @font.draw(@game_name, 50 , @parent_window.height / 3, 0)
+    @title_font.draw(@game_name, 50 , @parent_window.height / 3, 0)
+    @other_font.draw('(S)tart new game', @parent_window.width / 2,
+                     @parent_window.height / 3 + 60, 0)
+  end
+
+  def button_down(id)
+    @parent_window.change_state [:title_screen, :create_party] if id == Gosu::KbS
   end
 end
