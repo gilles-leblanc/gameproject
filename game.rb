@@ -1,9 +1,12 @@
 require 'gosu'
 require 'yaml'
+require_relative 'game_model'
 Dir[File.dirname(__FILE__) + '/UI/screens/*.rb'].each { |file| require file }
 
 # The game's base class. This will be the game's entry point.
 class Game < Gosu::Window
+  attr_reader :model
+
   def initialize
     config_values = begin
       YAML.load(File.open('config.yml'))
@@ -14,9 +17,11 @@ class Game < Gosu::Window
 
     @game_state = GameState.new(eval File.open('game_states.rb').read)
     @game_state.change_state [:none, :start_game]
+    @model = GameModel.new
   end
 
   def update
+    @current_screen.update if @current_screen.respond_to? :update
   end
 
   def draw

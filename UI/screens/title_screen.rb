@@ -11,9 +11,12 @@ class TitleScreen
     @title_font.draw(@game_name, 50 , @parent_window.height / 3, 0)
     @other_font.draw('(S)tart new game', @parent_window.width / 2,
                      @parent_window.height / 3 + 60, 0)
+    @other_font.draw('(L)oad existing game', @parent_window.width / 2,
+                     @parent_window.height / 3 + 90, 0)
   end
 
   def button_down(id)
     @parent_window.change_state [:title_screen, :create_party] if id == Gosu::KbS
+    @parent_window.change_state [:title_screen, :load_game] if id == Gosu::KbL
   end
 end
