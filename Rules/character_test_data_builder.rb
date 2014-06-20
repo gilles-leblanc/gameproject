@@ -1,11 +1,13 @@
 require_relative './stats'
 require_relative './character'
+require_relative './races'
 require_relative './classes/sorcerer'
 
 # A class used to build sample characters to be used in unit tests and specs.
 class CharacterTestDataBuilder
   def initialize
     @name = 'Felgar'
+    @race = Human.new
     @armor_categories = [:very_light]
 
     @stats = Stats.new
@@ -15,13 +17,13 @@ class CharacterTestDataBuilder
   end
 
   def build
-    character = Character.new(@name, @stats)
+    character = Character.new(@name, @race, @stats)
     character.paper_doll.armor_categories = @armor_categories
     character
   end
 
   def build_sorcerer
-    character = Sorcerer.new(@name, @stats)
+    character = Sorcerer.new(@name, @race, @stats)
   end
 
   def with_name(name)

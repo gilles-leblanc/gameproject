@@ -2,8 +2,8 @@ require_relative '../character'
 
 # A character class with rogue/thief abilities.
 class Robber < Character
-  def initialize(name, stats)
-    super(name, stats)
+  def initialize(name, race, stats)
+    super(name, race, stats)
     @current_hp = @max_hp = 5
     @hp_per_level = 4
 

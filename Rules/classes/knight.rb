@@ -2,8 +2,8 @@ require_relative '../character'
 
 # A character class that specialize in melee combat and wears heavy armor.
 class Knight < Character
-  def initialize(name, stats)
-    super(name, stats)
+  def initialize(name, race, stats)
+    super(name, race, stats)
     @current_hp = @max_hp = 8
     @hp_per_level = 6
 

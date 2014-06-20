@@ -2,8 +2,8 @@ require_relative 'character'
 
 # A derived class of character that can also cast spells (of whatever type; divine, arcane, etc.)
 class SpellCaster < Character
-  def initialize(name, stats)
-    super(name, stats)
+  def initialize(name, race, stats)
+    super(name, race, stats)
 
     @abilities['c'] = method(:cast)
     @spells = { 1 => [], 2 => [], 3 => [], 4 => [], 5 => [] }

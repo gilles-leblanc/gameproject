@@ -1,4 +1,5 @@
 require_relative '../stats'
+require_relative '../races'
 
 describe 'Stats' do
   before(:each) do

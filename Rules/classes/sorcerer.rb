@@ -5,8 +5,8 @@ require_relative '../spellcaster'
 class Sorcerer < SpellCaster
   attr_accessor :spells
 
-  def initialize(name, stats)
-    super(name, stats)
+  def initialize(name, race, stats)
+    super(name, race, stats)
 
     @current_hp = @max_hp = 4
     @hp_per_level = 3

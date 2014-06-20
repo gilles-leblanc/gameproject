@@ -10,23 +10,25 @@ class Character
 
   attr_accessor :xp
 
-  attr_reader :name, :level, :max_hp, :current_hp, :sp, :effects, :paper_doll
+  attr_reader :name, :race, :level, :max_hp, :current_hp, :sp, :effects, :paper_doll
 
   # basic stats
   attr_reader :stats
 
-  def initialize(name, stats)
+  def initialize(name, race, stats)
     @level = 1
     @sp = 0
     @ac = 0
     @xp = 0
     @name = name
+    @race = race
 
     @paper_doll = PaperDoll.new
     @paper_doll.armor_categories = [:very_light]
     @paper_doll.weapon_categories = [:simple]
 
     @stats = stats
+    race.apply_stat_mods(@stats)
 
     @abilities = {}
     @abilities['a'] = method(:attack)

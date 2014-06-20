@@ -8,6 +8,7 @@ require_relative 'classes/sorcerer'
 require_relative 'stats'
 require_relative 'party'
 require_relative 'spells/spells'
+require_relative 'races'
 
 padded_armor = PaddedArmor.new
 shield = LargeShield.new
@@ -19,12 +20,14 @@ stats.might, stats.accuracy, stats.endurance = 20, 20, 20
 stats.intellect, stats.personality = 20, 20
 stats.speed, stats.luck = 20, 20
 
-felgar = Knight.new('Sir Felgar', stats)
+human = Human.new
+
+felgar = Knight.new('Sir Felgar', human, stats)
 felgar.paper_doll.equip(shield)
 felgar.paper_doll.equip(padded_armor)
 felgar.paper_doll.equip(long_sword)
 
-cassandra = Sorcerer.new('Casssandra', stats)
+cassandra = Sorcerer.new('Casssandra', human, stats)
 cassandra.paper_doll.equip(padded_armor)
 cassandra.paper_doll.equip(dagger)
 cassandra.spells[1].push(FlameArrow.new)
