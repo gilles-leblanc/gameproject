@@ -12,6 +12,10 @@ RSpec, Rake, Gosu, Texplay along with other source code. See attrib file for mor
 Getting started
 ---------------
 
+The main entry point for the game is game.rb. You can start the game using `ruby game.rb`.
+
+There are also other options to try specific features.
+
 From the root dir you can call map_explorer to explore map.
 
 From the City dir you can call city_map_output to generate a sample city and see it represented as an image.
