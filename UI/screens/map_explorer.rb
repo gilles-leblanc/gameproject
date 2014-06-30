@@ -14,6 +14,7 @@ class MapExplorer
   def initialize(parent_window)
     @parent_window = parent_window
 
+    @model = parent_window.model
     @current_position = parent_window.model.generate_starting_position
     @previous_map_position = []
 
@@ -80,7 +81,7 @@ class MapExplorer
       @previous_map_position.push([previous_tile, model.map])
       model.map = model.world_map.get_map_at_position(@current_position[:x],
                                             @current_position[:y])
-      @current_position = @starting_position.get_sub_map_position(model.map)
+      @current_position = @model.starting_position.get_sub_map_position(model.map)
     end
 
     if tile_type == :entrance
